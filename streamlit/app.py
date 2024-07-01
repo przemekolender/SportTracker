@@ -7,7 +7,7 @@ import altair as alt
 #import plotly.express as px
 from matplotlib.colors import LinearSegmentedColormap
 import calplot
-from getData import get_data
+from data.data_processing import get_data
 
 
 
