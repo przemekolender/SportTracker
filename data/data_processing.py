@@ -1,0 +1,84 @@
+import gspread
+import pandas as pd
+from oauth2client.service_account import ServiceAccountCredentials
+
+
+###########################################################
+# load data from Google sheet
+###########################################################
+def get_data(sheet_name, sheet_id):
+    # define the scope
+    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+
+    # add credentials to the account
+    creds = ServiceAccountCredentials.from_json_keyfile_name('../sporttracker-key.json', scope)
+
+    # authorize the clientsheet 
+    client = gspread.authorize(creds)
+
+    # get the instance of the Spreadsheet
+    sheet = client.open(sheet_name)
+
+    # get the first sheet of the Spreadsheet
+    sheet_instance = sheet.get_worksheet(sheet_id)
+    records_data = sheet_instance.get_all_records()
+    records_df = pd.DataFrame.from_dict(records_data)
+
+    if sheet_id == 0:
+        records_df.columns = ['index', 'date', 'weekday', 'sport']
+    elif sheet_id == 1:
+        records_df.columns = ['index', 'date', 'sport', 'exercise', 'details', 'comments']
+
+    return records_df
+
+
+###########################################################
+# fill empty rows with index, date and training name
+###########################################################
+def fill_data(df, column_name):
+    n = df.shape[0]
+    index = str(df.loc[0, column_name]).replace(' ', '')
+    for i in range(n):
+        if df.loc[i, column_name] == '':
+            df.loc[i, column_name] = index
+        else: 
+            index = str(df.loc[i, column_name]).replace(' ', '')
+            df.loc[i, column_name] = index
+    return df
+
+
+###########################################################
+# filter by date using start and end
+###########################################################
+def filter_by_period(df, start_date, end_date):
+    df['date'] = pd.to_datetime(df['date'])
+    return df[(df['date'] >= start_date) & (df['date'] <= end_date)]
+
+
+###########################################################
+# calculate number of kilometers runned
+###########################################################
+def sum_run_distance(df, start_date, end_date):
+    df = filter_by_period(df, start_date, end_date)
+    s = df[(df['sport'] == 'bieganie') & (df['exercise'] == 'dystans')]['details'] \
+        .apply(lambda x : str(x).replace('km', '')) \
+        .apply(lambda x : str(x).replace(' ', '')) \
+        .astype(float) \
+        .sum()
+    
+    return float(s)
+
+
+###########################################################
+# calculate running time
+###########################################################
+def sum_run_time(df, start_date, end_date):
+    df = filter_by_period(df, start_date, end_date)
+    df_ = df[(df['sport'] == 'bieganie') & (df['exercise'] == 'czas')].reset_index(drop = True)
+    df_['h'] = df_['details'].apply(lambda x : x[0:2]).astype(int)
+    df_['m'] = df_['details'].apply(lambda x : x[3:5]).astype(int)
+    df_['s'] = df_['details'].apply(lambda x : x[6:8]).astype(int)
+    df_['total_s'] = df_['h'] * 3600 + df_['m'] * 60 + df_['s']
+    s = df_['total_s'].sum()
+    
+    return int(s // 3600), int((s % 3600) // 60), int(s % 60)
