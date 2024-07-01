@@ -1,4 +1,4 @@
 *.json
 sporttracker_env
 notebooks
-__pycahce__
+__pycache__
