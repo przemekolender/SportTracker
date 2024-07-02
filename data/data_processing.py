@@ -1,6 +1,8 @@
 import gspread
 import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
+import re
+import numpy as np
 
 
 ###########################################################
@@ -82,3 +84,48 @@ def sum_run_time(df, start_date, end_date):
     s = df_['total_s'].sum()
     
     return int(s // 3600), int((s % 3600) // 60), int(s % 60)
+
+
+
+def find_sum_reps(arr):
+    arr_int = []
+    for i in arr:
+        arr_int.append(int(str(i).replace('x', '')))
+    return sum(arr_int)
+
+
+def find_sum_reps_concat(arr):
+    arr_int = []
+    for i in arr:
+        arr_str = i.split('x')
+        reps = int(arr_str[0]) * int(arr_str[1])
+        arr_int.append(reps)
+    return sum(arr_int)
+
+
+def sum_reps(df, start_date, end_date):
+    df = filter_by_period(df, start_date, end_date)
+    df['reps1'] = df['details'] \
+        .apply(lambda x : re.findall(r'x[\d]+', str(x))) \
+        .apply(lambda x : find_sum_reps(x))
+    
+    df['reps2'] = df['details'] \
+        .apply(lambda x : re.findall(r'[\d]+x[\d]+', str(x))) \
+        .apply(lambda x : find_sum_reps_concat(x))
+    
+    df['final_reps'] = np.where(df['reps2'] == 0, df['reps1'], df['reps2'])
+
+    ex = get_data('Treningi 2024', 2)
+
+    df_ = pd.merge(
+        left=df,
+        right=ex,
+        left_on='exercise',
+        right_on = 'ćwiczenie',
+        how = 'inner'
+    )
+    df_['final_reps'] = np.where(df_['opis'] == 'na czas', 0, df_['final_reps'])
+    df_['final_reps'] = np.where(df_['sport_x'] == 'bieganie', 0, df_['final_reps'])
+
+    return df_, int(df_['final_reps'].sum())
+    
