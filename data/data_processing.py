@@ -129,3 +129,16 @@ def sum_reps(df, start_date, end_date):
 
     return df_, int(df_['final_reps'].sum())
     
+
+def sum_kilos(sets):
+    res = 0
+    for w in sets:
+        weights = re.findall(r'[\d]+kg', w)
+        if len(weights) == 1:
+            weigth = int(weights[0].replace('kg', ''))
+            #reps = find_sum_reps(re.findall(r'x[\d]+', str(w)))
+            reps2 = find_sum_reps_concat(re.findall(r'[\d]+x[\d]+', str(w)))
+
+            res = res + weigth * reps2
+
+    return res
