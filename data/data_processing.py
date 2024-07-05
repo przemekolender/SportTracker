@@ -26,12 +26,10 @@ def get_data(sheet_name, sheet_id):
     records_data = sheet_instance.get_all_records()
     records_df = pd.DataFrame.from_dict(records_data)
 
-    if sheet_id == 0:
-        records_df.columns = ['index', 'date', 'weekday', 'sport']
-    elif sheet_id == 1:
-        records_df.columns = ['index', 'date', 'sport', 'exercise', 'details', 'comments']
-
     return records_df
+
+
+
 
 
 ###########################################################
@@ -52,9 +50,9 @@ def fill_data(df, column_name):
 ###########################################################
 # filter by date using start and end
 ###########################################################
-def filter_by_period(df, start_date, end_date):
-    df['date'] = pd.to_datetime(df['date'])
-    return df[(df['date'] >= start_date) & (df['date'] <= end_date)]
+def filter_by_period(df, column_name, start_date = '0001-01-01', end_date = '9999-12-31'):
+    df[column_name] = pd.to_datetime(df[column_name])
+    return df[(df[column_name] >= start_date) & (df[column_name] <= end_date)]
 
 
 ###########################################################
