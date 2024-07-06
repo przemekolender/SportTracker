@@ -101,7 +101,7 @@ class Workouts:
     ###############################################################################################
     # returns running time in the time interval
     ###############################################################################################
-    def run_time(self, start_date, end_date):
+    def run_time(self, start_date='0001-01-01', end_date='9999-12-31'):
         _workouts = filter_by_period(self.workouts, 'date', start_date, end_date)
         s = _workouts['run_total_seconds'].sum()
         return int(s // 3600), int((s % 3600) // 60), int(s % 60)
