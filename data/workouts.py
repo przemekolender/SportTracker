@@ -66,7 +66,15 @@ class Workouts:
     # if set is written as 'x10' add '1', so we have '1x10'
     ###############################################################################################
     def unify_sets_convenction(self):
-        pass
+        ex = get_data('Treningi 2024', 2)
+        time_exercises = ex[ex['opis'] == 'na czas']['ćwiczenie'].to_list()
+        self.workouts['details_fixed'] = self.workouts['details'] \
+            .apply(lambda x : re.sub(r' x', r' 1x', str(x))) \
+            .apply(lambda x : re.sub(r'^x', r'1x', str(x)))
+        
+        self.workouts.loc[self.workouts['exercise'].isin(time_exercises), 'details_fixed'] = ''
+        self.workouts.loc[self.workouts['sport'] == 'bieganie', 'details_fixed'] = ''
+        
 
 
     ###############################################################################################
