@@ -44,8 +44,23 @@ class Workouts:
     # adds columns with integer number of hours, minutes and seconds spent on running
     ###############################################################################################
     def calculate_run_time(self):
-        pass
-
+        self.workouts['run_hours'] = self.workouts[
+            (self.workouts['sport'] == 'bieganie') & (self.workouts['exercise'] == 'czas')
+            ]['details'].apply(lambda x : x[0:2]).astype(int)
+        
+        self.workouts['run_minutes'] = self.workouts[
+            (self.workouts['sport'] == 'bieganie') & (self.workouts['exercise'] == 'czas')
+            ]['details'].apply(lambda x : x[3:5]).astype(int)
+        
+        self.workouts['run_seconds'] = self.workouts[
+            (self.workouts['sport'] == 'bieganie') & (self.workouts['exercise'] == 'czas')
+            ]['details'].apply(lambda x : x[6:8]).astype(int)
+        
+        self.workouts['run_hours'] = self.workouts['run_hours'].fillna(0)
+        self.workouts['run_minutes'] = self.workouts['run_minutes'].fillna(0)
+        self.workouts['run_seconds'] = self.workouts['run_seconds'].fillna(0)
+        self.workouts['run_total_seconds'] = self.workouts['run_hours'] * 3600 + self.workouts['run_minutes'] * 60 + self.workouts['run_seconds']
+    
 
     ###############################################################################################
     # if set is written as 'x10' add '1', so we have '1x10'
