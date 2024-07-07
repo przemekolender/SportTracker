@@ -81,7 +81,19 @@ class Workouts:
     # splits rows with various weights used so there is only 1 weight in one row
     ###############################################################################################
     def split_weights(self):
-        pass
+        new_rows = pd.DataFrame(columns=self.workouts.columns)
+        for i in range(len(self.workouts)):
+            if ';' in self.workouts.loc[i, 'details_fixed']:
+                weights = self.workouts.loc[i, 'details_fixed'].split(';')
+                for weight in weights:
+                    row = self.workouts.loc[i, :]
+                    row_df = pd.DataFrame(row).transpose()
+                    row_df.loc[0, 'details_fixed'] = weight
+                    new_rows = pd.concat([new_rows, row_df], axis=0, ignore_index=True)
+            else:
+                new_rows = pd.concat([new_rows, pd.DataFrame(self.workouts.loc[i, :]).transpose()], axis=0, ignore_index=True)
+
+        self.workouts = new_rows.reset_index(drop = True)
 
 
     ###############################################################################################
