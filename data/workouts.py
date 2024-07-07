@@ -100,7 +100,17 @@ class Workouts:
     # adds column with intiger number of repetitions
     ###############################################################################################
     def calcualte_reps_sum(self):
-        pass
+        def find_sum_reps_concat(arr):
+            arr_int = []
+            for i in arr:
+                arr_str = i.split('x')
+                reps = int(arr_str[0]) * int(arr_str[1])
+                arr_int.append(reps)
+            return sum(arr_int)
+
+        self.workouts['reps_sum'] = self.workouts['details_fixed'] \
+            .apply(lambda x : re.findall(r'[\d]+x[\d]+', str(x))) \
+            .apply(lambda x : find_sum_reps_concat(x))
 
 
     ###############################################################################################
