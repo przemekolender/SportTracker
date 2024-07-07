@@ -117,7 +117,18 @@ class Workouts:
     # adds column with intiger number of kilograms used and column with kilograms lifted 
     ###############################################################################################
     def calculate_kilos_sum(self):
-        pass
+        def find_weight(s):
+            arr = re.findall(r'[\d]+kg', str(s))
+            if len(arr) == 0:
+                return '0'
+            else:
+                return str(arr[0]).replace('kg', '')
+
+        self.workouts['weight'] = self.workouts['details_fixed'] \
+            .apply(lambda x : find_weight(x)) \
+            .astype(int)
+        
+        self.workouts['weights_lifted'] = self.workouts['weight'] * self.workouts['reps_sum']
 
 
     ###############################################################################################
