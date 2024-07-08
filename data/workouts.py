@@ -87,7 +87,7 @@ class Workouts:
                 weights = self.workouts.loc[i, 'details_fixed'].split(';')
                 for weight in weights:
                     row = self.workouts.loc[i, :]
-                    row_df = pd.DataFrame(row).transpose()
+                    row_df = pd.DataFrame(row).transpose().reset_index(drop=True)
                     row_df.loc[0, 'details_fixed'] = weight
                     new_rows = pd.concat([new_rows, row_df], axis=0, ignore_index=True)
             else:
