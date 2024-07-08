@@ -154,14 +154,15 @@ class Workouts:
     ###############################################################################################
     def reps_sum(self, start_date='0001-01-01', end_date='9999-12-31') -> int:
          _workouts = filter_by_period(self.workouts, 'date', start_date, end_date)
-         return _workouts['reps_sum'].sum()
+         return int(_workouts['reps_sum'].sum())
 
 
     ###############################################################################################
     # returns number of kilos lifted in the time interval
     ###############################################################################################
-    def kilos_sum(self, start_date, end_date) -> int:
-        pass
+    def kilos_sum(self, start_date='0001-01-01', end_date='9999-12-31') -> int:
+        _workouts = filter_by_period(self.workouts, 'date', start_date, end_date)
+        return int(_workouts['weights_lifted'].sum())
 
 
     ###############################################################################################
