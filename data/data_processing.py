@@ -55,6 +55,18 @@ def filter_by_period(df, column_name, start_date = '0001-01-01', end_date = '999
     return df[(df[column_name] >= start_date) & (df[column_name] <= end_date)]
 
 
+###############################################################################################
+# find most reps of given exercise
+###############################################################################################
+def help_most_reps(arr):
+    reps = []
+    for detail in arr:
+        reps_str = re.findall(r'x[\d]+', str(detail))
+        for rep_str in reps_str:
+            reps.append(int(rep_str.replace('x', '')))
+    return max(reps)
+
+
 ###########################################################
 # calculate number of kilometers runned
 ###########################################################

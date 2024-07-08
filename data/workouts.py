@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 import numpy as np
-from data.data_processing import get_data, fill_data, filter_by_period
+from data.data_processing import get_data, fill_data, filter_by_period, help_most_reps
 
 class Workouts:
     
@@ -163,7 +163,7 @@ class Workouts:
     def kilos_sum(self, start_date='0001-01-01', end_date='9999-12-31') -> int:
         _workouts = filter_by_period(self.workouts, 'date', start_date, end_date)
         return int(_workouts['weights_lifted'].sum())
-
+    
 
     ###############################################################################################
     # returns biggest weight lifted in given exercise
@@ -172,18 +172,16 @@ class Workouts:
         _workouts = filter_by_period(self.workouts, 'date', start_date, end_date)
         max_weight = _workouts[_workouts['exercise'] == exercise]['weight'].max()
         details = _workouts[(_workouts['exercise'] == exercise) & (_workouts['weight'] == max_weight)]['details_fixed'].to_list()
-        reps = []
-        for detail in details:
-            reps_str = re.findall(r'x[\d]+', str(detail))
-            for rep_str in reps_str:
-                reps.append(int(rep_str.replace('x', '')))
+        reps = help_most_reps(details)
 
-        return int(max_weight), max(reps)
+        return int(max_weight), reps
 
 
     ###############################################################################################
     # returns most reps done in given exercise
     ###############################################################################################
-    def most_reps(self) -> int:
-        pass
-
+    def most_reps(self, exercise = '', start_date='0001-01-01', end_date='9999-12-31') -> int:
+        _workouts = filter_by_period(self.workouts, 'date', start_date, end_date)
+        details = _workouts[_workouts['exercise'] == exercise]['details_fixed'].to_list()
+        reps = help_most_reps(details)
+        return reps
