@@ -168,8 +168,17 @@ class Workouts:
     ###############################################################################################
     # returns biggest weight lifted in given exercise
     ###############################################################################################
-    def best_weight(self) -> float:
-        pass
+    def best_weight(self, exercise = '', start_date='0001-01-01', end_date='9999-12-31') -> float:
+        _workouts = filter_by_period(self.workouts, 'date', start_date, end_date)
+        max_weight = _workouts[_workouts['exercise'] == exercise]['weight'].max()
+        details = _workouts[(_workouts['exercise'] == exercise) & (_workouts['weight'] == max_weight)]['details_fixed'].to_list()
+        reps = []
+        for detail in details:
+            reps_str = re.findall(r'x[\d]+', str(detail))
+            for rep_str in reps_str:
+                reps.append(int(rep_str.replace('x', '')))
+
+        return int(max_weight), max(reps)
 
 
     ###############################################################################################
