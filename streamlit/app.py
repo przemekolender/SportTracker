@@ -1,19 +1,20 @@
 import sys
-sys.path.append("..")
-
+sys.path.append("data")
+import os
 import streamlit as st
 import pandas as pd
 import altair as alt
 #import plotly.express as px
 from matplotlib.colors import LinearSegmentedColormap
 import calplot
-from data.data_processing import get_data
 
+from data_processing import run_distance, run_time, reps_sum, kilos_sum, best_weight, most_reps
 
+workouts = pd.read_csv("workouts.csv")
 
 st.set_page_config(
-    page_title="US Population Dashboard",
-    page_icon="🏂",
+    page_title="SportTracker",
+    page_icon="🏋️‍♀️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -21,20 +22,28 @@ st.set_page_config(
 alt.themes.enable("dark")
 
 with st.sidebar:
-    st.title('🏂 US Population Dashboard')
+    st.title('🏋️‍♀️ SportTracker')
     
     year_list = list(['2023', '2024'])[::-1]
     
     selected_year = st.selectbox('Select a year', year_list, index=len(year_list)-1)
 
-    color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
-    selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
+    
 
-df = get_data('Treningi 2024', 0)
-df['Date'] =  pd.to_datetime(df['data'], format='%d.%m.%Y')
-df = df.set_index('Date')
-df['YN'] = (df['sport'] != '').astype(float)
-df['YN'] = df['YN'] * 2 - 1
-calplot.calplot(df['YN'], cmap="BuGn", colorbar=False)
+distnace = run_distance(workouts)
+st.metric(label="Total run distnace", value=f"{distnace} km")
 
-st.image
+h,m,s = run_time(workouts)
+st.metric(label="Total run time", value=f"{h} hours {m} minutes {s} seconds")
+
+reps = reps_sum(workouts)
+st.metric(label="Total reps", value=reps)
+
+kilos = kilos_sum(workouts)
+st.metric(label="Total kilos lifted", value=kilos)
+
+max_weight, max_weight_reps = best_weight(workouts, 'wyciskanie na ławce płaskiej')
+st.metric(label="Best bench press", value=max_weight, delta=max_weight_reps, delta_color='off')
+
+max_reps = most_reps(workouts, 'podciąganie nachwytem')
+st.metric(label="Most pull ups", value=max_reps)
