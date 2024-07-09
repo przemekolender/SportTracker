@@ -152,17 +152,23 @@ class Workouts:
     ###############################################################################################
     # returns number of repetitions in the time interval
     ###############################################################################################
-    def reps_sum(self, start_date='0001-01-01', end_date='9999-12-31') -> int:
+    def reps_sum(self, exercise = '', start_date='0001-01-01', end_date='9999-12-31') -> int:
          _workouts = filter_by_period(self.workouts, 'date', start_date, end_date)
-         return int(_workouts['reps_sum'].sum())
+         if exercise == '':
+            return int(_workouts['reps_sum'].sum())
+         else:
+            return int(_workouts[_workouts['exercise'] == exercise]['reps_sum'].sum())
 
 
     ###############################################################################################
     # returns number of kilos lifted in the time interval
     ###############################################################################################
-    def kilos_sum(self, start_date='0001-01-01', end_date='9999-12-31') -> int:
+    def kilos_sum(self, exercise = '', start_date='0001-01-01', end_date='9999-12-31') -> int:
         _workouts = filter_by_period(self.workouts, 'date', start_date, end_date)
-        return int(_workouts['weights_lifted'].sum())
+        if exercise == '':
+            return int(_workouts['weights_lifted'].sum())
+        else:
+            return int(_workouts[_workouts['exercise'] == exercise]['weights_lifted'].sum())
     
 
     ###############################################################################################
