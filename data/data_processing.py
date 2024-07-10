@@ -68,16 +68,16 @@ def help_most_reps(arr):
 # returns running distnace in the time interval
 ###############################################################################################
 def run_distance(workouts, start_date='0001-01-01', end_date='9999-12-31') -> float:
-    _workouts = filter_by_period(workouts, 'date', start_date, end_date)
-    return float(_workouts['distance_km'].sum()).__round__(2)
+    #_workouts = filter_by_period(workouts, 'date', start_date, end_date)
+    return float(workouts['distance_km'].sum()).__round__(2)
 
 
 ###############################################################################################
 # returns running time in the time interval
 ###############################################################################################
 def run_time(workouts, start_date='0001-01-01', end_date='9999-12-31'):
-    _workouts = filter_by_period(workouts, 'date', start_date, end_date)
-    s = _workouts['run_total_seconds'].sum()
+    #_workouts = filter_by_period(workouts, 'date', start_date, end_date)
+    s = workouts['run_total_seconds'].sum()
     return int(s // 3600), int((s % 3600) // 60), int(s % 60)
 
 
@@ -85,31 +85,31 @@ def run_time(workouts, start_date='0001-01-01', end_date='9999-12-31'):
 # returns number of repetitions in the time interval
 ###############################################################################################
 def reps_sum(workouts, exercise = '', start_date='0001-01-01', end_date='9999-12-31') -> int:
-     _workouts = filter_by_period(workouts, 'date', start_date, end_date)
+     #_workouts = filter_by_period(workouts, 'date', start_date, end_date)
      if exercise == '':
-        return int(_workouts['reps_sum'].sum())
+        return int(workouts['reps_sum'].sum())
      else:
-        return int(_workouts[_workouts['exercise'] == exercise]['reps_sum'].sum())
+        return int(workouts[workouts['exercise'] == exercise]['reps_sum'].sum())
      
 
 ###############################################################################################
 # returns number of kilos lifted in the time interval
 ###############################################################################################
 def kilos_sum(workouts, exercise = '', start_date='0001-01-01', end_date='9999-12-31') -> int:
-    _workouts = filter_by_period(workouts, 'date', start_date, end_date)
+    #_workouts = filter_by_period(workouts, 'date', start_date, end_date)
     if exercise == '':
-        return int(_workouts['weights_lifted'].sum())
+        return int(workouts['weights_lifted'].sum())
     else:
-        return int(_workouts[_workouts['exercise'] == exercise]['weights_lifted'].sum())
+        return int(workouts[workouts['exercise'] == exercise]['weights_lifted'].sum())
 
 
 ###############################################################################################
 # returns biggest weight lifted in given exercise
 ###############################################################################################
 def best_weight(workouts, exercise = '', start_date='0001-01-01', end_date='9999-12-31'):
-    _workouts = filter_by_period(workouts, 'date', start_date, end_date)
-    max_weight = _workouts[_workouts['exercise'] == exercise]['weight'].max()
-    details = _workouts[(_workouts['exercise'] == exercise) & (_workouts['weight'] == max_weight)]['details_fixed'].to_list()
+    #_workouts = filter_by_period(workouts, 'date', start_date, end_date)
+    max_weight = workouts[workouts['exercise'] == exercise]['weight'].max()
+    details = workouts[(workouts['exercise'] == exercise) & (workouts['weight'] == max_weight)]['details_fixed'].to_list()
     reps = help_most_reps(details)
     return float(max_weight), reps
 
@@ -118,7 +118,29 @@ def best_weight(workouts, exercise = '', start_date='0001-01-01', end_date='9999
 # returns most reps done in given exercise
 ###############################################################################################
 def most_reps(workouts, exercise = '', start_date='0001-01-01', end_date='9999-12-31'):
-    _workouts = filter_by_period(workouts, 'date', start_date, end_date)
-    details = _workouts[_workouts['exercise'] == exercise]['details_fixed'].to_list()
+    #_workouts = filter_by_period(workouts, 'date', start_date, end_date)
+    details = workouts[workouts['exercise'] == exercise]['details_fixed'].to_list()
     reps = help_most_reps(details)
     return reps
+
+
+##
+#
+##
+def create_date_dim(dates):
+    #months = ['-', 'Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień']
+    months_days = {'-' : 31,'Styczeń' : 31,'Luty' : 28,'Marzec' : 31,'Kwiecień' : 30,
+                   'Maj' : 31,'Czerwiec' : 30,'Lipiec' :31,'Sierpień':31,
+                   'Wrzesień':30,'Październik':31,'Listopad':30,'Grudzień':31}
+    
+
+    dim_date = pd.DataFrame(dates.unique(), columns=['date'])
+    dim_date.loc[:, 'year'] = dim_date['date'].apply(lambda x : x[0:4]).astype(int)
+    dim_date.loc[:, 'month'] = dim_date['date'].apply(lambda x : x[5:7]).astype(int)
+    dim_date.loc[:, 'month_str'] = dim_date['date'].apply(lambda x : x[5:7])
+    dim_date.loc[:, 'day'] = dim_date['date'].apply(lambda x : x[8:10]).astype(int)
+    dim_date.loc[:, 'day_str'] = dim_date['date'].apply(lambda x : x[8:10])
+    dim_date.loc[:, 'month_name'] = dim_date['month'].apply(lambda x : list(months_days.keys())[x])
+    dim_date.loc[:, 'day_num'] = dim_date['month_name'].apply(lambda x : months_days[x])
+
+    return dim_date
