@@ -61,7 +61,10 @@ def help_most_reps(arr):
         reps_str = re.findall(r'x[\d]+', str(detail))
         for rep_str in reps_str:
             reps.append(int(rep_str.replace('x', '')))
-    return max(reps)
+    if len(reps) == 0:
+        return 0
+    else:
+        return max(reps)
 
 
 ###############################################################################################
@@ -109,6 +112,8 @@ def kilos_sum(workouts, exercise = '', start_date='0001-01-01', end_date='9999-1
 def best_weight(workouts, exercise = '', start_date='0001-01-01', end_date='9999-12-31'):
     #_workouts = filter_by_period(workouts, 'date', start_date, end_date)
     max_weight = workouts[workouts['exercise'] == exercise]['weight'].max()
+    if pd.isna(max_weight):
+        return 0, 0
     details = workouts[(workouts['exercise'] == exercise) & (workouts['weight'] == max_weight)]['details_fixed'].to_list()
     reps = help_most_reps(details)
     return float(max_weight), reps
