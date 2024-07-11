@@ -8,9 +8,10 @@ import altair as alt
 from matplotlib.colors import LinearSegmentedColormap
 import calplot
 import datetime
+import plotly.express as px
 
-from data_processing import run_distance, run_time, reps_sum, kilos_sum, best_weight, most_reps, create_date_dim, filter_by_period
-
+from data_processing import run_distance, run_time, reps_sum, kilos_sum, best_weight, most_reps, create_date_dim, filter_by_period, load_calendar, data_month_workout_number
+from calenda_heatmap import month_workout_number
 
 
 
@@ -34,6 +35,7 @@ if "min_date" not in st.session_state:
 
 if "max_date" not in st.session_state:
     st.session_state["max_date"] = st.session_state["date_dim"]['date'].max()
+
 
 with st.sidebar:
     st.title('🏋️‍♀️ SportTracker')
@@ -81,3 +83,8 @@ st.metric(label="Best bench press", value=max_weight, delta=max_weight_reps, del
 
 max_reps = most_reps(workouts, 'podciąganie nachwytem')
 st.metric(label="Most pull ups", value=max_reps)
+
+calendar = load_calendar()
+data_c = data_month_workout_number(calendar)
+fig = month_workout_number(data_c)
+st.plotly_chart(fig, theme="streamlit", use_container_width=True)

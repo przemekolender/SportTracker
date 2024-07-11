@@ -129,9 +129,9 @@ def most_reps(workouts, exercise = '', start_date='0001-01-01', end_date='9999-1
     return reps
 
 
-##
-#
-##
+###############################################################################################
+# create df with information about dates
+#################################################################################################
 def create_date_dim(dates):
     #months = ['-', 'Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień']
     months_days = {'-' : 31,'Styczeń' : 31,'Luty' : 28,'Marzec' : 31,'Kwiecień' : 30,
@@ -149,3 +149,20 @@ def create_date_dim(dates):
     dim_date.loc[:, 'day_num'] = dim_date['month_name'].apply(lambda x : months_days[x])
 
     return dim_date
+
+
+def load_calendar():
+    calnedar = get_data('Treningi 2024', 0)
+    calnedar.columns = ['index', 'date', 'week_day', 'sport']
+    calnedar['date'] = pd.to_datetime(calnedar['date'], format='%d.%m.%Y')
+    calnedar['year'] = calnedar['date'].apply(lambda x : x.year)
+    calnedar['month'] = calnedar['date'].apply(lambda x : x.month)
+    calnedar['day'] = calnedar['date'].apply(lambda x : x.day)
+    return calnedar
+
+def data_month_workout_number(calendar):
+    return calendar[calendar['sport'] != ''][['month']] \
+        .groupby(by = 'month') \
+        .size() \
+        .reset_index(name='counts')
+    
