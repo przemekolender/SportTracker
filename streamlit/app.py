@@ -27,8 +27,11 @@ alt.themes.enable("dark")
 if "workouts" not in st.session_state:
     st.session_state["workouts"] = pd.read_csv("workouts.csv")
 
+if "calendar" not in st.session_state:
+    st.session_state["calendar"] = load_calendar()
+
 if "date_dim" not in st.session_state:
-    st.session_state["date_dim"] = create_date_dim(st.session_state["workouts"]['date'])
+    st.session_state["date_dim"] = create_date_dim(st.session_state["calendar"]['date'])
 
 if "min_date" not in st.session_state:
     st.session_state["min_date"] = st.session_state["date_dim"]['date'].min()
@@ -43,7 +46,7 @@ with st.sidebar:
     year_list = list(st.session_state["date_dim"]['year'].unique())[::-1]
     selected_year = st.selectbox('Wybierz rok', ['-'] + year_list, index=len(year_list)-1)
 
-    month_list = list(st.session_state["date_dim"][st.session_state["date_dim"]['year'] == selected_year]['month_name'].unique())
+    month_list = list(st.session_state["date_dim"][st.session_state["date_dim"]['year'] == selected_year]['month_name_pl'].unique())
     selected_month = st.selectbox('Wybierz miesiąc', ['-'] + month_list)
 
     if selected_year == '-' and selected_month == '-':

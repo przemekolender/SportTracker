@@ -130,23 +130,33 @@ def most_reps(workouts, exercise = '', start_date='0001-01-01', end_date='9999-1
 
 
 ###############################################################################################
+# helper function to get str of day in month / month number: 3 -> 03
+###############################################################################################
+def int_to_str(x : int):
+    if x < 10:
+        return '0' + str(x)
+    else:
+        return str(x)
+
+
+###############################################################################################
 # create df with information about dates
 #################################################################################################
-def create_date_dim(dates):
-    #months = ['-', 'Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień']
-    months_days = {'-' : 31,'Styczeń' : 31,'Luty' : 28,'Marzec' : 31,'Kwiecień' : 30,
-                   'Maj' : 31,'Czerwiec' : 30,'Lipiec' :31,'Sierpień':31,
-                   'Wrzesień':30,'Październik':31,'Listopad':30,'Grudzień':31}
-    
-
+def create_date_dim(dates):   
     dim_date = pd.DataFrame(dates.unique(), columns=['date'])
-    dim_date.loc[:, 'year'] = dim_date['date'].apply(lambda x : x[0:4]).astype(int)
-    dim_date.loc[:, 'month'] = dim_date['date'].apply(lambda x : x[5:7]).astype(int)
-    dim_date.loc[:, 'month_str'] = dim_date['date'].apply(lambda x : x[5:7])
-    dim_date.loc[:, 'day'] = dim_date['date'].apply(lambda x : x[8:10]).astype(int)
-    dim_date.loc[:, 'day_str'] = dim_date['date'].apply(lambda x : x[8:10])
-    dim_date.loc[:, 'month_name'] = dim_date['month'].apply(lambda x : list(months_days.keys())[x])
-    dim_date.loc[:, 'day_num'] = dim_date['month_name'].apply(lambda x : months_days[x])
+    dim_date['date'] = pd.to_datetime(dim_date['date'], format='%Y-%m-%d')
+    dim_date.loc[:, 'year'] = dim_date['date'].apply(lambda x : x.year)
+    dim_date.loc[:, 'month'] = dim_date['date'].apply(lambda x : x.month)
+    dim_date.loc[:, 'month_str'] = dim_date['date'].apply(lambda x : int_to_str(x.month))
+    dim_date.loc[:, 'day'] = dim_date['date'].apply(lambda x : x.day)
+    dim_date.loc[:, 'day_str'] = dim_date['date'].apply(lambda x : int_to_str(x.day))
+    dim_date.loc[:, 'month_name_en'] = dim_date['date'].apply(lambda x : x.month_name())
+    dim_date.loc[:, 'month_name_pl'] = dim_date['date'].apply(lambda x : x.month_name(locale='pl_PL'))
+    dim_date.loc[:, 'day_num'] = dim_date['date'].apply(lambda x : x.daysinmonth)
+    dim_date.loc[:, 'day_of_week'] = dim_date['date'].apply(lambda x : x.day_of_week + 1)
+    dim_date.loc[:, 'day_of_week_name_en'] = dim_date['date'].apply(lambda x : x.day_name())
+    dim_date.loc[:, 'day_of_week_name_pl'] = dim_date['date'].apply(lambda x : x.day_name(locale='pl_PL'))
+    dim_date.loc[:, 'week'] = dim_date['date'].apply(lambda x : x.week)
 
     return dim_date
 
@@ -155,9 +165,16 @@ def load_calendar():
     calnedar = get_data('Treningi 2024', 0)
     calnedar.columns = ['index', 'date', 'week_day', 'sport']
     calnedar['date'] = pd.to_datetime(calnedar['date'], format='%d.%m.%Y')
-    calnedar['year'] = calnedar['date'].apply(lambda x : x.year)
-    calnedar['month'] = calnedar['date'].apply(lambda x : x.month)
-    calnedar['day'] = calnedar['date'].apply(lambda x : x.day)
+    #calnedar['date_str'] = calnedar['date'].astype(str)
+    dim_date = create_date_dim(calnedar['date'])
+    calnedar = pd.merge(
+        left=calnedar,
+        right=dim_date,
+        left_on= 'date',
+        right_on='date',
+        how='left'
+    )
+
     return calnedar
 
 def data_month_workout_number(calendar):
