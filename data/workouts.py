@@ -121,7 +121,7 @@ class Workouts:
     ###############################################################################################
     def calculate_kilos_sum(self):
         def find_weight(s):
-            arr = re.findall(r'[\d]+\.[\d]+kg', str(s))
+            arr = re.findall(r'[\d]+\.[\d]+kg|[\d]+kg', str(s))
             if len(arr) == 0:
                 return '0'
             else:
