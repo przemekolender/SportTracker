@@ -52,9 +52,7 @@ c['kategoria'] = c['kategoria'].fillna('')
 
 st.markdown("# Kalendarz treningów")
 
-col01, col02 = st.columns([1, 6])
-
-with col01:
+with st.sidebar:
     calndar_type = st.radio(
         'Rodzaje sportów',
         ['Wszystkie', 'Kategorie', 'Bieganie i sporty siłowe', 'Ogólne aktywności']
@@ -78,19 +76,16 @@ fig = go.Figure(go.Scatter(
     text=c['info'],
     hoverinfo = 'text',
     mode='markers', 
-    #fill=c['sport']
-    marker = dict(size=18, symbol='square', color = color)
+    marker = dict(size=13, symbol='square', color = color)
 ))
 fig.update_yaxes(categoryorder='array', categoryarray= ['Niedziela', 'Sobota', 'Piątek', 'Czwartek', 'Środa', 'Wtorek', 'Poniedziałek'])
 fig.update_layout(
     plot_bgcolor='rgba(0,0,0,0)',
-    #paper_bgcolor='rgba(0,0,0,0)'
     xaxis_title = 'Tydzień',
     yaxis_title=None   
 )
 
-with col02:
-    st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
 
 
