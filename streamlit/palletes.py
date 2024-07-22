@@ -15,11 +15,11 @@ sport_color = {
     'siatkówka': 'darkgreen',
     'rower': 'darkblue',
     'Półmaraton Warszawski': 'RED',
-    'piłka nożna': 'darblue',
+    'piłka nożna': 'blueviolet',
     'góry': 'brown',
-    'plażówka': 'darkyellow',
+    'plażówka': 'seagreen',
     'squash': 'pink',
-    'ocr': 'lightred',
+    'ocr': 'indianred',
     'Runmaggedon rekrut': 'RED'
 }
 
