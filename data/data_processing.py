@@ -141,7 +141,7 @@ def int_to_str(x : int):
 
 ###############################################################################################
 # create df with information about dates
-#################################################################################################
+###############################################################################################
 def create_date_dim(dates):   
     dim_date = pd.DataFrame(dates.unique(), columns=['date'])
     dim_date['date'] = pd.to_datetime(dim_date['date'], format='%Y-%m-%d')
@@ -161,10 +161,15 @@ def create_date_dim(dates):
     return dim_date
 
 
+###############################################################################################
+# load data from tab calendar
+###############################################################################################
 def load_calendar():
     calnedar = get_data('Treningi 2024', 0)
     calnedar.columns = ['index', 'date', 'week_day', 'sport']
     calnedar['date'] = pd.to_datetime(calnedar['date'], format='%d.%m.%Y')
+    calnedar['info'] = calnedar['date'].apply(lambda x : str(x)[:10]+', ') + calnedar['sport']
+    calnedar.loc[calnedar['sport'] == '', 'info'] = ''
     #calnedar['date_str'] = calnedar['date'].astype(str)
     dim_date = create_date_dim(calnedar['date'])
     calnedar = pd.merge(
@@ -176,6 +181,7 @@ def load_calendar():
     )
 
     return calnedar
+
 
 def data_month_workout_number(calendar):
     return calendar[calendar['sport'] != ''][['month']] \
