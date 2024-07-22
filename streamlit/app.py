@@ -11,7 +11,7 @@ import datetime
 import plotly.express as px
 import plotly.graph_objects as go
 
-from data_processing import run_distance, run_time, reps_sum, kilos_sum, best_weight, most_reps, create_date_dim, filter_by_period, load_calendar, data_month_workout_number, get_data
+from data_processing import run_distance, run_time, reps_sum, kilos_sum, best_weight, most_reps, create_date_dim, filter_by_period
 from calenda_heatmap import month_workout_number
 from palletes import *
 
@@ -26,10 +26,10 @@ st.set_page_config(
 alt.themes.enable("dark")
 
 if "workouts" not in st.session_state:
-    st.session_state["workouts"] = pd.read_csv("workouts.csv")
+    st.session_state["workouts"] = pd.read_csv("files/workouts.csv")
 
 if "calendar" not in st.session_state:
-    st.session_state["calendar"] = load_calendar()
+    st.session_state["calendar"] = pd.read_csv("files/calendar.csv")
 
 if "date_dim" not in st.session_state:
     st.session_state["date_dim"] = create_date_dim(st.session_state["calendar"]['date'])
@@ -45,8 +45,9 @@ if "max_date" not in st.session_state:
 ###############################################################################################
 # draw calendar
 ###############################################################################################
-sports = get_data('Treningi 2024', 3)
+sports = pd.read_csv("files/sports.csv")
 c = st.session_state["calendar"].merge(sports, on='sport', how = 'left')
+c['sport'] = c['sport'].fillna('')
 c['kategoria'] = c['kategoria'].fillna('')
 
 

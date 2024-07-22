@@ -23,8 +23,6 @@ class Workouts:
         self.calcualte_reps_sum()
         self.calculate_kilos_sum()
 
-        self.workouts.to_csv('./workouts.csv')
-
 
 
 
