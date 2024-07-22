@@ -9,10 +9,11 @@ from matplotlib.colors import LinearSegmentedColormap
 import calplot
 import datetime
 import plotly.express as px
+import plotly.graph_objects as go
 
-from data_processing import run_distance, run_time, reps_sum, kilos_sum, best_weight, most_reps, create_date_dim, filter_by_period, load_calendar, data_month_workout_number
+from data_processing import run_distance, run_time, reps_sum, kilos_sum, best_weight, most_reps, create_date_dim, filter_by_period, load_calendar, data_month_workout_number, get_data
 from calenda_heatmap import month_workout_number
-
+from palletes import *
 
 
 st.set_page_config(
@@ -37,57 +38,104 @@ if "min_date" not in st.session_state:
     st.session_state["min_date"] = st.session_state["date_dim"]['date'].min()
 
 if "max_date" not in st.session_state:
-    st.session_state["max_date"] = st.session_state["date_dim"]['date'].max()
-
-
-with st.sidebar:
-    st.title('🏋️‍♀️ SportTracker')
-    
-    year_list = list(st.session_state["date_dim"]['year'].unique())[::-1]
-    selected_year = st.selectbox('Wybierz rok', ['-'] + year_list, index=len(year_list)-1)
-
-    month_list = list(st.session_state["date_dim"][st.session_state["date_dim"]['year'] == selected_year]['month_name_pl'].unique())
-    selected_month = st.selectbox('Wybierz miesiąc', ['-'] + month_list)
-
-    if selected_year == '-' and selected_month == '-':
-        st.session_state["min_date"] = st.session_state["date_dim"]['date'].min()
-        st.session_state["max_date"] = st.session_state["date_dim"]['date'].max()
-
-    elif selected_year != '-' and selected_month == '-':
-        st.session_state["min_date"] = f"{selected_year}-01-01"
-        st.session_state["max_date"] = f"{selected_year}-12-31"
-
-    else:
-        selected_month_num = st.session_state["date_dim"][st.session_state["date_dim"]["month_name"] ==  selected_month]['month_str'].unique()[0]
-        min_day = '01'
-        max_day = st.session_state["date_dim"][st.session_state["date_dim"]["month_name"] ==  selected_month]['day_num'].unique()[0]
-
-        st.session_state["min_date"] = f"{selected_year}-{selected_month_num}-{min_day}"
-        st.session_state["max_date"] = f"{selected_year}-{selected_month_num}-{max_day}"
+    st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
 
 
 
+###############################################################################################
+# draw calendar
+###############################################################################################
+sports = get_data('Treningi 2024', 3)
+c = st.session_state["calendar"].merge(sports, on='sport', how = 'left')
+c['kategoria'] = c['kategoria'].fillna('')
+
+
+st.markdown("# Kalendarz treningów")
+
+col01, col02 = st.columns([1, 6])
+
+with col01:
+    calndar_type = st.radio(
+        'Rodzaje sportów',
+        ['Wszystkie', 'Kategorie', 'Bieganie i sporty siłowe', 'Ogólne aktywności']
+    )
+
+if calndar_type == 'Wszystkie':
+    color = c['sport'].apply(lambda x : sport_color[x])
+
+elif calndar_type == 'Kategorie':
+    color = c['kategoria'].apply(lambda x : sport_category_color[x])
+
+elif calndar_type == 'Bieganie i sporty siłowe':
+    color =  c['sport'].apply(lambda x : run_work[x])
+
+elif calndar_type == 'Ogólne aktywności':
+    color = c['sport'].apply(lambda x : event_color[x])
+
+fig = go.Figure(go.Scatter(
+    x=c['week'], 
+    y=c['day_of_week_name_pl'], 
+    text=c['info'],
+    hoverinfo = 'text',
+    mode='markers', 
+    #fill=c['sport']
+    marker = dict(size=18, symbol='square', color = color)
+))
+fig.update_yaxes(categoryorder='array', categoryarray= ['Niedziela', 'Sobota', 'Piątek', 'Czwartek', 'Środa', 'Wtorek', 'Poniedziałek'])
+fig.update_layout(
+    plot_bgcolor='rgba(0,0,0,0)',
+    #paper_bgcolor='rgba(0,0,0,0)'
+    xaxis_title = 'Tydzień',
+    yaxis_title=None   
+)
+
+with col02:
+    st.plotly_chart(fig, use_container_width=True)
+
+
+
+###############################################################################################
+# draw metrics
+###############################################################################################
 workouts = filter_by_period(st.session_state["workouts"], 'date', st.session_state["min_date"], st.session_state["max_date"])
 
-distnace = run_distance(workouts)
-st.metric(label="Total run distnace", value=f"{distnace} km")
 
-h,m,s = run_time(workouts)
-st.metric(label="Total run time", value=f"{h} hours {m} minutes {s} seconds")
+st.markdown("## Rekordy w kalistenice")
+col11, col12, col13, col14 = st.columns(4)
 
-reps = reps_sum(workouts)
-st.metric(label="Total reps", value=reps)
+with col11:
+    max_reps = most_reps(workouts, 'podciąganie nachwytem')
+    st.metric(label="Najwięcej podciągnięć nachwytem", value=max_reps)
+   
+with col12:
+    max_reps = most_reps(workouts, 'dipy')
+    st.metric(label="Najwięcej dipów", value=max_reps)
+   
+with col13:
+    max_reps = most_reps(workouts, 'pompki')
+    st.metric(label="Najwięcej pompek", value=max_reps)
 
-kilos = kilos_sum(workouts)
-st.metric(label="Total kilos lifted", value=kilos)
+with col14:
+    max_reps = most_reps(workouts, 'muscle up')
+    st.metric(label="Najwięcej muscleupów", value=max_reps)
 
-max_weight, max_weight_reps = best_weight(workouts, 'wyciskanie na ławce płaskiej')
-st.metric(label="Best bench press", value=max_weight, delta=max_weight_reps, delta_color='off')
 
-max_reps = most_reps(workouts, 'podciąganie nachwytem')
-st.metric(label="Most pull ups", value=max_reps)
+st.markdown('## Rekory na siłowni')
+col21, col22, col23, col24 = st.columns(4)
 
-calendar = load_calendar()
-data_c = data_month_workout_number(calendar)
-fig = month_workout_number(data_c)
-st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+with col21:
+    max_weight, max_weight_reps = best_weight(workouts, 'wyciskanie na ławce płaskiej')
+    st.metric(label="Wyciskanie", value=max_weight, delta=max_weight_reps, delta_color='off')
+
+with col22:
+    max_weight, max_weight_reps = best_weight(workouts, 'przysiady')
+    st.metric(label="Przysiad", value=max_weight, delta=max_weight_reps, delta_color='off')
+
+with col23:
+    max_weight, max_weight_reps = best_weight(workouts, 'martwy ciąg')
+    st.metric(label="Martwy ciąg", value=max_weight, delta=max_weight_reps, delta_color='off')
+
+with col24:
+    max_weight, max_weight_reps = best_weight(workouts, 'ohp')
+    st.metric(label="OHP", value=max_weight, delta=max_weight_reps, delta_color='off')
+
