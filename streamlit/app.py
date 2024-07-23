@@ -11,8 +11,7 @@ import datetime
 import plotly.express as px
 import plotly.graph_objects as go
 
-from data_processing import run_distance, run_time, reps_sum, kilos_sum, best_weight, most_reps, create_date_dim, filter_by_period
-from calenda_heatmap import month_workout_number
+from data_processing import best_weight, most_reps, filter_by_period
 from palletes import *
 
 
