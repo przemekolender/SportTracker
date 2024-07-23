@@ -4,8 +4,10 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import altair as alt
-from data_processing import run_distance, run_time, reps_sum, kilos_sum, best_weight, most_reps, create_date_dim, filter_by_period, load_calendar, data_month_workout_number
-from calenda_heatmap import month_workout_number
+import datetime
+from data_processing import filter_by_period
+import plotly.express as px
+from palletes import *
 
 
 st.set_page_config(
@@ -20,46 +22,137 @@ st.markdown("# Podsumowanie wszystkich treningów")
 alt.themes.enable("dark")
 
 if "workouts" not in st.session_state:
-    st.session_state["workouts"] = pd.read_csv("workouts.csv")
+    st.session_state["workouts"] = pd.read_csv("files/workouts.csv")
 
 if "calendar" not in st.session_state:
-    st.session_state["calendar"] = load_calendar()
+    st.session_state["calendar"] = pd.read_csv("files/calendar.csv")
 
-if "date_dim" not in st.session_state:
-    st.session_state["date_dim"] = create_date_dim(st.session_state["calendar"]['date'])
+if "sports" not in st.session_state:
+    st.session_state["sports"] = pd.read_csv("files/sports.csv")
 
 if "min_date" not in st.session_state:
-    st.session_state["min_date"] = st.session_state["date_dim"]['date'].min()
+    st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
 
 if "max_date" not in st.session_state:
-    st.session_state["max_date"] = st.session_state["date_dim"]['date'].max()
+    st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
 
-with st.sidebar:
-    st.title('🏋️‍♀️ SportTracker')
-    
-    year_list = list(st.session_state["date_dim"]['year'].unique())[::-1]
+###############################################################################################
+# sidebar options
+###############################################################################################
+with st.sidebar:   
+    year_list = list(st.session_state["calendar"]['year'].unique())[::-1]
     selected_year = st.selectbox('Wybierz rok', ['-'] + year_list, index=len(year_list)-1)
 
-    month_list = list(st.session_state["date_dim"][st.session_state["date_dim"]['year'] == selected_year]['month_name_pl'].unique())
+    month_list = list(st.session_state["calendar"][st.session_state["calendar"]['year'] == selected_year]['month_name_pl'].unique())
     selected_month = st.selectbox('Wybierz miesiąc', ['-'] + month_list)
 
     if selected_year == '-' and selected_month == '-':
-        st.session_state["min_date"] = st.session_state["date_dim"]['date'].min()
-        st.session_state["max_date"] = st.session_state["date_dim"]['date'].max()
+        st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
+        st.session_state["max_date"] = st.session_state["calendar"]['date'].max()
 
     elif selected_year != '-' and selected_month == '-':
         st.session_state["min_date"] = f"{selected_year}-01-01"
         st.session_state["max_date"] = f"{selected_year}-12-31"
 
     else:
-        selected_month_num = st.session_state["date_dim"][st.session_state["date_dim"]["month_name"] ==  selected_month]['month_str'].unique()[0]
+        selected_month_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month]['month_str'].unique()[0]
         min_day = '01'
-        max_day = st.session_state["date_dim"][st.session_state["date_dim"]["month_name"] ==  selected_month]['day_num'].unique()[0]
+        max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month]['day_num'].unique()[0]
 
         st.session_state["min_date"] = f"{selected_year}-{selected_month_num}-{min_day}"
         st.session_state["max_date"] = f"{selected_year}-{selected_month_num}-{max_day}"
 
-calendar = load_calendar()
-data_c = data_month_workout_number(calendar)
-fig = month_workout_number(data_c)
-st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+
+    granulation_name = st.radio(
+        label="Wybierz granulację",
+        options=['Miesiąc', 'Tydzień', 'Dzień']
+    )
+    granultaion_translation = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
+    granulation = granultaion_translation[granulation_name]
+
+
+    calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+    calendar = calendar[~calendar['sport'].isna()]
+    calendar = calendar.merge(st.session_state["sports"], on = 'sport', how = 'left')
+    calendar_filtered = calendar
+    category = 'sport'
+    pallete = sport_color
+
+    calndar_type = st.radio(
+        'Rodzaje sportów',
+        ['Wszystkie', 'Kategorie', 'Bieganie i sporty siłowe', 'Własny wybór']
+    )
+
+    if calndar_type == 'Wszystkie':
+        calendar_filtered = calendar
+        category = 'sport'
+        pallete = sport_color
+
+    elif calndar_type == 'Kategorie':
+        calendar_filtered = calendar
+        category = 'kategoria'
+        pallete = sport_category_color
+
+    elif calndar_type == 'Bieganie i sporty siłowe':
+        calendar_filtered = calendar[calendar['sport'].isin(['bieganie', 'siłownia', 'kalistenika'])]
+        category = 'sport'
+        pallete = run_work
+
+    elif calndar_type == 'Własny wybór':
+        with st.sidebar:
+            multiselect = st.multiselect(
+                label="Wybierz sporty",
+                options=calendar['sport'].unique()
+            )
+        calendar_filtered = calendar[calendar['sport'].isin(multiselect)]
+        category = 'sport'
+        pallete = sport_color
+
+
+###############################################################################################
+# draw plots
+###############################################################################################
+
+col11, col12, col13 = st.columns(3)
+
+with col11:
+    barplotplot_data = calendar_filtered[[category,granulation]] \
+        .groupby(by = [category, granulation]) \
+        .size() \
+        .reset_index(name='counts')
+
+    fig = px.bar(barplotplot_data,
+        x = granulation, 
+        y = "counts",
+        color=category, 
+        color_discrete_map=pallete
+    )
+
+    fig.update_layout(
+        plot_bgcolor='white',
+        showlegend=False
+    )
+    
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+
+with col12:
+    pie = px.pie(
+        barplotplot_data, 
+        values='counts', 
+        names=category, 
+        color=category,  
+        color_discrete_map=pallete
+    )
+
+    pie.update_layout(legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ))
+    st.plotly_chart(pie, theme="streamlit", use_container_width=True)
+
+with col13:
+    metric_data = barplotplot_data['counts'].sum()
+    st.metric(label="Łączna liczba treningów", value=metric_data)
