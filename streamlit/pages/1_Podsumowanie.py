@@ -112,47 +112,48 @@ with st.sidebar:
 ###############################################################################################
 # draw plots
 ###############################################################################################
+plot_data = calendar_filtered[[category,granulation]] \
+    .groupby(by = [category, granulation]) \
+    .size() \
+    .reset_index(name='counts')
 
-col11, col12, col13 = st.columns(3)
+metric_data = plot_data['counts'].sum()
+st.metric(label="Łączna liczba treningów", value=metric_data)
+
+col11, col12 = st.columns(2)
 
 with col11:
-    barplotplot_data = calendar_filtered[[category,granulation]] \
-        .groupby(by = [category, granulation]) \
-        .size() \
-        .reset_index(name='counts')
-
-    fig = px.bar(barplotplot_data,
+    fig = px.bar(plot_data,
         x = granulation, 
         y = "counts",
         color=category, 
-        color_discrete_map=pallete
+        color_discrete_map=pallete, 
+        title = None,
+        hover_name=category,
+        hover_data=['counts', granulation]
     )
 
     fig.update_layout(
         plot_bgcolor='white',
-        showlegend=False
+        showlegend=False,
+        xaxis_title = granulation_name,
+        yaxis_title= "Liczba treningów" ,
+        margin=dict(l=20, r=30, t=10, b=20),
     )
     
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 with col12:
     pie = px.pie(
-        barplotplot_data, 
+        plot_data, 
         values='counts', 
         names=category, 
         color=category,  
         color_discrete_map=pallete
     )
-
-    pie.update_layout(legend=dict(
-        orientation="h",
-        yanchor="bottom",
-        y=1.02,
-        xanchor="right",
-        x=1
-    ))
+    
     st.plotly_chart(pie, theme="streamlit", use_container_width=True)
 
-with col13:
-    metric_data = barplotplot_data['counts'].sum()
-    st.metric(label="Łączna liczba treningów", value=metric_data)
+#with col13:
+#    metric_data = plot_data['counts'].sum()
+#    st.metric(label="Łączna liczba treningów", value=metric_data)
