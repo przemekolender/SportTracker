@@ -20,7 +20,8 @@ sport_color = {
     'plażówka': 'seagreen',
     'squash': 'pink',
     'ocr': 'indianred',
-    'Runmaggedon rekrut': 'RED'
+    'Runmaggedon rekrut': 'RED',
+    'Runmaggedon Ultra': 'RED'
 }
 
 event_color = {
@@ -36,7 +37,8 @@ event_color = {
     'plażówka': 'green',
     'squash': 'green',
     'ocr': 'green',
-    'Runmaggedon rekrut': 'RED'
+    'Runmaggedon rekrut': 'RED',
+    'Runmaggedon Ultra': 'RED'
 }
 
 run_work = {
@@ -52,5 +54,6 @@ run_work = {
     'plażówka': 'lightGRAy',
     'squash': 'lightGRAy',
     'ocr': 'green',
-    'Runmaggedon rekrut': 'RED'
+    'Runmaggedon rekrut': 'RED',
+    'Runmaggedon Ultra': 'RED'
 }
