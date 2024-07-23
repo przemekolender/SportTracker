@@ -157,6 +157,7 @@ def create_date_dim(dates):
     dim_date.loc[:, 'day_of_week_name_en'] = dim_date['date'].apply(lambda x : x.day_name())
     dim_date.loc[:, 'day_of_week_name_pl'] = dim_date['date'].apply(lambda x : x.day_name(locale='pl_PL'))
     dim_date.loc[:, 'week'] = dim_date['date'].apply(lambda x : x.week)
+    dim_date.loc[:, 'day_of_year'] = dim_date['date'].apply(lambda x : x.day_of_year)
 
     return dim_date
 
@@ -183,9 +184,5 @@ def load_calendar():
     return calnedar
 
 
-def data_month_workout_number(calendar):
-    return calendar[calendar['sport'] != ''][['month']] \
-        .groupby(by = 'month') \
-        .size() \
-        .reset_index(name='counts')
+
     
