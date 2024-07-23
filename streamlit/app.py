@@ -56,7 +56,7 @@ st.markdown("# Kalendarz treningów")
 with st.sidebar:
     calndar_type = st.radio(
         'Rodzaje sportów',
-        ['Wszystkie', 'Kategorie', 'Bieganie i sporty siłowe', 'Ogólne aktywności']
+        ['Ogólne aktywności', 'Wszystkie', 'Kategorie', 'Bieganie i sporty siłowe', 'Własny wybór']
     )
 
 if calndar_type == 'Wszystkie':
@@ -70,6 +70,20 @@ elif calndar_type == 'Bieganie i sporty siłowe':
 
 elif calndar_type == 'Ogólne aktywności':
     color = c['sport'].apply(lambda x : event_color[x])
+
+elif calndar_type == 'Własny wybór':
+    with st.sidebar:
+        multiselect = st.multiselect(
+            label="Wybierz sporty",
+            options=c['sport'].unique()
+        )
+    color = []
+    for sport_row in c['sport']:
+        if sport_row in multiselect:
+            color.append('green')
+        else:
+            color.append('lightgray')
+    
 
 fig = go.Figure(go.Scatter(
     x=c['week'], 
