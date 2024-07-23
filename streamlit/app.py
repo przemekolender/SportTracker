@@ -31,11 +31,8 @@ if "workouts" not in st.session_state:
 if "calendar" not in st.session_state:
     st.session_state["calendar"] = pd.read_csv("files/calendar.csv")
 
-if "date_dim" not in st.session_state:
-    st.session_state["date_dim"] = create_date_dim(st.session_state["calendar"]['date'])
-
 if "min_date" not in st.session_state:
-    st.session_state["min_date"] = st.session_state["date_dim"]['date'].min()
+    st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
 
 if "max_date" not in st.session_state:
     st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
