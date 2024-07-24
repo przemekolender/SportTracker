@@ -183,6 +183,31 @@ def load_calendar():
 
     return calnedar
 
+def transpose_runs(runs):
+    runs = runs[runs['exercise'].isin(['dystans', 'czas'])].reset_index(drop=True)
+    e = 0
+    distance_counter = 0
+    entity_id = []
+    for i in range(runs.shape[0]):
+        if distance_counter == 1:
+            e += 1
+        entity_id.append(e)
 
+        if runs['exercise'][i] == 'dystans':
+            distance_counter = 0
+        else:
+            distance_counter = 1
+
+    runs['entity_id'] = entity_id
+
+    return runs.groupby('entity_id') \
+        .agg({
+            'distance_km':'max',
+            'run_hours':'max',
+            'run_minutes':'max',
+            'run_seconds':'max',
+            'run_total_seconds':'max'
+        }) \
+        .reset_index()
 
     
