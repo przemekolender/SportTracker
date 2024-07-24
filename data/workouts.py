@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 import numpy as np
-from data.data_processing import get_data, fill_data, filter_by_period, help_most_reps
+from data.data_processing import get_data, fill_data
 
 class Workouts:
     
@@ -23,7 +23,7 @@ class Workouts:
         self.calcualte_reps_sum()
         self.calculate_kilos_sum()
 
-
+        self.workouts['date'] = pd.to_datetime(self.workouts['date'], format='%Y-%m-%d')
 
 
     ###############################################################################################
