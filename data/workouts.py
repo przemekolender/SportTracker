@@ -11,6 +11,8 @@ class Workouts:
         self.workouts.columns = ['index', 'date', 'sport', 'exercise', 'details', 'comments']
 
         # clear data
+        self.workouts.loc[:, 'sport'] = self.workouts['sport'].apply(lambda x : str(x).lower())
+        self.workouts.loc[:, 'exercise'] = self.workouts['exercise'].apply(lambda x : str(x).lower())
         self.workouts = fill_data(self.workouts, 'index')
         self.workouts = fill_data(self.workouts, 'date')
         self.workouts = fill_data(self.workouts, 'sport')

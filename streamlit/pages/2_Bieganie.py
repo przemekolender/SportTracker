@@ -72,7 +72,7 @@ with st.sidebar:
     granulation = granultaion_translation[granulation_name]
 
     ignore_empty = st.checkbox(
-        label = "Czy brać pod uwagę dni bez biegania"
+        label = "Czy brać pod uwagę dni bez treningów"
     )
 
 
