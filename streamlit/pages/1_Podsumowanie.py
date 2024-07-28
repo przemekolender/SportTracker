@@ -117,20 +117,45 @@ plot_data = calendar_filtered[[category,granulation]] \
     .size() \
     .reset_index(name='counts')
 
-metric_data = plot_data['counts'].sum()
-st.metric(label="Łączna liczba treningów", value=metric_data)
+calendar_filtered['sport_count'] = calendar_filtered['sport']
+plot_data = calendar_filtered.groupby([category, granulation]).agg({
+    'sport_count' : 'count',
+    'total_seconds' : 'sum'
+}).reset_index()
+plot_data['hours'] = np.round(plot_data['total_seconds'] / 3600, 2)
 
-col11, col12 = st.columns(2)
+
+col11, col12, col13 = st.columns([1,2,2])
 
 with col11:
+    metric_data = plot_data['sport_count'].sum()
+    st.metric(label="Łączna liczba treningów", value=metric_data)
+
+with col12:
+    training_time = plot_data['total_seconds'].sum()
+    h, m,s =  int(training_time // 3600), int((training_time % 3600) // 60), int(training_time % 60)
+    st.metric(label="Łączny czas treningów", value=f"{h} godzin {m} minut {s} sekund")
+
+with col13:
+    if metric_data == 0:
+        avg_time = 0
+    else:
+        avg_time = training_time / metric_data
+    h_avg, m_avg, s_avg =  int(avg_time // 3600), int((avg_time % 3600) // 60), int(avg_time % 60)
+    st.metric(label="Średi czas treningu", value=f"{h_avg} godzin {m_avg} minut {s_avg} sekund")
+
+
+col21, col22 = st.columns(2)
+
+with col21:
     fig = px.bar(plot_data,
         x = granulation, 
-        y = "counts",
+        y = "sport_count",
         color=category, 
         color_discrete_map=pallete, 
         title = None,
         hover_name=category,
-        hover_data=['counts', granulation]
+        hover_data=['sport_count', granulation]
     )
 
     fig.update_layout(
@@ -143,10 +168,10 @@ with col11:
     
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
-with col12:
+with col22:
     pie = px.pie(
         plot_data, 
-        values='counts', 
+        values='sport_count', 
         names=category, 
         color=category,  
         color_discrete_map=pallete
@@ -154,6 +179,38 @@ with col12:
     
     st.plotly_chart(pie, theme="streamlit", use_container_width=True)
 
-#with col13:
-#    metric_data = plot_data['counts'].sum()
-#    st.metric(label="Łączna liczba treningów", value=metric_data)
+col31, col32 = st.columns(2)
+
+with col31:
+    fig_count = px.bar(plot_data,
+        x = granulation, 
+        y = "hours",
+        color=category, 
+        color_discrete_map=pallete, 
+        title = None,
+        hover_name=category,
+        hover_data=['hours', granulation]
+    )
+
+    fig_count.update_layout(
+        plot_bgcolor='white',
+        showlegend=False,
+        xaxis_title = granulation_name,
+        yaxis_title= "Czas treningów" ,
+        margin=dict(l=20, r=30, t=10, b=20),
+    )
+    
+    st.plotly_chart(fig_count, theme="streamlit", use_container_width=True)
+
+with col32:
+    pie_time = px.pie(
+        plot_data, 
+        values='hours', 
+        names=category, 
+        color=category,  
+        color_discrete_map=pallete
+    )
+
+    st.plotly_chart(pie_time, theme="streamlit", use_container_width=True)
+
+    
