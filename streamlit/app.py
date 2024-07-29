@@ -41,10 +41,9 @@ if "max_date" not in st.session_state:
 ###############################################################################################
 # draw calendar
 ###############################################################################################
-sports = pd.read_csv("files/sports.csv")
-c = st.session_state["calendar"].merge(sports, on='sport', how = 'left')
+c = st.session_state["calendar"]
 c['sport'] = c['sport'].fillna('')
-c['kategoria'] = c['kategoria'].fillna('')
+c['category'] = c['category'].fillna('')
 
 
 st.markdown("# Kalendarz treningów")
@@ -59,7 +58,7 @@ if calndar_type == 'Wszystkie':
     color = c['sport'].apply(lambda x : sport_color[x])
 
 elif calndar_type == 'Kategorie':
-    color = c['kategoria'].apply(lambda x : sport_category_color[x])
+    color = c['category'].apply(lambda x : sport_category_color[x])
 
 elif calndar_type == 'Bieganie i sporty siłowe':
     color =  c['sport'].apply(lambda x : run_work[x])

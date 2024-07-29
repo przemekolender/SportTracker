@@ -25,7 +25,17 @@ class Workouts:
         self.calcualte_reps_sum()
         self.calculate_kilos_sum()
 
+        # set correct format on date column 
         self.workouts['date'] = pd.to_datetime(self.workouts['date'], format='%Y-%m-%d')
+
+        # load exercise info
+        exercises = get_data("Treningi 2024", 2)
+        exercises.columns = ['sport', 'muscle1', 'muscle2', 'exercise', 'description']
+        self.workouts.merge(
+            right=exercises,
+            on = 'exercise',
+            how = 'left'
+        )
 
 
     ###############################################################################################
