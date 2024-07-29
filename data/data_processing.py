@@ -176,6 +176,15 @@ def load_calendar():
     calnedar['minutes'] = calnedar['time'].apply(lambda x : str(x)[3:5]).astype(int)
     calnedar['seconds'] = calnedar['time'].apply(lambda x : str(x)[6:8]).astype(int)
     calnedar['total_seconds'] = calnedar['hours'] * 3600 + calnedar['minutes'] * 60 + calnedar['seconds']
+
+    sports = get_data("Treningi 2024", 3)
+    sports.columns = ['sport','category']
+    calnedar = calnedar.merge(
+        right = sports,
+        on = 'sport',
+        how = 'left'
+    )
+
     #calnedar['date_str'] = calnedar['date'].astype(str)
     dim_date = create_date_dim(calnedar['date'])
     calnedar = pd.merge(

@@ -27,9 +27,6 @@ if "workouts" not in st.session_state:
 if "calendar" not in st.session_state:
     st.session_state["calendar"] = pd.read_csv("files/calendar.csv")
 
-if "sports" not in st.session_state:
-    st.session_state["sports"] = pd.read_csv("files/sports.csv")
-
 if "min_date" not in st.session_state:
     st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
 
@@ -73,7 +70,8 @@ with st.sidebar:
 
     calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
     calendar = calendar[~calendar['sport'].isna()]
-    calendar = calendar.merge(st.session_state["sports"], on = 'sport', how = 'left')
+    calendar = calendar[calendar['sport'] != '']
+    #calendar = calendar.merge(st.session_state["sports"], on = 'sport', how = 'left')
     calendar_filtered = calendar
     category = 'sport'
     pallete = sport_color
@@ -90,7 +88,7 @@ with st.sidebar:
 
     elif calndar_type == 'Kategorie':
         calendar_filtered = calendar
-        category = 'kategoria'
+        category = 'category'
         pallete = sport_category_color
 
     elif calndar_type == 'Bieganie i sporty siłowe':

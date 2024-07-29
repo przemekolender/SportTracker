@@ -17,11 +17,5 @@ if __name__ == "__main__":
     
     calendar = load_calendar()
     calendar.to_csv("files/calendar.csv")
-
-    exercises = get_data("Treningi 2024", 2)
-    exercises.to_csv("files/exercises.csv")
-
-    sports = get_data("Treningi 2024", 3)
-    sports.to_csv("files/sports.csv")
-
+    
     main()
