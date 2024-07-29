@@ -31,7 +31,8 @@ class Workouts:
         # load exercise info
         exercises = get_data("Treningi 2024", 2)
         exercises.columns = ['sport', 'muscle1', 'muscle2', 'exercise', 'description']
-        self.workouts.merge(
+        exercises = exercises.drop('sport', axis=1)
+        self.workouts = self.workouts.merge(
             right=exercises,
             on = 'exercise',
             how = 'left'
