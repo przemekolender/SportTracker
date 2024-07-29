@@ -134,7 +134,7 @@ with col12:
 ###############################################################################################
 col21, col22 = st.columns(2)
 
-gym_ex_agg_temp = gym_all.groupby(['exercise', 'date']) \
+gym_ex_agg_temp = gym_all.groupby(['exercise', 'date', 'muscle1', 'muscle2']) \
     .agg({
         'reps_sum':'sum',
         'weight':'sum',
@@ -142,23 +142,23 @@ gym_ex_agg_temp = gym_all.groupby(['exercise', 'date']) \
     }) \
     .reset_index()
 
-gym_ex_agg_temp['exercise2'] = gym_ex_agg_temp['exercise']
+gym_ex_agg_temp['exercise_count'] = gym_ex_agg_temp['exercise']
 
 gym_ex_agg = gym_ex_agg_temp.groupby(['exercise']) \
     .agg({
-        'exercise2' : 'count',
+        'exercise_count' : 'count',
         'reps_sum':'sum',
         'weight':'sum',
         'weights_lifted':'sum'
     }) \
     .reset_index() \
-    .sort_values('exercise2', ascending = True) \
+    .sort_values('exercise_count', ascending = True) \
     .tail(10)
 
 
 fig_fav = px.bar(
     gym_ex_agg,
-    x = "exercise2", 
+    x = "exercise_count", 
     y = "exercise",
     title = "Najczęśniej wykonywane ćwiczenia",
     orientation='h'
@@ -167,11 +167,38 @@ fig_fav.update_layout(
     plot_bgcolor='white',
     xaxis_title = "Liczba wystąpień",
     yaxis_title= "Ćwiczenie" ,
-    title_x=0.3
+    #title_x=0.3
 )
 
 with col21:
     st.plotly_chart(fig_fav, theme="streamlit", use_container_width=True)
+
+print(gym_ex_agg_temp)
+gym_ex_agg_temp['muscle1_count'] = gym_ex_agg_temp['muscle1']
+gym_ex_agg_temp['muscle2_count'] = gym_ex_agg_temp['muscle2']
+muscle1_agg = gym_ex_agg_temp.groupby('muscle1').agg({'muscle1_count': 'count'}).reset_index()
+muscle2_agg = gym_ex_agg_temp.groupby('muscle2').agg({'muscle2_count': 'count'}).reset_index()
+muscle_agg = pd.merge(
+    left=muscle1_agg,
+    right=muscle2_agg,
+    left_on='muscle1',
+    right_on='muscle2',
+    how = 'outer'
+)
+print(muscle_agg)
+muscle_agg['count'] = muscle_agg['muscle1_count'].fillna(0) * 2 + muscle_agg['muscle2_count'].fillna(0)
+muscle_agg.loc[:, 'muscle1'] = muscle_agg['muscle1'].fillna(muscle_agg['muscle2'])
+pie = px.pie(   
+    muscle_agg, 
+    values='count', 
+    names='muscle1', 
+    title="Udział trenowanych partii"
+ 
+)
+    
+with col22:
+    st.plotly_chart(pie, theme="streamlit", use_container_width=True)
+
 
 
 
