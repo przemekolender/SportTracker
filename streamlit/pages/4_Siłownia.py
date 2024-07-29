@@ -106,6 +106,8 @@ else:
         on = 'date',
         how = 'inner'
     )
+gym_all.loc[:,'muscle1'] = gym_all['muscle1'].fillna('')
+gym_all.loc[:,'muscle2'] = gym_all['muscle2'].fillna('')
 
 gym_agg = gym_all.groupby([granulation]) \
     .agg({
@@ -173,11 +175,10 @@ fig_fav.update_layout(
 with col21:
     st.plotly_chart(fig_fav, theme="streamlit", use_container_width=True)
 
-print(gym_ex_agg_temp)
 gym_ex_agg_temp['muscle1_count'] = gym_ex_agg_temp['muscle1']
 gym_ex_agg_temp['muscle2_count'] = gym_ex_agg_temp['muscle2']
 muscle1_agg = gym_ex_agg_temp.groupby('muscle1').agg({'muscle1_count': 'count'}).reset_index()
-muscle2_agg = gym_ex_agg_temp.groupby('muscle2').agg({'muscle2_count': 'count'}).reset_index()
+muscle2_agg = gym_ex_agg_temp[gym_ex_agg_temp['muscle2'] != ''].groupby('muscle2').agg({'muscle2_count': 'count'}).reset_index()
 muscle_agg = pd.merge(
     left=muscle1_agg,
     right=muscle2_agg,
@@ -185,7 +186,6 @@ muscle_agg = pd.merge(
     right_on='muscle2',
     how = 'outer'
 )
-print(muscle_agg)
 muscle_agg['count'] = muscle_agg['muscle1_count'].fillna(0) * 2 + muscle_agg['muscle2_count'].fillna(0)
 muscle_agg.loc[:, 'muscle1'] = muscle_agg['muscle1'].fillna(muscle_agg['muscle2'])
 pie = px.pie(   

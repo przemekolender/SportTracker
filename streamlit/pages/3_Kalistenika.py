@@ -105,12 +105,16 @@ else:
     )
 
 cal_all['exercise_count'] = cal_all['exercise']
+cal_all['muscle1'] = cal_all['muscle1'].fillna('')
+cal_all['muscle2'] = cal_all['muscle2'].fillna('')
 cal_agg = cal_all.groupby(['exercise', granulation, 'muscle1', 'muscle2']) \
     .agg({
         'exercise_count' : 'count',
         'reps_sum':'sum'
     }) \
     .reset_index()
+
+
 
 exercises = pd.DataFrame(st.session_state["workouts"]['exercise'].unique())
 exercises.columns = ['exercise']
@@ -171,8 +175,9 @@ fig_fav.update_layout(
 with col21:
     st.plotly_chart(fig_fav, theme="streamlit", use_container_width=True)
 
+print(cal_agg_ex)
 muscle1_agg = cal_agg_ex.groupby('muscle1').agg({'exercise_count': 'sum'}).reset_index()
-muscle2_agg = cal_agg_ex.groupby('muscle2').agg({'exercise_count': 'sum'}).reset_index()
+muscle2_agg = cal_agg_ex[cal_agg_ex['muscle2'] != ''].groupby('muscle2').agg({'exercise_count': 'sum'}).reset_index()
 muscle_agg = pd.merge(
     left=muscle1_agg,
     right=muscle2_agg,
@@ -182,6 +187,8 @@ muscle_agg = pd.merge(
 )
 muscle_agg['count'] = muscle_agg['exercise_count_x'].fillna(0) * 2 + muscle_agg['exercise_count_y'].fillna(0)
 muscle_agg.loc[:, 'muscle1'] = muscle_agg['muscle1'].fillna(muscle_agg['muscle2'])
+#muscle_agg.loc[muscle_agg['muscle1'] == '', 'muscle1'] = muscle_agg[muscle_agg['muscle1'] == '']['muscle2']
+
 pie = px.pie(   
     muscle_agg, 
     values='count', 
@@ -191,7 +198,6 @@ pie = px.pie(
     
 with col22:
     st.plotly_chart(pie, theme="streamlit", use_container_width=True)
-print(muscle_agg.head(20))
 
 ###############################################################################################
 # Third row - push ups, pull ups and dips over time
