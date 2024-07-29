@@ -104,14 +104,16 @@ else:
         how = 'inner'
     )
 
+cal_all['exercise_count'] = cal_all['exercise']
 cal_agg = cal_all.groupby(['exercise', granulation]) \
     .agg({
+        'exercise_count' : 'count',
         'reps_sum':'sum'
     }) \
     .reset_index()
 
-exercises = pd.read_csv("files/exercises.csv")
-
+exercises = pd.DataFrame(st.session_state["workouts"]['exercise'].unique())
+exercises.columns = ['exercise']
 
 ###############################################################################################
 # first row - metrics
@@ -123,17 +125,95 @@ with col11:
     st.metric(label="Wykonane powtórzenia", value=format(reps, ',').replace(',', ' '))
 
 with col12:
-    pull_up_variations = exercises[(exercises['ćwiczenie'].str.contains('podciąganie')) & (~exercises['ćwiczenie'].str.contains('australijskie'))]['ćwiczenie'].to_list()
+    pull_up_variations = exercises[(exercises['exercise'].str.contains('podciąganie')) & (~exercises['exercise'].str.contains('australijskie'))]['exercise'].to_list()
     reps_pullup = int(cal_agg[cal_agg['exercise'].isin(pull_up_variations)]['reps_sum'].sum())
     st.metric(label="Wykonane podciągnięcia", value=format(reps_pullup, ',').replace(',', ' '))
 
 with col13:
-    push_up_variations = exercises[(exercises['ćwiczenie'].str.contains('pompk')) | (exercises['ćwiczenie'].str.contains('diamenty'))]['ćwiczenie'].to_list()
+    push_up_variations = exercises[(exercises['exercise'].str.contains('pompk')) | (exercises['exercise'].str.contains('diamenty'))]['exercise'].to_list()
     reps_pushup = int(cal_agg[cal_agg['exercise'].isin(push_up_variations)]['reps_sum'].sum())
     st.metric(label="Wykonane pompki", value=format(reps_pushup, ',').replace(',', ' '))
 
 with col14:
-    dip_variations = exercises[exercises['ćwiczenie'].str.contains('dip')]['ćwiczenie'].to_list()
+    dip_variations = exercises[exercises['exercise'].str.contains('dip')]['exercise'].to_list()
     reps_dip = int(cal_agg[cal_agg['exercise'].isin(dip_variations)]['reps_sum'].sum())
     st.metric(label="Wykonane dipy", value=format(reps_dip, ',').replace(',', ' '))
 
+
+###############################################################################################
+# second row - favourite exercises and muscles
+###############################################################################################
+col21, col22 = st.columns(2)
+
+cal_agg_ex = cal_agg.groupby('exercise') \
+    .agg({
+        'exercise_count' : 'sum',
+        'reps_sum':'sum'
+    }) \
+    .reset_index() \
+    .sort_values(by = 'exercise_count', ascending = True) \
+    .tail(10)
+
+fig_fav = px.bar(
+    cal_agg_ex,
+    x = "exercise_count", 
+    y = "exercise",
+    title = "Najczęśniej wykonywane ćwiczenia",
+    orientation='h'
+)
+fig_fav.update_layout(
+    plot_bgcolor='white',
+    xaxis_title = "Liczba wystąpień",
+    yaxis_title= "exercise" ,
+    title_x=0.3
+)
+
+with col21:
+    st.plotly_chart(fig_fav, theme="streamlit", use_container_width=True)
+
+
+###############################################################################################
+# Third row - push ups, pull ups and dips over time
+###############################################################################################
+col31, col32 = st.columns(2)
+
+pull_up_variations_all = exercises[exercises['exercise'].str.contains('podciąganie')]['exercise'].to_list()
+fig_pull = px.bar(
+    cal_agg[cal_agg['exercise'].isin(pull_up_variations_all)],
+    x = granulation, 
+    y = "reps_sum",
+    color='exercise', 
+    #color_discrete_map=pallete, 
+    title = "Wykonane powtórzenia podciągnięć",
+    #hover_name=category,
+    hover_data=['reps_sum', granulation]
+)
+fig_pull.update_layout(
+    plot_bgcolor='white',
+    showlegend=False,
+    xaxis_title = granulation_name,
+    yaxis_title= "Liczba powtórzeń" 
+)
+
+with col31:
+    st.plotly_chart(fig_pull, theme="streamlit", use_container_width=True)
+
+fig_push = px.bar(
+    cal_agg[(cal_agg['exercise'].isin(push_up_variations)) | (cal_agg['exercise'].isin(dip_variations))],
+    x = granulation, 
+    y = "reps_sum",
+    color='exercise', 
+    #color_discrete_map=pallete, 
+    title = "Wykonane powtórzenia pompek i dipów",
+    #hover_name=category,
+    hover_data=['reps_sum', granulation]
+)
+fig_push.update_layout(
+    plot_bgcolor='white',
+    showlegend=False,
+    xaxis_title = granulation_name,
+    yaxis_title= "Liczba powtórzeń" ,
+)
+
+with col32:
+    st.plotly_chart(fig_push, theme="streamlit", use_container_width=True)
