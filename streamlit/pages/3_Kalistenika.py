@@ -163,6 +163,7 @@ fig_fav = px.bar(
     x = "exercise_count", 
     y = "exercise",
     title = "Najczęśniej wykonywane ćwiczenia",
+    color_discrete_sequence=px.colors.sequential.Sunset_r, 
     orientation='h'
 )
 fig_fav.update_layout(
@@ -175,7 +176,6 @@ fig_fav.update_layout(
 with col21:
     st.plotly_chart(fig_fav, theme="streamlit", use_container_width=True)
 
-print(cal_agg_ex)
 muscle1_agg = cal_agg_ex.groupby('muscle1').agg({'exercise_count': 'sum'}).reset_index()
 muscle2_agg = cal_agg_ex[cal_agg_ex['muscle2'] != ''].groupby('muscle2').agg({'exercise_count': 'sum'}).reset_index()
 muscle_agg = pd.merge(
@@ -193,6 +193,7 @@ pie = px.pie(
     muscle_agg, 
     values='count', 
     names='muscle1', 
+    color_discrete_sequence=px.colors.sequential.Sunset_r, 
  
 )
     
@@ -210,7 +211,7 @@ fig_pull = px.bar(
     x = granulation, 
     y = "reps_sum",
     color='exercise', 
-    #color_discrete_map=pallete, 
+    color_discrete_sequence=px.colors.sequential.Sunset_r, 
     title = "Wykonane powtórzenia podciągnięć",
     #hover_name=category,
     hover_data=['reps_sum', granulation]
@@ -230,7 +231,7 @@ fig_push = px.bar(
     x = granulation, 
     y = "reps_sum",
     color='exercise', 
-    #color_discrete_map=pallete, 
+    color_discrete_sequence=px.colors.sequential.Sunset_r, 
     title = "Wykonane powtórzenia pompek i dipów",
     #hover_name=category,
     hover_data=['reps_sum', granulation]
