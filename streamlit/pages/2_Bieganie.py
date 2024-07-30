@@ -6,6 +6,7 @@ import datetime
 import pandas as pd
 from data_processing import filter_by_period, transpose_runs
 import plotly.express as px
+import plotly.graph_objects as go
 from palletes import *
 
 st.set_page_config(
@@ -181,7 +182,17 @@ runs_t['h'] = runs_t['run_total_seconds'] / 3600
 fig_scatter = px.scatter(
     runs_t, 
     x = 'h', 
-    y = 'distance_km'
+    y = 'distance_km',
+    trendline='lowess',
+    trendline_color_override='lightblue'
+)
+fig_scatter.add_trace(
+    go.Scatter(
+        x=[0, 1, 2, 3],
+        y=[0, 12, 24, 36],
+        mode="lines",
+        line=go.scatter.Line(color="palevioletred"),
+        showlegend=False)
 )
 fig_scatter.update_layout(
     plot_bgcolor='white',
