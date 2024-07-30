@@ -163,7 +163,8 @@ fig_fav = px.bar(
     x = "exercise_count", 
     y = "exercise",
     title = "Najczęśniej wykonywane ćwiczenia",
-    orientation='h'
+    orientation='h',
+    color_discrete_sequence=px.colors.sequential.Peach_r
 )
 fig_fav.update_layout(
     plot_bgcolor='white',
@@ -192,7 +193,8 @@ pie = px.pie(
     muscle_agg, 
     values='count', 
     names='muscle1', 
-    title="Udział trenowanych partii"
+    title="Udział trenowanych partii",
+    color_discrete_sequence=px.colors.sequential.Peach_r
  
 )
     
@@ -213,7 +215,8 @@ fig_reps = px.area(
     x = granulation, 
     y = 'reps_sum', 
     line_shape='spline', 
-    markers=True
+    markers=True,
+    color_discrete_sequence=px.colors.sequential.Peach_r
 )
 fig_reps.update_layout(
     plot_bgcolor='white',
@@ -231,7 +234,8 @@ fig_weight = px.area(
     x = granulation, 
     y = 'weights_lifted', 
     line_shape='spline', 
-    markers=True
+    markers=True,
+    color_discrete_sequence=px.colors.sequential.Peach_r
 )
 fig_weight.update_layout(
     plot_bgcolor='white',
@@ -253,7 +257,8 @@ bench = gym_all[gym_all['exercise'] == 'wyciskanie na ławce płaskiej']
 fig_bench = px.scatter(
     bench, 
     x = 'reps_sum', 
-    y = 'weight'
+    y = 'weight',
+    color_discrete_sequence=px.colors.sequential.Peach_r
 )
 fig_bench.update_layout(
     plot_bgcolor='white',
@@ -272,7 +277,8 @@ ohp = gym_all[(gym_all['exercise'] == 'ohp') | (gym_all['exercise'] == 'martwy +
 fig_ohp = px.scatter(
     ohp, 
     x = 'reps_sum', 
-    y = 'weight'
+    y = 'weight',
+    color_discrete_sequence=px.colors.sequential.Peach_r
 )
 fig_ohp.update_layout(
     plot_bgcolor='white',
@@ -295,7 +301,8 @@ squat = gym_all[gym_all['exercise'] == 'przysiady']
 fig_squat = px.scatter(
     squat, 
     x = 'reps_sum', 
-    y = 'weight'
+    y = 'weight',
+    color_discrete_sequence=px.colors.sequential.Peach_r
 )
 fig_squat.update_layout(
     plot_bgcolor='white',
@@ -314,7 +321,8 @@ deadlift = gym_all[(gym_all['exercise'] == 'martwy ciąg') | (gym_all['exercise'
 fig_deadlift = px.scatter(
     deadlift, 
     x = 'reps_sum', 
-    y = 'weight'
+    y = 'weight',
+    color_discrete_sequence=px.colors.sequential.Peach_r
 )
 fig_deadlift.update_layout(
     plot_bgcolor='white',
