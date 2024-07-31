@@ -7,7 +7,7 @@ class Workouts:
     
     def __init__(self) -> None:
         #load data
-        self.workouts = get_data('Treningi 2024', 1)
+        self.workouts = get_data('Treningi 2024', 3)
         self.workouts.columns = ['index', 'date', 'sport', 'exercise', 'details', 'comments']
 
         # clear data
@@ -29,7 +29,7 @@ class Workouts:
         self.workouts['date'] = pd.to_datetime(self.workouts['date'], format='%Y-%m-%d')
 
         # load exercise info
-        exercises = get_data("Treningi 2024", 2)
+        exercises = get_data("Treningi 2024", 1)
         exercises.columns = ['sport', 'muscle1', 'muscle2', 'exercise', 'description']
         exercises = exercises.drop('sport', axis=1)
         self.workouts = self.workouts.merge(
@@ -79,7 +79,7 @@ class Workouts:
     # if set is written as 'x10' add '1', so we have '1x10'
     ###############################################################################################
     def unify_sets_convenction(self):
-        ex = get_data('Treningi 2024', 2)
+        ex = get_data('Treningi 2024', 1)
         time_exercises = ex[ex['opis'] == 'na czas']['ćwiczenie'].to_list()
         self.workouts['details_fixed'] = self.workouts['details'] \
             .apply(lambda x : re.sub(r' x', r' 1x', str(x))) \
