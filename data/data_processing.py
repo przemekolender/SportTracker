@@ -166,7 +166,7 @@ def create_date_dim(dates):
 # load data from tab calendar
 ###############################################################################################
 def load_calendar():
-    calnedar = get_data('Treningi 2024', 0)
+    calnedar = get_data('Treningi 2024', 2)
     calnedar.columns = ['index', 'date', 'week_day', 'sport', 'time']
     calnedar['date'] = pd.to_datetime(calnedar['date'], format='%d.%m.%Y')
     calnedar['info'] = calnedar['date'].apply(lambda x : str(x)[:10]+', ') + calnedar['sport']
@@ -177,7 +177,7 @@ def load_calendar():
     calnedar['seconds'] = calnedar['time'].apply(lambda x : str(x)[6:8]).astype(int)
     calnedar['total_seconds'] = calnedar['hours'] * 3600 + calnedar['minutes'] * 60 + calnedar['seconds']
 
-    sports = get_data("Treningi 2024", 3)
+    sports = get_data("Treningi 2024", 0)
     sports.columns = ['sport','category']
     calnedar = calnedar.merge(
         right = sports,
