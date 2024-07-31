@@ -191,8 +191,9 @@ fig_scatter.add_trace(
         x=[0, 1, 2, 3],
         y=[0, 12, 24, 36],
         mode="lines",
-        line=go.scatter.Line(color="palevioletred"),
-        showlegend=False)
+        line=go.scatter.Line(color="palevioletred", dash='dash'),
+        showlegend=False
+    )
 )
 fig_scatter.update_layout(
     plot_bgcolor='white',
