@@ -1,27 +1,36 @@
 sport_category_color = {
-    'bieganie' : 'skyblue',
-    'sporty siłowe' : 'LIGHTGREEN',
-    'inne' : 'YELLOW',
-    'sporty piłkowe' : 'mediumpurple', 
+    'bieganie' : 'rgb(31, 119, 180)',
+    'sporty siłowe' : 'rgb(235, 74, 64)',
+    'inne' : 'rgb(82, 188, 63)',
+    'sporty piłkowe' : 'rgb(229, 134, 6)', 
     'zawody' : 'RED' ,
     '' : 'lightGRAy'
 }
 
 sport_color = {
     '': 'lightGRAy',
-    'siłownia': 'orange',
-    'bieganie': 'skyblue',
-    'kalistenika': 'green',
-    'siatkówka': 'darkgreen',
-    'rower': 'darkblue',
+    'siłownia': 'rgb(235, 74, 64)',
+    'bieganie': 'rgb(31, 119, 180)',
+    'kalistenika': 'rgb(92, 83, 165)',
+    'siatkówka': 'rgb(229, 134, 6)',
+    'rower': 'rgb(82, 188, 63)',
     'Półmaraton Warszawski': 'RED',
-    'piłka nożna': 'blueviolet',
-    'góry': 'brown',
-    'plażówka': 'seagreen',
-    'squash': 'pink',
-    'ocr': 'indianred',
-    'Runmaggedon rekrut': 'RED',
-    'Runmaggedon Ultra': 'RED'
+    'piłka nożna': 'rgb(153, 201, 69)',
+    'góry': 'rgb(165, 170, 153)',
+    'plażówka': 'rgb(218, 165, 27)',
+    'squash': 'rgb(204, 97, 176)',
+    'ocr': 'rgb(36, 121, 108)',
+    'Runmageddon Rekrut': 'RED',
+    'Runmageddon Ultra': 'RED',
+    'Bieg Powstania Warszawskiego': 'RED',
+    'Bieg WOŚP': 'RED',
+    'Półmaraton Praski': 'RED',
+    'Maraton Warszawski': 'RED',
+    'Sztafeta Ekiden': 'RED',
+    'Bieg Niepodległości': 'RED',
+    'Runmageddon Classic': 'RED',
+    'Runmageddon Hardcore': 'RED',
+    'pływanie' : 'rgb(47, 138, 196)'
 }
 
 event_color = {
@@ -37,15 +46,24 @@ event_color = {
     'plażówka': 'green',
     'squash': 'green',
     'ocr': 'green',
-    'Runmaggedon rekrut': 'RED',
-    'Runmaggedon Ultra': 'RED'
+    'Runmageddon Rekrut': 'RED',
+    'Runmageddon Ultra': 'RED',
+    'Bieg Powstania Warszawskiego': 'RED',
+    'Bieg WOŚP': 'RED',
+    'Półmaraton Praski': 'RED',
+    'Maraton Warszawski': 'RED',
+    'Sztafeta Ekiden': 'RED',
+    'Bieg Niepodległości': 'RED',
+    'Runmageddon Classic': 'RED',
+    'Runmageddon Hardcore': 'RED',
+    'pływanie' : 'green'
 }
 
 run_work = {
     '': 'lightGRAy',
-    'siłownia': 'orange',
-    'bieganie': 'skyblue',
-    'kalistenika': 'green',
+    'siłownia': 'rgb(235, 74, 64)',
+    'bieganie': 'rgb(31, 119, 180)',
+    'kalistenika': 'rgb(92, 83, 165)',
     'siatkówka': 'lightGRAy',
     'rower': 'lightGRAy',
     'Półmaraton Warszawski': 'RED',
@@ -54,6 +72,15 @@ run_work = {
     'plażówka': 'lightGRAy',
     'squash': 'lightGRAy',
     'ocr': 'green',
-    'Runmaggedon rekrut': 'RED',
-    'Runmaggedon Ultra': 'RED'
+    'Runmageddon Rekrut': 'RED',
+    'Runmageddon Ultra': 'RED',
+    'Bieg Powstania Warszawskiego': 'RED',
+    'Bieg WOŚP': 'RED',
+    'Półmaraton Praski': 'RED',
+    'Maraton Warszawski': 'RED',
+    'Sztafeta Ekiden': 'RED',
+    'Bieg Niepodległości': 'RED',
+    'Runmageddon Classic': 'RED',
+    'Runmageddon Hardcore': 'RED',
+    'pływanie' : 'lightGRAy'
 }
