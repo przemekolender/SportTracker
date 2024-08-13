@@ -149,6 +149,7 @@ fig_distance.update_layout(
     yaxis_range=[0, 1.1*runs['distance_km'].max()],
     xaxis_title = granulation_name,
     yaxis_title= "Przebiegnięty dystans" ,
+    title = "Przebiegnięty dystans w danym okresie"
 )
 
 runs['h'] = runs['run_total_seconds'] / 3600
@@ -164,6 +165,7 @@ fig_time.update_layout(
     yaxis_range=[0, 1.1*runs['h'].max()],
     xaxis_title = granulation_name,
     yaxis_title= "Czas biegania" ,
+    title = "Czas biegania w danym okresie"
 )
 
 with col21:
@@ -200,6 +202,7 @@ fig_scatter.update_layout(
     yaxis_range=[0, 1.1*runs_all['distance_km'].max()],
     xaxis_title = "Czas biegania",
     yaxis_title= "Dystans" ,
+    title = "Zależność przebiegniętego dystansu od czas"
 )
 
 

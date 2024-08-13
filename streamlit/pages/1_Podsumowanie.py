@@ -151,7 +151,6 @@ with col21:
         y = "sport_count",
         color=category, 
         color_discrete_map=pallete, 
-        title = None,
         hover_name=category,
         hover_data=['sport_count', granulation]
     )
@@ -161,7 +160,8 @@ with col21:
         showlegend=False,
         xaxis_title = granulation_name,
         yaxis_title= "Liczba treningów" ,
-        margin=dict(l=20, r=30, t=10, b=20),
+        title = "Liczba treningów w przedziale czasowym",
+        #margin=dict(l=20, r=30, t=10, b=20),
     )
     
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
@@ -172,7 +172,11 @@ with col22:
         values='sport_count', 
         names=category, 
         color=category,  
-        color_discrete_map=pallete
+        color_discrete_map=pallete,
+    )
+
+    pie.update_layout(
+        title= "Procentowy udział sportów w treningach"
     )
     
     st.plotly_chart(pie, theme="streamlit", use_container_width=True)
@@ -185,7 +189,6 @@ with col31:
         y = "hours",
         color=category, 
         color_discrete_map=pallete, 
-        title = None,
         hover_name=category,
         hover_data=['hours', granulation]
     )
@@ -195,7 +198,8 @@ with col31:
         showlegend=False,
         xaxis_title = granulation_name,
         yaxis_title= "Czas treningów" ,
-        margin=dict(l=20, r=30, t=10, b=20),
+        title = "Czas treningów w przedziale czasowym",
+        #margin=dict(l=20, r=30, t=10, b=20),
     )
     
     st.plotly_chart(fig_count, theme="streamlit", use_container_width=True)
@@ -206,7 +210,11 @@ with col32:
         values='hours', 
         names=category, 
         color=category,  
-        color_discrete_map=pallete
+        color_discrete_map=pallete,
+    )
+
+    pie_time.update_layout(
+        title = "Procentowy udział czasu uprawaniu sportów",
     )
 
     st.plotly_chart(pie_time, theme="streamlit", use_container_width=True)
