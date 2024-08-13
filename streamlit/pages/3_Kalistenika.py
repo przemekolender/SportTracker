@@ -162,7 +162,6 @@ fig_fav = px.bar(
     cal_agg_ex,
     x = "exercise_count", 
     y = "exercise",
-    title = "Najczęśniej wykonywane ćwiczenia",
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
     orientation='h'
 )
@@ -170,7 +169,8 @@ fig_fav.update_layout(
     plot_bgcolor='white',
     xaxis_title = "Liczba wystąpień",
     yaxis_title= "exercise" ,
-    title_x=0.3
+    title_x=0.3,
+    title = "Najczęśniej wykonywane ćwiczenia",
 )
 
 with col21:
@@ -194,7 +194,10 @@ pie = px.pie(
     values='count', 
     names='muscle1', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
- 
+)
+
+pie.update_layout(
+    title = "Procentowy udział trenowanych mięśni"
 )
     
 with col22:
@@ -212,7 +215,6 @@ fig_pull = px.bar(
     y = "reps_sum",
     color='exercise', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
-    title = "Wykonane powtórzenia podciągnięć",
     #hover_name=category,
     hover_data=['reps_sum', granulation]
 )
@@ -220,7 +222,8 @@ fig_pull.update_layout(
     plot_bgcolor='white',
     showlegend=False,
     xaxis_title = granulation_name,
-    yaxis_title= "Liczba powtórzeń" 
+    yaxis_title= "Liczba powtórzeń" ,
+    title = "Wykonane powtórzenia podciągnięć",
 )
 
 with col31:
@@ -232,7 +235,6 @@ fig_push = px.bar(
     y = "reps_sum",
     color='exercise', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
-    title = "Wykonane powtórzenia pompek i dipów",
     #hover_name=category,
     hover_data=['reps_sum', granulation]
 )
@@ -241,6 +243,7 @@ fig_push.update_layout(
     showlegend=False,
     xaxis_title = granulation_name,
     yaxis_title= "Liczba powtórzeń" ,
+    title = "Wykonane powtórzenia pompek i dipów",
 )
 
 with col32:

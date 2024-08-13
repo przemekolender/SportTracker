@@ -222,7 +222,8 @@ fig_reps.update_layout(
     plot_bgcolor='white',
     yaxis_range=[0, 1.1*gym_agg['reps_sum'].max()],
     xaxis_title = granulation_name,
-    yaxis_title= "Wykonane powtórzenia" 
+    yaxis_title= "Wykonane powtórzenia" ,
+    title = "Liczba powtórzeń wykonan w danym okresie"
 )
 
 with col31:
@@ -241,7 +242,8 @@ fig_weight.update_layout(
     plot_bgcolor='white',
     yaxis_range=[0, 1.1*gym_agg['weights_lifted'].max()],
     xaxis_title = granulation_name,
-    yaxis_title= "Podniesiony ciężar" 
+    yaxis_title= "Podniesiony ciężar" ,
+    title = "Liczba podniesionych kilogramów w danym okresie"
 )
 
 with col32:
@@ -266,7 +268,6 @@ fig_bench.update_layout(
     xaxis_title = "Liczba powtórzeń",
     yaxis_title= "Waga" ,
     title = "Wyciskanie",
-    title_x=0.5
 )
 
 with col41:
@@ -286,7 +287,6 @@ fig_ohp.update_layout(
     xaxis_title = "Liczba powtórzeń",
     yaxis_title= "Waga" ,
     title = "Ohp",
-    title_x=0.5
 )
 
 with col42:
@@ -310,7 +310,6 @@ fig_squat.update_layout(
     xaxis_title = "Liczba powtórzeń",
     yaxis_title= "Waga" ,
     title = "Przysiady",
-    title_x=0.5
 )
 
 with col51:
@@ -330,7 +329,6 @@ fig_deadlift.update_layout(
     xaxis_title = "Liczba powtórzeń",
     yaxis_title= "Waga" ,
     title = "Martwy ciąg",
-    title_x=0.5
 )
 
 with col52:
