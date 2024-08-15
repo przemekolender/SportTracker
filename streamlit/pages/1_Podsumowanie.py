@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import altair as alt
 import datetime
-from data_processing import filter_by_period
+from data_processing import filter_by_period, hour_str
 import plotly.express as px
 from palletes import *
 
@@ -108,7 +108,7 @@ with st.sidebar:
 
 
 ###############################################################################################
-# draw plots
+# plots - fist row
 ###############################################################################################
 plot_data = calendar_filtered[[category,granulation]] \
     .groupby(by = [category, granulation]) \
@@ -121,6 +121,7 @@ plot_data = calendar_filtered.groupby([category, granulation]).agg({
     'total_seconds' : 'sum'
 }).reset_index()
 plot_data['hours'] = np.round(plot_data['total_seconds'] / 3600, 2)
+plot_data['hours_str'] = plot_data['total_seconds'].apply(lambda x : hour_str(x))
 
 
 col11, col12, col13 = st.columns([1,2,2])
@@ -142,7 +143,9 @@ with col13:
     h_avg, m_avg, s_avg =  int(avg_time // 3600), int((avg_time % 3600) // 60), int(avg_time % 60)
     st.metric(label="Średi czas treningu", value=f"{h_avg} godzin {m_avg} minut {s_avg} sekund")
 
-
+###############################################################################################
+# plots - second row
+###############################################################################################
 col21, col22 = st.columns(2)
 
 with col21:
@@ -181,16 +184,21 @@ with col22:
     
     st.plotly_chart(pie, theme="streamlit", use_container_width=True)
 
+
+###############################################################################################
+# plots - third row
+###############################################################################################
 col31, col32 = st.columns(2)
 
 with col31:
-    fig_count = px.bar(plot_data,
+    fig_count = px.bar(
+        plot_data,
         x = granulation, 
         y = "hours",
         color=category, 
         color_discrete_map=pallete, 
         hover_name=category,
-        hover_data=['hours', granulation]
+        hover_data=['hours_str', granulation]
     )
 
     fig_count.update_layout(
@@ -211,6 +219,11 @@ with col32:
         names=category, 
         color=category,  
         color_discrete_map=pallete,
+        #hover_data='hours_str'
+    )
+
+    pie_time.update_traces(
+        hovertemplate = "%{label}: %{percent}"
     )
 
     pie_time.update_layout(

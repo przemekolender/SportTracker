@@ -4,7 +4,7 @@ import streamlit as st
 import altair as alt
 import datetime
 import pandas as pd
-from data_processing import filter_by_period, transpose_runs
+from data_processing import filter_by_period, transpose_runs, hour_str
 import plotly.express as px
 import plotly.graph_objects as go
 from palletes import *
@@ -116,6 +116,8 @@ runs = runs_all.groupby([granulation]) \
     }) \
     .reset_index()
 
+runs['hour_str'] = runs['run_total_seconds'].apply(lambda x : hour_str(int(x)))
+
 
 ###############################################################################################
 # first row - metrics
@@ -158,7 +160,8 @@ fig_time = px.area(
     x = granulation, 
     y = 'h', 
     line_shape='spline', 
-    markers=True
+    markers=True,
+    hover_data='hour_str'
 )
 fig_time.update_layout(
     plot_bgcolor='white',
@@ -181,12 +184,14 @@ with col22:
 
 runs_t = transpose_runs(runs_all)
 runs_t['h'] = runs_t['run_total_seconds'] / 3600
+runs_t['hour_str'] = runs_t['run_total_seconds'].apply(lambda x : hour_str(int(x)))
 fig_scatter = px.scatter(
     runs_t, 
     x = 'h', 
     y = 'distance_km',
     trendline='lowess',
-    trendline_color_override='lightblue'
+    trendline_color_override='lightblue',
+    hover_data='hour_str'
 )
 fig_scatter.add_trace(
     go.Scatter(
