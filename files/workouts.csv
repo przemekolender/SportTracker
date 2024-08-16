@@ -377,7 +377,7 @@
 375,60,2024-04-27,siłownia,wyciskanie na ławce płaskiej,85kg x3 x3 x3; 75kg x6,,0.0,0.0,0.0,0.0,0.0,85kg 1x3 1x3 1x3,9,85.0,765.0,klatka,triceps,
 376,60,2024-04-27,siłownia,wyciskanie na ławce płaskiej,85kg x3 x3 x3; 75kg x6,,0.0,0.0,0.0,0.0,0.0, 75kg 1x6,6,75.0,450.0,klatka,triceps,
 377,60,2024-04-27,siłownia,wyciąg górny do klatki,73kg x8 x8 x8 x8,,0.0,0.0,0.0,0.0,0.0,73kg 1x8 1x8 1x8 1x8,32,73.0,2336.0,plecy,,
-378,60,2024-04-27,siłownia,modlitewnik sztanga,10kg x10 x10,,0.0,0.0,0.0,0.0,0.0,10kg 1x10 1x10,20,10.0,200.0,biceps,,
+378,60,2024-04-27,siłownia,modlitewnik sztanga,10kg x10 x10 x10,,0.0,0.0,0.0,0.0,0.0,10kg 1x10 1x10 1x10,30,10.0,300.0,biceps,,
 379,60,2024-04-27,siłownia,triceps wyciąg,27kg x6; 23kg z10 x10 x8,xd,0.0,0.0,0.0,0.0,0.0,27kg 1x6,6,27.0,162.0,triceps,,"wyciąg górny, dowolny uchwyt"
 380,60,2024-04-27,siłownia,triceps wyciąg,27kg x6; 23kg z10 x10 x8,xd,0.0,0.0,0.0,0.0,0.0, 23kg z10 1x10 1x8,18,23.0,414.0,triceps,,"wyciąg górny, dowolny uchwyt"
 381,60,2024-04-27,siłownia,barki bokiem,10kg x8 x8 x8 x8,,0.0,0.0,0.0,0.0,0.0,10kg 1x8 1x8 1x8 1x8,32,10.0,320.0,barki,,
@@ -462,7 +462,7 @@
 460,73,2024-05-21,siłownia,wyciskanie na ławce płaskiej,87.5kg x3 x3 x3; 60kg x16,,0.0,0.0,0.0,0.0,0.0,87.5kg 1x3 1x3 1x3,9,87.5,787.5,klatka,triceps,
 461,73,2024-05-21,siłownia,wyciskanie na ławce płaskiej,87.5kg x3 x3 x3; 60kg x16,,0.0,0.0,0.0,0.0,0.0, 60kg 1x16,16,60.0,960.0,klatka,triceps,
 462,73,2024-05-21,siłownia,podciąganie nachwytem,x5 x5 x5 x5,,0.0,0.0,0.0,0.0,0.0,1x5 1x5 1x5 1x5,20,0.0,0.0,plecy,,
-463,73,2024-05-21,siłownia,modlitewnik sztanga,10kg x12 x12,,0.0,0.0,0.0,0.0,0.0,10kg 1x12 1x12,24,10.0,240.0,biceps,,
+463,73,2024-05-21,siłownia,modlitewnik sztanga,10kg x12 x12 x12,,0.0,0.0,0.0,0.0,0.0,10kg 1x12 1x12 1x12,36,10.0,360.0,biceps,,
 464,73,2024-05-21,siłownia,triceps wyciąg,5 płytek x12; 6 płytek x12,,0.0,0.0,0.0,0.0,0.0,5 płytek 1x12,12,0.0,0.0,triceps,,"wyciąg górny, dowolny uchwyt"
 465,73,2024-05-21,siłownia,triceps wyciąg,5 płytek x12; 6 płytek x12,,0.0,0.0,0.0,0.0,0.0, 6 płytek 1x12,12,0.0,0.0,triceps,,"wyciąg górny, dowolny uchwyt"
 466,73,2024-05-21,siłownia,barki bokiem,10kg x10 x10 x10,,0.0,0.0,0.0,0.0,0.0,10kg 1x10 1x10 1x10,30,10.0,300.0,barki,,
@@ -628,7 +628,7 @@
 626,95,2024-07-09,siłownia,martwy ciąg,70kg x6 x6 x6 x7,,0.0,0.0,0.0,0.0,0.0,70kg 1x6 1x6 1x6 1x7,25,70.0,1750.0,nogi,,
 627,95,2024-07-09,siłownia,podciąganie nachwytem,10kg x5 x5 x5 ,,0.0,0.0,0.0,0.0,0.0,10kg 1x5 1x5 1x5 ,15,10.0,150.0,plecy,,
 628,95,2024-07-09,siłownia,podciąganie podchwytem,10kg x6 x5,,0.0,0.0,0.0,0.0,0.0,10kg 1x6 1x5,11,10.0,110.0,plecy,biceps,
-629,95,2024-07-09,siłownia,modlitewnik sztanga,25kg x13 x11 x10 x10,,0.0,0.0,0.0,0.0,0.0,25kg 1x13 1x11 1x10 1x10,44,25.0,1100.0,biceps,,
+629,95,2024-07-09,siłownia,modlitewnik sztanga,12.5kg x13 x11 x10 x10,,0.0,0.0,0.0,0.0,0.0,12.5kg 1x13 1x11 1x10 1x10,44,12.5,550.0,biceps,,
 630,95,2024-07-09,siłownia,wyciskanie hantli nad głowę,25kg x8 x8 x8 x8,,0.0,0.0,0.0,0.0,0.0,25kg 1x8 1x8 1x8 1x8,32,25.0,800.0,barki,,
 631,95,2024-07-09,siłownia,wyciskanie francuskie 2 hantlami,27.5kg x8 x8 x8 x8,,0.0,0.0,0.0,0.0,0.0,27.5kg 1x8 1x8 1x8 1x8,32,27.5,880.0,triceps,,
 632,95,2024-07-09,siłownia,hip trusty na ziemi,27.5kg x10 x10 x10 x10,,0.0,0.0,0.0,0.0,0.0,27.5kg 1x10 1x10 1x10 1x10,40,27.5,1100.0,dupa,,
@@ -716,3 +716,16 @@
 714,105,2024-08-14,bieganie,dystans,9.35,,9.35,0.0,0.0,0.0,0.0,,0,0.0,0.0,bieganie,,
 715,105,2024-08-14,bieganie,tempo,5'02,,0.0,0.0,0.0,0.0,0.0,,0,0.0,0.0,bieganie,,
 716,105,2024-08-14,bieganie,czas,00:47:07,,0.0,0.0,47.0,7.0,2827.0,,0,0.0,0.0,bieganie,,
+717,106,2024-08-16,kalistenika,podciąganie nachwytem kółka,x10 x10 x7 x8,s1,0.0,0.0,0.0,0.0,0.0,1x10 1x10 1x7 1x8,35,0.0,0.0,plecy,,
+718,106,2024-08-16,kalistenika,diamenty,x11 x11 x11 x11,s1,0.0,0.0,0.0,0.0,0.0,1x11 1x11 1x11 1x11,44,0.0,0.0,triceps,klatka,
+719,106,2024-08-16,kalistenika,wykroki,x16 x16 x16 x16,s1,0.0,0.0,0.0,0.0,0.0,1x16 1x16 1x16 1x16,64,0.0,0.0,nogi,,
+720,106,2024-08-16,kalistenika,podciąganie podchwytem,x6 x6 x6 x7,s2,0.0,0.0,0.0,0.0,0.0,1x6 1x6 1x6 1x7,25,0.0,0.0,plecy,biceps,
+721,106,2024-08-16,kalistenika,pompki kółka,x15 x15 x15 x15,s2,0.0,0.0,0.0,0.0,0.0,1x15 1x15 1x15 1x15,60,0.0,0.0,klatka,triceps,
+722,106,2024-08-16,kalistenika,przysiady,x10 x10 x10 x10,s2,0.0,0.0,0.0,0.0,0.0,1x10 1x10 1x10 1x10,40,0.0,0.0,nogi,,
+723,106,2024-08-16,kalistenika,frog stand,10s 8s 20s 16s,s2,0.0,0.0,0.0,0.0,0.0,,0,0.0,0.0,barki,,na czas
+724,106,2024-08-16,kalistenika,podciąganie australijskie  podchywtem,x10 x10 x10 x10,s3,0.0,0.0,0.0,0.0,0.0,1x10 1x10 1x10 1x10,40,0.0,0.0,plecy,biceps,
+725,106,2024-08-16,kalistenika,dipy kólka,x5 x5 x5 x5,s3,0.0,0.0,0.0,0.0,0.0,1x5 1x5 1x5 1x5,20,0.0,0.0,triceps,klatka,
+726,106,2024-08-16,kalistenika,przysiady na jednej nodze z kółkami,x5 x5 x5 x5,s3,0.0,0.0,0.0,0.0,0.0,1x5 1x5 1x5 1x5,20,0.0,0.0,,,
+727,106,2024-08-16,kalistenika,pompki pike,x8 x8 x8,s4,0.0,0.0,0.0,0.0,0.0,1x8 1x8 1x8,24,0.0,0.0,barki,,
+728,106,2024-08-16,kalistenika,l sit,5s 5s 5s 5s,s4,0.0,0.0,0.0,0.0,0.0,5s 5s 5s 5s,0,0.0,0.0,,,
+729,106,2024-08-16,kalistenika,zwis,z jedną ręką na ręczniku 2x20s 2x20s 2x20s 2x20s,s4,0.0,0.0,0.0,0.0,0.0,,0,0.0,0.0,chwyt,przedramie,na czas
