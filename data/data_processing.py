@@ -168,7 +168,9 @@ def create_date_dim(dates):
     dim_date.loc[:, 'day_of_week_name_pl'] = dim_date['date'].apply(lambda x : x.day_name(locale='pl_PL'))
     dim_date.loc[:, 'week'] = dim_date['date'].apply(lambda x : x.week)
     dim_date.loc[:, 'day_of_year'] = dim_date['date'].apply(lambda x : x.day_of_year)
-
+    dim_date.loc[:, 'year_month_day'] = (dim_date['year'].astype(str) + dim_date['month_str'] + dim_date['day_str']).astype(int)
+    dim_date.loc[:, 'year_month'] = (dim_date['year'].astype(str) + dim_date['month_str']).astype(int)
+    dim_date.loc[:, 'year_week'] = (dim_date['year'].astype(str) + dim_date['week'].apply(lambda x : int_to_str(x))).astype(int)
     return dim_date
 
 
