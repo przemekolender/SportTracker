@@ -45,7 +45,8 @@ with st.sidebar:
 
     if selected_year == '-' and selected_month == '-':
         st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
-        st.session_state["max_date"] = st.session_state["calendar"]['date'].max()
+        st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
+        #st.session_state["max_date"] = st.session_state["calendar"]['date'].max()
 
     elif selected_year != '-' and selected_month == '-':
         st.session_state["min_date"] = f"{selected_year}-01-01"
@@ -64,10 +65,21 @@ with st.sidebar:
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
     )
-    granultaion_translation = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
-    granulation = granultaion_translation[granulation_name]
+    granultaion_translation_x = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
+    granulation_x = granultaion_translation_x[granulation_name]
+    granultaion_translation_agg = {'Miesiąc' : 'year_month', 'Tydzień' : 'year_week', 'Dzień' : 'date'}
+    granulation_agg = granultaion_translation_x[granulation_name]
 
+    dates = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+    print(st.session_state["max_date"])
+    if granulation_name == 'Dzień':
+        dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
+    elif granulation_name == 'Tydzień':
+        dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','week','year_month','year_week']).size().reset_index()
+    else:
+        dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month']).size().reset_index()
 
+    calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
     calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
     calendar = calendar[~calendar['sport'].isna()]
     calendar = calendar[calendar['sport'] != '']
@@ -110,19 +122,20 @@ with st.sidebar:
 ###############################################################################################
 # plots - fist row
 ###############################################################################################
-plot_data = calendar_filtered[[category,granulation]] \
-    .groupby(by = [category, granulation]) \
-    .size() \
-    .reset_index(name='counts')
-
 calendar_filtered['sport_count'] = calendar_filtered['sport']
-plot_data = calendar_filtered.groupby([category, granulation]).agg({
+plot_data = calendar_filtered.groupby([category, granulation_agg]).agg({
     'sport_count' : 'count',
     'total_seconds' : 'sum'
 }).reset_index()
 plot_data['hours'] = np.round(plot_data['total_seconds'] / 3600, 2)
 plot_data['hours_str'] = plot_data['total_seconds'].apply(lambda x : hour_str(x))
-
+plot_data = plot_data.merge(
+    right = dates,
+    on = granulation_agg,
+    how='right'
+)
+#plot_data.loc[:, 'sport_count'] = plot_data['sport_count'].fillna(0)
+plot_data.loc[:, 'sport'] = plot_data['sport'].fillna('')
 
 col11, col12, col13 = st.columns([1,2,2])
 
@@ -150,12 +163,12 @@ col21, col22 = st.columns(2)
 
 with col21:
     fig = px.bar(plot_data,
-        x = granulation, 
+        x = granulation_x, 
         y = "sport_count",
         color=category, 
         color_discrete_map=pallete, 
         hover_name=category,
-        hover_data=['sport_count', granulation]
+        hover_data=['sport_count', granulation_x]
     )
 
     fig.update_layout(
@@ -193,12 +206,12 @@ col31, col32 = st.columns(2)
 with col31:
     fig_count = px.bar(
         plot_data,
-        x = granulation, 
+        x = granulation_x, 
         y = "hours",
         color=category, 
         color_discrete_map=pallete, 
         hover_name=category,
-        hover_data=['hours_str', granulation]
+        hover_data=['hours_str', granulation_x]
     )
 
     fig_count.update_layout(
