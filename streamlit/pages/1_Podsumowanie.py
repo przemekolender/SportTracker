@@ -81,7 +81,6 @@ with st.sidebar:
         dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
 
     calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
-    calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
     calendar = calendar[~calendar['sport'].isna()]
     calendar = calendar[calendar['sport'] != '']
     #calendar = calendar.merge(st.session_state["sports"], on = 'sport', how = 'left')
@@ -182,7 +181,6 @@ with col21:
     )
 
     fig.update_xaxes(
-        ticklabelmode="period",
         dtick="M1",
         tickformat="%b\n%Y"
     )
@@ -231,7 +229,6 @@ with col31:
     )
 
     fig_count.update_xaxes(
-        ticklabelmode="period",
         dtick="M1",
         tickformat="%b\n%Y"
     )
