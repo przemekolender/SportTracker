@@ -69,12 +69,21 @@ with st.sidebar:
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
     )
-    granultaion_translation = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
-    granulation = granultaion_translation[granulation_name]
+    granultaion_translation_x = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
+    granulation_x = granultaion_translation_x[granulation_name]
+    granultaion_translation_agg = {'Miesiąc' : 'year_month', 'Tydzień' : 'year_week', 'Dzień' : 'date'}
+    granulation_agg = granultaion_translation_agg[granulation_name]
 
-    ignore_empty = st.checkbox(
-        label = "Czy brać pod uwagę dni bez treningów"
-    )
+    dates = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+    if granulation_name == 'Dzień':
+        dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
+    elif granulation_name == 'Tydzień':
+        dates = dates.groupby(['year','week','year_week', 'fake_week_date']).size().reset_index()
+        dates.columns = ['year','week','year_week', 'date', 'size']
+    else:
+        dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']).size().reset_index()
+        dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
+
 
 ###############################################################################################
 # preparing data
@@ -90,27 +99,18 @@ calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_sta
 cal_all = workouts[workouts['sport'] == 'kalistenika']
 
 # merge with calendar to have date info
-if ignore_empty:
-    cal_all = cal_all.merge(
-        right = calendar,
-        on = 'date',
-        how = 'right'
-    )
-    cal_all['reps_sum'] = cal_all['reps_sum'].fillna(0)
-
-else:
-    cal_all = cal_all.merge(
-        right = calendar,
-        on = 'date',
-        how = 'inner'
-    )
-
+cal_all = cal_all.merge(
+    right = calendar,
+    on = 'date',
+    how = 'right'
+)
+cal_all['reps_sum'] = cal_all['reps_sum'].fillna(0)
 
 cal_all['muscle1'] = cal_all['muscle1'].fillna('')
 cal_all['muscle2'] = cal_all['muscle2'].fillna('')
 
 # grouping splitted row of 1 exercise if different weights were used
-cal_all = cal_all.groupby(['exercise', 'date', 'muscle1', 'muscle2', 'month', 'week', 'day_of_year']) \
+cal_all = cal_all.groupby(['exercise', 'date', 'muscle1', 'muscle2', 'year_month', 'year_week']) \
     .agg({
         'reps_sum':'sum'
     }) \
@@ -118,12 +118,18 @@ cal_all = cal_all.groupby(['exercise', 'date', 'muscle1', 'muscle2', 'month', 'w
 
 # grouping by granutlation period
 cal_all['exercise_count'] = cal_all['exercise']
-cal_agg = cal_all.groupby(['exercise', granulation, 'muscle1', 'muscle2']) \
+cal_agg = cal_all.groupby(['exercise', granulation_agg, 'muscle1', 'muscle2']) \
     .agg({
         'exercise_count' : 'count',
         'reps_sum':'sum'
     }) \
     .reset_index()
+
+cal_agg = cal_agg.merge(
+    right = dates,
+    on = granulation_agg,
+    how = 'right'
+)
 
 exercises = pd.DataFrame(st.session_state["workouts"]['exercise'].unique())
 exercises.columns = ['exercise']
@@ -221,12 +227,12 @@ col31, col32 = st.columns(2)
 pull_up_variations_all = exercises[exercises['exercise'].str.contains('podciąganie')]['exercise'].to_list()
 fig_pull = px.bar(
     cal_agg[cal_agg['exercise'].isin(pull_up_variations_all)],
-    x = granulation, 
+    x = 'date', 
     y = "reps_sum",
     color='exercise', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
     #hover_name=category,
-    hover_data=['reps_sum', granulation]
+    hover_data=['reps_sum', granulation_x]
 )
 fig_pull.update_layout(
     plot_bgcolor='white',
@@ -236,17 +242,22 @@ fig_pull.update_layout(
     title = "Wykonane powtórzenia podciągnięć",
 )
 
+fig_pull.update_xaxes(
+    dtick="M1",
+    tickformat="%b\n%Y"
+)
+
 with col31:
     st.plotly_chart(fig_pull, theme="streamlit", use_container_width=True)
 
 fig_push = px.bar(
     cal_agg[(cal_agg['exercise'].isin(push_up_variations)) | (cal_agg['exercise'].isin(dip_variations))],
-    x = granulation, 
+    x = 'date', 
     y = "reps_sum",
     color='exercise', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
     #hover_name=category,
-    hover_data=['reps_sum', granulation]
+    hover_data=['reps_sum', granulation_x]
 )
 fig_push.update_layout(
     plot_bgcolor='white',
@@ -254,6 +265,11 @@ fig_push.update_layout(
     xaxis_title = granulation_name,
     yaxis_title= "Liczba powtórzeń" ,
     title = "Wykonane powtórzenia pompek i dipów",
+)
+
+fig_push.update_xaxes(
+    dtick="M1",
+    tickformat="%b\n%Y"
 )
 
 with col32:

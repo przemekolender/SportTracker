@@ -69,12 +69,20 @@ with st.sidebar:
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
     )
-    granultaion_translation = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
-    granulation = granultaion_translation[granulation_name]
+    granultaion_translation_x = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
+    granulation_x = granultaion_translation_x[granulation_name]
+    granultaion_translation_agg = {'Miesiąc' : 'year_month', 'Tydzień' : 'year_week', 'Dzień' : 'date'}
+    granulation_agg = granultaion_translation_agg[granulation_name]
 
-    ignore_empty = st.checkbox(
-        label = "Czy brać pod uwagę dni bez treningów"
-    )
+    dates = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+    if granulation_name == 'Dzień':
+        dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
+    elif granulation_name == 'Tydzień':
+        dates = dates.groupby(['year','week','year_week', 'fake_week_date']).size().reset_index()
+        dates.columns = ['year','week','year_week', 'date', 'size']
+    else:
+        dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']).size().reset_index()
+        dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
 
 
 workouts = filter_by_period(
@@ -85,28 +93,18 @@ workouts = filter_by_period(
 )
 calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
 runs_all = workouts[workouts['sport'] == 'bieganie']
-if ignore_empty:
-    runs_all = runs_all.merge(
-        right = calendar,
-        on = 'date',
-        how = 'right'
-    )
-    runs_all['distance_km'] = runs_all['distance_km'].fillna(0)
-    runs_all['run_hours'] = runs_all['run_hours'].fillna(0)
-    runs_all['run_minutes'] = runs_all['run_minutes'].fillna(0)
-    runs_all['run_seconds'] = runs_all['run_seconds'].fillna(0)
-    runs_all['run_total_seconds'] = runs_all['run_total_seconds'].fillna(0)
+runs_all = runs_all.merge(
+    right = calendar,
+    on = 'date',
+    how = 'right'
+)
+runs_all['distance_km'] = runs_all['distance_km'].fillna(0)
+runs_all['run_hours'] = runs_all['run_hours'].fillna(0)
+runs_all['run_minutes'] = runs_all['run_minutes'].fillna(0)
+runs_all['run_seconds'] = runs_all['run_seconds'].fillna(0)
+runs_all['run_total_seconds'] = runs_all['run_total_seconds'].fillna(0)
 
-else:
-    runs_all = runs_all.merge(
-        right = calendar,
-        on = 'date',
-        how = 'inner'
-    )
-
-
-
-runs = runs_all.groupby([granulation]) \
+runs = runs_all.groupby([granulation_agg]) \
     .agg({
         'distance_km':'sum',
         'run_hours':'sum',
@@ -117,6 +115,11 @@ runs = runs_all.groupby([granulation]) \
     .reset_index()
 
 runs['hour_str'] = runs['run_total_seconds'].apply(lambda x : hour_str(int(x)))
+runs = runs.merge(
+    right = dates,
+    on = granulation_agg,
+    how = 'right'
+)
 
 
 ###############################################################################################
@@ -141,7 +144,7 @@ col21, col22 = st.columns(2)
 
 fig_distance = px.area(
     runs, 
-    x = granulation, 
+    x = 'date', 
     y = 'distance_km', 
     line_shape='spline', 
     markers=True
@@ -154,10 +157,15 @@ fig_distance.update_layout(
     title = "Przebiegnięty dystans w danym okresie"
 )
 
+fig_distance.update_xaxes(
+    dtick="M1",
+    tickformat="%b\n%Y"
+)
+
 runs['h'] = runs['run_total_seconds'] / 3600
 fig_time = px.area(
     runs, 
-    x = granulation, 
+    x = 'date', 
     y = 'h', 
     line_shape='spline', 
     markers=True,
@@ -169,6 +177,11 @@ fig_time.update_layout(
     xaxis_title = granulation_name,
     yaxis_title= "Czas biegania" ,
     title = "Czas biegania w danym okresie"
+)
+
+fig_time.update_xaxes(
+    dtick="M1",
+    tickformat="%b\n%Y"
 )
 
 with col21:

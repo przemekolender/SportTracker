@@ -81,7 +81,7 @@ elif calndar_type == 'Własny wybór':
     
 
 fig = go.Figure(go.Scatter(
-    x=c['week'], 
+    x=c['fake_week_date'], 
     y=c['day_of_week_name_pl'], 
     text=c['info'],
     hoverinfo = 'text',
@@ -91,8 +91,12 @@ fig = go.Figure(go.Scatter(
 fig.update_yaxes(categoryorder='array', categoryarray= ['Niedziela', 'Sobota', 'Piątek', 'Czwartek', 'Środa', 'Wtorek', 'Poniedziałek'])
 fig.update_layout(
     plot_bgcolor='rgba(0,0,0,0)',
-    xaxis_title = 'Tydzień',
+    xaxis_title = None,
     yaxis_title=None   
+)
+fig.update_xaxes(
+    dtick="M1",
+    tickformat="%b\n%Y"
 )
 
 st.plotly_chart(fig, use_container_width=True)
