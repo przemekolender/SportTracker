@@ -68,14 +68,13 @@ with st.sidebar:
     granultaion_translation_x = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
     granulation_x = granultaion_translation_x[granulation_name]
     granultaion_translation_agg = {'Miesiąc' : 'year_month', 'Tydzień' : 'year_week', 'Dzień' : 'date'}
-    granulation_agg = granultaion_translation_x[granulation_name]
+    granulation_agg = granultaion_translation_agg[granulation_name]
 
     dates = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
-    print(st.session_state["max_date"])
     if granulation_name == 'Dzień':
         dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
     elif granulation_name == 'Tydzień':
-        dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','week','year_month','year_week']).size().reset_index()
+        dates = dates.groupby(['year','week','year_week']).size().reset_index()
     else:
         dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month']).size().reset_index()
 
@@ -141,7 +140,7 @@ col11, col12, col13 = st.columns([1,2,2])
 
 with col11:
     metric_data = plot_data['sport_count'].sum()
-    st.metric(label="Łączna liczba treningów", value=metric_data)
+    st.metric(label="Łączna liczba treningów", value=int(metric_data))
 
 with col12:
     training_time = plot_data['total_seconds'].sum()
