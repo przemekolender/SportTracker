@@ -171,6 +171,17 @@ def create_date_dim(dates):
     dim_date.loc[:, 'year_month_day'] = (dim_date['year'].astype(str) + dim_date['month_str'] + dim_date['day_str']).astype(int)
     dim_date.loc[:, 'year_month'] = (dim_date['year'].astype(str) + dim_date['month_str']).astype(int)
     dim_date.loc[:, 'year_week'] = (dim_date['year'].astype(str) + dim_date['week'].apply(lambda x : int_to_str(x))).astype(int)
+    dim_date.loc[:, 'fake_month_date'] = pd.to_datetime(dim_date['year'].astype(str) + '-' + dim_date['month_str'] + '-01')
+
+    week_temp = dim_date[dim_date['day_of_week_name_en'] == 'Monday']
+    week_temp.loc[:, 'fake_week_date'] = pd.to_datetime(week_temp['year'].astype(str) + '-' + week_temp['month_str'] + '-' + week_temp['day_str'])
+    week_temp = week_temp[['week', 'fake_week_date']]
+    dim_date = dim_date.merge(
+        right = week_temp,
+        on = 'week',
+        how = 'left'
+    )
+    
     return dim_date
 
 

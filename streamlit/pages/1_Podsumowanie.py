@@ -74,9 +74,11 @@ with st.sidebar:
     if granulation_name == 'Dzień':
         dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
     elif granulation_name == 'Tydzień':
-        dates = dates.groupby(['year','week','year_week']).size().reset_index()
+        dates = dates.groupby(['year','week','year_week', 'fake_week_date']).size().reset_index()
+        dates.columns = ['year','week','year_week', 'date', 'size']
     else:
-        dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month']).size().reset_index()
+        dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']).size().reset_index()
+        dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
 
     calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
     calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
@@ -162,7 +164,7 @@ col21, col22 = st.columns(2)
 
 with col21:
     fig = px.bar(plot_data,
-        x = granulation_x, 
+        x = 'date', 
         y = "sport_count",
         color=category, 
         color_discrete_map=pallete, 
@@ -177,6 +179,12 @@ with col21:
         yaxis_title= "Liczba treningów" ,
         title = "Liczba treningów w przedziale czasowym",
         #margin=dict(l=20, r=30, t=10, b=20),
+    )
+
+    fig.update_xaxes(
+        ticklabelmode="period",
+        dtick="M1",
+        tickformat="%b\n%Y"
     )
     
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
@@ -205,7 +213,7 @@ col31, col32 = st.columns(2)
 with col31:
     fig_count = px.bar(
         plot_data,
-        x = granulation_x, 
+        x = 'date', 
         y = "hours",
         color=category, 
         color_discrete_map=pallete, 
@@ -220,6 +228,12 @@ with col31:
         yaxis_title= "Czas treningów" ,
         title = "Czas treningów w przedziale czasowym",
         #margin=dict(l=20, r=30, t=10, b=20),
+    )
+
+    fig_count.update_xaxes(
+        ticklabelmode="period",
+        dtick="M1",
+        tickformat="%b\n%Y"
     )
     
     st.plotly_chart(fig_count, theme="streamlit", use_container_width=True)
