@@ -52,9 +52,11 @@ with st.sidebar:
 
 
     elif selected_year != '-' and selected_month == '-':
-        st.session_state["min_date"] = f"{selected_year}-01-01"
-        #st.session_state["max_date"] = f"{selected_year}-12-31"
-        st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
+        st.session_state["min_date"] = f"{selected_year}-01-01"        
+        if selected_year == datetime.datetime.today().year:
+            st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
+        else:
+            st.session_state["max_date"] = f"{selected_year}-12-31"
 
     else:
         selected_month_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month]['month_str'].unique()[0]
