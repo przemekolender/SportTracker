@@ -95,6 +95,7 @@ fig.update_layout(
     yaxis_title=None   
 )
 fig.update_xaxes(
+    ticklabelmode="period",
     dtick="M1",
     tickformat="%b\n%Y"
 )
