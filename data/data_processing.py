@@ -173,11 +173,20 @@ def create_date_dim(dates):
     dim_date.loc[:, 'year_week'] = (dim_date['year'].astype(str) + dim_date['week'].apply(lambda x : int_to_str(x))).astype(int)
     dim_date.loc[:, 'fake_month_date'] = pd.to_datetime(dim_date['year'].astype(str) + '-' + dim_date['month_str'] + '-01')
 
-    week_temp = dim_date[dim_date['day_of_week_name_en'] == 'Monday']
-    week_temp.loc[:, 'fake_week_date'] = pd.to_datetime(week_temp['year'].astype(str) + '-' + week_temp['month_str'] + '-' + week_temp['day_str'])
-    week_temp = week_temp[['week', 'fake_week_date']]
+    week_start = dim_date[dim_date['day_of_week_name_en'] == 'Monday']
+    week_start.loc[:, 'week_start_date'] = pd.to_datetime(week_start['year'].astype(str) + '-' + week_start['month_str'] + '-' + week_start['day_str'])
+    week_start = week_start[['week', 'week_start_date']]
     dim_date = dim_date.merge(
-        right = week_temp,
+        right = week_start,
+        on = 'week',
+        how = 'left'
+    )
+
+    week_end = dim_date[dim_date['day_of_week_name_en'] == 'Sunday']
+    week_end.loc[:, 'week_end_date'] = pd.to_datetime(week_end['year'].astype(str) + '-' + week_end['month_str'] + '-' + week_end['day_str'])
+    week_end = week_end[['week', 'week_end_date']]
+    dim_date = dim_date.merge(
+        right = week_end,
         on = 'week',
         how = 'left'
     )
