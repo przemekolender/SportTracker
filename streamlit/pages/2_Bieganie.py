@@ -71,8 +71,8 @@ with st.sidebar:
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
     )
-    granultaion_translation_x = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
-    granulation_x = granultaion_translation_x[granulation_name]
+    granultaion_translation_hover = {'Miesiąc' : 'month_name_pl', 'Tydzień' : 'week_start_end', 'Dzień' : 'date'}
+    granulation_hover = granultaion_translation_hover[granulation_name]
     granultaion_translation_agg = {'Miesiąc' : 'year_month', 'Tydzień' : 'year_week', 'Dzień' : 'date'}
     granulation_agg = granultaion_translation_agg[granulation_name]
 
@@ -80,8 +80,9 @@ with st.sidebar:
     if granulation_name == 'Dzień':
         dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
     elif granulation_name == 'Tydzień':
-        dates = dates.groupby(['year','week','year_week', 'fake_week_date']).size().reset_index()
-        dates.columns = ['year','week','year_week', 'date', 'size']
+        dates = dates.groupby(['year','week','year_week', 'week_start_date', 'week_end_date']).size().reset_index()
+        dates['week_start_end'] = dates['week_start_date'].astype(str) + ' - ' + dates['week_end_date'].astype(str)
+        dates.columns = ['year','week','year_week', 'date', 'week_end_date', 'size', 'week_start_end']
     else:
         dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']).size().reset_index()
         dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
@@ -149,19 +150,19 @@ fig_distance = px.area(
     x = 'date', 
     y = 'distance_km', 
     line_shape='spline', 
-    markers=True
-)
-fig_distance.update_layout(
+    markers=True,
+    custom_data=[granulation_hover]
+).update_layout(
     plot_bgcolor='white',
     yaxis_range=[0, 1.1*runs['distance_km'].max()],
     xaxis_title = granulation_name,
     yaxis_title= "Przebiegnięty dystans" ,
     title = "Przebiegnięty dystans w danym okresie"
-)
-
-fig_distance.update_xaxes(
+).update_xaxes(
     dtick="M1",
     tickformat="%b\n%Y"
+).update_traces(
+    hovertemplate = "%{customdata[0]}<br>" + "Dystans: %{y} km<br>" + "<extra></extra>"
 )
 
 runs['h'] = runs['run_total_seconds'] / 3600
@@ -171,19 +172,18 @@ fig_time = px.area(
     y = 'h', 
     line_shape='spline', 
     markers=True,
-    hover_data='hour_str'
-)
-fig_time.update_layout(
+    custom_data=[granulation_hover, 'hour_str']
+).update_layout(
     plot_bgcolor='white',
     yaxis_range=[0, 1.1*runs['h'].max()],
     xaxis_title = granulation_name,
     yaxis_title= "Czas biegania" ,
     title = "Czas biegania w danym okresie"
-)
-
-fig_time.update_xaxes(
+).update_xaxes(
     dtick="M1",
     tickformat="%b\n%Y"
+).update_traces(
+    hovertemplate = "%{customdata[0]}<br>" + "Czas biegania: %{customdata[1]}<br>" + "<extra></extra>"
 )
 
 with col21:
@@ -206,9 +206,8 @@ fig_scatter = px.scatter(
     y = 'distance_km',
     trendline='lowess',
     trendline_color_override='lightblue',
-    hover_data='hour_str'
-)
-fig_scatter.add_trace(
+    custom_data=['hour_str']
+).add_trace(
     go.Scatter(
         x=[0, 1, 2, 3],
         y=[0, 12, 24, 36],
@@ -216,13 +215,14 @@ fig_scatter.add_trace(
         line=go.scatter.Line(color="palevioletred", dash='dash'),
         showlegend=False
     )
-)
-fig_scatter.update_layout(
+).update_layout(
     plot_bgcolor='white',
     yaxis_range=[0, 1.1*runs_all['distance_km'].max()],
     xaxis_title = "Czas biegania",
     yaxis_title= "Dystans" ,
     title = "Zależność przebiegniętego dystansu od czas"
+).update_traces(
+    hovertemplate = "Dystans: %{y} km<br>" + "Czas biegania: %{customdata[0]}<br>" + "<extra></extra>"
 )
 
 

@@ -69,8 +69,8 @@ with st.sidebar:
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
     )
-    granultaion_translation_x = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
-    granulation_x = granultaion_translation_x[granulation_name]
+    granultaion_translation_hover = {'Miesiąc' : 'month_name_pl', 'Tydzień' : 'week_start_end', 'Dzień' : 'date'}
+    granulation_hover = granultaion_translation_hover[granulation_name]
     granultaion_translation_agg = {'Miesiąc' : 'year_month', 'Tydzień' : 'year_week', 'Dzień' : 'date'}
     granulation_agg = granultaion_translation_agg[granulation_name]
 
@@ -78,8 +78,9 @@ with st.sidebar:
     if granulation_name == 'Dzień':
         dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
     elif granulation_name == 'Tydzień':
-        dates = dates.groupby(['year','week','year_week', 'fake_week_date']).size().reset_index()
-        dates.columns = ['year','week','year_week', 'date', 'size']
+        dates = dates.groupby(['year','week','year_week', 'week_start_date', 'week_end_date']).size().reset_index()
+        dates['week_start_end'] = dates['week_start_date'].astype(str) + ' - ' + dates['week_end_date'].astype(str)
+        dates.columns = ['year','week','year_week', 'date', 'week_end_date', 'size', 'week_start_end']
     else:
         dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']).size().reset_index()
         dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
@@ -166,27 +167,27 @@ with col13:
 col21, col22 = st.columns(2)
 
 with col21:
-    fig = px.bar(plot_data,
+    fig = px.bar(
+        plot_data,
         x = 'date', 
         y = "sport_count",
         color=category, 
         color_discrete_map=pallete, 
-        hover_name=category,
-        hover_data=['sport_count', granulation_x]
-    )
-
-    fig.update_layout(
+        #hover_name=category,
+        #hover_data=['month_name_pl', 'sport_count', 'sport'],
+        custom_data=[category,granulation_hover], 
+    ).update_layout(
         plot_bgcolor='white',
         showlegend=False,
         xaxis_title = granulation_name,
         yaxis_title= "Liczba treningów" ,
         title = "Liczba treningów w przedziale czasowym",
         #margin=dict(l=20, r=30, t=10, b=20),
-    )
-
-    fig.update_xaxes(
+    ).update_xaxes(
         dtick="M1",
         tickformat="%b\n%Y"
+    ).update_traces(
+        hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Liczba treningów: %{y}" + "<extra></extra>"
     )
     
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
@@ -198,10 +199,11 @@ with col22:
         names=category, 
         color=category,  
         color_discrete_map=pallete,
-    )
-
-    pie.update_layout(
+        custom_data=[category, 'sport_count'], 
+    ).update_layout(
         title= "Procentowy udział sportów w treningach"
+    ).update_traces(
+        hovertemplate = "<b>%{label}</b><br>" + "Liczba treningów: %{value}" + "<extra></extra>"
     )
     
     st.plotly_chart(pie, theme="streamlit", use_container_width=True)
@@ -219,22 +221,19 @@ with col31:
         y = "hours",
         color=category, 
         color_discrete_map=pallete, 
-        hover_name=category,
-        hover_data=['hours_str', granulation_x]
-    )
-
-    fig_count.update_layout(
+        custom_data=[category, granulation_hover, 'hours_str', ],
+    ).update_layout(
         plot_bgcolor='white',
         showlegend=False,
         xaxis_title = granulation_name,
         yaxis_title= "Czas treningów" ,
         title = "Czas treningów w przedziale czasowym",
         #margin=dict(l=20, r=30, t=10, b=20),
-    )
-
-    fig_count.update_xaxes(
+    ).update_xaxes(
         dtick="M1",
         tickformat="%b\n%Y"
+    ).update_traces(
+        hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Czas treningów: %{customdata[2]}" + "<extra></extra>"
     )
     
     st.plotly_chart(fig_count, theme="streamlit", use_container_width=True)
@@ -247,14 +246,11 @@ with col32:
         color=category,  
         color_discrete_map=pallete,
         #hover_data='hours_str'
-    )
-
-    pie_time.update_traces(
-        hovertemplate = "%{label}: %{percent}"
-    )
-
-    pie_time.update_layout(
+        custom_data=['hours_str']
+    ).update_layout(
         title = "Procentowy udział czasu uprawaniu sportów",
+    ).update_traces(
+        hovertemplate = "<b>%{label}</b><br>" + "Czas treningów: %{customdata[0]}"
     )
 
     st.plotly_chart(pie_time, theme="streamlit", use_container_width=True)

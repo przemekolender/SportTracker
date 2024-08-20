@@ -94,7 +94,7 @@ elif calndar_type == 'Własny wybór':
     
 
 fig = go.Figure(go.Scatter(
-    x=c['fake_week_date'], 
+    x=c['week_start_date'], 
     y=c['day_of_week_name_pl'], 
     text=c['info'],
     hoverinfo = 'text',

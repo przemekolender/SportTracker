@@ -71,8 +71,8 @@ with st.sidebar:
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
     )
-    granultaion_translation_x = {'Miesiąc' : 'month', 'Tydzień' : 'week', 'Dzień' : 'day_of_year'}
-    granulation_x = granultaion_translation_x[granulation_name]
+    granultaion_translation_hover = {'Miesiąc' : 'month_name_pl', 'Tydzień' : 'week_start_end', 'Dzień' : 'date'}
+    granulation_hover = granultaion_translation_hover[granulation_name]
     granultaion_translation_agg = {'Miesiąc' : 'year_month', 'Tydzień' : 'year_week', 'Dzień' : 'date'}
     granulation_agg = granultaion_translation_agg[granulation_name]
 
@@ -80,8 +80,9 @@ with st.sidebar:
     if granulation_name == 'Dzień':
         dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
     elif granulation_name == 'Tydzień':
-        dates = dates.groupby(['year','week','year_week', 'fake_week_date']).size().reset_index()
-        dates.columns = ['year','week','year_week', 'date', 'size']
+        dates = dates.groupby(['year','week','year_week', 'week_start_date', 'week_end_date']).size().reset_index()
+        dates['week_start_end'] = dates['week_start_date'].astype(str) + ' - ' + dates['week_end_date'].astype(str)
+        dates.columns = ['year','week','year_week', 'date', 'week_end_date', 'size', 'week_start_end']
     else:
         dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']).size().reset_index()
         dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
@@ -181,14 +182,16 @@ fig_fav = px.bar(
     x = "exercise_count", 
     y = "exercise",
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
-    orientation='h'
-)
-fig_fav.update_layout(
+    orientation='h',
+    custom_data=['exercise', 'exercise_count']
+).update_layout(
     plot_bgcolor='white',
     xaxis_title = "Liczba wystąpień",
-    yaxis_title= "exercise" ,
+    yaxis_title= "Ćwiczenie" ,
     title_x=0.3,
     title = "Najczęśniej wykonywane ćwiczenia",
+).update_traces(
+    hovertemplate = "<b>%{customdata[0]}</b><br>" + "Liczba wystąpieć ćwiczenia: %{customdata[1]}<br>" + "<extra></extra>"
 )
 
 with col21:
@@ -212,10 +215,10 @@ pie = px.pie(
     values='count', 
     names='muscle1', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
-)
-
-pie.update_layout(
+).update_layout(
     title = "Procentowy udział trenowanych mięśni"
+).update_traces(
+    hovertemplate = "<b>%{label}</b><br>" + "Liczba treningów tej partii: %{value}" + "<extra></extra>"
 )
     
 with col22:
@@ -233,20 +236,18 @@ fig_pull = px.bar(
     y = "reps_sum",
     color='exercise', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
-    #hover_name=category,
-    hover_data=['reps_sum', granulation_x]
-)
-fig_pull.update_layout(
+    custom_data=['exercise',granulation_hover]
+).update_layout(
     plot_bgcolor='white',
     showlegend=False,
     xaxis_title = granulation_name,
     yaxis_title= "Liczba powtórzeń" ,
     title = "Wykonane powtórzenia podciągnięć",
-)
-
-fig_pull.update_xaxes(
+).update_xaxes(
     dtick="M1",
     tickformat="%b\n%Y"
+).update_traces(
+    hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Liczba powtórzeń: %{y}" + "<extra></extra>"
 )
 
 with col31:
@@ -258,20 +259,18 @@ fig_push = px.bar(
     y = "reps_sum",
     color='exercise', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
-    #hover_name=category,
-    hover_data=['reps_sum', granulation_x]
-)
-fig_push.update_layout(
+    custom_data=['exercise',granulation_hover]
+).update_layout(
     plot_bgcolor='white',
     showlegend=False,
     xaxis_title = granulation_name,
     yaxis_title= "Liczba powtórzeń" ,
     title = "Wykonane powtórzenia pompek i dipów",
-)
-
-fig_push.update_xaxes(
+).update_xaxes(
     dtick="M1",
     tickformat="%b\n%Y"
+).update_traces(
+    hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Liczba powtórzeń: %{y}" + "<extra></extra>"
 )
 
 with col32:
