@@ -102,6 +102,7 @@ calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_sta
 cal_all = workouts[workouts['sport'] == 'kalistenika']
 
 # merge with calendar to have date info
+
 cal_all = cal_all.merge(
     right = calendar,
     on = 'date',
@@ -113,11 +114,14 @@ cal_all['muscle1'] = cal_all['muscle1'].fillna('')
 cal_all['muscle2'] = cal_all['muscle2'].fillna('')
 
 # grouping splitted row of 1 exercise if different weights were used
+
 cal_all = cal_all.groupby(['exercise', 'date', 'muscle1', 'muscle2', 'year_month', 'year_week']) \
+
     .agg({
         'reps':'sum'
     }) \
     .reset_index()
+
 
 # grouping by granutlation period
 cal_all['exercise_count'] = cal_all['exercise']
@@ -133,6 +137,7 @@ cal_agg = cal_agg.merge(
     on = granulation_agg,
     how = 'right'
 )
+
 
 exercises = pd.DataFrame(st.session_state["workouts"]['exercise'].unique())
 exercises.columns = ['exercise']
