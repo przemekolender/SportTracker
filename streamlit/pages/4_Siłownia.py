@@ -107,7 +107,7 @@ gym_all = gym_all.merge(
     on = 'date',
     how = 'right'
 )
-gym_all['reps_sum'] = gym_all['reps_sum'].fillna(0)
+gym_all['reps'] = gym_all['reps'].fillna(0)
 gym_all['weight'] = gym_all['weight'].fillna(0)
 gym_all['weights_lifted'] = gym_all['weights_lifted'].fillna(0)
 
@@ -116,7 +116,7 @@ gym_all.loc[:,'muscle2'] = gym_all['muscle2'].fillna('')
 
 gym_agg = gym_all.groupby([granulation_agg]) \
     .agg({
-        'reps_sum':'sum',
+        'reps':'sum',
         'weight':'sum',
         'weights_lifted':'sum'
     }) \
@@ -128,6 +128,8 @@ gym_agg = gym_agg.merge(
     how = 'right'
 )
 
+gym_agg_set = gym_all.groupby(['exercise', 'sets', 'reps', 'weight']).size().reset_index()
+gym_agg_set.columns = ['exercise', 'sets', 'reps', 'weight', 'times']
 
 ###############################################################################################
 # first row - metrics
@@ -135,7 +137,7 @@ gym_agg = gym_agg.merge(
 col11, col12 = st.columns(2)
 
 with col11:
-    reps = int(gym_all['reps_sum'].sum())
+    reps = int(gym_all['reps'].sum())
     st.metric(label="Wykonane powtórzenia", value=format(reps, ',').replace(',', ' '))
 
 with col12:
@@ -149,7 +151,7 @@ col21, col22 = st.columns(2)
 
 gym_ex_agg_temp = gym_all.groupby(['exercise', 'date', 'muscle1', 'muscle2']) \
     .agg({
-        'reps_sum':'sum',
+        'reps':'sum',
         'weight':'sum',
         'weights_lifted':'sum'
     }) \
@@ -160,7 +162,7 @@ gym_ex_agg_temp['exercise_count'] = gym_ex_agg_temp['exercise']
 gym_ex_agg = gym_ex_agg_temp.groupby(['exercise']) \
     .agg({
         'exercise_count' : 'count',
-        'reps_sum':'sum',
+        'reps':'sum',
         'weight':'sum',
         'weights_lifted':'sum'
     }) \
@@ -226,14 +228,14 @@ col31, col32 = st.columns(2)
 fig_reps = px.area(
     gym_agg, 
     x = 'date', 
-    y = 'reps_sum', 
+    y = 'reps', 
     line_shape='spline', 
     markers=True,
     color_discrete_sequence=px.colors.sequential.Peach_r,
     custom_data=[granulation_hover]
 ).update_layout(
     plot_bgcolor='white',
-    yaxis_range=[0, 1.1*gym_agg['reps_sum'].max()],
+    yaxis_range=[0, 1.1*gym_agg['reps'].max()],
     xaxis_title = granulation_name,
     yaxis_title= "Wykonane powtórzenia" ,
     title = "Liczba powtórzeń wykonan w danym okresie"
@@ -278,12 +280,14 @@ with col32:
 ###############################################################################################
 col41, col42 = st.columns(2)
 
-bench = gym_all[gym_all['exercise'] == 'wyciskanie na ławce płaskiej']
+bench = gym_agg_set[gym_agg_set['exercise'] == 'wyciskanie na ławce płaskiej']
 fig_bench = px.scatter(
     bench, 
-    x = 'reps_sum', 
+    x = 'reps', 
     y = 'weight',
-    color_discrete_sequence=px.colors.sequential.Peach_r
+    size= 'times',
+    color_discrete_sequence=px.colors.sequential.Peach_r,
+    custom_data=['times']
 ).update_layout(
     plot_bgcolor='white',
     yaxis_range=[0, 1.1*bench['weight'].max()],
@@ -291,19 +295,21 @@ fig_bench = px.scatter(
     yaxis_title= "Waga" ,
     title = "Wyciskanie",
 ).update_traces(
-    hovertemplate = "Liczba powtórzeń: %{x}<br>" + "Ciężar: %{y}<br>" + "<extra></extra>"
+    hovertemplate = "Liczba powtórzeń: %{x}<br>" + "Ciężar: %{y}<br>" + "Liczba serii: %{customdata[0]}<br>" + "<extra></extra>"
 )
 
 with col41:
     st.plotly_chart(fig_bench, theme="streamlit", use_container_width=True)
 
 
-ohp = gym_all[(gym_all['exercise'] == 'ohp') | (gym_all['exercise'] == 'martwy + ohp')]
+ohp = gym_agg_set[(gym_agg_set['exercise'] == 'ohp') | (gym_agg_set['exercise'] == 'martwy + ohp')]
 fig_ohp = px.scatter(
     ohp, 
-    x = 'reps_sum', 
+    x = 'reps', 
     y = 'weight',
-    color_discrete_sequence=px.colors.sequential.Peach_r
+    size= 'times',
+    color_discrete_sequence=px.colors.sequential.Peach_r,
+    custom_data=['times']
 ).update_layout(
     plot_bgcolor='white',
     yaxis_range=[0, 1.1*ohp['weight'].max()],
@@ -311,7 +317,7 @@ fig_ohp = px.scatter(
     yaxis_title= "Waga" ,
     title = "Ohp",
 ).update_traces(
-    hovertemplate = "Liczba powtórzeń: %{x}<br>" + "Ciężar: %{y}<br>" + "<extra></extra>"
+    hovertemplate = "Liczba powtórzeń: %{x}<br>" + "Ciężar: %{y}<br>" + "Liczba serii: %{customdata[0]}<br>" + "<extra></extra>"
 )
 
 with col42:
@@ -322,12 +328,14 @@ with col42:
 ###############################################################################################
 col51, col52 = st.columns(2)
 
-squat = gym_all[gym_all['exercise'] == 'przysiady']
+squat = gym_agg_set[gym_agg_set['exercise'] == 'przysiady']
 fig_squat = px.scatter(
     squat, 
-    x = 'reps_sum', 
+    x = 'reps', 
     y = 'weight',
-    color_discrete_sequence=px.colors.sequential.Peach_r
+    size= 'times',
+    color_discrete_sequence=px.colors.sequential.Peach_r,
+    custom_data=['times']
 ).update_layout(
     plot_bgcolor='white',
     yaxis_range=[0, 1.1*squat['weight'].max()],
@@ -335,19 +343,21 @@ fig_squat = px.scatter(
     yaxis_title= "Waga" ,
     title = "Przysiady",
 ).update_traces(
-    hovertemplate = "Liczba powtórzeń: %{x}<br>" + "Ciężar: %{y}<br>" + "<extra></extra>"
+    hovertemplate = "Liczba powtórzeń: %{x}<br>" + "Ciężar: %{y}<br>" + "Liczba serii: %{customdata[0]}<br>" + "<extra></extra>"
 )
 
 with col51:
     st.plotly_chart(fig_squat, theme="streamlit", use_container_width=True)
 
 
-deadlift = gym_all[(gym_all['exercise'] == 'martwy ciąg') | (gym_all['exercise'] == 'martwy + ohp')]
+deadlift = gym_agg_set[(gym_agg_set['exercise'] == 'martwy ciąg') | (gym_agg_set['exercise'] == 'martwy + ohp')]
 fig_deadlift = px.scatter(
     deadlift, 
-    x = 'reps_sum', 
+    x = 'reps', 
     y = 'weight',
-    color_discrete_sequence=px.colors.sequential.Peach_r
+    size= 'times',
+    color_discrete_sequence=px.colors.sequential.Peach_r,
+    custom_data=['times']
 ).update_layout(
     plot_bgcolor='white',
     yaxis_range=[0, 1.1*deadlift['weight'].max()],
@@ -355,7 +365,7 @@ fig_deadlift = px.scatter(
     yaxis_title= "Waga" ,
     title = "Martwy ciąg",
 ).update_traces(
-    hovertemplate = "Liczba powtórzeń: %{x}<br>" + "Ciężar: %{y}<br>" + "<extra></extra>"
+    hovertemplate = "Liczba powtórzeń: %{x}<br>" + "Ciężar: %{y}<br>" + "Liczba serii: %{customdata[0]}<br>" + "<extra></extra>"
 )
 
 with col52:
