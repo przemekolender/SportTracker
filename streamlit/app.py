@@ -41,9 +41,7 @@ if "max_date" not in st.session_state:
 ###############################################################################################
 # draw calendar
 ###############################################################################################
-c = st.session_state["calendar"]
-c['sport'] = c['sport'].fillna('')
-c['category'] = c['category'].fillna('')
+
 
 
 st.markdown("# Kalendarz treningów")
@@ -53,6 +51,19 @@ with st.sidebar:
         'Rodzaje sportów',
         ['Ogólne aktywności', 'Wszystkie', 'Kategorie', 'Bieganie i sporty siłowe', 'Własny wybór']
     )
+
+    year_list = list(st.session_state["calendar"]['year'].unique())[::-1]
+    selected_year = st.selectbox('Wybierz rok', ['-'] + year_list, index=len(year_list)-1)
+    if selected_year == '-':
+        st.session_state["min_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d').replace(str(datetime.datetime.today().year), str(datetime.datetime.today().year-1))
+        st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
+    else:
+        st.session_state["min_date"] = str(selected_year) + '-01-01'
+        st.session_state["max_date"] = str(selected_year) + '-12-31'
+
+c = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+c['sport'] = c['sport'].fillna('')
+c['category'] = c['category'].fillna('')
 
 if calndar_type == 'Wszystkie':
     color = c['sport'].apply(lambda x : sport_color[x])
@@ -78,10 +89,12 @@ elif calndar_type == 'Własny wybór':
             color.append('green')
         else:
             color.append('lightgray')
+
+
     
 
 fig = go.Figure(go.Scatter(
-    x=c['week'], 
+    x=c['week_start_date'], 
     y=c['day_of_week_name_pl'], 
     text=c['info'],
     hoverinfo = 'text',
@@ -91,8 +104,13 @@ fig = go.Figure(go.Scatter(
 fig.update_yaxes(categoryorder='array', categoryarray= ['Niedziela', 'Sobota', 'Piątek', 'Czwartek', 'Środa', 'Wtorek', 'Poniedziałek'])
 fig.update_layout(
     plot_bgcolor='rgba(0,0,0,0)',
-    xaxis_title = 'Tydzień',
+    xaxis_title = None,
     yaxis_title=None   
+)
+fig.update_xaxes(
+    ticklabelmode="period",
+    dtick="M1",
+    tickformat="%b\n%Y"
 )
 
 st.plotly_chart(fig, use_container_width=True)

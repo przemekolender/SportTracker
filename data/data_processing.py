@@ -137,6 +137,16 @@ def int_to_str(x : int):
         return '0' + str(x)
     else:
         return str(x)
+    
+
+###############################################################################################
+# helper function to print time in nice formatting
+###############################################################################################
+def hour_str(x : int):
+    h = int_to_str(x // 3600)
+    m = int_to_str((x % 3600) // 60)
+    s = int_to_str(x % 60)
+    return f"{h}:{m}:{s}"
 
 
 ###############################################################################################
@@ -158,15 +168,37 @@ def create_date_dim(dates):
     dim_date.loc[:, 'day_of_week_name_pl'] = dim_date['date'].apply(lambda x : x.day_name(locale='pl_PL'))
     dim_date.loc[:, 'week'] = dim_date['date'].apply(lambda x : x.week)
     dim_date.loc[:, 'day_of_year'] = dim_date['date'].apply(lambda x : x.day_of_year)
+    dim_date.loc[:, 'year_month_day'] = (dim_date['year'].astype(str) + dim_date['month_str'] + dim_date['day_str']).astype(int)
+    dim_date.loc[:, 'year_month'] = (dim_date['year'].astype(str) + dim_date['month_str']).astype(int)
+    dim_date.loc[:, 'year_week'] = (dim_date['year'].astype(str) + dim_date['week'].apply(lambda x : int_to_str(x))).astype(int)
+    dim_date.loc[:, 'fake_month_date'] = pd.to_datetime(dim_date['year'].astype(str) + '-' + dim_date['month_str'] + '-01')
 
+    week_start = dim_date[dim_date['day_of_week_name_en'] == 'Monday']
+    week_start.loc[:, 'week_start_date'] = pd.to_datetime(week_start['year'].astype(str) + '-' + week_start['month_str'] + '-' + week_start['day_str'])
+    week_start = week_start[['week', 'week_start_date']]
+    dim_date = dim_date.merge(
+        right = week_start,
+        on = 'week',
+        how = 'left'
+    )
+
+    week_end = dim_date[dim_date['day_of_week_name_en'] == 'Sunday']
+    week_end.loc[:, 'week_end_date'] = pd.to_datetime(week_end['year'].astype(str) + '-' + week_end['month_str'] + '-' + week_end['day_str'])
+    week_end = week_end[['week', 'week_end_date']]
+    dim_date = dim_date.merge(
+        right = week_end,
+        on = 'week',
+        how = 'left'
+    )
+    
     return dim_date
 
 
 ###############################################################################################
 # load data from tab calendar
 ###############################################################################################
-def load_calendar():
-    calnedar = get_data('Treningi 2024', 2)
+def load_calendar(sheet_name, sheet_id):
+    calnedar = get_data(sheet_name, sheet_id)
     calnedar.columns = ['index', 'date', 'week_day', 'sport', 'time']
     calnedar['date'] = pd.to_datetime(calnedar['date'], format='%d.%m.%Y')
     calnedar['info'] = calnedar['date'].apply(lambda x : str(x)[:10]+', ') + calnedar['sport']
@@ -177,7 +209,7 @@ def load_calendar():
     calnedar['seconds'] = calnedar['time'].apply(lambda x : str(x)[6:8]).astype(int)
     calnedar['total_seconds'] = calnedar['hours'] * 3600 + calnedar['minutes'] * 60 + calnedar['seconds']
 
-    sports = get_data("Treningi 2024", 0)
+    sports = get_data("Treningi", 0)
     sports.columns = ['sport','category']
     calnedar = calnedar.merge(
         right = sports,
