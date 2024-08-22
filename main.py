@@ -22,9 +22,9 @@ def main():
         [c2023, c2024], ignore_index=True
     ).reset_index(drop = True)
     calendar.to_csv("files/calendar.csv")
-    
-    os.system("streamlit run streamlit/app.py")
+
+    #os.system("streamlit run streamlit/app.py")
 
 
-if __name__ == "__main__":   
+if __name__ == "__main__":  
     main()
