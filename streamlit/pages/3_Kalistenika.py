@@ -116,7 +116,6 @@ cal_all['muscle2'] = cal_all['muscle2'].fillna('')
 # grouping splitted row of 1 exercise if different weights were used
 
 cal_all = cal_all.groupby(['exercise', 'date', 'muscle1', 'muscle2', 'year_month', 'year_week']) \
-
     .agg({
         'reps':'sum'
     }) \
