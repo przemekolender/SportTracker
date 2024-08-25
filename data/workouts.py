@@ -24,7 +24,7 @@ class Workouts:
         self.split_weights()
         self.split_sets()
         self.calcualte_reps_number()
-        self.calcualte_reps_sum()
+        #self.calcualte_reps_sum()
         self.calculate_kilos_sum()
 
         # set correct format on date column 
@@ -148,6 +148,8 @@ class Workouts:
             .apply(lambda x : x.split('x')[1]) \
             .astype(int)
         
+        self.workouts['reps_sum'] = self.workouts['sets'] * self.workouts['reps']
+        
 
     ###############################################################################################
     # adds column with intiger sum  of repetitions
@@ -182,5 +184,5 @@ class Workouts:
             .apply(lambda x : find_weight(x)) \
             .astype(float)
         
-        self.workouts['weights_lifted'] = self.workouts['weight'] * self.workouts['sets'] * self.workouts['reps']
+        self.workouts['weights_lifted'] = self.workouts['weight'] * self.workouts['sets'] * self.workouts['reps_sum']
 

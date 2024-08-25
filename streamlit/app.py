@@ -62,8 +62,8 @@ with st.sidebar:
         st.session_state["max_date"] = str(selected_year) + '-12-31'
 
 c = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
-c['sport'] = c['sport'].fillna('')
-c['category'] = c['category'].fillna('')
+c.loc[:, 'sport'] = c['sport'].fillna('')
+c.loc[:, 'category'] = c['category'].fillna('')
 
 if calndar_type == 'Wszystkie':
     color = c['sport'].apply(lambda x : sport_color[x])
