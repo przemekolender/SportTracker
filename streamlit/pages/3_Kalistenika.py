@@ -108,7 +108,7 @@ cal_all = cal_all.merge(
     on = 'date',
     how = 'right'
 )
-cal_all['reps'] = cal_all['reps'].fillna(0)
+cal_all['reps_sum'] = cal_all['reps_sum'].fillna(0)
 
 cal_all['muscle1'] = cal_all['muscle1'].fillna('')
 cal_all['muscle2'] = cal_all['muscle2'].fillna('')
@@ -117,7 +117,7 @@ cal_all['muscle2'] = cal_all['muscle2'].fillna('')
 
 cal_all = cal_all.groupby(['exercise', 'date', 'muscle1', 'muscle2', 'year_month', 'year_week']) \
     .agg({
-        'reps':'sum'
+        'reps_sum':'sum'
     }) \
     .reset_index()
 
@@ -127,7 +127,7 @@ cal_all['exercise_count'] = cal_all['exercise']
 cal_agg = cal_all.groupby(['exercise', granulation_agg, 'muscle1', 'muscle2']) \
     .agg({
         'exercise_count' : 'count',
-        'reps':'sum'
+        'reps_sum':'sum'
     }) \
     .reset_index()
 
@@ -147,22 +147,22 @@ exercises.columns = ['exercise']
 col11, col12, col13, col14 = st.columns(4)
 
 with col11:
-    reps = int(cal_agg['reps'].sum())
+    reps = int(cal_agg['reps_sum'].sum())
     st.metric(label="Wykonane powtórzenia", value=format(reps, ',').replace(',', ' '))
 
 with col12:
-    pull_up_variations = exercises[(exercises['exercise'].str.contains('podciąganie')) & (~exercises['exercise'].str.contains('australijskie'))]['exercise'].to_list()
-    reps_pullup = int(cal_agg[cal_agg['exercise'].isin(pull_up_variations)]['reps'].sum())
+    pull_up_variations = exercises[(exercises['exercise'].str.contains('podciąganie')) & (~exercises['exercise'].str.contains('australijskie', na=False))]['exercise'].to_list()
+    reps_pullup = int(cal_agg[cal_agg['exercise'].isin(pull_up_variations)]['reps_sum'].sum())
     st.metric(label="Wykonane podciągnięcia", value=format(reps_pullup, ',').replace(',', ' '))
 
 with col13:
     push_up_variations = exercises[(exercises['exercise'].str.contains('pompk')) | (exercises['exercise'].str.contains('diamenty'))]['exercise'].to_list()
-    reps_pushup = int(cal_agg[cal_agg['exercise'].isin(push_up_variations)]['reps'].sum())
+    reps_pushup = int(cal_agg[cal_agg['exercise'].isin(push_up_variations)]['reps_sum'].sum())
     st.metric(label="Wykonane pompki", value=format(reps_pushup, ',').replace(',', ' '))
 
 with col14:
-    dip_variations = exercises[exercises['exercise'].str.contains('dip')]['exercise'].to_list()
-    reps_dip = int(cal_agg[cal_agg['exercise'].isin(dip_variations)]['reps'].sum())
+    dip_variations = exercises[exercises['exercise'].str.contains('dip', na=False)]['exercise'].to_list()
+    reps_dip = int(cal_agg[cal_agg['exercise'].isin(dip_variations)]['reps_sum'].sum())
     st.metric(label="Wykonane dipy", value=format(reps_dip, ',').replace(',', ' '))
 
 
@@ -175,7 +175,7 @@ col21, col22 = st.columns(2)
 cal_agg_ex = cal_agg.groupby(['exercise', 'muscle1', 'muscle2']) \
     .agg({
         'exercise_count' : 'sum',
-        'reps':'sum'
+        'reps_sum':'sum'
     }) \
     .reset_index() \
     .sort_values(by = 'exercise_count', ascending = True) \
@@ -233,11 +233,11 @@ with col22:
 ###############################################################################################
 col31, col32 = st.columns(2)
 
-pull_up_variations_all = exercises[exercises['exercise'].str.contains('podciąganie')]['exercise'].to_list()
+pull_up_variations_all = exercises[exercises['exercise'].str.contains('podciąganie', na=False)]['exercise'].to_list()
 fig_pull = px.bar(
     cal_agg[cal_agg['exercise'].isin(pull_up_variations_all)],
     x = 'date', 
-    y = "reps",
+    y = "reps_sum",
     color='exercise', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
     custom_data=['exercise',granulation_hover]
@@ -260,7 +260,7 @@ with col31:
 fig_push = px.bar(
     cal_agg[(cal_agg['exercise'].isin(push_up_variations)) | (cal_agg['exercise'].isin(dip_variations))],
     x = 'date', 
-    y = "reps",
+    y = "reps_sum",
     color='exercise', 
     color_discrete_sequence=px.colors.sequential.Sunset_r, 
     custom_data=['exercise',granulation_hover]
