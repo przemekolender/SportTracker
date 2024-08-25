@@ -107,7 +107,7 @@ gym_all = gym_all.merge(
     on = 'date',
     how = 'right'
 )
-gym_all['reps'] = gym_all['reps'].fillna(0)
+gym_all['reps_sum'] = gym_all['reps_sum'].fillna(0)
 gym_all['weight'] = gym_all['weight'].fillna(0)
 gym_all['weights_lifted'] = gym_all['weights_lifted'].fillna(0)
 
@@ -116,7 +116,7 @@ gym_all.loc[:,'muscle2'] = gym_all['muscle2'].fillna('')
 
 gym_agg = gym_all.groupby([granulation_agg]) \
     .agg({
-        'reps':'sum',
+        'reps_sum':'sum',
         'weight':'sum',
         'weights_lifted':'sum'
     }) \
@@ -137,7 +137,7 @@ gym_agg_set.columns = ['exercise', 'sets', 'reps', 'weight', 'times']
 col11, col12 = st.columns(2)
 
 with col11:
-    reps = int(gym_all['reps'].sum())
+    reps = int(gym_all['reps_sum'].sum())
     st.metric(label="Wykonane powtórzenia", value=format(reps, ',').replace(',', ' '))
 
 with col12:
@@ -151,7 +151,7 @@ col21, col22 = st.columns(2)
 
 gym_ex_agg_temp = gym_all.groupby(['exercise', 'date', 'muscle1', 'muscle2']) \
     .agg({
-        'reps':'sum',
+        'reps_sum':'sum',
         'weight':'sum',
         'weights_lifted':'sum'
     }) \
@@ -162,7 +162,7 @@ gym_ex_agg_temp['exercise_count'] = gym_ex_agg_temp['exercise']
 gym_ex_agg = gym_ex_agg_temp.groupby(['exercise']) \
     .agg({
         'exercise_count' : 'count',
-        'reps':'sum',
+        'reps_sum':'sum',
         'weight':'sum',
         'weights_lifted':'sum'
     }) \
@@ -228,14 +228,14 @@ col31, col32 = st.columns(2)
 fig_reps = px.area(
     gym_agg, 
     x = 'date', 
-    y = 'reps', 
+    y = 'reps_sum', 
     line_shape='spline', 
     markers=True,
     color_discrete_sequence=px.colors.sequential.Peach_r,
     custom_data=[granulation_hover]
 ).update_layout(
     plot_bgcolor='white',
-    yaxis_range=[0, 1.1*gym_agg['reps'].max()],
+    yaxis_range=[0, 1.1*gym_agg['reps_sum'].max()],
     xaxis_title = granulation_name,
     yaxis_title= "Wykonane powtórzenia" ,
     title = "Liczba powtórzeń wykonan w danym okresie"
