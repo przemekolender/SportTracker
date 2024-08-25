@@ -114,7 +114,7 @@ def best_weight(workouts, exercise = '', start_date='0001-01-01', end_date='9999
     max_weight = workouts[workouts['exercise'] == exercise]['weight'].max()
     if pd.isna(max_weight):
         return 0, 0
-    details = workouts[(workouts['exercise'] == exercise) & (workouts['weight'] == max_weight)]['details_fixed'].to_list()
+    details = workouts[(workouts['exercise'] == exercise) & (workouts['weight'] == max_weight)]['details_fixed_w'].to_list()
     reps = help_most_reps(details)
     return float(max_weight), reps
 
