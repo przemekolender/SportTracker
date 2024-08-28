@@ -17,7 +17,7 @@ st.markdown("# Ostatnie wyniki ćwiczeń")
 alt.themes.enable("dark")
 
 if "workouts" not in st.session_state:
-    st.session_state["workouts"] = pd.read_csv("files/workouts.csv")
+    st.session_state["workouts"] = pd.read_csv("files/workouts.csv", sep='|')
 
 chosen_columns = ['date', 'sport', 'exercise', 'details', 'comments']
 w = st.session_state["workouts"][chosen_columns]

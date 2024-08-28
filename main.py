@@ -14,14 +14,14 @@ def main():
     w = pd.concat(
         [w2023.workouts, w2024.workouts], ignore_index=True
     ).reset_index(drop = True)
-    w.to_csv("files/workouts.csv")
+    w.to_csv("files/workouts.csv", sep='|')
     
     c2023 = load_calendar('Treningi', 4)
     c2024 = load_calendar('Treningi', 2)
     calendar = pd.concat(
         [c2023, c2024], ignore_index=True
     ).reset_index(drop = True)
-    calendar.to_csv("files/calendar.csv")
+    calendar.to_csv("files/calendar.csv", sep='|')
 
     #os.system("streamlit run streamlit/app.py")
 
