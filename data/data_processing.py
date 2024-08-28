@@ -114,9 +114,8 @@ def best_weight(workouts, exercise = '', start_date='0001-01-01', end_date='9999
     max_weight = workouts[workouts['exercise'] == exercise]['weight'].max()
     if pd.isna(max_weight):
         return 0, 0
-    details = workouts[(workouts['exercise'] == exercise) & (workouts['weight'] == max_weight)]['details_fixed_w'].to_list()
-    reps = help_most_reps(details)
-    return float(max_weight), reps
+    reps = workouts[(workouts['exercise'] == exercise) & (workouts['weight'] == max_weight)]['reps'].max()
+    return float(max_weight), int(reps)
 
 
 ###############################################################################################
@@ -124,9 +123,8 @@ def best_weight(workouts, exercise = '', start_date='0001-01-01', end_date='9999
 ###############################################################################################
 def most_reps(workouts, exercise = '', start_date='0001-01-01', end_date='9999-12-31'):
     #_workouts = filter_by_period(workouts, 'date', start_date, end_date)
-    details = workouts[workouts['exercise'] == exercise]['details_fixed'].to_list()
-    reps = help_most_reps(details)
-    return reps
+    reps = workouts[workouts['exercise'] == exercise]['details_fixed'].max()
+    return int(reps)
 
 
 ###############################################################################################
@@ -229,6 +227,10 @@ def load_calendar(sheet_name, sheet_id):
 
     return calnedar
 
+
+###############################################################################################
+# distance and time of runs are in separate rows - make df where there is one row per run
+###############################################################################################
 def transpose_runs(runs):
     runs = runs[runs['exercise'].isin(['dystans', 'czas'])].reset_index(drop=True)
     e = 0
