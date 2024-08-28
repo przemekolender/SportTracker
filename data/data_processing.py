@@ -123,8 +123,11 @@ def best_weight(workouts, exercise = '', start_date='0001-01-01', end_date='9999
 ###############################################################################################
 def most_reps(workouts, exercise = '', start_date='0001-01-01', end_date='9999-12-31'):
     #_workouts = filter_by_period(workouts, 'date', start_date, end_date)
-    reps = workouts[workouts['exercise'] == exercise]['details_fixed'].max()
-    return int(reps)
+    reps = workouts[workouts['exercise'] == exercise]['reps'].max()
+    if pd.isna(reps):
+        return 0
+    else:
+        return int(reps)
 
 
 ###############################################################################################
