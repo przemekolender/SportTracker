@@ -22,10 +22,10 @@ st.markdown("# Podsumowanie wszystkich treningów")
 alt.themes.enable("dark")
 
 if "workouts" not in st.session_state:
-    st.session_state["workouts"] = pd.read_csv("files/workouts.csv")
+    st.session_state["workouts"] = pd.read_csv("files/workouts.csv", sep='|')
 
 if "calendar" not in st.session_state:
-    st.session_state["calendar"] = pd.read_csv("files/calendar.csv")
+    st.session_state["calendar"] = pd.read_csv("files/calendar.csv", sep='|')
 
 if "min_date" not in st.session_state:
     st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
