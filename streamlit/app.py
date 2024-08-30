@@ -52,14 +52,6 @@ with st.sidebar:
         ['Ogólne aktywności', 'Wszystkie', 'Kategorie', 'Bieganie i sporty siłowe', 'Własny wybór']
     )
 
-    year_list = list(st.session_state["calendar"]['year'].unique())[::-1]
-    selected_year = st.selectbox('Wybierz rok', ['-'] + year_list, index=len(year_list)-1)
-    if selected_year == '-':
-        st.session_state["min_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d').replace(str(datetime.datetime.today().year), str(datetime.datetime.today().year-1))
-        st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
-    else:
-        st.session_state["min_date"] = str(selected_year) + '-01-01'
-        st.session_state["max_date"] = str(selected_year) + '-12-31'
 
 c = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
 c.loc[:, 'sport'] = c['sport'].fillna('')
@@ -111,6 +103,36 @@ fig.update_xaxes(
     ticklabelmode="period",
     dtick="M1",
     tickformat="%b\n%Y"
+)
+fig.update_layout(
+    xaxis=dict(
+        rangeselector=dict(
+            buttons=list([
+                dict(count=1,
+                     label="Ostatni miesiąc",
+                     step="month",
+                     stepmode="backward"),
+                dict(count=6,
+                     label="Ostatnie 6 miesięcy",
+                     step="month",
+                     stepmode="backward"),
+                dict(count=1,
+                     label="Ten rok",
+                     step="year",
+                     stepmode="todate"),
+                dict(count=1,
+                     label="Ostatni rok",
+                     step="year",
+                     stepmode="backward"),
+                dict(step="all",
+                     label="Wszystkie aktywności")
+            ])
+        ),
+        rangeslider=dict(
+            visible=True
+        ),
+        type="date"
+    )
 )
 
 st.plotly_chart(fig, use_container_width=True)
