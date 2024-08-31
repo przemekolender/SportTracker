@@ -116,15 +116,15 @@ with st.sidebar:
     #calendar = calendar.merge(st.session_state["sports"], on = 'sport', how = 'left')
     
 
-    # select sport categories
+    # select sport categories (sport alone can be a cetegory or multiple sports can be concatenated)
     calndar_type = st.radio(
         'Rodzaje sportów',
         ['Wszystkie', 'Kategorie', 'Bieganie i sporty siłowe', 'Własny wybór']
     )
     # default options
-    calendar_filtered = calendar
-    category = 'sport'
-    pallete = sport_color
+    calendar_filtered = calendar    # calendar filetered by sports chosen in categories
+    category = 'sport'              # decides if sports should be grouped by sport name or category name
+    pallete = sport_color           # pallete choice for given category
 
     # set options according to selected values
     if calndar_type == 'Wszystkie':
@@ -154,20 +154,18 @@ with st.sidebar:
 
 
 # prepare data for the plots
-calendar_filtered['sport_count'] = calendar_filtered['sport']
-plot_data = calendar_filtered.groupby([category, granulation_agg]).agg({
+calendar_filtered['sport_count'] = calendar_filtered['sport']                       # prepare for aggregation
+plot_data = calendar_filtered.groupby([category, granulation_agg]).agg({            # aggregate sport by chosen category in the chosen granulation
     'sport_count' : 'count',
     'total_seconds' : 'sum'
 }).reset_index()
-plot_data['hours'] = np.round(plot_data['total_seconds'] / 3600, 2)
-plot_data['hours_str'] = plot_data['total_seconds'].apply(lambda x : hour_str(x))
-plot_data = plot_data.merge(
+plot_data['hours'] = np.round(plot_data['total_seconds'] / 3600, 2)                 # add info about time as float
+plot_data['hours_str'] = plot_data['total_seconds'].apply(lambda x : hour_str(x))   # add info about time as string in format 00:00:00
+plot_data = plot_data.merge(                                                        # merge specific date info
     right = dates,
     on = granulation_agg,
     how='right'
 )
-#plot_data.loc[:, 'sport_count'] = plot_data['sport_count'].fillna(0)
-plot_data.loc[:, 'sport'] = plot_data[category].fillna('')
 
 
 ###############################################################################################
@@ -205,8 +203,6 @@ with col21:
         y = "sport_count",
         color=category, 
         color_discrete_map=pallete, 
-        #hover_name=category,
-        #hover_data=['month_name_pl', 'sport_count', 'sport'],
         custom_data=[category,granulation_hover], 
     ).update_layout(
         plot_bgcolor='white',
@@ -214,7 +210,6 @@ with col21:
         xaxis_title = granulation_name,
         yaxis_title= "Liczba treningów" ,
         title = "Liczba treningów w przedziale czasowym",
-        #margin=dict(l=20, r=30, t=10, b=20),
     ).update_xaxes(
         dtick="M1",
         tickformat="%b\n%Y"
@@ -277,7 +272,6 @@ with col32:
         names=category, 
         color=category,  
         color_discrete_map=pallete,
-        #hover_data='hours_str'
         custom_data=['hours_str']
     ).update_layout(
         title = "Procentowy udział czasu uprawaniu sportów",
