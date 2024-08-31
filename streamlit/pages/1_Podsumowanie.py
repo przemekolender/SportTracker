@@ -33,38 +33,62 @@ if "min_date" not in st.session_state:
 if "max_date" not in st.session_state:
     st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
 
+
 ###############################################################################################
 # sidebar options
 ###############################################################################################
+
+# always use dates no greater than today
+st.session_state["calendar"] = filter_by_period(
+    st.session_state["calendar"],
+    'date', st.session_state["calendar"]['date'].min(),
+    datetime.datetime.today().strftime(format='%Y-%m-%d')
+)
+
 with st.sidebar:   
-    year_list = list(st.session_state["calendar"]['year'].unique())[::-1]
-    selected_year = st.selectbox('Wybierz rok', ['-'] + year_list, index=len(year_list)-1)
 
-    month_list = list(st.session_state["calendar"][st.session_state["calendar"]['year'] == selected_year]['month_name_pl'].unique())
-    selected_month = st.selectbox('Wybierz miesiąc', ['-'] + month_list)
+    # select start year and month
+    col_year_start, col_month_start = st.columns(2)
+    with col_year_start:
+        year_list_start = st.session_state["calendar"]['year'].unique().tolist()
+        selected_year_start = st.selectbox('Rok początkowy', year_list_start, index=len(year_list_start)-1)
+  
+    with col_month_start:
+        month_list_start = st.session_state["calendar"].loc[
+            st.session_state["calendar"]['year'] == selected_year_start, ['month','month_name_pl']
+        ].groupby(['month','month_name_pl']).all().reset_index()
+        selected_month_start = st.selectbox('Miesiąc początkowy', month_list_start['month_name_pl'].tolist(), index=0)
+        selected_month_start_int = month_list_start.loc[month_list_start['month_name_pl'] == selected_month_start, 'month'].tolist()[0]
 
-    if selected_year == '-' and selected_month == '-':
-        st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
-        st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
-        #st.session_state["max_date"] = st.session_state["calendar"]['date'].max()
 
-    elif selected_year != '-' and selected_month == '-':
-        st.session_state["min_date"] = f"{selected_year}-01-01"
-        if selected_year == datetime.datetime.today().year:
-            st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
+    # select end year and month
+    col_year_end, col_month_end = st.columns(2)
+    with col_year_end:
+        year_list_end = st.session_state["calendar"].loc[st.session_state["calendar"]['year'] >= selected_year_start, 'year'].unique().tolist()
+        selected_year_end = st.selectbox('Rok końcowy', year_list_end, index=len(year_list_end)-1)
+
+    with col_month_end:
+        if selected_year_end == selected_year_start:
+            month_list_end = st.session_state["calendar"].loc[
+                (st.session_state["calendar"]['year'] == selected_year_end) & 
+                (st.session_state["calendar"]['month'] >= selected_month_start_int)
+                , 'month_name_pl'].unique().tolist()
         else:
-            st.session_state["max_date"] = f"{selected_year}-12-31"
+            month_list_end = st.session_state["calendar"].loc[(st.session_state["calendar"]['year'] == selected_year_end), 'month_name_pl'].unique().tolist()
+        selected_month_end = st.selectbox('Miesiąc końcowy', month_list_end, index=len(month_list_end)-1)
 
 
-    else:
-        selected_month_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month]['month_str'].unique()[0]
-        min_day = '01'
-        max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month]['day_num'].unique()[0]
+    # set min_date and max_date according to selected values
+    selected_month_start_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_start]['month_str'].unique()[0]
+    selected_month_end_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_end]['month_str'].unique()[0]
+    min_day = '01'
+    max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_start]['day_num'].unique()[0]
 
-        st.session_state["min_date"] = f"{selected_year}-{selected_month_num}-{min_day}"
-        st.session_state["max_date"] = f"{selected_year}-{selected_month_num}-{max_day}"
+    st.session_state["min_date"] = f"{selected_year_start}-{selected_month_start_num}-{min_day}"
+    st.session_state["max_date"] = f"{selected_year_end}-{selected_month_end_num}-{max_day}"
 
 
+    # select granulation
     granulation_name = st.radio(
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
@@ -85,19 +109,24 @@ with st.sidebar:
         dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']).size().reset_index()
         dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
 
+
     calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
     calendar = calendar[~calendar['sport'].isna()]
     calendar = calendar[calendar['sport'] != '']
     #calendar = calendar.merge(st.session_state["sports"], on = 'sport', how = 'left')
-    calendar_filtered = calendar
-    category = 'sport'
-    pallete = sport_color
+    
 
+    # select sport categories
     calndar_type = st.radio(
         'Rodzaje sportów',
         ['Wszystkie', 'Kategorie', 'Bieganie i sporty siłowe', 'Własny wybór']
     )
+    # default options
+    calendar_filtered = calendar
+    category = 'sport'
+    pallete = sport_color
 
+    # set options according to selected values
     if calndar_type == 'Wszystkie':
         calendar_filtered = calendar
         category = 'sport'
@@ -124,9 +153,7 @@ with st.sidebar:
         pallete = sport_color
 
 
-###############################################################################################
-# plots - fist row
-###############################################################################################
+# prepare data for the plots
 calendar_filtered['sport_count'] = calendar_filtered['sport']
 plot_data = calendar_filtered.groupby([category, granulation_agg]).agg({
     'sport_count' : 'count',
@@ -140,8 +167,12 @@ plot_data = plot_data.merge(
     how='right'
 )
 #plot_data.loc[:, 'sport_count'] = plot_data['sport_count'].fillna(0)
-plot_data.loc[:, 'sport'] = plot_data['sport'].fillna('')
+plot_data.loc[:, 'sport'] = plot_data[category].fillna('')
 
+
+###############################################################################################
+# plots - fist row
+###############################################################################################
 col11, col12, col13 = st.columns([1,2,2])
 
 with col11:
@@ -160,6 +191,7 @@ with col13:
         avg_time = training_time / metric_data
     h_avg, m_avg, s_avg =  int(avg_time // 3600), int((avg_time % 3600) // 60), int(avg_time % 60)
     st.metric(label="Średi czas treningu", value=f"{h_avg} godzin {m_avg} minut {s_avg} sekund")
+
 
 ###############################################################################################
 # plots - second row
@@ -187,7 +219,7 @@ with col21:
         dtick="M1",
         tickformat="%b\n%Y"
     ).update_traces(
-        hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Liczba treningów: %{y}" + "<extra></extra>"
+        hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Liczba treningów: %{y}" + "<extra></extra>",
     )
     
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
