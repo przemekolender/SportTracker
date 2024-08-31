@@ -38,35 +38,58 @@ if "max_date" not in st.session_state:
 ###############################################################################################
 # sidebar options
 ###############################################################################################
+
+# always use dates no greater than today
+st.session_state["calendar"] = filter_by_period(
+    st.session_state["calendar"],
+    'date', st.session_state["calendar"]['date'].min(),
+    datetime.datetime.today().strftime(format='%Y-%m-%d')
+)
+
 with st.sidebar:   
-    year_list = list(st.session_state["calendar"]['year'].unique())[::-1]
-    selected_year = st.selectbox('Wybierz rok', ['-'] + year_list, index=len(year_list)-1)
 
-    month_list = list(st.session_state["calendar"][st.session_state["calendar"]['year'] == selected_year]['month_name_pl'].unique())
-    selected_month = st.selectbox('Wybierz miesiąc', ['-'] + month_list)
+    # select start year and month
+    col_year_start, col_month_start = st.columns(2)
+    with col_year_start:
+        year_list_start = st.session_state["calendar"]['year'].unique().tolist()
+        selected_year_start = st.selectbox('Rok początkowy', year_list_start, index=len(year_list_start)-1)
+  
+    with col_month_start:
+        month_list_start = st.session_state["calendar"].loc[
+            st.session_state["calendar"]['year'] == selected_year_start, ['month','month_name_pl']
+        ].groupby(['month','month_name_pl']).all().reset_index()
+        selected_month_start = st.selectbox('Miesiąc początkowy', month_list_start['month_name_pl'].tolist(), index=0)
+        selected_month_start_int = month_list_start.loc[month_list_start['month_name_pl'] == selected_month_start, 'month'].tolist()[0]
 
-    if selected_year == '-' and selected_month == '-':
-        st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
-        #st.session_state["max_date"] = st.session_state["calendar"]['date'].max()
-        st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
 
+    # select end year and month
+    col_year_end, col_month_end = st.columns(2)
+    with col_year_end:
+        year_list_end = st.session_state["calendar"].loc[st.session_state["calendar"]['year'] >= selected_year_start, 'year'].unique().tolist()
+        selected_year_end = st.selectbox('Rok końcowy', year_list_end, index=len(year_list_end)-1)
 
-    elif selected_year != '-' and selected_month == '-':
-        st.session_state["min_date"] = f"{selected_year}-01-01"        
-        if selected_year == datetime.datetime.today().year:
-            st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
+    with col_month_end:
+        if selected_year_end == selected_year_start:
+            month_list_end = st.session_state["calendar"].loc[
+                (st.session_state["calendar"]['year'] == selected_year_end) & 
+                (st.session_state["calendar"]['month'] >= selected_month_start_int)
+                , 'month_name_pl'].unique().tolist()
         else:
-            st.session_state["max_date"] = f"{selected_year}-12-31"
-
-    else:
-        selected_month_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month]['month_str'].unique()[0]
-        min_day = '01'
-        max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month]['day_num'].unique()[0]
-
-        st.session_state["min_date"] = f"{selected_year}-{selected_month_num}-{min_day}"
-        st.session_state["max_date"] = f"{selected_year}-{selected_month_num}-{max_day}"
+            month_list_end = st.session_state["calendar"].loc[(st.session_state["calendar"]['year'] == selected_year_end), 'month_name_pl'].unique().tolist()
+        selected_month_end = st.selectbox('Miesiąc końcowy', month_list_end, index=len(month_list_end)-1)
 
 
+    # set min_date and max_date according to selected values
+    selected_month_start_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_start]['month_str'].unique()[0]
+    selected_month_end_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_end]['month_str'].unique()[0]
+    min_day = '01'
+    max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_start]['day_num'].unique()[0]
+
+    st.session_state["min_date"] = f"{selected_year_start}-{selected_month_start_num}-{min_day}"
+    st.session_state["max_date"] = f"{selected_year_end}-{selected_month_end_num}-{max_day}"
+
+
+    # select granulation
     granulation_name = st.radio(
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
