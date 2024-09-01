@@ -17,7 +17,7 @@ st.markdown("# Ostatnie wyniki ćwiczeń")
 alt.themes.enable("dark")
 
 if "workouts" not in st.session_state:
-    st.session_state["workouts"] = pd.read_csv("files/workouts.csv")
+    st.session_state["workouts"] = pd.read_csv("files/workouts.csv", sep='|')
 
 chosen_columns = ['date', 'sport', 'exercise', 'details', 'comments']
 w = st.session_state["workouts"][chosen_columns]
@@ -32,5 +32,5 @@ rows = st.number_input(label = "Ile ostatnich rekordów chcesz zobaczyć?", min_
 
 w['comments'] = w['comments'].fillna('')
 w = w.groupby(chosen_columns).size().reset_index()[chosen_columns]
-result = w[w['exercise'] == multiselect].sort_values(by = 'date', ascending = False)
+result = w[w['exercise'] == multiselect].sort_values(by = 'date', ascending = False).reset_index(drop = True)
 st.table(result.head(min(result.shape[0], rows)))
