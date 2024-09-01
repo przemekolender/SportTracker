@@ -83,7 +83,7 @@ with st.sidebar:
     selected_month_start_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_start]['month_str'].unique()[0]
     selected_month_end_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_end]['month_str'].unique()[0]
     min_day = '01'
-    max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_start]['day_num'].unique()[0]
+    max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_end]['day_num'].unique()[0]
 
     st.session_state["min_date"] = f"{selected_year_start}-{selected_month_start_num}-{min_day}"
     st.session_state["max_date"] = f"{selected_year_end}-{selected_month_end_num}-{max_day}"
@@ -94,21 +94,20 @@ with st.sidebar:
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
     )
-    granultaion_translation_hover = {'Miesiąc' : 'month_name_pl', 'Tydzień' : 'week_start_end', 'Dzień' : 'date'}
-    granulation_hover = granultaion_translation_hover[granulation_name]
-    granultaion_translation_agg = {'Miesiąc' : 'year_month', 'Tydzień' : 'year_week', 'Dzień' : 'date'}
-    granulation_agg = granultaion_translation_agg[granulation_name]
 
-    dates = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+    # prepare filed names for grouping by date
     if granulation_name == 'Dzień':
-        dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
+        granulation_agg = ['date'] 
+        new_date_name = 'date'
+        granulation_hover = 'date'
     elif granulation_name == 'Tydzień':
-        dates = dates.groupby(['year','week','year_week', 'week_start_date', 'week_end_date']).size().reset_index()
-        dates['week_start_end'] = dates['week_start_date'].astype(str) + ' - ' + dates['week_end_date'].astype(str)
-        dates.columns = ['year','week','year_week', 'date', 'week_end_date', 'size', 'week_start_end']
+        granulation_agg = ['year','week','year_week', 'week_start_date', 'week_end_date']
+        new_date_name = 'week_start_date'
+        granulation_hover = 'week_start_end'
     else:
-        dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']).size().reset_index()
-        dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
+        granulation_agg = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']
+        new_date_name = 'fake_month_date'
+        granulation_hover = 'month_name_pl'
 
 
 
@@ -121,10 +120,17 @@ workouts = filter_by_period(
     st.session_state['min_date'],
     st.session_state['max_date']
 )
-
-calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+calendar = filter_by_period(
+    st.session_state["calendar"],
+    'date', 
+    st.session_state["min_date"], 
+    st.session_state["max_date"]
+)
 gym_all = workouts[workouts['sport'] == 'siłownia']
+gym_all.loc[:,'muscle1'] = gym_all['muscle1'].fillna('')
+gym_all.loc[:,'muscle2'] = gym_all['muscle2'].fillna('')
 
+# merge with calendar to have date info
 gym_all = gym_all.merge(
     right = calendar,
     on = 'date',
@@ -134,25 +140,6 @@ gym_all['reps_sum'] = gym_all['reps_sum'].fillna(0)
 gym_all['weight'] = gym_all['weight'].fillna(0)
 gym_all['weights_lifted'] = gym_all['weights_lifted'].fillna(0)
 
-gym_all.loc[:,'muscle1'] = gym_all['muscle1'].fillna('')
-gym_all.loc[:,'muscle2'] = gym_all['muscle2'].fillna('')
-
-gym_agg = gym_all.groupby([granulation_agg]) \
-    .agg({
-        'reps_sum':'sum',
-        'weight':'sum',
-        'weights_lifted':'sum'
-    }) \
-    .reset_index()
-
-gym_agg = gym_agg.merge(
-    right = dates,
-    on = granulation_agg,
-    how = 'right'
-)
-
-gym_agg_set = gym_all.groupby(['exercise', 'sets', 'reps', 'weight']).size().reset_index()
-gym_agg_set.columns = ['exercise', 'sets', 'reps', 'weight', 'times']
 
 ###############################################################################################
 # first row - metrics
@@ -167,32 +154,32 @@ with col12:
     weight = int(gym_all['weights_lifted'].sum())
     st.metric(label="Podniesiony ciężar", value=f"{format(weight, ',').replace(',', ' ')} kg")
 
+
 ###############################################################################################
 # second row - favourite exercises and muscles
 ###############################################################################################
-col21, col22 = st.columns(2)
 
+# grouping splitted rows of 1 exercise to get real number of appearances
 gym_ex_agg_temp = gym_all.groupby(['exercise', 'date', 'muscle1', 'muscle2']) \
     .agg({
         'reps_sum':'sum',
         'weight':'sum',
         'weights_lifted':'sum'
-    }) \
-    .reset_index()
+    }).reset_index()
 
+# group exercises to sum all apperances, without periods
 gym_ex_agg_temp['exercise_count'] = gym_ex_agg_temp['exercise']
-
 gym_ex_agg = gym_ex_agg_temp.groupby(['exercise']) \
     .agg({
         'exercise_count' : 'count',
         'reps_sum':'sum',
         'weight':'sum',
         'weights_lifted':'sum'
-    }) \
-    .reset_index() \
+    }).reset_index() \
     .sort_values('exercise_count', ascending = True) \
     .tail(10)
 
+col21, col22 = st.columns(2)
 
 fig_fav = px.bar(
     gym_ex_agg,
@@ -213,6 +200,7 @@ fig_fav = px.bar(
 with col21:
     st.plotly_chart(fig_fav, theme="streamlit", use_container_width=True)
 
+# prepare data for pie chart with trained muscles
 gym_ex_agg_temp['muscle1_count'] = gym_ex_agg_temp['muscle1']
 gym_ex_agg_temp['muscle2_count'] = gym_ex_agg_temp['muscle2']
 muscle1_agg = gym_ex_agg_temp.groupby('muscle1').agg({'muscle1_count': 'count'}).reset_index()
@@ -226,6 +214,7 @@ muscle_agg = pd.merge(
 )
 muscle_agg['count'] = muscle_agg['muscle1_count'].fillna(0) * 2 + muscle_agg['muscle2_count'].fillna(0)
 muscle_agg.loc[:, 'muscle1'] = muscle_agg['muscle1'].fillna(muscle_agg['muscle2'])
+
 pie = px.pie(   
     muscle_agg, 
     values='count', 
@@ -240,12 +229,23 @@ with col22:
     st.plotly_chart(pie, theme="streamlit", use_container_width=True)
 
 
-
-
-
 ###############################################################################################
 # third row - reps and weight over time
 ###############################################################################################
+
+# group by time period to have number of reps and kg lifted over time
+gym_agg = gym_all.groupby(granulation_agg) \
+    .agg({
+        'reps_sum':'sum',
+        'weight':'sum',
+        'weights_lifted':'sum'
+    }) \
+    .reset_index()
+gym_agg.rename(columns = {new_date_name : 'date'}, inplace=True)                    # fix columns names to always have 'date' present
+if granulation_name == 'Tydzień':                                                   # add column with dates of start and end of the week for hovers
+    gym_agg['week_start_end'] = gym_agg['date'].astype(str) + ' - ' + gym_agg['week_end_date'].astype(str)
+
+
 col31, col32 = st.columns(2)
 
 fig_reps = px.area(
@@ -301,6 +301,11 @@ with col32:
 ###############################################################################################
 # fourth row - bench and ohp scatters
 ###############################################################################################
+
+# group to find all identical sets
+gym_agg_set = gym_all.groupby(['exercise', 'sets', 'reps', 'weight']).size().reset_index()
+gym_agg_set.columns = ['exercise', 'sets', 'reps', 'weight', 'times']
+
 col41, col42 = st.columns(2)
 
 bench = gym_agg_set[gym_agg_set['exercise'] == 'wyciskanie na ławce płaskiej']
@@ -393,3 +398,4 @@ fig_deadlift = px.scatter(
 
 with col52:
     st.plotly_chart(fig_deadlift, theme="streamlit", use_container_width=True)
+

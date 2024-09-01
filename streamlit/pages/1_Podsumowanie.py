@@ -41,7 +41,8 @@ if "max_date" not in st.session_state:
 # always use dates no greater than today
 st.session_state["calendar"] = filter_by_period(
     st.session_state["calendar"],
-    'date', st.session_state["calendar"]['date'].min(),
+    'date',
+    st.session_state["calendar"]['date'].min(),
     datetime.datetime.today().strftime(format='%Y-%m-%d')
 )
 
@@ -82,7 +83,7 @@ with st.sidebar:
     selected_month_start_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_start]['month_str'].unique()[0]
     selected_month_end_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_end]['month_str'].unique()[0]
     min_day = '01'
-    max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_start]['day_num'].unique()[0]
+    max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_end]['day_num'].unique()[0]
 
     st.session_state["min_date"] = f"{selected_year_start}-{selected_month_start_num}-{min_day}"
     st.session_state["max_date"] = f"{selected_year_end}-{selected_month_end_num}-{max_day}"
@@ -93,27 +94,26 @@ with st.sidebar:
         label="Wybierz granulację",
         options=['Miesiąc', 'Tydzień', 'Dzień']
     )
-    granultaion_translation_hover = {'Miesiąc' : 'month_name_pl', 'Tydzień' : 'week_start_end', 'Dzień' : 'date'}
-    granulation_hover = granultaion_translation_hover[granulation_name]
-    granultaion_translation_agg = {'Miesiąc' : 'year_month', 'Tydzień' : 'year_week', 'Dzień' : 'date'}
-    granulation_agg = granultaion_translation_agg[granulation_name]
 
-    dates = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+    # prepare filed names for grouping by date
     if granulation_name == 'Dzień':
-        dates = dates.drop(['week_day','sport','time','info','hours','minutes','seconds','total_seconds','category'], axis = 1)
+        granulation_agg = ['date'] 
+        new_date_name = 'date'
+        granulation_hover = 'date'
     elif granulation_name == 'Tydzień':
-        dates = dates.groupby(['year','week','year_week', 'week_start_date', 'week_end_date']).size().reset_index()
-        dates['week_start_end'] = dates['week_start_date'].astype(str) + ' - ' + dates['week_end_date'].astype(str)
-        dates.columns = ['year','week','year_week', 'date', 'week_end_date', 'size', 'week_start_end']
+        granulation_agg = ['year','week','year_week', 'week_start_date', 'week_end_date']
+        new_date_name = 'week_start_date'
+        granulation_hover = 'week_start_end'
     else:
-        dates = dates.groupby(['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']).size().reset_index()
-        dates.columns = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'date', 'size']
+        granulation_agg = ['year','month','month_str','month_name_en','month_name_pl','year_month', 'fake_month_date']
+        new_date_name = 'fake_month_date'
+        granulation_hover = 'month_name_pl'
 
 
+    # prepare calendar for drawing plots
     calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
     calendar = calendar[~calendar['sport'].isna()]
     calendar = calendar[calendar['sport'] != '']
-    #calendar = calendar.merge(st.session_state["sports"], on = 'sport', how = 'left')
     
 
     # select sport categories (sport alone can be a cetegory or multiple sports can be concatenated)
@@ -152,20 +152,20 @@ with st.sidebar:
         category = 'sport'
         pallete = sport_color
 
-
+###############################################################################################
 # prepare data for the plots
+###############################################################################################
 calendar_filtered['sport_count'] = calendar_filtered['sport']                       # prepare for aggregation
-plot_data = calendar_filtered.groupby([category, granulation_agg]).agg({            # aggregate sport by chosen category in the chosen granulation
+plot_data = calendar_filtered.groupby([category] + granulation_agg).agg({           # aggregate sport by chosen category in the chosen granulation
     'sport_count' : 'count',
     'total_seconds' : 'sum'
 }).reset_index()
+plot_data.rename(columns = {new_date_name : 'date'}, inplace=True)                  # fix columns names to always have 'date' present
 plot_data['hours'] = np.round(plot_data['total_seconds'] / 3600, 2)                 # add info about time as float
 plot_data['hours_str'] = plot_data['total_seconds'].apply(lambda x : hour_str(x))   # add info about time as string in format 00:00:00
-plot_data = plot_data.merge(                                                        # merge specific date info
-    right = dates,
-    on = granulation_agg,
-    how='right'
-)
+
+if granulation_name == 'Tydzień':                                                   # add column with dates of start and end of the week for hovers
+    plot_data['week_start_end'] = plot_data['date'].astype(str) + ' - ' + plot_data['week_end_date'].astype(str)
 
 
 ###############################################################################################
@@ -192,7 +192,7 @@ with col13:
 
 
 ###############################################################################################
-# plots - second row
+# plots - second row, number of workouts
 ###############################################################################################
 col21, col22 = st.columns(2)
 
@@ -237,7 +237,7 @@ with col22:
 
 
 ###############################################################################################
-# plots - third row
+# plots - third row, time of workouts
 ###############################################################################################
 col31, col32 = st.columns(2)
 
