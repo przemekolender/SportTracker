@@ -297,4 +297,3 @@ fig_push = px.bar(
 with col32:
     st.plotly_chart(fig_push, theme="streamlit", use_container_width=True)
 
-    
