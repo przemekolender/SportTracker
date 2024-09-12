@@ -236,30 +236,22 @@ def load_calendar(sheet_name, sheet_id):
 # distance and time of runs are in separate rows - make df where there is one row per run
 ###############################################################################################
 def transpose_runs(runs):
-    runs = runs[runs['exercise'].isin(['dystans', 'czas'])].reset_index(drop=True)
+    runs = runs[runs['exercise'].isin(['dystans', 'tempo', 'czas'])].reset_index(drop=True)
     e = 0
-    distance_counter = 0
     entity_id = []
     for i in range(runs.shape[0]):
-        if distance_counter == 1:
+        if runs['exercise'][i] == 'dystans':
             e += 1
         entity_id.append(e)
 
-        if runs['exercise'][i] == 'dystans':
-            distance_counter = 0
-        else:
-            distance_counter = 1
-
     runs['entity_id'] = entity_id
 
-    return runs.groupby('entity_id') \
-        .agg({
-            'distance_km':'max',
-            'run_hours':'max',
-            'run_minutes':'max',
-            'run_seconds':'max',
-            'run_total_seconds':'max'
-        }) \
-        .reset_index()
+    d = runs.loc[runs['exercise'] == 'dystans', ['date', 'exercise', 'distance_km', 'entity_id']]
+    p = runs.loc[runs['exercise'] == 'tempo', ['details', 'entity_id']]
+    p.rename(columns = {'details' : 'pace'}, inplace=True)
+    t = runs.loc[runs['exercise'] == 'czas', ['details', 'run_hours', 'run_minutes', 'run_seconds', 'run_total_seconds', 'entity_id']]
+    t.rename(columns = {'details' : 'time'}, inplace=True)
+
+    return d.merge(p, on='entity_id', how='inner').merge(t, on='entity_id', how='inner')
 
     
