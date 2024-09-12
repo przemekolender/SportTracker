@@ -219,14 +219,15 @@ with col22:
 
 runs_t = transpose_runs(runs_all)
 runs_t['h'] = runs_t['run_total_seconds'] / 3600
-runs_t['hour_str'] = runs_t['run_total_seconds'].apply(lambda x : hour_str(int(x)))
+runs_t['date_'] = runs_t['date'].astype(str).str[:11]
+#runs_t['hour_str'] = runs_t['run_total_seconds'].apply(lambda x : hour_str(int(x)))
 fig_scatter = px.scatter(
     runs_t, 
     x = 'h', 
     y = 'distance_km',
     trendline='lowess',
     trendline_color_override='lightblue',
-    custom_data=['hour_str']
+    custom_data=['time', 'pace', 'date_']
 ).add_trace(
     go.Scatter(
         x=[0, 1, 2, 3],
@@ -242,7 +243,7 @@ fig_scatter = px.scatter(
     yaxis_title= "Dystans [km]" ,
     title = "Zależność przebiegniętego dystansu od czas"
 ).update_traces(
-    hovertemplate = "Dystans: %{y} km<br>" + "Czas biegania: %{customdata[0]}<br>" + "<extra></extra>"
+    hovertemplate = "Dystans: %{y} km<br>" + "Czas biegania: %{customdata[0]}<br>" + "Tempo: %{customdata[1]}<br>" + "%{customdata[2]}<br>" + "<extra></extra>"
 )
 
 
