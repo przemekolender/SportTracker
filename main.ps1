@@ -1,27 +1,27 @@
-Write-Host "Switching to correct branch..."
-git checkout prod
-Write-Host "Done"
+& {
+    Write-Output "Switching to correct branch...`n"
+    git checkout prod
+    Write-Output "`nFinished switching to correct branch`n`n"
 
-Write-Host "Pulling code..."
-git pull origin prod
-Write-Host "Done"
+    Write-Output "Pulling code...`n"
+    git pull origin prod
+    Write-Output "`nFinished pulling code`n`n"
 
-Write-Host "Activating enviorement..."
-.\sporttracker_env\Scripts\Activate.ps1
-Write-Host "Done"
+    Write-Output "Activating enviorement...`n"
+    .\sporttracker_env\Scripts\Activate.ps1
+    Write-Output "`nFinished activating enviorement`n`n"
 
-Write-Host "Running python code..."
-python main.py
-Write-Host "Done"
+    Write-Output "Running python code...`n"
+    python main.py
+    Write-Output "`nFinished running python code`n`n"
 
-Write-Host "Adding new files to git..."
-git add files
-Write-Host "Done"
+    Write-Output "Adding new files to git...`n"
+    git add files
+    Write-Output "`nFinished adding new files to git`n`n"
 
-Write-Host "Commit and push to GitHub..."
-$date = Get-Date -Format "dd/MM/yyyy HH:mm"
-git commit -m "Update files, $date"
-git push origin prod
-Write-Host "Done"
-
-
+    Write-Output "Commit and push to GitHub...`n"
+    $date = Get-Date -Format "dd/MM/yyyy HH:mm"
+    git commit -m "Update files, $date"
+    git push origin prod
+    Write-Output "`nFinished Commit and push to GitHub`n`n"
+} 2>&1 | Tee-Object -FilePath log.txt
