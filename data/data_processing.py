@@ -48,8 +48,8 @@ def fill_data(df, column_name):
 # filter by date using start and end
 ###############################################################################################
 def filter_by_period(df, column_name, start_date = '0001-01-01', end_date = '9999-12-31'):
-    df[column_name] = pd.to_datetime(df[column_name])
-    return df[(df[column_name] >= start_date) & (df[column_name] <= end_date)]
+    #df[column_name] = pd.to_datetime(df[column_name])
+    return df[(pd.to_datetime(df[column_name]) >= start_date) & (pd.to_datetime(df[column_name]) <= end_date)]
 
 
 ###############################################################################################
