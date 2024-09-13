@@ -48,8 +48,8 @@ def fill_data(df, column_name):
 # filter by date using start and end
 ###############################################################################################
 def filter_by_period(df, column_name, start_date = '0001-01-01', end_date = '9999-12-31'):
-    df[column_name] = pd.to_datetime(df[column_name])
-    return df[(df[column_name] >= start_date) & (df[column_name] <= end_date)]
+    #df[column_name] = pd.to_datetime(df[column_name])
+    return df[(pd.to_datetime(df[column_name]) >= start_date) & (pd.to_datetime(df[column_name]) <= end_date)]
 
 
 ###############################################################################################
@@ -172,26 +172,30 @@ def create_date_dim(dates):
     dim_date.loc[:, 'year_month_day'] = (dim_date['year'].astype(str) + dim_date['month_str'] + dim_date['day_str']).astype(int)
     dim_date.loc[:, 'year_month'] = (dim_date['year'].astype(str) + dim_date['month_str']).astype(int)
     dim_date.loc[:, 'year_week'] = (dim_date['year'].astype(str) + dim_date['week'].apply(lambda x : int_to_str(x))).astype(int)
+    dim_date.loc[(dim_date['month'] == 12) & (dim_date['week'] == 1), 'year_week'] = ((dim_date['year']+1).astype(str) + dim_date['week'].apply(lambda x : int_to_str(x))).astype(int)
+    dim_date.loc[(dim_date['month'] == 1) & (dim_date['week'] > 5), 'year_week'] = ((dim_date['year']-1).astype(str) + dim_date['week'].apply(lambda x : int_to_str(x))).astype(int)
     dim_date.loc[:, 'fake_month_date'] = pd.to_datetime(dim_date['year'].astype(str) + '-' + dim_date['month_str'] + '-01')
 
     week_start = dim_date.loc[dim_date['day_of_week_name_en'] == 'Monday', :]
-    week_start.loc[:, 'week_start_date'] = week_start.loc[:, 'year'].astype(str) + '-' + week_start.loc[:, 'month_str'] + '-' + week_start.loc[:, 'day_str']
-    week_start.loc[:, 'week_start_date'] = pd.to_datetime(week_start.loc[:, 'week_start_date'])
-    week_start = week_start[['week', 'week_start_date']]
+    week_start = week_start[['year_week', 'date']]
+    week_start.rename(columns = {'date' : 'week_start_date'}, inplace=True)
     dim_date = dim_date.merge(
         right = week_start,
-        on = 'week',
+        on = 'year_week',
         how = 'left'
     )
 
     week_end = dim_date.loc[dim_date['day_of_week_name_en'] == 'Sunday', :]
-    week_end.loc[:, 'week_end_date'] = pd.to_datetime(week_end['year'].astype(str) + '-' + week_end['month_str'] + '-' + week_end['day_str'])
-    week_end = week_end[['week', 'week_end_date']]
+    week_end = week_end[['year_week', 'date']]
+    week_end.rename(columns = {'date' : 'week_end_date'}, inplace=True)
     dim_date = dim_date.merge(
         right = week_end,
-        on = 'week',
+        on = 'year_week',
         how = 'left'
     )
+
+    dim_date.loc[dim_date['week_start_date'].isnull(), 'week_start_date'] = pd.to_datetime(dim_date.loc[dim_date['week_start_date'].isnull(), 'week_end_date']) + pd.DateOffset(days=-6)
+    dim_date.loc[dim_date['week_end_date'].isnull(), 'week_end_date'] = pd.to_datetime(dim_date.loc[dim_date['week_end_date'].isnull(), 'week_start_date']) + pd.DateOffset(days=6)
     
     return dim_date
 
@@ -236,30 +240,22 @@ def load_calendar(sheet_name, sheet_id):
 # distance and time of runs are in separate rows - make df where there is one row per run
 ###############################################################################################
 def transpose_runs(runs):
-    runs = runs[runs['exercise'].isin(['dystans', 'czas'])].reset_index(drop=True)
+    runs = runs[runs['exercise'].isin(['dystans', 'tempo', 'czas'])].reset_index(drop=True)
     e = 0
-    distance_counter = 0
     entity_id = []
     for i in range(runs.shape[0]):
-        if distance_counter == 1:
+        if runs['exercise'][i] == 'dystans':
             e += 1
         entity_id.append(e)
 
-        if runs['exercise'][i] == 'dystans':
-            distance_counter = 0
-        else:
-            distance_counter = 1
-
     runs['entity_id'] = entity_id
 
-    return runs.groupby('entity_id') \
-        .agg({
-            'distance_km':'max',
-            'run_hours':'max',
-            'run_minutes':'max',
-            'run_seconds':'max',
-            'run_total_seconds':'max'
-        }) \
-        .reset_index()
+    d = runs.loc[runs['exercise'] == 'dystans', ['date', 'exercise', 'distance_km', 'entity_id']]
+    p = runs.loc[runs['exercise'] == 'tempo', ['details', 'entity_id']]
+    p.rename(columns = {'details' : 'pace'}, inplace=True)
+    t = runs.loc[runs['exercise'] == 'czas', ['details', 'run_hours', 'run_minutes', 'run_seconds', 'run_total_seconds', 'entity_id']]
+    t.rename(columns = {'details' : 'time'}, inplace=True)
+
+    return d.merge(p, on='entity_id', how='inner').merge(t, on='entity_id', how='inner')
 
     
