@@ -126,8 +126,8 @@ calendar = filter_by_period(
     st.session_state["max_date"]
 )
 cal_all = workouts[workouts['sport'] == 'kalistenika']
-cal_all['muscle1'] = cal_all['muscle1'].fillna('')
-cal_all['muscle2'] = cal_all['muscle2'].fillna('')
+cal_all.loc[:, 'muscle1'] = cal_all['muscle1'].fillna('')
+cal_all.loc[:, 'muscle2'] = cal_all['muscle2'].fillna('')
 
 # grouping splitted rows of 1 exercise to get real number of appearances
 cal_all = cal_all.groupby(['exercise', 'date', 'muscle1', 'muscle2']) \

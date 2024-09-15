@@ -57,17 +57,31 @@ c = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min
 c.loc[:, 'sport'] = c['sport'].fillna('')
 c.loc[:, 'category'] = c['category'].fillna('')
 
+# group by to concatenate 2 or more sports sport in 1 day
+c = c.groupby(['index', 'date', 'week_start_date', 'week_day', 'day_of_week_name_pl'], as_index = False)\
+    .agg({'sport': ', '.join,
+          'category': ', '.join})\
+    .reset_index(drop = True)
+
+# function helps to find color for sports and categories
+def find_sport(sports, pallete):
+    sports_arr = sports.split(', ')
+    for sport in sports_arr:
+        if pallete[sport] != 'lightGRAy':
+            return pallete[sport]
+    return 'lightGRAy'
+
 if calndar_type == 'Wszystkie':
-    color = c['sport'].apply(lambda x : sport_color[x])
+    color = c['sport'].apply(lambda x : find_sport(x, sport_color))
 
 elif calndar_type == 'Kategorie':
-    color = c['category'].apply(lambda x : sport_category_color[x])
+    color = c['category'].apply(lambda x : find_sport(x, sport_category_color))
 
 elif calndar_type == 'Bieganie i sporty siłowe':
-    color =  c['sport'].apply(lambda x : run_work[x])
+    color =  c['sport'].apply(lambda x : find_sport(x, run_work))
 
 elif calndar_type == 'Ogólne aktywności':
-    color = c['sport'].apply(lambda x : event_color[x])
+    color = c['sport'].apply(lambda x : find_sport(x, event_color))
 
 elif calndar_type == 'Własny wybór':
     with st.sidebar:
@@ -75,16 +89,33 @@ elif calndar_type == 'Własny wybór':
             label="Wybierz sporty",
             options=c['sport'].unique()
         )
+
+    # finding colors to manually selected sports
     color = []
     for sport_row in c['sport']:
-        if sport_row in multiselect:
-            color.append('green')
-        else:
+        flag = 0
+        sports = str(sport_row).split(', ')
+        for sport in sports:
+            if sport in multiselect:
+                color.append('green')
+                flag = 1
+                break
+        if flag == 0:
             color.append('lightgray')
 
+# createing information about sports in given day
+info = []
+for i in range(len(color)):
+    if color[i] == 'lightgray':
+        info.append(None)
+    else:
+        info.append(c.loc[i, 'date'] + ': ' + c.loc[i, 'sport'])
+c['info'] = info
 
-    
 
+###############################################################################################
+# draw calendar heatmap
+###############################################################################################
 fig = go.Figure(go.Scatter(
     x=c['week_start_date'], 
     y=c['day_of_week_name_pl'], 

@@ -30,7 +30,7 @@ multiselect = st.selectbox(
 
 rows = st.number_input(label = "Ile ostatnich rekordów chcesz zobaczyć?", min_value=0, max_value=None, value=5, step=1)
 
-w['comments'] = w['comments'].fillna('')
+w.loc[:, 'comments'] = w['comments'].fillna('')
 w = w.groupby(chosen_columns).size().reset_index()[chosen_columns]
 result = w[w['exercise'] == multiselect].sort_values(by = 'date', ascending = False).reset_index(drop = True)
 st.table(result.head(min(result.shape[0], rows)))
