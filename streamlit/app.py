@@ -67,9 +67,9 @@ c = c.groupby(['index', 'date', 'week_start_date', 'week_day', 'day_of_week_name
 def find_sport(sports, pallete):
     sports_arr = sports.split(', ')
     for sport in sports_arr:
-        if pallete[sport] != 'lightGRAy':
+        if pallete[sport] != 'lightgray':
             return pallete[sport]
-    return 'lightGRAy'
+    return 'lightgray'
 
 if calndar_type == 'Wszystkie':
     color = c['sport'].apply(lambda x : find_sport(x, sport_color))

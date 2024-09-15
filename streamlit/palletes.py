@@ -4,11 +4,11 @@ sport_category_color = {
     'inne' : 'rgb(82, 188, 63)',
     'sporty piłkowe' : 'rgb(229, 134, 6)', 
     'zawody' : 'RED' ,
-    '' : 'lightGRAy'
+    '' : 'lightgray'
 }
 
 sport_color = {
-    '': 'lightGRAy',
+    '': 'lightgray',
     'siłownia': 'rgb(235, 74, 64)',
     'bieganie': 'rgb(31, 119, 180)',
     'kalistenika': 'rgb(92, 83, 165)',
@@ -34,7 +34,7 @@ sport_color = {
 }
 
 event_color = {
-    '': 'lightGRAy',
+    '': 'lightgray',
     'siłownia': 'green',
     'bieganie': 'green',
     'kalistenika': 'green',
@@ -60,17 +60,17 @@ event_color = {
 }
 
 run_work = {
-    '': 'lightGRAy',
+    '': 'lightgray',
     'siłownia': 'rgb(235, 74, 64)',
     'bieganie': 'rgb(31, 119, 180)',
     'kalistenika': 'rgb(92, 83, 165)',
-    'siatkówka': 'lightGRAy',
-    'rower': 'lightGRAy',
+    'siatkówka': 'lightgray',
+    'rower': 'lightgray',
     'Półmaraton Warszawski': 'RED',
-    'piłka nożna': 'lightGRAy',
-    'góry': 'lightGRAy',
-    'plażówka': 'lightGRAy',
-    'squash': 'lightGRAy',
+    'piłka nożna': 'lightgray',
+    'góry': 'lightgray',
+    'plażówka': 'lightgray',
+    'squash': 'lightgray',
     'ocr': 'green',
     'Runmageddon Rekrut': 'RED',
     'Runmageddon Ultra': 'RED',
@@ -82,5 +82,5 @@ run_work = {
     'Bieg Niepodległości': 'RED',
     'Runmageddon Classic': 'RED',
     'Runmageddon Hardcore': 'RED',
-    'pływanie' : 'lightGRAy'
+    'pływanie' : 'lightgray'
 }
