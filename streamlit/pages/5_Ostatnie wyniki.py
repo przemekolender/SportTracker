@@ -25,12 +25,15 @@ w = st.session_state["workouts"][chosen_columns]
 exercises = w['exercise'].unique()
 multiselect = st.selectbox(
     label="Wybierz ćwiczenie",
-    options=exercises
+    options=exercises,
+    index=None,
+    placeholder=""
 )
 
 rows = st.number_input(label = "Ile ostatnich rekordów chcesz zobaczyć?", min_value=0, max_value=None, value=5, step=1)
 
-w.loc[:, 'comments'] = w['comments'].fillna('')
-w = w.groupby(chosen_columns).size().reset_index()[chosen_columns]
-result = w[w['exercise'] == multiselect].sort_values(by = 'date', ascending = False).reset_index(drop = True)
-st.table(result.head(min(result.shape[0], rows)))
+if multiselect is not None:
+    w.loc[:, 'comments'] = w['comments'].fillna('')
+    w = w.groupby(chosen_columns).size().reset_index()[chosen_columns]
+    result = w[w['exercise'] == multiselect].sort_values(by = 'date', ascending = False).reset_index(drop = True)
+    st.table(result.head(min(result.shape[0], rows)))
