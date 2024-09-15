@@ -109,7 +109,7 @@ for i in range(len(color)):
     if color[i] == 'lightgray':
         info.append(None)
     else:
-        info.append(c.loc[i, 'date'] + ': ' + c.loc[i, 'sport'])
+        info.append(str(c.loc[i, 'date']) + ': ' + str(c.loc[i, 'sport']))
 c['info'] = info
 
 
