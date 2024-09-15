@@ -2104,3 +2104,30 @@
 2102|122|2024-09-14|bieganie|dystans|15.14||15.14|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 2103|122|2024-09-14|bieganie|tempo|5'03||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 2104|122|2024-09-14|bieganie|czas|01:16:21||0.0|1.0|16.0|21.0|4581.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2105|123|2024-09-15|kalistenika|podciąganie nachwytem|x13 x8 x9|s1|0.0|0.0|0.0|0.0|0.0|1x13 1x8 1x9|1x13 1x8 1x9|1x13|1|13|13|0.0|0.0|plecy||
+2106|123|2024-09-15|kalistenika|podciąganie nachwytem|x13 x8 x9|s1|0.0|0.0|0.0|0.0|0.0|1x13 1x8 1x9|1x13 1x8 1x9|1x8|1|8|8|0.0|0.0|plecy||
+2107|123|2024-09-15|kalistenika|podciąganie nachwytem|x13 x8 x9|s1|0.0|0.0|0.0|0.0|0.0|1x13 1x8 1x9|1x13 1x8 1x9|1x9|1|9|9|0.0|0.0|plecy||
+2108|123|2024-09-15|kalistenika|dipy|x10 x8 x9|s1|0.0|0.0|0.0|0.0|0.0|1x10 1x8 1x9|1x10 1x8 1x9|1x10|1|10|10|0.0|0.0|triceps|klatka|
+2109|123|2024-09-15|kalistenika|dipy|x10 x8 x9|s1|0.0|0.0|0.0|0.0|0.0|1x10 1x8 1x9|1x10 1x8 1x9|1x8|1|8|8|0.0|0.0|triceps|klatka|
+2110|123|2024-09-15|kalistenika|dipy|x10 x8 x9|s1|0.0|0.0|0.0|0.0|0.0|1x10 1x8 1x9|1x10 1x8 1x9|1x9|1|9|9|0.0|0.0|triceps|klatka|
+2111|123|2024-09-15|kalistenika|przysiady na jednej nodze, negatywy|x4 x4 x4|s1|0.0|0.0|0.0|0.0|0.0|1x4 1x4 1x4|1x4 1x4 1x4|1x4|1|4|4|0.0|0.0|nogi||
+2112|123|2024-09-15|kalistenika|przysiady na jednej nodze, negatywy|x4 x4 x4|s1|0.0|0.0|0.0|0.0|0.0|1x4 1x4 1x4|1x4 1x4 1x4|1x4|1|4|4|0.0|0.0|nogi||
+2113|123|2024-09-15|kalistenika|przysiady na jednej nodze, negatywy|x4 x4 x4|s1|0.0|0.0|0.0|0.0|0.0|1x4 1x4 1x4|1x4 1x4 1x4|1x4|1|4|4|0.0|0.0|nogi||
+2114|123|2024-09-15|kalistenika|podciąganie podchwytem|x8 x7 x8|s2|0.0|0.0|0.0|0.0|0.0|1x8 1x7 1x8|1x8 1x7 1x8|1x8|1|8|8|0.0|0.0|plecy|biceps|
+2115|123|2024-09-15|kalistenika|podciąganie podchwytem|x8 x7 x8|s2|0.0|0.0|0.0|0.0|0.0|1x8 1x7 1x8|1x8 1x7 1x8|1x7|1|7|7|0.0|0.0|plecy|biceps|
+2116|123|2024-09-15|kalistenika|podciąganie podchwytem|x8 x7 x8|s2|0.0|0.0|0.0|0.0|0.0|1x8 1x7 1x8|1x8 1x7 1x8|1x8|1|8|8|0.0|0.0|plecy|biceps|
+2117|123|2024-09-15|kalistenika|pompki|x15 x15 x15|s2|0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|klatka|triceps|
+2118|123|2024-09-15|kalistenika|pompki|x15 x15 x15|s2|0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|klatka|triceps|
+2119|123|2024-09-15|kalistenika|pompki|x15 x15 x15|s2|0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|klatka|triceps|
+2120|123|2024-09-15|kalistenika|bułgary|x9 x9 x9|s2|0.0|0.0|0.0|0.0|0.0|1x9 1x9 1x9|1x9 1x9 1x9|1x9|1|9|9|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+2121|123|2024-09-15|kalistenika|bułgary|x9 x9 x9|s2|0.0|0.0|0.0|0.0|0.0|1x9 1x9 1x9|1x9 1x9 1x9|1x9|1|9|9|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+2122|123|2024-09-15|kalistenika|bułgary|x9 x9 x9|s2|0.0|0.0|0.0|0.0|0.0|1x9 1x9 1x9|1x9 1x9 1x9|1x9|1|9|9|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+2123|123|2024-09-15|kalistenika|podciąganie australijskie nachwytem|x15 x15|s3|0.0|0.0|0.0|0.0|0.0|1x15 1x15|1x15 1x15|1x15|1|15|15|0.0|0.0|plecy||
+2124|123|2024-09-15|kalistenika|podciąganie australijskie nachwytem|x15 x15|s3|0.0|0.0|0.0|0.0|0.0|1x15 1x15|1x15 1x15|1x15|1|15|15|0.0|0.0|plecy||
+2125|123|2024-09-15|kalistenika|diamenty|x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|triceps|klatka|
+2126|123|2024-09-15|kalistenika|diamenty|x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|triceps|klatka|
+2127|123|2024-09-15|kalistenika|wzniosy nóg do drążka|x6 x5|s3|0.0|0.0|0.0|0.0|0.0|1x6 1x5|1x6 1x5|1x6|1|6|6|0.0|0.0|brzuch|chwyt|
+2128|123|2024-09-15|kalistenika|wzniosy nóg do drążka|x6 x5|s3|0.0|0.0|0.0|0.0|0.0|1x6 1x5|1x6 1x5|1x5|1|5|5|0.0|0.0|brzuch|chwyt|
+2129|123|2024-09-15|kalistenika|podciąganie australijskie  podchywtem|x12|s4|0.0|0.0|0.0|0.0|0.0|1x12|1x12|1x12|1|12|12|0.0|0.0|plecy|biceps|
+2130|123|2024-09-15|kalistenika|stanie na rękach|30s|s4|0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|barki||na czas
+2131|123|2024-09-15|kalistenika|wzniosy nóg|x10|s4|0.0|0.0|0.0|0.0|0.0|1x10|1x10|1x10|1|10|10|0.0|0.0|brzuch|chwyt|
