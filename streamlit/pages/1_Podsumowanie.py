@@ -167,6 +167,13 @@ plot_data['hours_str'] = plot_data['total_seconds'].apply(lambda x : hour_str(x)
 if granulation_name == 'Tydzień':                                                   # add column with dates of start and end of the week for hovers
     plot_data['week_start_end'] = plot_data['date'].astype(str) + ' - ' + plot_data['week_end_date'].astype(str)
 
+plot_data_pie_time = calendar_filtered.groupby(category).agg({           # aggregate sport by chosen category in the chosen granulation
+    'sport_count' : 'count',
+    'total_seconds' : 'sum'
+}).reset_index()
+plot_data_pie_time['hours'] = np.round(plot_data_pie_time['total_seconds'] / 3600, 2)                 # add info about time as float
+plot_data_pie_time['hours_str'] = plot_data_pie_time['total_seconds'].apply(lambda x : hour_str(x))   # add info about time as string in format 00:00:00
+
 
 ###############################################################################################
 # plots - fist row
@@ -267,7 +274,7 @@ with col31:
 
 with col32:
     pie_time = px.pie(
-        plot_data, 
+        plot_data_pie_time, 
         values='hours', 
         names=category, 
         color=category,  
@@ -276,7 +283,7 @@ with col32:
     ).update_layout(
         title = "Procentowy udział czasu uprawaniu sportów",
     ).update_traces(
-        hovertemplate = "<b>%{label}</b><br>" + "Czas treningów: %{customdata[0]}"
+        hovertemplate = "<b>%{label}</b><br>" + "Czas treningów: %{customdata[0]}"+ "<extra></extra>"
     )
 
     st.plotly_chart(pie_time, theme="streamlit", use_container_width=True)

@@ -126,6 +126,12 @@ calendar = filter_by_period(
     st.session_state["min_date"], 
     st.session_state["max_date"]
 )
+
+# clear calendar if more than one activity on a day
+calendar = calendar.drop(['Unnamed: 0', 'sport', 'time', 'info', 'hours', 'minutes', 'seconds', 'total_seconds', 'category'], axis = 1)
+calendar = calendar.groupby(calendar.columns.to_list()).size().reset_index()
+
+
 gym_all = workouts[workouts['sport'] == 'siłownia']
 gym_all.loc[:,'muscle1'] = gym_all['muscle1'].fillna('')
 gym_all.loc[:,'muscle2'] = gym_all['muscle2'].fillna('')
