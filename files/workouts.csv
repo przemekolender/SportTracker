@@ -2165,29 +2165,39 @@
 2163|127|2024-09-24|bieganie|dystans|11.55||11.55|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 2164|127|2024-09-24|bieganie|tempo|4'45||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 2165|127|2024-09-24|bieganie|czas|00:54:53||0.0|0.0|54.0|53.0|3293.0|||0x0|0|0|0|0.0|0.0|bieganie||
-2166|128|2024-09-24|kalistenika|podciąganie nachwytem|x10 x7 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x7 1x10|1x10 1x7 1x10|1x10|1|10|10|0.0|0.0|plecy||
-2167|128|2024-09-24|kalistenika|podciąganie nachwytem|x10 x7 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x7 1x10|1x10 1x7 1x10|1x7|1|7|7|0.0|0.0|plecy||
-2168|128|2024-09-24|kalistenika|podciąganie nachwytem|x10 x7 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x7 1x10|1x10 1x7 1x10|1x10|1|10|10|0.0|0.0|plecy||
-2169|128|2024-09-24|kalistenika|dipy|x13 x10 x10||0.0|0.0|0.0|0.0|0.0|1x13 1x10 1x10|1x13 1x10 1x10|1x13|1|13|13|0.0|0.0|triceps|klatka|
-2170|128|2024-09-24|kalistenika|dipy|x13 x10 x10||0.0|0.0|0.0|0.0|0.0|1x13 1x10 1x10|1x13 1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
-2171|128|2024-09-24|kalistenika|dipy|x13 x10 x10||0.0|0.0|0.0|0.0|0.0|1x13 1x10 1x10|1x13 1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
-2172|128|2024-09-24|kalistenika|rdl na jednej nodze|x10 x10 x10|rdl 1 noga|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
-2173|128|2024-09-24|kalistenika|rdl na jednej nodze|x10 x10 x10|rdl 1 noga|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
-2174|128|2024-09-24|kalistenika|rdl na jednej nodze|x10 x10 x10|rdl 1 noga|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
-2175|128|2024-09-24|kalistenika|podciąganie podchwytem|x8 x6||0.0|0.0|0.0|0.0|0.0|1x8 1x6|1x8 1x6|1x8|1|8|8|0.0|0.0|plecy|biceps|
-2176|128|2024-09-24|kalistenika|podciąganie podchwytem|x8 x6||0.0|0.0|0.0|0.0|0.0|1x8 1x6|1x8 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
-2177|128|2024-09-24|kalistenika|pompki|x22 x15||0.0|0.0|0.0|0.0|0.0|1x22 1x15|1x22 1x15|1x22|1|22|22|0.0|0.0|klatka|triceps|
-2178|128|2024-09-24|kalistenika|pompki|x22 x15||0.0|0.0|0.0|0.0|0.0|1x22 1x15|1x22 1x15|1x15|1|15|15|0.0|0.0|klatka|triceps|
-2179|128|2024-09-24|kalistenika|wspięcia na palce|x5 x5|wspiecia na lydki|0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
-2180|128|2024-09-24|kalistenika|wspięcia na palce|x5 x5|wspiecia na lydki|0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
-2181|128|2024-09-24|kalistenika|diamenty|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|triceps|klatka|
-2182|128|2024-09-24|kalistenika|diamenty|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|triceps|klatka|
-2183|128|2024-09-24|kalistenika|diamenty|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|triceps|klatka|
-2184|128|2024-09-24|kalistenika|barki guma|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
-2185|128|2024-09-24|kalistenika|barki guma|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
-2186|128|2024-09-24|kalistenika|barki guma|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
-2187|128|2024-09-24|kalistenika|bułgary|x11 x11 x11||0.0|0.0|0.0|0.0|0.0|1x11 1x11 1x11|1x11 1x11 1x11|1x11|1|11|11|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
-2188|128|2024-09-24|kalistenika|bułgary|x11 x11 x11||0.0|0.0|0.0|0.0|0.0|1x11 1x11 1x11|1x11 1x11 1x11|1x11|1|11|11|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
-2189|128|2024-09-24|kalistenika|bułgary|x11 x11 x11||0.0|0.0|0.0|0.0|0.0|1x11 1x11 1x11|1x11 1x11 1x11|1x11|1|11|11|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
-2190|128|2024-09-24|kalistenika|plank|40s 40s 40s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|brzuch||na czas
-2191|128|2024-09-24|kalistenika|mobilność||filnik |0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|mobilność||na czas
+2166|128|2024-09-25|kalistenika|podciąganie nachwytem|x10 x7 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x7 1x10|1x10 1x7 1x10|1x10|1|10|10|0.0|0.0|plecy||
+2167|128|2024-09-25|kalistenika|podciąganie nachwytem|x10 x7 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x7 1x10|1x10 1x7 1x10|1x7|1|7|7|0.0|0.0|plecy||
+2168|128|2024-09-25|kalistenika|podciąganie nachwytem|x10 x7 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x7 1x10|1x10 1x7 1x10|1x10|1|10|10|0.0|0.0|plecy||
+2169|128|2024-09-25|kalistenika|dipy|x13 x10 x10||0.0|0.0|0.0|0.0|0.0|1x13 1x10 1x10|1x13 1x10 1x10|1x13|1|13|13|0.0|0.0|triceps|klatka|
+2170|128|2024-09-25|kalistenika|dipy|x13 x10 x10||0.0|0.0|0.0|0.0|0.0|1x13 1x10 1x10|1x13 1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+2171|128|2024-09-25|kalistenika|dipy|x13 x10 x10||0.0|0.0|0.0|0.0|0.0|1x13 1x10 1x10|1x13 1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+2172|128|2024-09-25|kalistenika|rdl na jednej nodze|x10 x10 x10|rdl 1 noga|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+2173|128|2024-09-25|kalistenika|rdl na jednej nodze|x10 x10 x10|rdl 1 noga|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+2174|128|2024-09-25|kalistenika|rdl na jednej nodze|x10 x10 x10|rdl 1 noga|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+2175|128|2024-09-25|kalistenika|podciąganie podchwytem|x8 x6 x6||0.0|0.0|0.0|0.0|0.0|1x8 1x6 1x6|1x8 1x6 1x6|1x8|1|8|8|0.0|0.0|plecy|biceps|
+2176|128|2024-09-25|kalistenika|podciąganie podchwytem|x8 x6 x6||0.0|0.0|0.0|0.0|0.0|1x8 1x6 1x6|1x8 1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+2177|128|2024-09-25|kalistenika|podciąganie podchwytem|x8 x6 x6||0.0|0.0|0.0|0.0|0.0|1x8 1x6 1x6|1x8 1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+2178|128|2024-09-25|kalistenika|pompki|x22 x15 x15||0.0|0.0|0.0|0.0|0.0|1x22 1x15 1x15|1x22 1x15 1x15|1x22|1|22|22|0.0|0.0|klatka|triceps|
+2179|128|2024-09-25|kalistenika|pompki|x22 x15 x15||0.0|0.0|0.0|0.0|0.0|1x22 1x15 1x15|1x22 1x15 1x15|1x15|1|15|15|0.0|0.0|klatka|triceps|
+2180|128|2024-09-25|kalistenika|pompki|x22 x15 x15||0.0|0.0|0.0|0.0|0.0|1x22 1x15 1x15|1x22 1x15 1x15|1x15|1|15|15|0.0|0.0|klatka|triceps|
+2181|128|2024-09-25|kalistenika|wspięcia na palce|x5 x5 x5|wspiecia na lydki|0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+2182|128|2024-09-25|kalistenika|wspięcia na palce|x5 x5 x5|wspiecia na lydki|0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+2183|128|2024-09-25|kalistenika|wspięcia na palce|x5 x5 x5|wspiecia na lydki|0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+2184|128|2024-09-25|kalistenika|diamenty|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|triceps|klatka|
+2185|128|2024-09-25|kalistenika|diamenty|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|triceps|klatka|
+2186|128|2024-09-25|kalistenika|diamenty|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|triceps|klatka|
+2187|128|2024-09-25|kalistenika|barki guma|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
+2188|128|2024-09-25|kalistenika|barki guma|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
+2189|128|2024-09-25|kalistenika|barki guma|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
+2190|128|2024-09-25|kalistenika|bułgary|x11 x11 x11||0.0|0.0|0.0|0.0|0.0|1x11 1x11 1x11|1x11 1x11 1x11|1x11|1|11|11|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+2191|128|2024-09-25|kalistenika|bułgary|x11 x11 x11||0.0|0.0|0.0|0.0|0.0|1x11 1x11 1x11|1x11 1x11 1x11|1x11|1|11|11|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+2192|128|2024-09-25|kalistenika|bułgary|x11 x11 x11||0.0|0.0|0.0|0.0|0.0|1x11 1x11 1x11|1x11 1x11 1x11|1x11|1|11|11|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+2193|128|2024-09-25|kalistenika|plank|40s 40s 40s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|brzuch||na czas
+2194|128|2024-09-25|kalistenika|mobilność||filmik|0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|mobilność||na czas
+2195|129|2024-09-26|bieganie|bieg spokojny|3km||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2196|129|2024-09-26|bieganie|bieg w tempie|2x4km w tempie 4:30||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2197|129|2024-09-26|bieganie|bieg regeneracja|3min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2198|129|2024-09-26|bieganie|bieg spokojny|2km||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2199|129|2024-09-26|bieganie|dystans|13.53||13.53|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2200|129|2024-09-26|bieganie|tempo|4'46||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2201|129|2024-09-26|bieganie|czas|01:04:24||0.0|1.0|4.0|24.0|3864.0|||0x0|0|0|0|0.0|0.0|bieganie||
