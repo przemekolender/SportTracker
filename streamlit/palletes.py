@@ -30,7 +30,8 @@ sport_color = {
     'Bieg Niepodległości': 'RED',
     'Runmageddon Classic': 'RED',
     'Runmageddon Hardcore': 'RED',
-    'pływanie' : 'rgb(47, 138, 196)'
+    'pływanie' : 'rgb(47, 138, 196)',
+    'Warszawska Dycha' : 'RED'
 }
 
 event_color = {
@@ -56,7 +57,8 @@ event_color = {
     'Bieg Niepodległości': 'RED',
     'Runmageddon Classic': 'RED',
     'Runmageddon Hardcore': 'RED',
-    'pływanie' : 'green'
+    'pływanie' : 'green',
+    'Warszawska Dycha' : 'RED'
 }
 
 run_work = {
@@ -82,5 +84,6 @@ run_work = {
     'Bieg Niepodległości': 'RED',
     'Runmageddon Classic': 'RED',
     'Runmageddon Hardcore': 'RED',
-    'pływanie' : 'lightgray'
+    'pływanie' : 'lightgray',
+    'Warszawska Dycha' : 'RED'
 }
