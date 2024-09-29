@@ -73,6 +73,6 @@ if multiselect is not None:
     st.session_state['counter'] = max(-(len(u)-1), st.session_state['counter'])
     
     #print table
-    st.table(
-        w.loc[w['index'] == (len(u)-1 + st.session_state['counter']), ['date', 'exercise', 'details', 'comments']].reset_index(drop = True)
-    )
+    df_print = w.loc[w['index'] == (len(u)-1 + st.session_state['counter']), ['date', 'exercise', 'details', 'comments']].reset_index(drop = True)
+    df_print.columns = ['Data', 'Ćwiczenie', 'Szczegóły', 'Komentarze']
+    st.table(df_print)
