@@ -35,4 +35,5 @@ if len(multiselect) > 0:
     w.loc[:, 'comments'] = w['comments'].fillna('')
     w = w.groupby(chosen_columns).size().reset_index()[chosen_columns]
     result = w[w['exercise'].isin(multiselect)].sort_values(by = 'date', ascending = False).reset_index(drop = True)
+    result.columns = ['Data', 'Sport', 'Ćwiczenie', 'Szczegóły', 'Komentarze']
     st.table(result.head(min(result.shape[0], rows)))
