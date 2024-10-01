@@ -128,7 +128,7 @@ def most_reps(workouts, exercise = '', start_date='0001-01-01', end_date='9999-1
         return 0
     else:
         return int(reps)
-
+       
 
 ###############################################################################################
 # helper function to get str of day in month / month number: 3 -> 03
@@ -259,3 +259,11 @@ def transpose_runs(runs):
     return d.merge(p, on='entity_id', how='inner').merge(t, on='entity_id', how='inner')
 
     
+###############################################################################################
+# returns best run on the given distance
+###############################################################################################
+def best_run(workouts, distance):
+    runs = workouts[workouts['sport'] == 'bieganie']
+    runs_t = transpose_runs(runs)
+    runs_t = runs_t.loc[runs_t['distance_km'] == distance, :].sort_values(by = 'run_total_seconds', ascending = True).reset_index(drop = True).head(1)
+    return str(runs_t.loc[0, 'time']), str(runs_t.loc[0, 'pace'])
