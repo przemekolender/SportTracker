@@ -117,6 +117,12 @@ workouts = filter_by_period(
     st.session_state['max_date']
 )
 calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+
+# clear calendar if more than one activity on a day
+calendar = calendar.drop(['Unnamed: 0', 'sport', 'time', 'info', 'hours', 'minutes', 'seconds', 'total_seconds', 'category'], axis = 1)
+calendar = calendar.groupby(calendar.columns.to_list()).size().reset_index()
+
+
 runs_all = workouts[workouts['sport'] == 'bieganie']
 runs_all = runs_all.merge(
     right = calendar,
