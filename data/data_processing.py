@@ -260,10 +260,21 @@ def transpose_runs(runs):
 
     
 ###############################################################################################
-# returns best run on the given distance
+# returns time and pace of the best run on the given distance as strings
 ###############################################################################################
 def best_run(workouts, distance):
     runs = workouts[workouts['sport'] == 'bieganie']
     runs_t = transpose_runs(runs)
     runs_t = runs_t.loc[runs_t['distance_km'] == distance, :].sort_values(by = 'run_total_seconds', ascending = True).reset_index(drop = True).head(1)
     return str(runs_t.loc[0, 'time']), str(runs_t.loc[0, 'pace'])
+
+
+###############################################################################################
+# returns best run on the given or longer distance as df
+###############################################################################################
+def best_run_approx(workouts, distance):
+    runs = workouts[workouts['sport'] == 'bieganie']
+    runs_t = transpose_runs(runs)
+    runs_t['pace_float'] = runs_t['pace'].str.replace('\'', '.').astype(float)
+    runs_t = runs_t.loc[runs_t['distance_km'] >= distance, :].sort_values(by = 'pace_float', ascending = True).reset_index(drop = True).head(1)
+    return runs_t.loc[:, ['date', 'distance_km', 'pace', 'time']]

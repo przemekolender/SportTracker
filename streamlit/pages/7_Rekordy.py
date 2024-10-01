@@ -3,7 +3,7 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
-from data_processing import best_weight, most_reps, filter_by_period
+from data_processing import best_weight, most_reps, best_run_approx, filter_by_period
  
 
 st.set_page_config(
@@ -20,10 +20,13 @@ alt.themes.enable("dark")
 if "workouts" not in st.session_state:
     st.session_state["workouts"] = pd.read_csv("files/workouts.csv", sep='|')
 
-chosen_columns = ['date', 'sport', 'exercise', 'details', 'comments', 'reps', 'weight']
+chosen_columns = ['date', 'sport', 'exercise', 'details', 'comments', 'reps', 'weight', 'distance_km', 'run_hours', 'run_minutes', 'run_seconds', 'run_total_seconds']
 w = st.session_state["workouts"][chosen_columns]
 
 
+###############################################################################################
+# weight records
+###############################################################################################
 st.markdown("### Rekordy podniesionego ciężaru")
 
 exercises = w['exercise'].unique()
@@ -48,6 +51,9 @@ if len(exercise_weight) > 0:
     st.table(bw_df)
 
 
+###############################################################################################
+# reps records
+###############################################################################################
 st.markdown("### Rekordy liczy powtórzeń")
 
 exercise_reps = st.multiselect(
@@ -68,3 +74,23 @@ if len(exercise_reps) > 0:
     br_df['Liczba powtórzeń'] = br_df['Liczba powtórzeń'].astype(int)
     
     st.table(br_df)
+
+
+###############################################################################################
+# run records
+###############################################################################################
+st.markdown("### Rekordy w bieganiu")
+
+distance = st.number_input(
+    label = "Rekord na jakim dystansie chcesz zobaczyć?", 
+    min_value=0, 
+    max_value=None, 
+    value=None, 
+    step=1
+)
+
+if distance is not None:
+    best_run = best_run_approx(w, distance)
+    best_run.columns = ['data', 'dystans', 'tempo', 'czas']
+    best_run['dystans'] = best_run['dystans'].astype(float).round(2).astype(str)
+    st.table(best_run)
