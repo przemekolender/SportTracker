@@ -20,7 +20,7 @@ alt.themes.enable("dark")
 if "workouts" not in st.session_state:
     st.session_state["workouts"] = pd.read_csv("files/workouts.csv", sep='|')
 
-chosen_columns = ['date', 'sport', 'exercise', 'details', 'comments', 'reps', 'weight', 'distance_km', 'run_hours', 'run_minutes', 'run_seconds', 'run_total_seconds']
+chosen_columns = ['date', 'sport', 'exercise', 'details', 'comments', 'reps', 'weight', 'distance_km', 'run_hours', 'run_minutes', 'run_seconds', 'run_total_seconds', 'muscle1', 'description']
 w = st.session_state["workouts"][chosen_columns]
 
 
@@ -29,7 +29,8 @@ w = st.session_state["workouts"][chosen_columns]
 ###############################################################################################
 st.markdown("### Rekordy podniesionego ciężaru")
 
-exercises = w['exercise'].unique()
+w['description'] = w['description'].fillna('') 
+exercises = w.loc[(~w['description'].str.contains('na czas') ) & (w['muscle1'] != 'bieganie'), 'exercise'].unique()
 exercise_weight = st.multiselect(
     label="Wybierz ćwiczenie",
     options=exercises,
@@ -83,10 +84,10 @@ st.markdown("### Rekordy w bieganiu")
 
 distance = st.number_input(
     label = "Rekord na jakim dystansie chcesz zobaczyć?", 
-    min_value=0, 
+    min_value=0.0, 
     max_value=None, 
     value=None, 
-    step=1
+    step=0.1
 )
 
 if distance is not None:
