@@ -11,7 +11,7 @@ import datetime
 import plotly.express as px
 import plotly.graph_objects as go
 
-from data_processing import best_weight, most_reps, filter_by_period
+from data_processing import best_weight, most_reps, best_run, filter_by_period
 from palletes import *
 
 
@@ -214,4 +214,24 @@ with col23:
 with col24:
     max_weight, max_weight_reps = best_weight(workouts, 'ohp')
     st.metric(label="OHP", value=max_weight, delta=max_weight_reps, delta_color='off')
+
+
+st.markdown('## Rekory w bieganiu')
+col31, col32, col33, col34 = st.columns(4)
+
+with col31:
+    time, pace = best_run(workouts, 5)
+    st.metric(label="5km", value=time, delta=pace, delta_color='off')
+
+with col32:
+    time, pace = best_run(workouts, 10)
+    st.metric(label="10km", value=time, delta=pace, delta_color='off')
+
+with col33:
+    time, pace = best_run(workouts, 21.1)
+    st.metric(label="Półmaraton", value=time, delta=pace, delta_color='off')
+
+with col34:
+    time, pace = best_run(workouts, 42.2)
+    st.metric(label="Maraton", value=time, delta=pace, delta_color='off')
 
