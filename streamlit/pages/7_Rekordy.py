@@ -7,7 +7,7 @@ from data_processing import best_weight, most_reps, best_run_approx, filter_by_p
  
 
 st.set_page_config(
-    page_title="Ostatnie wyniki", 
+    page_title="Rekordy", 
     page_icon="🏋️‍♀️", 
     layout="wide",
     initial_sidebar_state="expanded"
