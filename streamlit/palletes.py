@@ -87,3 +87,11 @@ run_work = {
     'pływanie' : 'lightgray',
     'Warszawska Dycha' : 'RED'
 }
+
+distance_sports = {
+    'bieganie' : 'rgb(31, 119, 180)', 
+    'góry' : 'rgb(165, 170, 153)', 
+    'runmageddon' : 'RED',
+    'rower' : 'rgb(82, 188, 63)',
+    '' : 'white'
+}
