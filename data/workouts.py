@@ -9,6 +9,8 @@ class Workouts:
         #load data
         self.workouts = get_data(sheet_name, sheet_id)
         self.workouts.columns = ['index', 'date', 'sport', 'exercise', 'details', 'comments']
+        #self.distance_sports = ['bieganie', 'Runmageddon', 'góry', 'rower', 'marszobieg']
+        self.distance_sports = ['bieganie', 'runmageddon']
 
         # clear data
         self.workouts.loc[:, 'sport'] = self.workouts['sport'].apply(lambda x : str(x).lower())
@@ -46,7 +48,7 @@ class Workouts:
     ###############################################################################################
     def calculate_run_distnace(self):
         self.workouts['distance_km'] = self.workouts[
-                (self.workouts['sport'] == 'bieganie') & (self.workouts['exercise'] == 'dystans')
+                (self.workouts['sport'].isin(self.distance_sports)) & (self.workouts['exercise'] == 'dystans')
             ]['details'] \
             .apply(lambda x : str(x).replace('km', '')) \
             .apply(lambda x : str(x).replace(' ', '')) \
@@ -60,15 +62,15 @@ class Workouts:
     ###############################################################################################
     def calculate_run_time(self):
         self.workouts['run_hours'] = self.workouts[
-            (self.workouts['sport'] == 'bieganie') & (self.workouts['exercise'] == 'czas')
+            (self.workouts['sport'].isin(self.distance_sports)) & (self.workouts['exercise'] == 'czas')
             ]['details'].apply(lambda x : x[0:2]).astype(int)
         
         self.workouts['run_minutes'] = self.workouts[
-            (self.workouts['sport'] == 'bieganie') & (self.workouts['exercise'] == 'czas')
+            (self.workouts['sport'].isin(self.distance_sports)) & (self.workouts['exercise'] == 'czas')
             ]['details'].apply(lambda x : x[3:5]).astype(int)
         
         self.workouts['run_seconds'] = self.workouts[
-            (self.workouts['sport'] == 'bieganie') & (self.workouts['exercise'] == 'czas')
+            (self.workouts['sport'].isin(self.distance_sports)) & (self.workouts['exercise'] == 'czas')
             ]['details'].apply(lambda x : x[6:8]).astype(int)
         
         self.workouts['run_hours'] = self.workouts['run_hours'].fillna(0)

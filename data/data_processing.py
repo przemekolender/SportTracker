@@ -216,7 +216,7 @@ def load_calendar(sheet_name, sheet_id):
     calnedar['total_seconds'] = calnedar['hours'] * 3600 + calnedar['minutes'] * 60 + calnedar['seconds']
 
     sports = get_data("Treningi", 0)
-    sports.columns = ['sport','category']
+    sports.columns = ['sport','category', 'isdistance']
     calnedar = calnedar.merge(
         right = sports,
         on = 'sport',
@@ -250,7 +250,7 @@ def transpose_runs(runs):
 
     runs['entity_id'] = entity_id
 
-    d = runs.loc[runs['exercise'] == 'dystans', ['date', 'exercise', 'distance_km', 'entity_id']]
+    d = runs.loc[runs['exercise'] == 'dystans', ['date', 'exercise', 'distance_km', 'entity_id', 'sport']]
     p = runs.loc[runs['exercise'] == 'tempo', ['details', 'entity_id']]
     p.rename(columns = {'details' : 'pace'}, inplace=True)
     t = runs.loc[runs['exercise'] == 'czas', ['details', 'run_hours', 'run_minutes', 'run_seconds', 'run_total_seconds', 'entity_id']]

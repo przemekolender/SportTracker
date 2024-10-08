@@ -127,7 +127,7 @@ calendar = filter_by_period(
 )
 
 # clear calendar if more than one activity on a day
-calendar = calendar.drop(['Unnamed: 0', 'sport', 'time', 'info', 'hours', 'minutes', 'seconds', 'total_seconds', 'category'], axis = 1)
+calendar = calendar.drop(['Unnamed: 0', 'sport', 'time', 'info', 'hours', 'minutes', 'seconds', 'total_seconds', 'category', 'isdistance'], axis = 1)
 calendar = calendar.groupby(calendar.columns.to_list()).size().reset_index()
 
 cal_all = workouts[workouts['sport'] == 'kalistenika']
