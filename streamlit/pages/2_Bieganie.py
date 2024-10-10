@@ -4,10 +4,9 @@ import streamlit as st
 import altair as alt
 import datetime
 import pandas as pd
-from data_processing import filter_by_period, transpose_runs, hour_str
+from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete
 import plotly.express as px
 import plotly.graph_objects as go
-from palletes import *
 
 st.set_page_config(
     page_title="Bieganie", 
@@ -27,6 +26,9 @@ if "workouts" not in st.session_state:
 if "calendar" not in st.session_state:
     st.session_state["calendar"] = pd.read_csv("files/calendar.csv", sep='|')
     st.session_state["calendar"]["date"] = pd.to_datetime(st.session_state["calendar"]["date"], format='%Y-%m-%d')
+
+if "sports" not in st.session_state:
+    st.session_state["sports"] = pd.read_csv("files/sports.csv", sep='|')
 
 if "min_date" not in st.session_state:
     st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
@@ -110,6 +112,14 @@ with st.sidebar:
         granulation_hover = 'month_name_pl'
 
 
+    # choose sports
+    sports = st.multiselect(
+        options= st.session_state['sports'].loc[st.session_state['sports']['isdistance'] == 'tak', 'sport'].to_list(),
+        default='bieganie',
+        label='Wybierz sporty'
+    )
+    
+
 workouts = filter_by_period(
     st.session_state["workouts"],
     'date',
@@ -119,16 +129,16 @@ workouts = filter_by_period(
 calendar = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
 
 # clear calendar if more than one activity on a day
-calendar = calendar.drop(['Unnamed: 0', 'sport', 'time', 'info', 'hours', 'minutes', 'seconds', 'total_seconds', 'category'], axis = 1)
+calendar = calendar.drop(['Unnamed: 0', 'sport', 'time', 'info', 'hours', 'minutes', 'seconds', 'total_seconds', 'category', 'isdistance'], axis = 1)
 calendar = calendar.groupby(calendar.columns.to_list()).size().reset_index()
 
-
-runs_all = workouts[workouts['sport'] == 'bieganie']
+runs_all = workouts[workouts['sport'].isin(sports)]
 runs_all = runs_all.merge(
     right = calendar,
     on = 'date',
     how = 'right'
 )
+
 runs_all['distance_km'] = runs_all['distance_km'].fillna(0)
 runs_all['run_hours'] = runs_all['run_hours'].fillna(0)
 runs_all['run_minutes'] = runs_all['run_minutes'].fillna(0)
@@ -175,6 +185,9 @@ fig_distance = px.area(
     runs, 
     x = 'date', 
     y = 'distance_km', 
+    #line_group='sport',
+    #color='sport',
+    #color_discrete_map=distance_sports,
     line_shape='spline', 
     markers=True,
     custom_data=[granulation_hover]
@@ -183,7 +196,8 @@ fig_distance = px.area(
     yaxis_range=[0, 1.1*runs['distance_km'].max()],
     xaxis_title = granulation_name,
     yaxis_title= "Przebiegnięty dystans [km]" ,
-    title = "Przebiegnięty dystans w danym okresie"
+    title = "Przebiegnięty dystans w danym okresie",
+    showlegend=False
 ).update_xaxes(
     dtick="M1",
     tickformat="%b\n%Y"
@@ -196,6 +210,8 @@ fig_time = px.area(
     runs, 
     x = 'date', 
     y = 'h', 
+    #color='sport',
+    #color_discrete_map=distance_sports,
     line_shape='spline', 
     markers=True,
     custom_data=[granulation_hover, 'hour_str']
@@ -204,7 +220,8 @@ fig_time = px.area(
     yaxis_range=[0, 1.1*runs['h'].max()],
     xaxis_title = granulation_name,
     yaxis_title= "Czas biegania [h]" ,
-    title = "Czas biegania w danym okresie"
+    title = "Czas biegania w danym okresie",
+    showlegend=False
 ).update_xaxes(
     dtick="M1",
     tickformat="%b\n%Y"
@@ -233,7 +250,9 @@ fig_scatter = px.scatter(
     y = 'distance_km',
     trendline='lowess',
     trendline_color_override='lightblue',
-    custom_data=['time', 'pace', 'date_']
+    custom_data=['time', 'pace', 'date_'],
+    color='sport',
+    color_discrete_map= create_pallete(st.session_state["sports"], 'sport', 'sport_color')
 ).add_trace(
     go.Scatter(
         x=[0, 1, 2, 3],
@@ -247,7 +266,8 @@ fig_scatter = px.scatter(
     yaxis_range=[0, 1.1*runs_all['distance_km'].max()],
     xaxis_title = "Czas biegania [h]",
     yaxis_title= "Dystans [km]" ,
-    title = "Zależność przebiegniętego dystansu od czas"
+    title = "Zależność przebiegniętego dystansu od czas",
+    showlegend=False
 ).update_traces(
     hovertemplate = "Dystans: %{y} km<br>" + "Czas biegania: %{customdata[0]}<br>" + "Tempo: %{customdata[1]}<br>" + "%{customdata[2]}<br>" + "<extra></extra>"
 )

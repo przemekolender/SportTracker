@@ -9,6 +9,10 @@ def main():
         if '.csv' in file:
             os.remove(f"files/{file}")
 
+    sports = get_data("Treningi", 0)
+    sports.columns = ['sport','category', 'isdistance', 'sport_color', 'sport_category_color', 'event_color', 'run_work']
+    sports.to_csv("files/sports.csv", sep='|')
+
     w2023 = Workouts('Treningi', 5)
     w2024 = Workouts('Treningi', 3)
     w = pd.concat(

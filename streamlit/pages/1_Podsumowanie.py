@@ -5,9 +5,8 @@ import numpy as np
 import pandas as pd
 import altair as alt
 import datetime
-from data_processing import filter_by_period, hour_str
+from data_processing import filter_by_period, hour_str, create_pallete
 import plotly.express as px
-from palletes import *
 
 
 st.set_page_config(
@@ -26,6 +25,9 @@ if "workouts" not in st.session_state:
 
 if "calendar" not in st.session_state:
     st.session_state["calendar"] = pd.read_csv("files/calendar.csv", sep='|')
+
+if "sports" not in st.session_state:
+    st.session_state["sports"] = pd.read_csv("files/sports.csv", sep='|')
 
 if "min_date" not in st.session_state:
     st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
@@ -124,23 +126,23 @@ with st.sidebar:
     # default options
     calendar_filtered = calendar    # calendar filetered by sports chosen in categories
     category = 'sport'              # decides if sports should be grouped by sport name or category name
-    pallete = sport_color           # pallete choice for given category
+    pallete = create_pallete(st.session_state["sports"], 'sport', 'sport_color')            # pallete choice for given category
 
     # set options according to selected values
     if calndar_type == 'Wszystkie':
         calendar_filtered = calendar
         category = 'sport'
-        pallete = sport_color
+        pallete = create_pallete(st.session_state["sports"], 'sport', 'sport_color')
 
     elif calndar_type == 'Kategorie':
         calendar_filtered = calendar
         category = 'category'
-        pallete = sport_category_color
+        pallete = create_pallete(st.session_state["sports"], 'category', 'sport_category_color') 
 
     elif calndar_type == 'Bieganie i sporty siłowe':
         calendar_filtered = calendar[calendar['sport'].isin(['bieganie', 'siłownia', 'kalistenika'])]
         category = 'sport'
-        pallete = run_work
+        pallete = create_pallete(st.session_state["sports"], 'sport', 'run_work')
 
     elif calndar_type == 'Własny wybór':
         with st.sidebar:
@@ -150,7 +152,7 @@ with st.sidebar:
             )
         calendar_filtered = calendar[calendar['sport'].isin(multiselect)]
         category = 'sport'
-        pallete = sport_color
+        pallete = create_pallete(st.session_state["sports"], 'sport', 'sport_color')
 
 ###############################################################################################
 # prepare data for the plots

@@ -6,13 +6,13 @@ import altair as alt
  
 
 st.set_page_config(
-    page_title="Ostatnie wyniki", 
+    page_title="Ostatnie treningi", 
     page_icon="🏋️‍♀️", 
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-st.markdown("# Ostatnie wyniki ćwiczeń")
+st.markdown("# Ostatnie treningi")
 
 alt.themes.enable("dark")
 

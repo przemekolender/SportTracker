@@ -215,8 +215,7 @@ def load_calendar(sheet_name, sheet_id):
     calnedar['seconds'] = calnedar['time'].apply(lambda x : str(x)[6:8]).astype(int)
     calnedar['total_seconds'] = calnedar['hours'] * 3600 + calnedar['minutes'] * 60 + calnedar['seconds']
 
-    sports = get_data("Treningi", 0)
-    sports.columns = ['sport','category']
+    sports = pd.read_csv("files/sports.csv", sep = "|")[['sport', 'category', 'isdistance']]
     calnedar = calnedar.merge(
         right = sports,
         on = 'sport',
@@ -250,7 +249,7 @@ def transpose_runs(runs):
 
     runs['entity_id'] = entity_id
 
-    d = runs.loc[runs['exercise'] == 'dystans', ['date', 'exercise', 'distance_km', 'entity_id']]
+    d = runs.loc[runs['exercise'] == 'dystans', ['date', 'exercise', 'distance_km', 'entity_id', 'sport']]
     p = runs.loc[runs['exercise'] == 'tempo', ['details', 'entity_id']]
     p.rename(columns = {'details' : 'pace'}, inplace=True)
     t = runs.loc[runs['exercise'] == 'czas', ['details', 'run_hours', 'run_minutes', 'run_seconds', 'run_total_seconds', 'entity_id']]
@@ -278,3 +277,13 @@ def best_run_approx(workouts, distance):
     runs_t['pace_float'] = runs_t['pace'].str.replace('\'', '.').astype(float)
     runs_t = runs_t.loc[runs_t['distance_km'] >= distance, :].sort_values(by = 'pace_float', ascending = True).reset_index(drop = True).head(1)
     return runs_t.loc[:, ['date', 'distance_km', 'pace', 'time']]
+
+
+###############################################################################################
+# returns pallete in form of dictionary from pandas df
+###############################################################################################
+def create_pallete(df, key_column, value_column):
+    df = df.groupby([key_column, value_column]).size().reset_index()
+    df.index = df[key_column]
+    return df[value_column].to_dict()
+
