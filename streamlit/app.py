@@ -11,8 +11,7 @@ import datetime
 import plotly.express as px
 import plotly.graph_objects as go
 
-from data_processing import best_weight, most_reps, best_run, filter_by_period
-from palletes import *
+from data_processing import best_weight, most_reps, best_run, filter_by_period, create_pallete
 
 
 st.set_page_config(
@@ -29,6 +28,9 @@ if "workouts" not in st.session_state:
 
 if "calendar" not in st.session_state:
     st.session_state["calendar"] = pd.read_csv("files/calendar.csv", sep='|')
+
+if "sports" not in st.session_state:
+    st.session_state["sports"] = pd.read_csv("files/sports.csv", sep='|')
 
 if "min_date" not in st.session_state:
     st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
@@ -54,8 +56,8 @@ with st.sidebar:
 
 
 c = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
-c.loc[:, 'sport'] = c['sport'].fillna('')
-c.loc[:, 'category'] = c['category'].fillna('')
+c.loc[:, 'sport'] = c['sport'].fillna('-')
+c.loc[:, 'category'] = c['category'].fillna('-')
 
 # group by to concatenate 2 or more sports sport in 1 day
 c = c.groupby(['index', 'date', 'week_start_date', 'week_day', 'day_of_week_name_pl'], as_index = False)\
@@ -72,16 +74,16 @@ def find_sport(sports, pallete):
     return 'lightgray'
 
 if calndar_type == 'Wszystkie':
-    color = c['sport'].apply(lambda x : find_sport(x, sport_color))
+    color = c['sport'].apply(lambda x : find_sport(x, create_pallete(st.session_state["sports"], 'sport', 'sport_color')))
 
 elif calndar_type == 'Kategorie':
-    color = c['category'].apply(lambda x : find_sport(x, sport_category_color))
+    color = c['category'].apply(lambda x : find_sport(x, create_pallete(st.session_state["sports"], 'category', 'sport_category_color')))
 
 elif calndar_type == 'Bieganie i sporty siłowe':
-    color =  c['sport'].apply(lambda x : find_sport(x, run_work))
+    color =  c['sport'].apply(lambda x : find_sport(x, create_pallete(st.session_state["sports"], 'sport', 'run_work')))
 
 elif calndar_type == 'Ogólne aktywności':
-    color = c['sport'].apply(lambda x : find_sport(x, event_color))
+    color = c['sport'].apply(lambda x : find_sport(x, create_pallete(st.session_state["sports"], 'sport', 'event_color')))
 
 elif calndar_type == 'Własny wybór':
     with st.sidebar:
