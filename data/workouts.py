@@ -9,8 +9,9 @@ class Workouts:
         #load data
         self.workouts = get_data(sheet_name, sheet_id)
         self.workouts.columns = ['index', 'date', 'sport', 'exercise', 'details', 'comments']
-        #self.distance_sports = ['bieganie', 'Runmageddon', 'góry', 'rower', 'marszobieg']
-        self.distance_sports = ['bieganie', 'runmageddon']
+        
+        sports = pd.read_csv("files/sports.csv", sep = "|")
+        self.distance_sports = sports.loc[sports['isdistance'] == 'tak', 'sport'].to_list()
 
         # clear data
         self.workouts.loc[:, 'sport'] = self.workouts['sport'].apply(lambda x : str(x).lower())

@@ -6,7 +6,6 @@ import altair as alt
 import datetime
 from data_processing import filter_by_period 
 import plotly.express as px
-from palletes import *
 
 
 st.set_page_config(

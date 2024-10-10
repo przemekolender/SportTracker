@@ -4,10 +4,9 @@ import streamlit as st
 import altair as alt
 import datetime
 import pandas as pd
-from data_processing import filter_by_period, transpose_runs, hour_str
+from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete
 import plotly.express as px
 import plotly.graph_objects as go
-from palletes import *
 
 st.set_page_config(
     page_title="Bieganie", 
@@ -27,6 +26,9 @@ if "workouts" not in st.session_state:
 if "calendar" not in st.session_state:
     st.session_state["calendar"] = pd.read_csv("files/calendar.csv", sep='|')
     st.session_state["calendar"]["date"] = pd.to_datetime(st.session_state["calendar"]["date"], format='%Y-%m-%d')
+
+if "sports" not in st.session_state:
+    st.session_state["sports"] = pd.read_csv("files/sports.csv", sep='|')
 
 if "min_date" not in st.session_state:
     st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
@@ -112,7 +114,7 @@ with st.sidebar:
 
     # choose sports
     sports = st.multiselect(
-        options=['bieganie', 'góry', 'runmageddon', 'marszobieg'],
+        options= st.session_state['sports'].loc[st.session_state['sports']['isdistance'] == 'tak', 'sport'].to_list(),
         default='bieganie',
         label='Wybierz sporty'
     )
@@ -250,7 +252,7 @@ fig_scatter = px.scatter(
     trendline_color_override='lightblue',
     custom_data=['time', 'pace', 'date_'],
     color='sport',
-    color_discrete_map=distance_sports
+    color_discrete_map= create_pallete(st.session_state["sports"], 'sport', 'sport_color')
 ).add_trace(
     go.Scatter(
         x=[0, 1, 2, 3],
