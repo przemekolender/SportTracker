@@ -1,0 +1,26 @@
+|sport|category|isdistance|sport_color|sport_category_color|event_color|run_work
+0|bieganie|bieganie|tak|rgb(31, 119, 180)|rgb(31, 119, 180)|green|rgb(31, 119, 180)
+1|góry|inne|tak|rgb(165, 170, 153)|rgb(82, 188, 63)|green|lightgray
+2|pływanie|inne|nie|rgb(47, 138, 196)|rgb(82, 188, 63)|green|lightgray
+3|rower|inne|tak|rgb(82, 188, 63)|rgb(82, 188, 63)|green|lightgray
+4|piłka nożna|sporty piłkowe|nie|rgb(153, 201, 69)|rgb(229, 134, 6)|green|lightgray
+5|plażówka|sporty piłkowe|nie|rgb(218, 165, 27)|rgb(229, 134, 6)|green|lightgray
+6|siatkówka|sporty piłkowe|nie|rgb(229, 134, 6)|rgb(229, 134, 6)|green|lightgray
+7|squash|sporty piłkowe|nie|rgb(204, 97, 176)|rgb(229, 134, 6)|green|lightgray
+8|kalistenika|sporty siłowe|nie|rgb(92, 83, 165)|rgb(235, 74, 64)|green|rgb(92, 83, 165)
+9|ocr|sporty siłowe|nie|rgb(36, 121, 108)|rgb(235, 74, 64)|green|rgb(36, 121, 108)
+10|siłownia|sporty siłowe|nie|rgb(235, 74, 64)|rgb(235, 74, 64)|green|rgb(235, 74, 64)
+11|Bieg Niepodległości|zawody|nie|red|red|red|red
+12|Bieg Powstania Warszawskiego|zawody|nie|red|red|red|red
+13|Bieg WOŚP|zawody|nie|red|red|red|red
+14|Maraton Warszawski|zawody|nie|red|red|red|red
+15|Półmaraton Praski|zawody|nie|red|red|red|red
+16|Półmaraton Warszawski|zawody|nie|red|red|red|red
+17|Runmageddon Classic|zawody|nie|red|red|red|red
+18|Runmageddon Hardcore|zawody|nie|red|red|red|red
+19|Runmageddon Rekrut|zawody|nie|red|red|red|red
+20|Runmageddon Ultra|zawody|nie|red|red|red|red
+21|Sztafeta Ekiden|zawody|nie|red|red|red|red
+22|Warszawska Dycha|zawody|nie|red|red|red|red
+23|runmageddon|inne|tak|red|red|red|red
+24|-|-|nie|lightgray|lightgray|lightgray|lightgray
