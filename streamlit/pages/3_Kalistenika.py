@@ -142,6 +142,7 @@ cal_all = cal_all.groupby(['exercise', 'date', 'muscle1', 'muscle2']) \
 
 # merge with calendar to have date info
 cal_all["date"] = pd.to_datetime(cal_all["date"], format='%Y-%m-%d')
+calendar["date"] = pd.to_datetime(calendar["date"], format='%Y-%m-%d')
 cal_all = cal_all.merge(
     right = calendar,
     on = 'date',
