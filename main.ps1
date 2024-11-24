@@ -1,10 +1,10 @@
 & {
     Write-Output "Switching to correct branch...`n"
-    git checkout prod
+    git checkout main
     Write-Output "`nFinished switching to correct branch`n`n"
 
     Write-Output "Pulling code...`n"
-    git pull origin prod
+    git pull origin main
     Write-Output "`nFinished pulling code`n`n"
 
     Write-Output "Activating enviorement...`n"
@@ -22,6 +22,6 @@
     Write-Output "Commit and push to GitHub...`n"
     $date = Get-Date -Format "dd/MM/yyyy HH:mm"
     git commit -m "Update files, $date"
-    git push origin prod
+    git push origin main
     Write-Output "`nFinished Commit and push to GitHub`n`n"
 } 2>&1 | Tee-Object -FilePath log.txt
