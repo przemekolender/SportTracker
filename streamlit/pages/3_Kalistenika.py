@@ -136,10 +136,12 @@ cal_all.loc[:, 'muscle2'] = cal_all['muscle2'].fillna('')
 # grouping splitted rows of 1 exercise to get real number of appearances
 cal_all = cal_all.groupby(['exercise', 'date', 'muscle1', 'muscle2']) \
     .agg({
-        'reps_sum':'sum'
+        'reps_sum':'sum',
+        'sets':'sum'
     }).reset_index()
 
 # merge with calendar to have date info
+cal_all["date"] = pd.to_datetime(cal_all["date"], format='%Y-%m-%d')
 cal_all = cal_all.merge(
     right = calendar,
     on = 'date',
@@ -151,7 +153,8 @@ cal_all['exercise_count'] = cal_all['exercise']
 cal_agg = cal_all.groupby(['exercise'] + granulation_agg + ['muscle1', 'muscle2']) \
     .agg({
         'exercise_count' : 'count',
-        'reps_sum':'sum'
+        'reps_sum':'sum',
+        'sets': 'sum'
     }).reset_index()
 cal_agg.rename(columns = {new_date_name : 'date'}, inplace=True)                    # fix columns names to always have 'date' present
 if granulation_name == 'Tydzień':                                                   # add column with dates of start and end of the week for hovers
@@ -301,3 +304,38 @@ fig_push = px.bar(
 with col32:
     st.plotly_chart(fig_push, theme="streamlit", use_container_width=True)
 
+
+###############################################################################################
+# Fourth row - average number of reps over time
+###############################################################################################
+
+multiselect = st.multiselect(
+    label="Wybierz ćwiczenie",
+    options=workouts.loc[(workouts['sport'] == 'kalistenika') & (workouts['description'] != 'na czas'), 'exercise'].unique(),
+    placeholder="",
+    default=['podciąganie nachwytem', 'podciąganie podchwytem', 'dipy', 'pompki']
+)
+
+cal_agg['avg_reps'] = cal_agg['reps_sum'] / cal_agg['sets']
+fig_avg_reps = px.line(
+    cal_agg.loc[cal_agg['exercise'].isin(multiselect)], 
+    x = 'date', 
+    y = 'avg_reps', 
+    color='exercise',
+    line_shape='spline', 
+    markers=True,
+    color_discrete_sequence=px.colors.sequential.Sunset_r, 
+    custom_data=['exercise',granulation_hover]
+).update_layout(
+    plot_bgcolor='white',
+    xaxis_title = granulation_name,
+    yaxis_title= "Liczba powtórzeń" ,
+    title = "Średnia liczba powtórzeń w serii",
+).update_xaxes(
+    dtick="M1",
+    tickformat="%b\n%Y"
+).update_traces(
+    hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Średnia liczba powtórzeń: %{y}" + "<extra></extra>"
+)
+
+st.plotly_chart(fig_avg_reps, theme="streamlit", use_container_width=True)
