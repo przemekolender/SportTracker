@@ -316,7 +316,7 @@ multiselect = st.multiselect(
     default=['podciąganie nachwytem', 'podciąganie podchwytem', 'dipy', 'pompki']
 )
 
-cal_agg['avg_reps'] = cal_agg['reps_sum'] / cal_agg['sets']
+cal_agg['avg_reps'] = (cal_agg['reps_sum'] / cal_agg['sets']).round(2)
 fig_avg_reps = px.line(
     cal_agg.loc[cal_agg['exercise'].isin(multiselect)], 
     x = 'date', 
