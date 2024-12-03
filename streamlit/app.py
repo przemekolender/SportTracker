@@ -6,7 +6,6 @@ import pandas as pd
 import altair as alt
 #import plotly.express as px
 from matplotlib.colors import LinearSegmentedColormap
-import calplot
 import datetime
 import plotly.express as px
 import plotly.graph_objects as go
