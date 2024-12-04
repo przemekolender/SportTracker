@@ -133,6 +133,8 @@ calendar = calendar.drop(['Unnamed: 0', 'sport', 'time', 'info', 'hours', 'minut
 calendar = calendar.groupby(calendar.columns.to_list()).size().reset_index()
 
 runs_all = workouts[workouts['sport'].isin(sports)]
+runs_all["date"] = pd.to_datetime(runs_all["date"], format='%Y-%m-%d')
+calendar["date"] = pd.to_datetime(calendar["date"], format='%Y-%m-%d')
 runs_all = runs_all.merge(
     right = calendar,
     on = 'date',
