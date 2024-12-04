@@ -135,7 +135,11 @@ gym_all = workouts[workouts['sport'] == 'siłownia']
 gym_all.loc[:,'muscle1'] = gym_all['muscle1'].fillna('')
 gym_all.loc[:,'muscle2'] = gym_all['muscle2'].fillna('')
 
+
 # merge with calendar to have date info
+gym_all["date"] = pd.to_datetime(gym_all["date"], format='%Y-%m-%d')
+calendar["date"] = pd.to_datetime(calendar["date"], format='%Y-%m-%d')
+
 gym_all = gym_all.merge(
     right = calendar,
     on = 'date',
