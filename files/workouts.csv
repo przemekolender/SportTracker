@@ -2815,21 +2815,24 @@
 2813|180|2024-12-07|bieganie|dystans|10.2||10.2|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 2814|180|2024-12-07|bieganie|tempo|5'15||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 2815|180|2024-12-07|bieganie|czas|00:53:29||0.0|0.0|53.0|29.0|3209.0|||0x0|0|0|0|0.0|0.0|bieganie||
-2816|180|2024-12-07|kalistenika|podciąganie nachwytem kółka|x10 x10 x10|s1|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
-2817|180|2024-12-07|kalistenika|podciąganie nachwytem kółka|x10 x10 x10|s1|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
-2818|180|2024-12-07|kalistenika|podciąganie nachwytem kółka|x10 x10 x10|s1|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
-2819|180|2024-12-07|kalistenika|wykroki|x22 x22 x22|s1|0.0|0.0|0.0|0.0|0.0|1x22 1x22 1x22|1x22 1x22 1x22|1x22|1|22|22|0.0|0.0|nogi||
-2820|180|2024-12-07|kalistenika|wykroki|x22 x22 x22|s1|0.0|0.0|0.0|0.0|0.0|1x22 1x22 1x22|1x22 1x22 1x22|1x22|1|22|22|0.0|0.0|nogi||
-2821|180|2024-12-07|kalistenika|wykroki|x22 x22 x22|s1|0.0|0.0|0.0|0.0|0.0|1x22 1x22 1x22|1x22 1x22 1x22|1x22|1|22|22|0.0|0.0|nogi||
-2822|180|2024-12-07|kalistenika|podciąganie podchwytem|x7 x6 x7|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x7|1x7 1x6 1x7|1x7|1|7|7|0.0|0.0|plecy|biceps|
-2823|180|2024-12-07|kalistenika|podciąganie podchwytem|x7 x6 x7|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x7|1x7 1x6 1x7|1x6|1|6|6|0.0|0.0|plecy|biceps|
-2824|180|2024-12-07|kalistenika|podciąganie podchwytem|x7 x6 x7|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x7|1x7 1x6 1x7|1x7|1|7|7|0.0|0.0|plecy|biceps|
-2825|180|2024-12-07|kalistenika|dipy kólka|x7 x6 x5|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x5|1x7 1x6 1x5|1x7|1|7|7|0.0|0.0|triceps|klatka|
-2826|180|2024-12-07|kalistenika|dipy kólka|x7 x6 x5|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x5|1x7 1x6 1x5|1x6|1|6|6|0.0|0.0|triceps|klatka|
-2827|180|2024-12-07|kalistenika|dipy kólka|x7 x6 x5|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x5|1x7 1x6 1x5|1x5|1|5|5|0.0|0.0|triceps|klatka|
-2828|180|2024-12-07|kalistenika|pompki kółka|x15 x12 x14|s3|0.0|0.0|0.0|0.0|0.0|1x15 1x12 1x14|1x15 1x12 1x14|1x15|1|15|15|0.0|0.0|klatka|triceps|
-2829|180|2024-12-07|kalistenika|pompki kółka|x15 x12 x14|s3|0.0|0.0|0.0|0.0|0.0|1x15 1x12 1x14|1x15 1x12 1x14|1x12|1|12|12|0.0|0.0|klatka|triceps|
-2830|180|2024-12-07|kalistenika|pompki kółka|x15 x12 x14|s3|0.0|0.0|0.0|0.0|0.0|1x15 1x12 1x14|1x15 1x12 1x14|1x14|1|14|14|0.0|0.0|klatka|triceps|
-2831|180|2024-12-07|kalistenika|przysiady z wyskokiem|x12 x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
-2832|180|2024-12-07|kalistenika|przysiady z wyskokiem|x12 x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
-2833|180|2024-12-07|kalistenika|przysiady z wyskokiem|x12 x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
+2816|191|2024-12-08|kalistenika|podciąganie nachwytem kółka|x10 x10 x10|s1|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
+2817|191|2024-12-08|kalistenika|podciąganie nachwytem kółka|x10 x10 x10|s1|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
+2818|191|2024-12-08|kalistenika|podciąganie nachwytem kółka|x10 x10 x10|s1|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
+2819|191|2024-12-08|kalistenika|wykroki|x22 x22 x22|s1|0.0|0.0|0.0|0.0|0.0|1x22 1x22 1x22|1x22 1x22 1x22|1x22|1|22|22|0.0|0.0|nogi||
+2820|191|2024-12-08|kalistenika|wykroki|x22 x22 x22|s1|0.0|0.0|0.0|0.0|0.0|1x22 1x22 1x22|1x22 1x22 1x22|1x22|1|22|22|0.0|0.0|nogi||
+2821|191|2024-12-08|kalistenika|wykroki|x22 x22 x22|s1|0.0|0.0|0.0|0.0|0.0|1x22 1x22 1x22|1x22 1x22 1x22|1x22|1|22|22|0.0|0.0|nogi||
+2822|191|2024-12-08|kalistenika|podciąganie podchwytem|x7 x6 x7|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x7|1x7 1x6 1x7|1x7|1|7|7|0.0|0.0|plecy|biceps|
+2823|191|2024-12-08|kalistenika|podciąganie podchwytem|x7 x6 x7|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x7|1x7 1x6 1x7|1x6|1|6|6|0.0|0.0|plecy|biceps|
+2824|191|2024-12-08|kalistenika|podciąganie podchwytem|x7 x6 x7|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x7|1x7 1x6 1x7|1x7|1|7|7|0.0|0.0|plecy|biceps|
+2825|191|2024-12-08|kalistenika|dipy kólka|x7 x6 x5|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x5|1x7 1x6 1x5|1x7|1|7|7|0.0|0.0|triceps|klatka|
+2826|191|2024-12-08|kalistenika|dipy kólka|x7 x6 x5|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x5|1x7 1x6 1x5|1x6|1|6|6|0.0|0.0|triceps|klatka|
+2827|191|2024-12-08|kalistenika|dipy kólka|x7 x6 x5|s2|0.0|0.0|0.0|0.0|0.0|1x7 1x6 1x5|1x7 1x6 1x5|1x5|1|5|5|0.0|0.0|triceps|klatka|
+2828|191|2024-12-08|kalistenika|pompki kółka|x15 x12 x14|s3|0.0|0.0|0.0|0.0|0.0|1x15 1x12 1x14|1x15 1x12 1x14|1x15|1|15|15|0.0|0.0|klatka|triceps|
+2829|191|2024-12-08|kalistenika|pompki kółka|x15 x12 x14|s3|0.0|0.0|0.0|0.0|0.0|1x15 1x12 1x14|1x15 1x12 1x14|1x12|1|12|12|0.0|0.0|klatka|triceps|
+2830|191|2024-12-08|kalistenika|pompki kółka|x15 x12 x14|s3|0.0|0.0|0.0|0.0|0.0|1x15 1x12 1x14|1x15 1x12 1x14|1x14|1|14|14|0.0|0.0|klatka|triceps|
+2831|191|2024-12-08|kalistenika|przysiady z wyskokiem|x12 x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
+2832|191|2024-12-08|kalistenika|przysiady z wyskokiem|x12 x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
+2833|191|2024-12-08|kalistenika|przysiady z wyskokiem|x12 x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
+2834|192|2024-12-09|bieganie|dystans|9.12||9.12|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2835|192|2024-12-09|bieganie|tempo|5`11||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2836|192|2024-12-09|bieganie|czas|00:47:18||0.0|0.0|47.0|18.0|2838.0|||0x0|0|0|0|0.0|0.0|bieganie||
