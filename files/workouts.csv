@@ -2834,7 +2834,7 @@
 2832|191|2024-12-08|kalistenika|przysiady z wyskokiem|x12 x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
 2833|191|2024-12-08|kalistenika|przysiady z wyskokiem|x12 x12 x12|s3|0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
 2834|192|2024-12-09|bieganie|dystans|9.12||9.12|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
-2835|192|2024-12-09|bieganie|tempo|5`11||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2835|192|2024-12-09|bieganie|tempo|5'11||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 2836|192|2024-12-09|bieganie|czas|00:47:18||0.0|0.0|47.0|18.0|2838.0|||0x0|0|0|0|0.0|0.0|bieganie||
 2837|193|2024-12-10|siłownia|wyciskanie na ławce skośnej|82.5kg x5 x5 x4; 60kg x14||0.0|0.0|0.0|0.0|0.0|82.5kg 1x5 1x5 1x4; 60kg 1x14|82.5kg 1x5 1x5 1x4|1x5|1|5|5|82.5|412.5|klatka|barki|
 2838|193|2024-12-10|siłownia|wyciskanie na ławce skośnej|82.5kg x5 x5 x4; 60kg x14||0.0|0.0|0.0|0.0|0.0|82.5kg 1x5 1x5 1x4; 60kg 1x14|82.5kg 1x5 1x5 1x4|1x5|1|5|5|82.5|412.5|klatka|barki|
@@ -2859,3 +2859,26 @@
 2857|193|2024-12-10|siłownia|barki bokiem|12.5kg x9 x9 x9||0.0|0.0|0.0|0.0|0.0|12.5kg 1x9 1x9 1x9|12.5kg 1x9 1x9 1x9|1x9|1|9|9|12.5|112.5|barki||
 2858|193|2024-12-10|siłownia|barki bokiem|12.5kg x9 x9 x9||0.0|0.0|0.0|0.0|0.0|12.5kg 1x9 1x9 1x9|12.5kg 1x9 1x9 1x9|1x9|1|9|9|12.5|112.5|barki||
 2859|193|2024-12-10|siłownia|barki bokiem|12.5kg x9 x9 x9||0.0|0.0|0.0|0.0|0.0|12.5kg 1x9 1x9 1x9|12.5kg 1x9 1x9 1x9|1x9|1|9|9|12.5|112.5|barki||
+2860|194|2024-12-13|siłownia|wyciskanie na ławce płaskiej|105kg x1; 100kg x2 x1; 75kg x15||0.0|0.0|0.0|0.0|0.0|105kg 1x1; 100kg 1x2 1x1; 75kg 1x15|105kg 1x1|1x1|1|1|1|105.0|105.0|klatka|triceps|
+2861|194|2024-12-13|siłownia|wyciskanie na ławce płaskiej|105kg x1; 100kg x2 x1; 75kg x15||0.0|0.0|0.0|0.0|0.0|105kg 1x1; 100kg 1x2 1x1; 75kg 1x15| 100kg 1x2 1x1|1x2|1|2|2|100.0|200.0|klatka|triceps|
+2862|194|2024-12-13|siłownia|wyciskanie na ławce płaskiej|105kg x1; 100kg x2 x1; 75kg x15||0.0|0.0|0.0|0.0|0.0|105kg 1x1; 100kg 1x2 1x1; 75kg 1x15| 100kg 1x2 1x1|1x1|1|1|1|100.0|100.0|klatka|triceps|
+2863|194|2024-12-13|siłownia|wyciskanie na ławce płaskiej|105kg x1; 100kg x2 x1; 75kg x15||0.0|0.0|0.0|0.0|0.0|105kg 1x1; 100kg 1x2 1x1; 75kg 1x15| 75kg 1x15|1x15|1|15|15|75.0|1125.0|klatka|triceps|
+2864|194|2024-12-13|siłownia|martwy ciąg|60kg x8; 80kgx6; 110kg x5; 125kg x2||0.0|0.0|0.0|0.0|0.0|60kg 1x8; 80kgx6; 110kg 1x5; 125kg 1x2|60kg 1x8|1x8|1|8|8|60.0|480.0|nogi|dupa|
+2865|194|2024-12-13|siłownia|martwy ciąg|60kg x8; 80kgx6; 110kg x5; 125kg x2||0.0|0.0|0.0|0.0|0.0|60kg 1x8; 80kgx6; 110kg 1x5; 125kg 1x2| 110kg 1x5|1x5|1|5|5|110.0|550.0|nogi|dupa|
+2866|194|2024-12-13|siłownia|martwy ciąg|60kg x8; 80kgx6; 110kg x5; 125kg x2||0.0|0.0|0.0|0.0|0.0|60kg 1x8; 80kgx6; 110kg 1x5; 125kg 1x2| 125kg 1x2|1x2|1|2|2|125.0|250.0|nogi|dupa|
+2867|194|2024-12-13|siłownia|podciąganie nachwytem|22.5kg x3 x2||0.0|0.0|0.0|0.0|0.0|22.5kg 1x3 1x2|22.5kg 1x3 1x2|1x3|1|3|3|22.5|67.5|plecy||
+2868|194|2024-12-13|siłownia|podciąganie nachwytem|22.5kg x3 x2||0.0|0.0|0.0|0.0|0.0|22.5kg 1x3 1x2|22.5kg 1x3 1x2|1x2|1|2|2|22.5|45.0|plecy||
+2869|194|2024-12-13|siłownia|podciąganie podchwytem|22.5kg x2 x2||0.0|0.0|0.0|0.0|0.0|22.5kg 1x2 1x2|22.5kg 1x2 1x2|1x2|1|2|2|22.5|45.0|plecy|biceps|
+2870|194|2024-12-13|siłownia|podciąganie podchwytem|22.5kg x2 x2||0.0|0.0|0.0|0.0|0.0|22.5kg 1x2 1x2|22.5kg 1x2 1x2|1x2|1|2|2|22.5|45.0|plecy|biceps|
+2871|194|2024-12-13|siłownia|ohp smith|30kg x10; 35kg x10 x8||0.0|0.0|0.0|0.0|0.0|30kg 1x10; 35kg 1x10 1x8|30kg 1x10|1x10|1|10|10|30.0|300.0|barki||
+2872|194|2024-12-13|siłownia|ohp smith|30kg x10; 35kg x10 x8||0.0|0.0|0.0|0.0|0.0|30kg 1x10; 35kg 1x10 1x8| 35kg 1x10 1x8|1x10|1|10|10|35.0|350.0|barki||
+2873|194|2024-12-13|siłownia|ohp smith|30kg x10; 35kg x10 x8||0.0|0.0|0.0|0.0|0.0|30kg 1x10; 35kg 1x10 1x8| 35kg 1x10 1x8|1x8|1|8|8|35.0|280.0|barki||
+2874|194|2024-12-13|siłownia|uginanie ramion ze sztangą|35kg x9 x9 x9|za ciężko|0.0|0.0|0.0|0.0|0.0|35kg 1x9 1x9 1x9|35kg 1x9 1x9 1x9|1x9|1|9|9|35.0|315.0|biceps||
+2875|194|2024-12-13|siłownia|uginanie ramion ze sztangą|35kg x9 x9 x9|za ciężko|0.0|0.0|0.0|0.0|0.0|35kg 1x9 1x9 1x9|35kg 1x9 1x9 1x9|1x9|1|9|9|35.0|315.0|biceps||
+2876|194|2024-12-13|siłownia|uginanie ramion ze sztangą|35kg x9 x9 x9|za ciężko|0.0|0.0|0.0|0.0|0.0|35kg 1x9 1x9 1x9|35kg 1x9 1x9 1x9|1x9|1|9|9|35.0|315.0|biceps||
+2877|194|2024-12-13|siłownia|wyciskanie francuskie 2 hantlami|30kg x11 x10 x10||0.0|0.0|0.0|0.0|0.0|30kg 1x11 1x10 1x10|30kg 1x11 1x10 1x10|1x11|1|11|11|30.0|330.0|triceps||
+2878|194|2024-12-13|siłownia|wyciskanie francuskie 2 hantlami|30kg x11 x10 x10||0.0|0.0|0.0|0.0|0.0|30kg 1x11 1x10 1x10|30kg 1x11 1x10 1x10|1x10|1|10|10|30.0|300.0|triceps||
+2879|194|2024-12-13|siłownia|wyciskanie francuskie 2 hantlami|30kg x11 x10 x10||0.0|0.0|0.0|0.0|0.0|30kg 1x11 1x10 1x10|30kg 1x11 1x10 1x10|1x10|1|10|10|30.0|300.0|triceps||
+2880|195|2024-12-14|bieganie|dystans|12.16||12.16|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2881|195|2024-12-14|bieganie|tempo|5'06||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+2882|195|2024-12-14|bieganie|czas|01:02:01||0.0|1.0|2.0|1.0|3721.0|||0x0|0|0|0|0.0|0.0|bieganie||
