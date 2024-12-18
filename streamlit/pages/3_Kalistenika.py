@@ -332,6 +332,14 @@ fig_avg_reps = px.line(
     xaxis_title = granulation_name,
     yaxis_title= "Liczba powtórzeń" ,
     title = "Średnia liczba powtórzeń w serii",
+    legend_title=None,
+    legend= dict(
+        orientation="h",
+        yanchor="bottom",
+        y=-0.4,
+        xanchor="left",
+        x=0
+    )
 ).update_xaxes(
     dtick="M1",
     tickformat="%b\n%Y"
