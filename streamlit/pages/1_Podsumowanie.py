@@ -197,7 +197,7 @@ with col13:
     else:
         avg_time = training_time / metric_data
     h_avg, m_avg, s_avg =  int(avg_time // 3600), int((avg_time % 3600) // 60), int(avg_time % 60)
-    st.metric(label="Średi czas treningu", value=f"{h_avg} godzin {m_avg} minut {s_avg} sekund")
+    st.metric(label="Średni czas treningu", value=f"{h_avg} godzin {m_avg} minut {s_avg} sekund")
 
 
 ###############################################################################################
