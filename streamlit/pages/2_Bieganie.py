@@ -4,7 +4,7 @@ import streamlit as st
 import altair as alt
 import datetime
 import pandas as pd
-from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete
+from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete, run_hist
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -277,3 +277,28 @@ fig_scatter = px.scatter(
 
 st.plotly_chart(fig_scatter, theme="streamlit", use_container_width=True)
 
+
+###############################################################################################
+# fourth row, pace histogram
+###############################################################################################
+runs_t['pace_num'] = runs_t['pace'].apply(lambda x : float(str(x)[0]) + float(str(x)[-2:]) / 60)
+max_bin = runs_t[(runs_t['sport'] == 'bieganie')].shape[0]
+nbins = st.slider("Ile przedziałów stworyć?", 1, max_bin, 12)
+runs_h = run_hist(nbins, runs_t)
+
+fig_hist = px.bar(
+    runs_h,
+    x = "interval2", 
+    y = "n",
+    #custom_data=['exercise', 'exercise_count']
+).update_layout(
+    plot_bgcolor='white',
+    xaxis_title = "Przedział tempa",
+    yaxis_title= "Liczba wystąpień" ,
+    title_x=0.3,
+    title = "Histogram tempa",
+).update_traces(
+    hovertemplate = "<b>%{x}</b><br>" + "Liczba wystąpień: %{y}<br>" + "<extra></extra>"
+)
+
+st.plotly_chart(fig_hist, theme="streamlit", use_container_width=True)
