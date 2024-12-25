@@ -287,7 +287,8 @@ st.plotly_chart(fig_scatter, theme="streamlit", use_container_width=True)
 ###############################################################################################
 runs_t['pace_num'] = runs_t['pace'].apply(lambda x : float(str(x)[0]) + float(str(x)[-2:]) / 60)
 max_bin = runs_t[(runs_t['sport'] == 'bieganie')].shape[0]
-nbins = st.slider("Ile przedziałów stworyć?", 1, max_bin, 12)
+default_bins = int((runs_t[(runs_t['sport'] == 'bieganie')].shape[0])**(0.5))
+nbins = st.slider("Ile przedziałów stworyć?", 1, max_bin, default_bins)
 runs_h = run_hist(nbins, runs_t)
 
 fig_hist = px.bar(
