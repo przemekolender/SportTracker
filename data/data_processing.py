@@ -292,8 +292,8 @@ def create_pallete(df, key_column, value_column):
 # preapares data to draw a histogram of running pace
 ###############################################################################################
 def run_hist(nbins, runs_t):
-    q98 = runs_t[runs_t['sport'] == 'bieganie']['pace_num'].quantile(0.98)
-    df = runs_t[(runs_t['sport'] == 'bieganie') & (runs_t['pace_num'] < q98)]
+    treshold = runs_t[runs_t['sport'] == 'bieganie']['pace_num'].mean() + 1.5
+    df = runs_t[(runs_t['sport'] == 'bieganie') & (runs_t['pace_num'] < treshold)]
 
     if df.shape[0] == 0:
         return pd.DataFrame(columns=['interval2', 'n'])
@@ -310,6 +310,9 @@ def run_hist(nbins, runs_t):
         bin_max = pmin + (i+1) * bin_width
 
         bin_values = df[ (df['pace_num'] >= bin_min) & (df['pace_num'] < bin_max) ].sort_values('pace_num').reset_index(drop = True)
+        if i == nbins - 1:
+            bin_values = df[ (df['pace_num'] >= bin_min) & (df['pace_num'] <= bin_max) ].sort_values('pace_num').reset_index(drop = True)
+
 
         n = bin_values.shape[0]
         if n > 0:
