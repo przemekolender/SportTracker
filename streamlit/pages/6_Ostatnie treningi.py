@@ -76,3 +76,4 @@ if multiselect is not None:
     df_print = w.loc[w['index'] == (len(u)-1 + st.session_state['counter']), ['date', 'exercise', 'details', 'comments']].reset_index(drop = True)
     df_print.columns = ['Data', 'Ćwiczenie', 'Szczegóły', 'Komentarze']
     st.table(df_print)
+    st.markdown(f"Trening {len(u) + st.session_state['counter']} / {len(u)}")
