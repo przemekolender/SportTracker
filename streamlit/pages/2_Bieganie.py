@@ -4,7 +4,7 @@ import streamlit as st
 import altair as alt
 import datetime
 import pandas as pd
-from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete, run_hist
+from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete, run_hist, int_to_str
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -166,16 +166,20 @@ if granulation_name == 'Tydzień':                                              
 ###############################################################################################
 # first row - metrics
 ###############################################################################################
-col11, col12 = st.columns(2)
+col11, col12, col13 = st.columns([1, 2 ,1])
+distnace = float(runs['distance_km'].sum()).__round__(2)
+seconds_full = runs['run_total_seconds'].sum()
 
 with col11:
-    distnace = float(runs['distance_km'].sum()).__round__(2)
     st.metric(label="Przebiegnięty dystans", value=f"{distnace} km")
 
 with col12:
-    seconds_full = runs['run_total_seconds'].sum()
-    h, m,s =  int(seconds_full // 3600), int((seconds_full % 3600) // 60), int(seconds_full % 60)
+    h, m, s =  int(seconds_full // 3600), int((seconds_full % 3600) // 60), int(seconds_full % 60)
     st.metric(label="Czas biegania", value=f"{h} godzin {m} minut {s} sekund")
+
+with col13:
+    pace_m, pace_s = int((seconds_full / distnace % 3600) // 60), int(round(seconds_full / distnace % 60, 0))
+    st.metric(label="Średnie tempo", value=f"{int(pace_m)}'{int_to_str(pace_s)}")
 
 
 ###############################################################################################
