@@ -19,12 +19,12 @@ try{
         if ($LASTEXITCODE -ne 0) { throw "There was an error in Python code`n$out" }
     
         Write-Output "Adding new files to git $(Get-Date -Format "dd.MM.yyyy HH:mm:ss")`n"
-        #git add files
+        git add files
     
         Write-Output "Commit and push to GitHub $(Get-Date -Format "dd.MM.yyyy HH:mm:ss")`n"
         $date = Get-Date -Format "dd.MM.yyyy HH:mm"
-        #git commit -m "Update files, $date"
-        #git push origin main
+        git commit -m "Update files, $date"
+        git push origin main
     
         Write-Output "Script finished with success $(Get-Date -Format "dd.MM.yyyy HH:mm:ss")`n"
     
