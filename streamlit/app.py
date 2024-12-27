@@ -31,19 +31,10 @@ if "calendar" not in st.session_state:
 if "sports" not in st.session_state:
     st.session_state["sports"] = pd.read_csv("files/sports.csv", sep='|')
 
-if "min_date" not in st.session_state:
-    st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
-
-if "max_date" not in st.session_state:
-    st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
-
-
 
 ###############################################################################################
 # draw calendar
 ###############################################################################################
-
-
 
 st.markdown("# Kalendarz treningów")
 
@@ -54,7 +45,7 @@ with st.sidebar:
     )
 
 
-c = filter_by_period(st.session_state["calendar"], 'date', st.session_state["min_date"], st.session_state["max_date"])
+c = st.session_state["calendar"] 
 c.loc[:, 'sport'] = c['sport'].fillna('-')
 c.loc[:, 'category'] = c['category'].fillna('-')
 
@@ -174,8 +165,7 @@ st.plotly_chart(fig, use_container_width=True)
 ###############################################################################################
 # draw metrics
 ###############################################################################################
-workouts = filter_by_period(st.session_state["workouts"], 'date', st.session_state["min_date"], st.session_state["max_date"])
-
+workouts = st.session_state["workouts"]
 
 st.markdown("## Rekordy w kalistenice")
 col11, col12, col13, col14 = st.columns(4)
