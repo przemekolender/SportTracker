@@ -223,6 +223,12 @@ fig_distance = px.area(
 fig_distance_hist = px.histogram(
     runs_t,
     x = 'distance_km'
+).update_layout(
+    xaxis_title = "Przebiegnięty dystans [km]",
+    yaxis_title = "Liczba wystąpień",
+    title = "Histogram przebiegniętych dystansów"
+).update_traces(
+    hovertemplate = "Dystans: %{x} km<br>" + "Liczba wystąpień: %{y}<br>" + "<extra></extra>"
 )
 
 
@@ -322,7 +328,13 @@ fig_time = px.area(
 
 fig_time_hist = px.histogram(
     runs_t,
-    x = 'run_total_seconds'
+    x = 'run_total_seconds',
+).update_layout(
+    xaxis_title = "Czas biegania",
+    yaxis_title = "Liczba wystąpień",
+    title = "Histogram czasu biegania"
+).update_traces(
+    hovertemplate = "Czas biegu: %{x}<br>" + "Liczba wystąpień: %{y}<br>" + "<extra></extra>"
 )
 
 with col41:
@@ -330,6 +342,7 @@ with col41:
 
 with col42:
     st.plotly_chart(fig_time_hist, theme="streamlit", use_container_width=True)
+    
 
 ###############################################################################################
 # fifth row, distnace versus time
