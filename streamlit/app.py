@@ -20,7 +20,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-alt.themes.enable("dark")
+alt.theme.enable("dark")
 
 if "workouts" not in st.session_state:
     st.session_state["workouts"] = pd.read_csv("files/workouts.csv", sep='|')
@@ -30,6 +30,9 @@ if "calendar" not in st.session_state:
 
 if "sports" not in st.session_state:
     st.session_state["sports"] = pd.read_csv("files/sports.csv", sep='|')
+
+if "max_date" not in st.session_state:
+    st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
 
 
 ###############################################################################################
@@ -45,7 +48,7 @@ with st.sidebar:
     )
 
 
-c = st.session_state["calendar"] 
+c = filter_by_period(st.session_state["calendar"], 'date', st.session_state["calendar"]['date'].min(), st.session_state["max_date"])
 c.loc[:, 'sport'] = c['sport'].fillna('-')
 c.loc[:, 'category'] = c['category'].fillna('-')
 
