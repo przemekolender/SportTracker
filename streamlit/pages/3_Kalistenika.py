@@ -51,13 +51,14 @@ with st.sidebar:
     col_year_start, col_month_start = st.columns(2)
     with col_year_start:
         year_list_start = st.session_state["calendar"]['year'].unique().tolist()
-        selected_year_start = st.selectbox('Rok początkowy', year_list_start, index=len(year_list_start)-1)
+        index_year_start = len(year_list_start)-2 if datetime.datetime.today().month < 12 else len(year_list_start)-1
+        selected_year_start = st.selectbox('Rok początkowy', year_list_start, index=index_year_start)
   
     with col_month_start:
         month_list_start = st.session_state["calendar"].loc[
             st.session_state["calendar"]['year'] == selected_year_start, ['month','month_name_pl']
         ].groupby(['month','month_name_pl']).all().reset_index()
-        selected_month_start = st.selectbox('Miesiąc początkowy', month_list_start['month_name_pl'].tolist(), index=0)
+        selected_month_start = st.selectbox('Miesiąc początkowy', month_list_start['month_name_pl'].tolist(), index=datetime.datetime.today().month)
         selected_month_start_int = month_list_start.loc[month_list_start['month_name_pl'] == selected_month_start, 'month'].tolist()[0]
 
 
