@@ -17,7 +17,7 @@ st.set_page_config(
 
 st.markdown("# Treningi na siłowni")
 
-alt.themes.enable("dark")
+alt.theme.enable("dark")
 
 if "workouts" not in st.session_state:
     st.session_state["workouts"] = pd.read_csv("files/workouts.csv", sep='|')
