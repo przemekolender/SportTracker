@@ -3,6 +3,7 @@ import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
 import re
 import numpy as np
+import math
 
 
 ###############################################################################################
@@ -289,47 +290,79 @@ def create_pallete(df, key_column, value_column):
 
 
 ###############################################################################################
-# preapares data to draw a histogram of running pace
+# preapares data to draw a histograms about running
 ###############################################################################################
-def run_hist(nbins, runs_t):
-    treshold = runs_t[runs_t['sport'] == 'bieganie']['pace_num'].mean() + 1.5
-    df = runs_t[(runs_t['sport'] == 'bieganie') & (runs_t['pace_num'] < treshold)]
-
-    if df.shape[0] == 0:
-        return pd.DataFrame(columns=['interval2', 'n'])
-
-    pmin = df['pace_num'].min()
-    pmax = df['pace_num'].max()
-
-    diff = pmax - pmin
-    bin_width = diff / nbins
-
+def run_hist(nbins, df, col, pmin, bin_width):
     dfr = pd.DataFrame()
     for i in range(nbins):
         bin_min = pmin + i * bin_width
         bin_max = pmin + (i+1) * bin_width
 
-        bin_values = df[ (df['pace_num'] >= bin_min) & (df['pace_num'] < bin_max) ].sort_values('pace_num').reset_index(drop = True)
-        if i == nbins - 1:
-            bin_values = df[ (df['pace_num'] >= bin_min) & (df['pace_num'] <= bin_max) ].sort_values('pace_num').reset_index(drop = True)
-
+        if i == nbins-1:
+            bin_values = df[ (df[col] >= bin_min)].sort_values(col).reset_index(drop = True)
+        else:
+            bin_values = df[ (df[col] >= bin_min) & (df[col] < bin_max) ].sort_values(col).reset_index(drop = True)
 
         n = bin_values.shape[0]
-        if n > 0:
-            dfr = pd.concat([dfr, pd.DataFrame({
-                'nbin' : i+1,
-                'n' : n,
-                'bin_min' : bin_min,
-                'bin_max' : bin_max,
-                'bin_min_s' : bin_values.loc[0, 'pace'],
-                'bin_max_s' : bin_values.loc[n-1, 'pace']
-            }, index=[0])], ignore_index=True)
+        dfr = pd.concat([dfr, pd.DataFrame({
+            'nbin' : i+1,
+            'n' : n, 
+            'bin_min' : bin_min,
+            'bin_max' : bin_max-1,
+        }, index=[0])], ignore_index=True)
 
-    dfr['interval'] = dfr['bin_min_s'] + ' - ' + dfr['bin_max_s']
-    dfr['cmin'] = ((dfr['bin_min'] - dfr['bin_min'].astype(int)) * 60).round(0).astype(int)
-    dfr['cmax'] = ((dfr['bin_max'] - dfr['bin_max'].astype(int)) * 60).round(0).astype(int)
-    dfr['bin_min_s2'] = dfr['bin_min'].astype(int).astype(str) + "'" + dfr['cmin'].astype(int).apply(lambda x : int_to_str(x))
-    dfr['bin_max_s2'] = dfr['bin_max'].astype(int).astype(str) + "'" + dfr['cmax'].astype(int).apply(lambda x : int_to_str(x))
-    dfr['interval2'] = dfr['bin_min_s2'] + ' - ' + dfr['bin_max_s2']
+    dfr['interval'] = dfr['bin_min'].astype(str) + ' - ' + dfr['bin_max'].astype(str)
+
+    return dfr
+
+
+###############################################################################################
+# prepare data for histogram about time
+###############################################################################################
+def run_hist_time(nbins, runs_t, col):
+    df = runs_t[runs_t['sport'] == 'bieganie']
+    pmin = 0#int(df[col].min())
+    pmax = int(df[col].max())
+    diff = pmax - pmin
+    bin_width = (diff // nbins) // 600 * 600
+
+    dfr = run_hist(nbins, df, col, pmin, bin_width)
+    dfr['bin_min_t'] = dfr['bin_min'].apply(lambda x : f"{int_to_str(x // 3600)}:{int_to_str((x % 3600) // 60)}:{int_to_str(x % 60)}")
+    dfr['bin_max_t'] = dfr['bin_max'].apply(lambda x : f"{int_to_str((x) // 3600)}:{int_to_str(((x) % 3600) // 60)}:{int_to_str((x) % 60)}")
+    dfr['interval2'] = dfr['bin_min_t'].astype(str) + ' - ' + dfr['bin_max_t'].astype(str)
+
+    return dfr
+
+
+###############################################################################################
+# preapares data to draw a histograms about distance
+###############################################################################################
+def run_hist_distnace(nbins, runs_t, col):
+    df = runs_t[runs_t['sport'] == 'bieganie']
+    pmin = math.floor(df[col].min())
+    pmax = math.ceil(df[col].max())
+    diff = pmax - pmin
+    bin_width = diff // nbins
+
+    dfr = run_hist(nbins, df, col, pmin, bin_width)
+
+    return dfr
+
+
+###############################################################################################
+# preapares data to draw a histograms about pace
+###############################################################################################
+def run_hist_pace(nbins, runs_t, col):
+    df = runs_t[runs_t['sport'] == 'bieganie']
+    pmin = df['pace_seconds'].min()
+    pmax = df['pace_seconds'].max()
+
+    diff = pmax - pmin
+    bin_width = diff // nbins
+
+    dfr = run_hist(nbins, df, col, pmin, bin_width)
+    dfr['bin_min_s'] = dfr['bin_min'].apply(lambda x : f"{x // 60}'{int_to_str(x % 60)}")
+    dfr['bin_max_s'] = dfr['bin_max'].apply(lambda x : f"{x // 60}'{int_to_str((x) % 60)}")
+    dfr['interval2'] = dfr['bin_min_s'] + ' - ' + dfr['bin_max_s']
 
     return dfr

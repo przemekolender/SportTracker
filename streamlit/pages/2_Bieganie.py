@@ -4,7 +4,7 @@ import streamlit as st
 import altair as alt
 import datetime
 import pandas as pd
-from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete, run_hist, int_to_str
+from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete, run_hist, int_to_str, run_hist_distnace, run_hist_pace, run_hist_time
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -166,7 +166,14 @@ if granulation_name == 'Tydzień':                                              
 runs_t = transpose_runs(runs_all)
 runs_t['h'] = runs_t['run_total_seconds'] / 3600
 runs_t['date_'] = runs_t['date'].astype(str).str[:11]
-#runs_t['hour_str'] = runs_t['run_total_seconds'].apply(lambda x : hour_str(int(x)))
+
+runs_t['pace_num'] = runs_t['pace'].apply(lambda x : float(str(x)[0]) + float(str(x)[-2:]) / 60)
+runs_t['pace_seconds'] = runs_t['pace'].apply(lambda x : int(str(x)[0])*60 + int(str(x)[-2:]))
+
+bins = int(runs_t.shape[0]**(0.5))
+runs_hist_dist = run_hist_distnace(bins, runs_t, 'distance_km')
+runs_hist_pace = run_hist_pace(bins, runs_t, 'pace_seconds')
+runs_hist_time = run_hist_time(bins, runs_t, 'run_total_seconds')
 
 
 ###############################################################################################
@@ -220,12 +227,15 @@ fig_distance = px.area(
     hovertemplate = "%{customdata[0]}<br>" + "Dystans: %{y} km<br>" + "<extra></extra>"
 )
 
-fig_distance_hist = px.histogram(
-    runs_t,
-    x = 'distance_km'
+fig_distance_hist = px.bar(
+    runs_hist_dist,
+    x = "interval", 
+    y = "n",
 ).update_layout(
+    plot_bgcolor='white',
     xaxis_title = "Przebiegnięty dystans [km]",
     yaxis_title = "Liczba wystąpień",
+    title_x=0.3,
     title = "Histogram przebiegniętych dystansów"
 ).update_traces(
     hovertemplate = "Dystans: %{x} km<br>" + "Liczba wystąpień: %{y}<br>" + "<extra></extra>"
@@ -265,24 +275,15 @@ fig_pace = px.area(
     hovertemplate = "%{customdata[0]}<br>" + "Tempo: %{customdata[1]} min/km<br>" + "<extra></extra>"
 )
 
-runs_t['pace_num'] = runs_t['pace'].apply(lambda x : float(str(x)[0]) + float(str(x)[-2:]) / 60)
-max_bin = runs_t[(runs_t['sport'] == 'bieganie')].shape[0]
-default_bins = int((runs_t[(runs_t['sport'] == 'bieganie')].shape[0])**(0.5))
-nbins = default_bins
-#with col32:
-#    nbins = st.slider("Ile przedziałów stworzyć?", 1, max_bin, default_bins)
 
-
-runs_h = run_hist(nbins, runs_t)
 
 fig_hist = px.bar(
-    runs_h,
+    runs_hist_pace,
     x = "interval2", 
     y = "n",
-    #custom_data=['exercise', 'exercise_count']
 ).update_layout(
     plot_bgcolor='white',
-    xaxis_title = "Przedział tempa",
+    xaxis_title = "Przedział tempa [min/km]",
     yaxis_title= "Liczba wystąpień" ,
     title_x=0.3,
     title = "Histogram tempa",
@@ -326,12 +327,15 @@ fig_time = px.area(
     hovertemplate = "%{customdata[0]}<br>" + "Czas biegania: %{customdata[1]}<br>" + "<extra></extra>"
 )
 
-fig_time_hist = px.histogram(
-    runs_t,
-    x = 'run_total_seconds',
+fig_time_hist = px.bar(
+    runs_hist_time,
+    x = "interval2", 
+    y = "n",
 ).update_layout(
+    plot_bgcolor='white',
     xaxis_title = "Czas biegania",
     yaxis_title = "Liczba wystąpień",
+    title_x=0.3,
     title = "Histogram czasu biegania"
 ).update_traces(
     hovertemplate = "Czas biegu: %{x}<br>" + "Liczba wystąpień: %{y}<br>" + "<extra></extra>"
