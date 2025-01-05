@@ -168,12 +168,11 @@ runs_t['h'] = runs_t['run_total_seconds'] / 3600
 runs_t['date_'] = runs_t['date'].astype(str).str[:11]
 
 runs_t['pace_num'] = runs_t['pace'].apply(lambda x : float(str(x)[0]) + float(str(x)[-2:]) / 60)
-runs_t['pace_seconds'] = runs_t['pace'].apply(lambda x : int(str(x)[0])*60 + int(str(x)[-2:]))
+runs_t['pace_seconds'] = runs_t['pace'].apply(lambda x : int(str(x).split("'")[0])*60 + int(str(x).split("'")[1]))
 
-bins = int(runs_t.shape[0]**(0.5))
-runs_hist_dist = run_hist_distnace(bins, runs_t, 'distance_km')
-runs_hist_pace = run_hist_pace(bins, runs_t, 'pace_seconds')
-runs_hist_time = run_hist_time(bins, runs_t, 'run_total_seconds')
+runs_hist_dist = run_hist_distnace(17, runs_t, 'distance_km')
+runs_hist_pace = run_hist_pace(17, runs_t, 'pace_seconds')
+runs_hist_time = run_hist_time(17, runs_t, 'run_total_seconds')
 
 
 ###############################################################################################
