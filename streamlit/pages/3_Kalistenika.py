@@ -33,10 +33,10 @@ if "min_date" not in st.session_state:
 if "max_date" not in st.session_state:
     st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
 
-if "month_index" in st.session_state:
-    st.session_state["month_index"] = 0 
+if "month_index_cal" in st.session_state:
+    st.session_state["month_index_cal"] = 0 
 else:
-    st.session_state["month_index"] = datetime.datetime.today().month
+    st.session_state["month_index_cal"] = datetime.datetime.today().month
 
 
 ###############################################################################################
@@ -63,7 +63,7 @@ with st.sidebar:
         month_list_start = st.session_state["calendar"].loc[
             st.session_state["calendar"]['year'] == selected_year_start, ['month','month_name_pl']
         ].groupby(['month','month_name_pl']).all().reset_index()
-        selected_month_start = st.selectbox('Miesiąc początkowy', month_list_start['month_name_pl'].tolist(), index = st.session_state["month_index"])
+        selected_month_start = st.selectbox('Miesiąc początkowy', month_list_start['month_name_pl'].tolist(), index = st.session_state["month_index_cal"])
         selected_month_start_int = month_list_start.loc[month_list_start['month_name_pl'] == selected_month_start, 'month'].tolist()[0]
 
 
