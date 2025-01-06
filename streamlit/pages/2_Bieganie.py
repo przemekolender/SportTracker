@@ -164,9 +164,32 @@ runs = runs_all.groupby(granulation_agg) \
     .reset_index()
 runs.rename(columns = {new_date_name : 'date'}, inplace=True)                  # fix columns names to always have 'date' present
 runs['hour_str'] = runs['run_total_seconds'].apply(lambda x : hour_str(int(x)))
+runs['pace_seconds'] = (runs['run_total_seconds'] / runs['distance_km']).round(0).fillna(0)
+runs['pace'] = (runs['pace_seconds'].astype(int) // 60).astype(str) + "'" + (runs['pace_seconds'].astype(int) % 60).apply(lambda x : int_to_str(int(x))).astype(str)
 if granulation_name == 'Tydzień':                                                   # add column with dates of start and end of the week for hovers
     runs['week_start_end'] = runs['date'].astype(str) + ' - ' + runs['week_end_date'].astype(str)
 
+runs_t = transpose_runs(runs_all)
+runs_t['h'] = runs_t['run_total_seconds'] / 3600
+runs_t['date_'] = runs_t['date'].astype(str).str[:11]
+
+runs_t['pace_num'] = runs_t['pace'].apply(lambda x : float(str(x)[0]) + float(str(x)[-2:]) / 60)
+runs_t['pace_seconds'] = runs_t['pace'].apply(lambda x : int(str(x).split("'")[0])*60 + int(str(x).split("'")[1]))
+
+nbins = 17
+runs_hist_dist = run_hist(nbins, runs_t, 'distance_km', 2, 1, 0.01)
+
+runs_hist_pace = run_hist(nbins, runs_t, 'pace_seconds', 260, 5, 1)
+runs_hist_pace['bin_min_s'] = runs_hist_pace['bin_min'].apply(lambda x : f"{x // 60}'{int_to_str(x % 60)}")
+runs_hist_pace['bin_max_s'] = runs_hist_pace['bin_max'].apply(lambda x : f"{x // 60}'{int_to_str((x) % 60)}")
+runs_hist_pace['interval2'] = runs_hist_pace['bin_min_s'] + ' - ' + runs_hist_pace['bin_max_s']
+runs_hist_pace.loc[runs_hist_pace['nbin'] == nbins, 'interval2'] = runs_hist_pace['bin_min_s'] + ' - ∞' 
+
+runs_hist_time = run_hist(nbins, runs_t, 'run_total_seconds', 600, 300, 1)
+runs_hist_time['bin_min_t'] = runs_hist_time['bin_min'].apply(lambda x : f"{int_to_str(x // 3600)}:{int_to_str((x % 3600) // 60)}:{int_to_str(x % 60)}")
+runs_hist_time['bin_max_t'] = runs_hist_time['bin_max'].apply(lambda x : f"{int_to_str((x) // 3600)}:{int_to_str(((x) % 3600) // 60)}:{int_to_str((x) % 60)}")
+runs_hist_time['interval2'] = runs_hist_time['bin_min_t'].astype(str) + ' - ' + runs_hist_time['bin_max_t'].astype(str)
+runs_hist_time.loc[runs_hist_time['nbin'] == nbins, 'interval2'] = runs_hist_time['bin_min_t'] + ' - ∞' 
 
 
 ###############################################################################################
@@ -184,12 +207,15 @@ with col12:
     st.metric(label="Czas biegania", value=f"{h} godzin {m} minut {s} sekund")
 
 with col13:
-    pace_m, pace_s = int((seconds_full / distnace % 3600) // 60), int(round(seconds_full / distnace % 60, 0))
+    if distnace == 0:
+        pace_m, pace_s = 0, 0
+    else :
+        pace_m, pace_s = int((seconds_full / distnace % 3600) // 60), int(round(seconds_full / distnace % 60, 0))
     st.metric(label="Średnie tempo", value=f"{int(pace_m)}'{int_to_str(pace_s)}")
 
 
 ###############################################################################################
-# second row, km and time
+# second row, distance
 ###############################################################################################
 col21, col22 = st.columns(2)
 
@@ -217,6 +243,82 @@ fig_distance = px.area(
     hovertemplate = "%{customdata[0]}<br>" + "Dystans: %{y} km<br>" + "<extra></extra>"
 )
 
+fig_distance_hist = px.bar(
+    runs_hist_dist,
+    x = "interval", 
+    y = "n",
+).update_layout(
+    plot_bgcolor='white',
+    xaxis_title = "Przebiegnięty dystans [km]",
+    yaxis_title = "Liczba wystąpień",
+    title_x=0.3,
+    title = "Histogram przebiegniętych dystansów"
+).update_traces(
+    hovertemplate = "Dystans: %{x} km<br>" + "Liczba wystąpień: %{y}<br>" + "<extra></extra>"
+)
+
+
+with col21:
+    st.plotly_chart(fig_distance, theme="streamlit", use_container_width=True)
+
+with col22:
+    st.plotly_chart(fig_distance_hist, theme="streamlit", use_container_width=True)
+
+
+###############################################################################################
+# third row, pace
+###############################################################################################
+col31, col32 = st.columns(2)
+
+fig_pace = px.area(
+    runs, 
+    x = 'date', 
+    y = 'pace_seconds', 
+    line_shape='spline', 
+    markers=True,
+    custom_data=[granulation_hover, 'pace']
+).update_layout(
+    plot_bgcolor='white',
+    yaxis_range=[0, 1.1*runs['pace_seconds'].max()],
+    xaxis_title = granulation_name,
+    yaxis_title= "Średnie tempo biegu [s/km]" ,
+    title = "Średnie tempo biegu w danym okresie",
+    showlegend=False
+).update_xaxes(
+    dtick="M1",
+    tickformat="%b\n%Y"
+).update_traces(
+    hovertemplate = "%{customdata[0]}<br>" + "Tempo: %{customdata[1]} min/km<br>" + "<extra></extra>"
+)
+
+
+
+fig_hist = px.bar(
+    runs_hist_pace,
+    x = "interval2", 
+    y = "n",
+).update_layout(
+    plot_bgcolor='white',
+    xaxis_title = "Przedział tempa [min/km]",
+    yaxis_title= "Liczba wystąpień" ,
+    title_x=0.3,
+    title = "Histogram tempa",
+).update_traces(
+    hovertemplate = "<b>%{x}</b><br>" + "Liczba wystąpień: %{y}<br>" + "<extra></extra>"
+)
+
+with col31:
+    st.plotly_chart(fig_pace, theme="streamlit", use_container_width=True)
+
+with col32:
+    st.plotly_chart(fig_hist, theme="streamlit", use_container_width=True)
+
+
+###############################################################################################
+# fourth row, time
+###############################################################################################
+col41, col42 = st.columns(2)
+
 runs['h'] = runs['run_total_seconds'] / 3600
 fig_time = px.area(
     runs, 
@@ -241,21 +343,31 @@ fig_time = px.area(
     hovertemplate = "%{customdata[0]}<br>" + "Czas biegania: %{customdata[1]}<br>" + "<extra></extra>"
 )
 
-with col21:
-    st.plotly_chart(fig_distance, theme="streamlit", use_container_width=True)
+fig_time_hist = px.bar(
+    runs_hist_time,
+    x = "interval2", 
+    y = "n",
+).update_layout(
+    plot_bgcolor='white',
+    xaxis_title = "Czas biegania",
+    yaxis_title = "Liczba wystąpień",
+    title_x=0.3,
+    title = "Histogram czasu biegania"
+).update_traces(
+    hovertemplate = "Czas biegu: %{x}<br>" + "Liczba wystąpień: %{y}<br>" + "<extra></extra>"
+)
 
-with col22:
+with col41:
     st.plotly_chart(fig_time, theme="streamlit", use_container_width=True)
 
+with col42:
+    st.plotly_chart(fig_time_hist, theme="streamlit", use_container_width=True)
+    
 
 ###############################################################################################
-# third row, pace
+# fifth row, distnace versus time
 ###############################################################################################
 
-runs_t = transpose_runs(runs_all)
-runs_t['h'] = runs_t['run_total_seconds'] / 3600
-runs_t['date_'] = runs_t['date'].astype(str).str[:11]
-#runs_t['hour_str'] = runs_t['run_total_seconds'].apply(lambda x : hour_str(int(x)))
 fig_scatter = px.scatter(
     runs_t, 
     x = 'h', 
@@ -286,30 +398,3 @@ fig_scatter = px.scatter(
 
 
 st.plotly_chart(fig_scatter, theme="streamlit", use_container_width=True)
-
-
-###############################################################################################
-# fourth row, pace histogram
-###############################################################################################
-runs_t['pace_num'] = runs_t['pace'].apply(lambda x : float(str(x)[0]) + float(str(x)[-2:]) / 60)
-max_bin = runs_t[(runs_t['sport'] == 'bieganie')].shape[0]
-default_bins = int((runs_t[(runs_t['sport'] == 'bieganie')].shape[0])**(0.5))
-nbins = st.slider("Ile przedziałów stworzyć?", 1, max_bin, default_bins)
-runs_h = run_hist(nbins, runs_t)
-
-fig_hist = px.bar(
-    runs_h,
-    x = "interval2", 
-    y = "n",
-    #custom_data=['exercise', 'exercise_count']
-).update_layout(
-    plot_bgcolor='white',
-    xaxis_title = "Przedział tempa",
-    yaxis_title= "Liczba wystąpień" ,
-    title_x=0.3,
-    title = "Histogram tempa",
-).update_traces(
-    hovertemplate = "<b>%{x}</b><br>" + "Liczba wystąpień: %{y}<br>" + "<extra></extra>"
-)
-
-st.plotly_chart(fig_hist, theme="streamlit", use_container_width=True)
