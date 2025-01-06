@@ -4,7 +4,7 @@ import streamlit as st
 import altair as alt
 import datetime
 import pandas as pd
-from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete, run_hist, int_to_str, run_hist_distnace, run_hist_pace, run_hist_time
+from data_processing import filter_by_period, transpose_runs, hour_str, create_pallete, run_hist, int_to_str
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -170,9 +170,20 @@ runs_t['date_'] = runs_t['date'].astype(str).str[:11]
 runs_t['pace_num'] = runs_t['pace'].apply(lambda x : float(str(x)[0]) + float(str(x)[-2:]) / 60)
 runs_t['pace_seconds'] = runs_t['pace'].apply(lambda x : int(str(x).split("'")[0])*60 + int(str(x).split("'")[1]))
 
-runs_hist_dist = run_hist_distnace(17, runs_t, 'distance_km')
-runs_hist_pace = run_hist_pace(17, runs_t, 'pace_seconds')
-runs_hist_time = run_hist_time(17, runs_t, 'run_total_seconds')
+nbins = 17
+runs_hist_dist = run_hist(nbins, runs_t, 'distance_km', 2, 1, 0.01)
+
+runs_hist_pace = run_hist(nbins, runs_t, 'pace_seconds', 260, 5, 1)
+runs_hist_pace['bin_min_s'] = runs_hist_pace['bin_min'].apply(lambda x : f"{x // 60}'{int_to_str(x % 60)}")
+runs_hist_pace['bin_max_s'] = runs_hist_pace['bin_max'].apply(lambda x : f"{x // 60}'{int_to_str((x) % 60)}")
+runs_hist_pace['interval2'] = runs_hist_pace['bin_min_s'] + ' - ' + runs_hist_pace['bin_max_s']
+runs_hist_pace.loc[runs_hist_pace['nbin'] == nbins, 'interval2'] = runs_hist_pace['bin_min_s'] + ' - ∞' 
+
+runs_hist_time = run_hist(nbins, runs_t, 'run_total_seconds', 600, 300, 1)
+runs_hist_time['bin_min_t'] = runs_hist_time['bin_min'].apply(lambda x : f"{int_to_str(x // 3600)}:{int_to_str((x % 3600) // 60)}:{int_to_str(x % 60)}")
+runs_hist_time['bin_max_t'] = runs_hist_time['bin_max'].apply(lambda x : f"{int_to_str((x) // 3600)}:{int_to_str(((x) % 3600) // 60)}:{int_to_str((x) % 60)}")
+runs_hist_time['interval2'] = runs_hist_time['bin_min_t'].astype(str) + ' - ' + runs_hist_time['bin_max_t'].astype(str)
+runs_hist_time.loc[runs_hist_time['nbin'] == nbins, 'interval2'] = runs_hist_time['bin_min_t'] + ' - ∞' 
 
 
 ###############################################################################################
