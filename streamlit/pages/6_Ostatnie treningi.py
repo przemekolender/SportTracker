@@ -3,6 +3,8 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
+import datetime
+from data_processing import filter_by_period
  
 
 st.set_page_config(
@@ -19,8 +21,72 @@ alt.theme.enable("dark")
 if "workouts" not in st.session_state:
     st.session_state["workouts"] = pd.read_csv("files/workouts.csv", sep='|').fillna('')
 
+if "calendar" not in st.session_state:
+    st.session_state["calendar"] = pd.read_csv("files/calendar.csv", sep='|')
+    st.session_state["calendar"]["date"] = pd.to_datetime(st.session_state["calendar"]["date"], format='%Y-%m-%d')
+
+if "min_date" not in st.session_state:
+    st.session_state["min_date"] = st.session_state["calendar"]['date'].min()
+
+if "max_date" not in st.session_state:
+    st.session_state["max_date"] = datetime.datetime.today().strftime(format='%Y-%m-%d')
+
 if "counter" not in st.session_state:
     st.session_state["counter"] = 0
+
+
+###############################################################################################
+# sidebar options
+###############################################################################################
+# always use dates no greater than today
+st.session_state["calendar"] = filter_by_period(
+    st.session_state["calendar"],
+    'date', st.session_state["calendar"]['date'].min(),
+    datetime.datetime.today().strftime(format='%Y-%m-%d')
+)
+
+with st.sidebar:   
+
+    # select start year and month
+    col_year_start, col_month_start = st.columns(2)
+    with col_year_start:
+        year_list_start = st.session_state["calendar"]['year'].unique().tolist()
+        selected_year_start = st.selectbox('Rok początkowy', year_list_start, index=0)
+  
+    with col_month_start:
+        month_list_start = st.session_state["calendar"].loc[
+            st.session_state["calendar"]['year'] == selected_year_start, ['month','month_name_pl']
+        ].groupby(['month','month_name_pl']).all().reset_index()
+        selected_month_start = st.selectbox('Miesiąc początkowy', month_list_start['month_name_pl'].tolist(), index = 0)
+        selected_month_start_int = month_list_start.loc[month_list_start['month_name_pl'] == selected_month_start, 'month'].tolist()[0]
+
+
+    # select end year and month
+    col_year_end, col_month_end = st.columns(2)
+    with col_year_end:
+        year_list_end = st.session_state["calendar"].loc[st.session_state["calendar"]['year'] >= selected_year_start, 'year'].unique().tolist()
+        selected_year_end = st.selectbox('Rok końcowy', year_list_end, index=len(year_list_end)-1)
+
+    with col_month_end:
+        if selected_year_end == selected_year_start:
+            month_list_end = st.session_state["calendar"].loc[
+                (st.session_state["calendar"]['year'] == selected_year_end) & 
+                (st.session_state["calendar"]['month'] >= selected_month_start_int)
+                , 'month_name_pl'].unique().tolist()
+        else:
+            month_list_end = st.session_state["calendar"].loc[(st.session_state["calendar"]['year'] == selected_year_end), 'month_name_pl'].unique().tolist()
+        selected_month_end = st.selectbox('Miesiąc końcowy', month_list_end, index=len(month_list_end)-1)
+
+
+    # set min_date and max_date according to selected values
+    selected_month_start_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_start]['month_str'].unique()[0]
+    selected_month_end_num = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_end]['month_str'].unique()[0]
+    min_day = '01'
+    max_day = st.session_state["calendar"][st.session_state["calendar"]["month_name_pl"] ==  selected_month_end]['day_num'].unique()[0]
+
+    st.session_state["min_date"] = f"{selected_year_start}-{selected_month_start_num}-{min_day}"
+    st.session_state["max_date"] = f"{selected_year_end}-{selected_month_end_num}-{max_day}"
+
 
 ###############################################################################################
 # options panel
@@ -56,37 +122,46 @@ chosen_columns = ['date', 'sport', 'exercise', 'details', 'comments']
 
 if multiselect is not None:
     # prepare dataframe to show
+    workouts = filter_by_period(
+        st.session_state["workouts"],
+        'date',
+        st.session_state['min_date'],
+        st.session_state['max_date']
+    )
 
     if multiselect == 'bieganie':
-        w = st.session_state["workouts"].loc[st.session_state["workouts"]['sport'] == multiselect, chosen_columns] \
+        w = workouts.loc[workouts['sport'] == multiselect, chosen_columns] \
             .sort_values('date', ascending=True) \
             .reset_index(drop = True)
         
     else:
-        w = st.session_state["workouts"].loc[st.session_state["workouts"]['sport'] == multiselect, chosen_columns] \
+        w = workouts.loc[workouts['sport'] == multiselect, chosen_columns] \
             .reset_index() \
             .groupby(chosen_columns).agg({'index' : 'max'}).reset_index() \
             .sort_values('index', ascending=True) \
             .reset_index(drop = True)
             
-    
-    j = -1
-    prev = w.loc[0, 'date']
-    for i in range(len(w)):
-        curr = w.loc[i, 'date']
-        if prev != curr:
-            j -= 1
-        w.loc[i, 'index2'] = j
-        prev = curr
+    if len(w) > 0:
+        j = -1
+        prev = w.loc[0, 'date']
+        for i in range(len(w)):
+            curr = w.loc[i, 'date']
+            if prev != curr:
+                j -= 1
+            w.loc[i, 'index2'] = j
+            prev = curr
 
-    w['index2'] = w['index2'].astype(int)
+        w['index2'] = w['index2'].astype(int)
 
-    # make sure you cannot go out of range of activities
-    st.session_state['counter'] = min(0, st.session_state['counter'])
-    st.session_state['counter'] = max(w['index2'].min()+1, st.session_state['counter'])
-    
-    #print table
-    df_print = w.loc[w['index2'] == (w['index2'].min() - st.session_state['counter']), ['date', 'exercise', 'details', 'comments']].reset_index(drop = True)
-    df_print.columns = ['Data', 'Ćwiczenie', 'Szczegóły', 'Komentarze']
-    st.table(df_print)
-    st.markdown(f"Trening {-1 * w['index2'].min() + st.session_state['counter']} / {-1 * w['index2'].min()}")
+        # make sure you cannot go out of range of activities
+        st.session_state['counter'] = min(0, st.session_state['counter'])
+        st.session_state['counter'] = max(w['index2'].min()+1, st.session_state['counter'])
+        
+        #print table
+        df_print = w.loc[w['index2'] == (w['index2'].min() - st.session_state['counter']), ['date', 'exercise', 'details', 'comments']].reset_index(drop = True)
+        df_print.columns = ['Data', 'Ćwiczenie', 'Szczegóły', 'Komentarze']
+        st.table(df_print)
+        st.markdown(f"Trening {-1 * w['index2'].min() + st.session_state['counter']} / {-1 * w['index2'].min()}")
+
+    else:
+        st.markdown("Brak treningów w tym okresie.")
