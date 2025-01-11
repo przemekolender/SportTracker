@@ -4,7 +4,7 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 import datetime
-from data_processing import filter_by_period
+from data_processing import filter_by_period, bin_selector
 import plotly.express as px
  
 
@@ -414,3 +414,59 @@ fig_deadlift = px.scatter(
 with col52:
     st.plotly_chart(fig_deadlift, theme="streamlit", use_container_width=True)
 
+
+###############################################################################################
+# sizth row - weight lifted over time
+###############################################################################################
+
+selectbox = st.selectbox(
+    label="Wybierz ćwiczenie",
+    options=workouts.loc[(workouts['sport'] == 'siłownia') & (workouts['description'] != 'na czas'), 'exercise'].unique(),
+    placeholder=""
+)
+
+w2g = gym_all.groupby(granulation_agg + ['exercise']).agg({'reps_sum' : 'sum', "weights_lifted" : 'sum'}).reset_index()
+w2g['avg'] = w2g['weights_lifted'] / w2g['reps_sum']
+w2g['reps_bin'] = "all"
+    
+gym_all['reps_bin'] = gym_all['reps_sum'].apply(lambda x : bin_selector(x))
+w2g_bins = gym_all.groupby(granulation_agg + ['exercise', 'reps_bin']).agg({'reps_sum' : 'sum', "weights_lifted" : 'sum'}).reset_index()
+w2g_bins['avg'] = w2g_bins['weights_lifted'] / w2g_bins['reps_sum']
+
+w2g_concat = pd.concat([w2g, w2g_bins], ignore_index=True)
+w2g_concat['avg_r'] = w2g_concat['avg'].round(2)
+w2g_concat.rename(columns = {new_date_name : 'date'}, inplace=True)                    # fix columns names to always have 'date' present
+if granulation_name == 'Tydzień':                                                   # add column with dates of start and end of the week for hovers
+    w2g_concat['week_start_end'] = w2g_concat['date'].astype(str) + ' - ' + w2g_concat['week_end_date'].astype(str)
+
+
+fig_avg_weight = px.line(
+    w2g_concat.loc[w2g_concat['exercise'] == selectbox], 
+    x = 'date', 
+    y = 'avg_r', 
+    color='reps_bin',
+    line_shape='spline', 
+    markers=True,
+    color_discrete_sequence=px.colors.sequential.Sunset_r, 
+    custom_data=['reps_bin', granulation_hover]
+).update_layout(
+    plot_bgcolor='white',
+    xaxis_title = granulation_name,
+    yaxis_title= "Ciężar" ,
+    title = "Średnia ciężar powtórzeina",
+    legend_title=None,
+    legend= dict(
+        orientation="h",
+        yanchor="bottom",
+        y=-0.4,
+        xanchor="left",
+        x=0
+    )
+).update_xaxes(
+    dtick="M1",
+    tickformat="%b\n%Y"
+).update_traces(
+    hovertemplate = "%{customdata[1]}<br>" + "Zakres powtórzeń: %{customdata[0]}<br>" + "Średnia ciężar powtórzenia: %{y}" + "<extra></extra>"
+)
+
+st.plotly_chart(fig_avg_weight, theme="streamlit", use_container_width=True)

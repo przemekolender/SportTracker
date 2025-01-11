@@ -316,3 +316,16 @@ def run_hist(nbins, df, col, pmin, bin_width, offset):
     dfr.loc[dfr['nbin'] == nbins, 'interval'] = dfr['bin_min'].astype(str) + ' - ∞' 
 
     return dfr
+
+
+###############################################################################################
+# returns bin name for rep number
+###############################################################################################
+def bin_selector(x : int):
+    if x <= 5:
+        return "1 - 5"
+    elif x > 5 and x <= 10:
+        return "6 - 10"
+    else:
+        return "10 - ∞"
+    
