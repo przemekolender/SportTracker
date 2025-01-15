@@ -7,6 +7,7 @@ import altair as alt
 import datetime
 from data_processing import filter_by_period, hour_str, create_pallete
 import plotly.express as px
+import plotly.graph_objects as go
 
 
 st.set_page_config(
@@ -168,12 +169,8 @@ plot_data = calendar_filtered.groupby([category] + granulation_agg).agg({       
     'sport_count' : 'count',
     'total_seconds' : 'sum'
 }).reset_index()
-plot_data.rename(columns = {new_date_name : 'date'}, inplace=True)                  # fix columns names to always have 'date' present
 plot_data['hours'] = np.round(plot_data['total_seconds'] / 3600, 2)                 # add info about time as float
 plot_data['hours_str'] = plot_data['total_seconds'].apply(lambda x : hour_str(x))   # add info about time as string in format 00:00:00
-
-if granulation_name == 'Tydzień':                                                   # add column with dates of start and end of the week for hovers
-    plot_data['week_start_end'] = plot_data['date'].astype(str) + ' - ' + plot_data['week_end_date'].astype(str)
 
 plot_data_pie_time = calendar_filtered.groupby(category).agg({           # aggregate sport by chosen category in the chosen granulation
     'sport_count' : 'count',
@@ -181,6 +178,21 @@ plot_data_pie_time = calendar_filtered.groupby(category).agg({           # aggre
 }).reset_index()
 plot_data_pie_time['hours'] = np.round(plot_data_pie_time['total_seconds'] / 3600, 2)                 # add info about time as float
 plot_data_pie_time['hours_str'] = plot_data_pie_time['total_seconds'].apply(lambda x : hour_str(x))   # add info about time as string in format 00:00:00
+
+plot_data_agg = plot_data.groupby(granulation_agg).agg({
+    'sport_count' : 'sum',
+    'total_seconds' : 'sum'
+}).reset_index()
+plot_data_agg['hours'] = np.round(plot_data_agg['total_seconds'] / 3600, 2)                 # add info about time as float
+plot_data_agg['hours_str'] = plot_data_agg['total_seconds'].apply(lambda x : hour_str(x)) 
+
+plot_data.rename(columns = {new_date_name : 'date'}, inplace=True)                  # fix columns names to always have 'date' present
+if granulation_name == 'Tydzień':                                                   # add column with dates of start and end of the week for hovers
+    plot_data['week_start_end'] = plot_data['date'].astype(str) + ' - ' + plot_data['week_end_date'].astype(str)
+
+plot_data_agg.rename(columns = {new_date_name : 'date'}, inplace=True)                  # fix columns names to always have 'date' present
+if granulation_name == 'Tydzień':                                                   # add column with dates of start and end of the week for hovers
+    plot_data_agg['week_start_end'] = plot_data_agg['date'].astype(str) + ' - ' + plot_data_agg['week_end_date'].astype(str)
 
 
 ###############################################################################################
@@ -219,6 +231,17 @@ with col21:
         color=category, 
         color_discrete_map=pallete, 
         custom_data=[category,granulation_hover], 
+    ).add_trace(
+        go.Scatter(
+            x = plot_data_agg['date'], 
+            y = plot_data_agg['sport_count'], 
+            line=None, 
+            marker=None, 
+            mode = 'text',
+            text = plot_data_agg['sport_count'],
+            textposition="top center",
+            hoverinfo= None
+        )
     ).update_layout(
         plot_bgcolor='white',
         showlegend=False,
@@ -264,6 +287,17 @@ with col31:
         color=category, 
         color_discrete_map=pallete, 
         custom_data=[category, granulation_hover, 'hours_str', ],
+    ).add_trace(
+        go.Scatter(
+            x = plot_data_agg['date'], 
+            y = plot_data_agg['hours'], 
+            line=None, 
+            marker=None, 
+            mode = 'text',
+            text = plot_data_agg['hours_str'].apply(lambda x : x[:5]),
+            textposition="top center",
+            hoverinfo= None
+        )
     ).update_layout(
         plot_bgcolor='white',
         showlegend=False,
