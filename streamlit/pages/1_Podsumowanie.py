@@ -161,6 +161,10 @@ with st.sidebar:
         category = 'sport'
         pallete = create_pallete(st.session_state["sports"], 'sport', 'sport_color')
 
+
+    lables_on = st.checkbox("Włącz podpisy słupków", value=True)
+    
+
 ###############################################################################################
 # prepare data for the plots
 ###############################################################################################
@@ -231,17 +235,6 @@ with col21:
         color=category, 
         color_discrete_map=pallete, 
         custom_data=[category,granulation_hover], 
-    ).add_trace(
-        go.Scatter(
-            x = plot_data_agg['date'], 
-            y = plot_data_agg['sport_count'], 
-            line=None, 
-            marker=None, 
-            mode = 'text',
-            text = plot_data_agg['sport_count'],
-            textposition="top center",
-            hoverinfo= None
-        )
     ).update_layout(
         plot_bgcolor='white',
         showlegend=False,
@@ -253,6 +246,20 @@ with col21:
         tickformat="%b\n%Y"
     ).update_traces(
         hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Liczba treningów: %{y}" + "<extra></extra>",
+    )
+
+    if lables_on:
+        fig.add_trace(
+        go.Scatter(
+            x = plot_data_agg['date'], 
+            y = plot_data_agg['sport_count'], 
+            line=None, 
+            marker=None, 
+            mode = 'text',
+            text = plot_data_agg['sport_count'],
+            textposition="top center",
+            hoverinfo= 'skip'
+        )
     )
     
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
@@ -287,17 +294,6 @@ with col31:
         color=category, 
         color_discrete_map=pallete, 
         custom_data=[category, granulation_hover, 'hours_str', ],
-    ).add_trace(
-        go.Scatter(
-            x = plot_data_agg['date'], 
-            y = plot_data_agg['hours'], 
-            line=None, 
-            marker=None, 
-            mode = 'text',
-            text = plot_data_agg['hours_str'].apply(lambda x : x[:5]),
-            textposition="top center",
-            hoverinfo= None
-        )
     ).update_layout(
         plot_bgcolor='white',
         showlegend=False,
@@ -311,6 +307,21 @@ with col31:
     ).update_traces(
         hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Czas treningów: %{customdata[2]}" + "<extra></extra>"
     )
+    
+    if lables_on:
+        fig_count.add_trace(
+            go.Scatter(
+                x = plot_data_agg['date'], 
+                y = plot_data_agg['hours'], 
+                line=None, 
+                marker=None, 
+                mode = 'text',
+                text = plot_data_agg['hours_str'].apply(lambda x : x[:5]),
+                textposition="top center",
+                hoverinfo= 'skip',
+                hovertemplate=None
+            )
+        )
     
     st.plotly_chart(fig_count, theme="streamlit", use_container_width=True)
 
