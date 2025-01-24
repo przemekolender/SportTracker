@@ -3197,3 +3197,28 @@
 3195|14|2025-01-23|bieganie|dystans|8.91||8.91|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 3196|14|2025-01-23|bieganie|tempo|5'10||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 3197|14|2025-01-23|bieganie|czas|00:46:06||0.0|0.0|46.0|6.0|2766.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3198|15|2025-01-24|kalistenika|podciąganie nachwytem|x11 x10 x10||0.0|0.0|0.0|0.0|0.0|1x11 1x10 1x10|1x11 1x10 1x10|1x11|1|11|11|0.0|0.0|plecy||
+3199|15|2025-01-24|kalistenika|podciąganie nachwytem|x11 x10 x10||0.0|0.0|0.0|0.0|0.0|1x11 1x10 1x10|1x11 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
+3200|15|2025-01-24|kalistenika|podciąganie nachwytem|x11 x10 x10||0.0|0.0|0.0|0.0|0.0|1x11 1x10 1x10|1x11 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
+3201|15|2025-01-24|kalistenika|bułgary|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+3202|15|2025-01-24|kalistenika|bułgary|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+3203|15|2025-01-24|kalistenika|bułgary|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+3204|15|2025-01-24|kalistenika|podciąganie podchwytem|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|plecy|biceps|
+3205|15|2025-01-24|kalistenika|podciąganie podchwytem|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|plecy|biceps|
+3206|15|2025-01-24|kalistenika|podciąganie podchwytem|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|plecy|biceps|
+3207|15|2025-01-24|kalistenika|dipy kólka|x7 x7 x5||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x5|1x7 1x7 1x5|1x7|1|7|7|0.0|0.0|triceps|klatka|
+3208|15|2025-01-24|kalistenika|dipy kólka|x7 x7 x5||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x5|1x7 1x7 1x5|1x7|1|7|7|0.0|0.0|triceps|klatka|
+3209|15|2025-01-24|kalistenika|dipy kólka|x7 x7 x5||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x5|1x7 1x7 1x5|1x5|1|5|5|0.0|0.0|triceps|klatka|
+3210|15|2025-01-24|kalistenika|pompki kółka|x13 x13 x13||0.0|0.0|0.0|0.0|0.0|1x13 1x13 1x13|1x13 1x13 1x13|1x13|1|13|13|0.0|0.0|klatka|triceps|
+3211|15|2025-01-24|kalistenika|pompki kółka|x13 x13 x13||0.0|0.0|0.0|0.0|0.0|1x13 1x13 1x13|1x13 1x13 1x13|1x13|1|13|13|0.0|0.0|klatka|triceps|
+3212|15|2025-01-24|kalistenika|pompki kółka|x13 x13 x13||0.0|0.0|0.0|0.0|0.0|1x13 1x13 1x13|1x13 1x13 1x13|1x13|1|13|13|0.0|0.0|klatka|triceps|
+3213|15|2025-01-24|kalistenika|wzniosy nóg| x8 x8 x8||0.0|0.0|0.0|0.0|0.0| 1x8 1x8 1x8| 1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|brzuch|chwyt|
+3214|15|2025-01-24|kalistenika|wzniosy nóg| x8 x8 x8||0.0|0.0|0.0|0.0|0.0| 1x8 1x8 1x8| 1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|brzuch|chwyt|
+3215|15|2025-01-24|kalistenika|wzniosy nóg| x8 x8 x8||0.0|0.0|0.0|0.0|0.0| 1x8 1x8 1x8| 1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|brzuch|chwyt|
+3216|15|2025-01-24|kalistenika|podciąganie australijskie podchwytem kółka|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy|biceps|
+3217|15|2025-01-24|kalistenika|podciąganie australijskie podchwytem kółka|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy|biceps|
+3218|15|2025-01-24|kalistenika|podciąganie australijskie podchwytem kółka|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy|biceps|
+3219|15|2025-01-24|kalistenika|pompki pike|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|barki||
+3220|15|2025-01-24|kalistenika|pompki pike|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|barki||
+3221|15|2025-01-24|kalistenika|pompki pike|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|barki||
+3222|15|2025-01-24|kalistenika|zwis|20s 20s 20s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|chwyt|przedramie|na czas
