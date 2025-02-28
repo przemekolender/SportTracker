@@ -3421,7 +3421,7 @@
 3419|28|2025-02-15|siłownia|młotki hantlem biceps|20kg x9 x9 x9||0.0|0.0|0.0|0.0|0.0|20kg 1x9 1x9 1x9|20kg 1x9 1x9 1x9|1x9|1|9|9|20.0|180.0|biceps||
 3420|28|2025-02-15|siłownia|młotki hantlem biceps|20kg x9 x9 x9||0.0|0.0|0.0|0.0|0.0|20kg 1x9 1x9 1x9|20kg 1x9 1x9 1x9|1x9|1|9|9|20.0|180.0|biceps||
 3421|29|2025-02-16|pływanie|dystans|800m||0.0|0.0|0.0|0.0|0.0|800m|800m|0x0|0|0|0|0.0|0.0|bieganie||
-3422|29|2025-02-16|pływanie|tempo|||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3422|29|2025-02-16|pływanie|tempo|5'14||0.0|0.0|0.0|0.0|0.0|5'14|5'14|0x0|0|0|0|0.0|0.0|bieganie||
 3423|29|2025-02-16|pływanie|czas|00:41:56||0.0|0.0|0.0|0.0|0.0|00:41:56|00:41:56|0x0|0|0|0|0.0|0.0|bieganie||
 3424|30|2025-02-17|kalistenika|pompki|x20 x20 x20|s1|0.0|0.0|0.0|0.0|0.0|1x20 1x20 1x20|1x20 1x20 1x20|1x20|1|20|20|0.0|0.0|klatka|triceps|
 3425|30|2025-02-17|kalistenika|pompki|x20 x20 x20|s1|0.0|0.0|0.0|0.0|0.0|1x20 1x20 1x20|1x20 1x20 1x20|1x20|1|20|20|0.0|0.0|klatka|triceps|
@@ -3506,3 +3506,25 @@
 3504|35|2025-02-23|bieganie|dystans|21.095||21.095|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 3505|35|2025-02-23|bieganie|tempo|4'40||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 3506|35|2025-02-23|bieganie|czas|01:38:36||0.0|1.0|38.0|36.0|5916.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3507|36|2025-02-26|siłownia|wyciskanie na ławce płaskiej|100kg x3 x2; 90kg x7; 80kg x11||0.0|0.0|0.0|0.0|0.0|100kg 1x3 1x2; 90kg 1x7; 80kg 1x11|100kg 1x3 1x2|1x3|1|3|3|100.0|300.0|klatka|triceps|
+3508|36|2025-02-26|siłownia|wyciskanie na ławce płaskiej|100kg x3 x2; 90kg x7; 80kg x11||0.0|0.0|0.0|0.0|0.0|100kg 1x3 1x2; 90kg 1x7; 80kg 1x11|100kg 1x3 1x2|1x2|1|2|2|100.0|200.0|klatka|triceps|
+3509|36|2025-02-26|siłownia|wyciskanie na ławce płaskiej|100kg x3 x2; 90kg x7; 80kg x11||0.0|0.0|0.0|0.0|0.0|100kg 1x3 1x2; 90kg 1x7; 80kg 1x11| 90kg 1x7|1x7|1|7|7|90.0|630.0|klatka|triceps|
+3510|36|2025-02-26|siłownia|wyciskanie na ławce płaskiej|100kg x3 x2; 90kg x7; 80kg x11||0.0|0.0|0.0|0.0|0.0|100kg 1x3 1x2; 90kg 1x7; 80kg 1x11| 80kg 1x11|1x11|1|11|11|80.0|880.0|klatka|triceps|
+3511|36|2025-02-26|siłownia|modlitewnik maszyna|35kg x12 x12 x8||0.0|0.0|0.0|0.0|0.0|35kg 1x12 1x12 1x8|35kg 1x12 1x12 1x8|1x12|1|12|12|35.0|420.0|biceps||
+3512|36|2025-02-26|siłownia|modlitewnik maszyna|35kg x12 x12 x8||0.0|0.0|0.0|0.0|0.0|35kg 1x12 1x12 1x8|35kg 1x12 1x12 1x8|1x12|1|12|12|35.0|420.0|biceps||
+3513|36|2025-02-26|siłownia|modlitewnik maszyna|35kg x12 x12 x8||0.0|0.0|0.0|0.0|0.0|35kg 1x12 1x12 1x8|35kg 1x12 1x12 1x8|1x8|1|8|8|35.0|280.0|biceps||
+3514|36|2025-02-26|siłownia|barki guma|60kg x15 x12 x10||0.0|0.0|0.0|0.0|0.0|60kg 1x15 1x12 1x10|60kg 1x15 1x12 1x10|1x15|1|15|15|60.0|900.0|barki||wyciskanie nad głowę stojąc na gumie
+3515|36|2025-02-26|siłownia|barki guma|60kg x15 x12 x10||0.0|0.0|0.0|0.0|0.0|60kg 1x15 1x12 1x10|60kg 1x15 1x12 1x10|1x12|1|12|12|60.0|720.0|barki||wyciskanie nad głowę stojąc na gumie
+3516|36|2025-02-26|siłownia|barki guma|60kg x15 x12 x10||0.0|0.0|0.0|0.0|0.0|60kg 1x15 1x12 1x10|60kg 1x15 1x12 1x10|1x10|1|10|10|60.0|600.0|barki||wyciskanie nad głowę stojąc na gumie
+3517|36|2025-02-26|siłownia|maszyna mid row|80kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|80kg 1x10 1x10 1x10|80kg 1x10 1x10 1x10|1x10|1|10|10|80.0|800.0|plecy||
+3518|36|2025-02-26|siłownia|maszyna mid row|80kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|80kg 1x10 1x10 1x10|80kg 1x10 1x10 1x10|1x10|1|10|10|80.0|800.0|plecy||
+3519|36|2025-02-26|siłownia|maszyna mid row|80kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|80kg 1x10 1x10 1x10|80kg 1x10 1x10 1x10|1x10|1|10|10|80.0|800.0|plecy||
+3520|36|2025-02-26|siłownia|podciąganie nachwytem|x8 x8 x5||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x5|1x8 1x8 1x5|1x8|1|8|8|0.0|0.0|plecy||
+3521|36|2025-02-26|siłownia|podciąganie nachwytem|x8 x8 x5||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x5|1x8 1x8 1x5|1x8|1|8|8|0.0|0.0|plecy||
+3522|36|2025-02-26|siłownia|podciąganie nachwytem|x8 x8 x5||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x5|1x8 1x8 1x5|1x5|1|5|5|0.0|0.0|plecy||
+3523|36|2025-02-26|siłownia|triceps wyciąg|27.5 x10 x8 x7|just gym|0.0|0.0|0.0|0.0|0.0|27.5 1x10 1x8 1x7|27.5 1x10 1x8 1x7|1x10|1|10|10|0.0|0.0|triceps||wyciąg górny, dowolny uchwyt
+3524|36|2025-02-26|siłownia|triceps wyciąg|27.5 x10 x8 x7|just gym|0.0|0.0|0.0|0.0|0.0|27.5 1x10 1x8 1x7|27.5 1x10 1x8 1x7|1x8|1|8|8|0.0|0.0|triceps||wyciąg górny, dowolny uchwyt
+3525|36|2025-02-26|siłownia|triceps wyciąg|27.5 x10 x8 x7|just gym|0.0|0.0|0.0|0.0|0.0|27.5 1x10 1x8 1x7|27.5 1x10 1x8 1x7|1x7|1|7|7|0.0|0.0|triceps||wyciąg górny, dowolny uchwyt
+3526|37|2025-02-27|pływanie|dystans|950m||0.0|0.0|0.0|0.0|0.0|950m|950m|0x0|0|0|0|0.0|0.0|bieganie||
+3527|37|2025-02-27|pływanie|tempo|4'10||0.0|0.0|0.0|0.0|0.0|4'10|4'10|0x0|0|0|0|0.0|0.0|bieganie||
+3528|37|2025-02-27|pływanie|czas|00:39:35||0.0|0.0|0.0|0.0|0.0|00:39:35|00:39:35|0x0|0|0|0|0.0|0.0|bieganie||
