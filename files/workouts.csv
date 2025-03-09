@@ -3582,3 +3582,34 @@
 3580|41|2025-03-05|siłownia|barki bokiem|8kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|8kg 1x10 1x10 1x10|8kg 1x10 1x10 1x10|1x10|1|10|10|8.0|80.0|barki||
 3581|41|2025-03-05|siłownia|wyciskanie na maszynie klatka|90kg x10 x8|dw Gdański|0.0|0.0|0.0|0.0|0.0|90kg 1x10 1x8|90kg 1x10 1x8|1x10|1|10|10|90.0|900.0|klatka||
 3582|41|2025-03-05|siłownia|wyciskanie na maszynie klatka|90kg x10 x8|dw Gdański|0.0|0.0|0.0|0.0|0.0|90kg 1x10 1x8|90kg 1x10 1x8|1x8|1|8|8|90.0|720.0|klatka||
+3583|42|2025-03-07|bieganie|bieg spokojny|2km||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3584|42|2025-03-07|bieganie|bieg w tempie|4km||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3585|42|2025-03-07|bieganie|bieg spokojny|2km||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3586|42|2025-03-07|bieganie|dystans|7.88||7.88|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3587|42|2025-03-07|bieganie|tempo|4'48||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3588|42|2025-03-07|bieganie|czas|00:37:48||0.0|0.0|37.0|48.0|2268.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3589|43|2025-03-08|kalistenika|podciąganie nachwytem|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
+3590|43|2025-03-08|kalistenika|podciąganie nachwytem|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
+3591|43|2025-03-08|kalistenika|podciąganie nachwytem|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|plecy||
+3592|43|2025-03-08|kalistenika|wykroki|x20 x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20 1x20|1x20 1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+3593|43|2025-03-08|kalistenika|wykroki|x20 x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20 1x20|1x20 1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+3594|43|2025-03-08|kalistenika|wykroki|x20 x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20 1x20|1x20 1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+3595|43|2025-03-08|kalistenika|podciąganie podchwytem|x8 x7 x6||0.0|0.0|0.0|0.0|0.0|1x8 1x7 1x6|1x8 1x7 1x6|1x8|1|8|8|0.0|0.0|plecy|biceps|
+3596|43|2025-03-08|kalistenika|podciąganie podchwytem|x8 x7 x6||0.0|0.0|0.0|0.0|0.0|1x8 1x7 1x6|1x8 1x7 1x6|1x7|1|7|7|0.0|0.0|plecy|biceps|
+3597|43|2025-03-08|kalistenika|podciąganie podchwytem|x8 x7 x6||0.0|0.0|0.0|0.0|0.0|1x8 1x7 1x6|1x8 1x7 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+3598|43|2025-03-08|kalistenika|dipy|x10 x10 x8||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x8|1x10 1x10 1x8|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3599|43|2025-03-08|kalistenika|dipy|x10 x10 x8||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x8|1x10 1x10 1x8|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3600|43|2025-03-08|kalistenika|dipy|x10 x10 x8||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x8|1x10 1x10 1x8|1x8|1|8|8|0.0|0.0|triceps|klatka|
+3601|43|2025-03-08|kalistenika|pompki|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|klatka|triceps|
+3602|43|2025-03-08|kalistenika|pompki|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|klatka|triceps|
+3603|43|2025-03-08|kalistenika|pompki|x15 x15 x15||0.0|0.0|0.0|0.0|0.0|1x15 1x15 1x15|1x15 1x15 1x15|1x15|1|15|15|0.0|0.0|klatka|triceps|
+3604|43|2025-03-08|kalistenika|dragon flag|x2 x2 x2|1 ładna, jedna średnia, 2 średnie z jedną nogą; jedna ładna 1 średnia|0.0|0.0|0.0|0.0|0.0|1x2 1x2 1x2|1x2 1x2 1x2|1x2|1|2|2|0.0|0.0|brzuch||
+3605|43|2025-03-08|kalistenika|dragon flag|x2 x2 x2|1 ładna, jedna średnia, 2 średnie z jedną nogą; jedna ładna 1 średnia|0.0|0.0|0.0|0.0|0.0|1x2 1x2 1x2|1x2 1x2 1x2|1x2|1|2|2|0.0|0.0|brzuch||
+3606|43|2025-03-08|kalistenika|dragon flag|x2 x2 x2|1 ładna, jedna średnia, 2 średnie z jedną nogą; jedna ładna 1 średnia|0.0|0.0|0.0|0.0|0.0|1x2 1x2 1x2|1x2 1x2 1x2|1x2|1|2|2|0.0|0.0|brzuch||
+3607|43|2025-03-08|kalistenika|podciąganie australijskie  podchywtem|x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|plecy|biceps|
+3608|43|2025-03-08|kalistenika|podciąganie australijskie  podchywtem|x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|plecy|biceps|
+3609|43|2025-03-08|kalistenika|pompki pike|x7 x9|nogi na podwyższeniu|0.0|0.0|0.0|0.0|0.0|1x7 1x9|1x7 1x9|1x7|1|7|7|0.0|0.0|barki||
+3610|43|2025-03-08|kalistenika|pompki pike|x7 x9|nogi na podwyższeniu|0.0|0.0|0.0|0.0|0.0|1x7 1x9|1x7 1x9|1x9|1|9|9|0.0|0.0|barki||
+3611|43|2025-03-08|kalistenika|mostki|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|plecy||
+3612|43|2025-03-08|kalistenika|mostki|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|plecy||
+3613|43|2025-03-08|kalistenika|diamenty|x10 10||0.0|0.0|0.0|0.0|0.0|1x10 10|1x10 10|1x10|1|10|10|0.0|0.0|triceps|klatka|
