@@ -98,6 +98,14 @@ def counter_plus():
 def counter_minus():
     st.session_state["counter"] -= 1
 
+
+workouts = filter_by_period(
+        st.session_state["workouts_lw"],
+        'date',
+        st.session_state['min_date_lw'],
+        st.session_state['max_date_lw']
+    )
+
 col1, col2, col3 = st.columns([1, 2, 1])
 
 with col1:
@@ -107,7 +115,7 @@ with col2:
     multiselect = st.selectbox(
         label="Wybierz sport",
         label_visibility='collapsed',
-        options = ['siłownia', 'kalistenika', 'bieganie'],
+        options = workouts["sport"].unique().tolist(),
         index=None,
         placeholder="Wybierz sport"
     )
@@ -123,13 +131,6 @@ chosen_columns = ['date', 'sport', 'exercise', 'details', 'comments']
 
 if multiselect is not None:
     # prepare dataframe to show
-    workouts = filter_by_period(
-        st.session_state["workouts_lw"],
-        'date',
-        st.session_state['min_date_lw'],
-        st.session_state['max_date_lw']
-    )
-
     if multiselect == 'bieganie':
         w = workouts.loc[workouts['sport'] == multiselect, chosen_columns] \
             .sort_values('date', ascending=True) \
