@@ -3813,3 +3813,36 @@
 3811|55|2025-04-01|siłownia|maszyna incline klatka|50kg x12 x12||0.0|0.0|0.0|0.0|0.0|50kg 1x12 1x12|50kg 1x12 1x12|1x12|1|12|12|50.0|600.0|klatka|barki|
 3812|55|2025-04-01|siłownia|jefferson curl|16kg x5 x5||0.0|0.0|0.0|0.0|0.0|16kg 1x5 1x5|16kg 1x5 1x5|1x5|1|5|5|16.0|80.0|||
 3813|55|2025-04-01|siłownia|jefferson curl|16kg x5 x5||0.0|0.0|0.0|0.0|0.0|16kg 1x5 1x5|16kg 1x5 1x5|1x5|1|5|5|16.0|80.0|||
+3814|56|2025-04-03|bieganie|dystans|2km||2.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3815|56|2025-04-03|bieganie|tempo|5'04||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3816|56|2025-04-03|bieganie|czas|00:10:07||0.0|0.0|10.0|7.0|607.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3817|56|2025-04-03|kalistenika|pompki pike|x8 x8 x8|legia|0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|barki||
+3818|56|2025-04-03|kalistenika|pompki pike|x8 x8 x8|legia|0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|barki||
+3819|56|2025-04-03|kalistenika|pompki pike|x8 x8 x8|legia|0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|barki||
+3820|56|2025-04-03|kalistenika|kozak squat|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+3821|56|2025-04-03|kalistenika|kozak squat|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+3822|56|2025-04-03|kalistenika|kozak squat|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+3823|56|2025-04-03|kalistenika|podciąganie nachwytem z pauzą|x6 x5 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x5 1x6|1x6 1x5 1x6|1x6|1|6|6|0.0|0.0|plecy||
+3824|56|2025-04-03|kalistenika|podciąganie nachwytem z pauzą|x6 x5 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x5 1x6|1x6 1x5 1x6|1x5|1|5|5|0.0|0.0|plecy||
+3825|56|2025-04-03|kalistenika|podciąganie nachwytem z pauzą|x6 x5 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x5 1x6|1x6 1x5 1x6|1x6|1|6|6|0.0|0.0|plecy||
+3826|56|2025-04-03|kalistenika|dipy|x11 x11 x9||0.0|0.0|0.0|0.0|0.0|1x11 1x11 1x9|1x11 1x11 1x9|1x11|1|11|11|0.0|0.0|triceps|klatka|
+3827|56|2025-04-03|kalistenika|dipy|x11 x11 x9||0.0|0.0|0.0|0.0|0.0|1x11 1x11 1x9|1x11 1x11 1x9|1x11|1|11|11|0.0|0.0|triceps|klatka|
+3828|56|2025-04-03|kalistenika|dipy|x11 x11 x9||0.0|0.0|0.0|0.0|0.0|1x11 1x11 1x9|1x11 1x11 1x9|1x9|1|9|9|0.0|0.0|triceps|klatka|
+3829|56|2025-04-03|kalistenika|frog stand|16s 6s|w trzeciej serii stanie na rękach 4s!!!|0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|barki||na czas
+3830|56|2025-04-03|kalistenika|podciąganie podchwytem z pauzą|x5 x5 x4||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x4|1x5 1x5 1x4|1x5|1|5|5|0.0|0.0|plecy|biceps|
+3831|56|2025-04-03|kalistenika|podciąganie podchwytem z pauzą|x5 x5 x4||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x4|1x5 1x5 1x4|1x5|1|5|5|0.0|0.0|plecy|biceps|
+3832|56|2025-04-03|kalistenika|podciąganie podchwytem z pauzą|x5 x5 x4||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x4|1x5 1x5 1x4|1x4|1|4|4|0.0|0.0|plecy|biceps|
+3833|56|2025-04-03|kalistenika|pompki|x14 x14 x14|legia|0.0|0.0|0.0|0.0|0.0|1x14 1x14 1x14|1x14 1x14 1x14|1x14|1|14|14|0.0|0.0|klatka|triceps|
+3834|56|2025-04-03|kalistenika|pompki|x14 x14 x14|legia|0.0|0.0|0.0|0.0|0.0|1x14 1x14 1x14|1x14 1x14 1x14|1x14|1|14|14|0.0|0.0|klatka|triceps|
+3835|56|2025-04-03|kalistenika|pompki|x14 x14 x14|legia|0.0|0.0|0.0|0.0|0.0|1x14 1x14 1x14|1x14 1x14 1x14|1x14|1|14|14|0.0|0.0|klatka|triceps|
+3836|56|2025-04-03|kalistenika|l sit|5s 4s 6s||0.0|0.0|0.0|0.0|0.0|5s 4s 6s|5s 4s 6s|0x0|0|0|0|0.0|0.0|||
+3837|56|2025-04-03|kalistenika|podciąganie australijskie  podchywtem|x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|plecy|biceps|
+3838|56|2025-04-03|kalistenika|podciąganie australijskie  podchywtem|x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|plecy|biceps|
+3839|56|2025-04-03|kalistenika|diamenty|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3840|56|2025-04-03|kalistenika|diamenty|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3841|56|2025-04-03|kalistenika|wzniosy nóg do drążka|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|brzuch|chwyt|
+3842|56|2025-04-03|kalistenika|wzniosy nóg do drążka|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|brzuch|chwyt|
+3843|56|2025-04-03|kalistenika|filmik 8 min na plecy||właściwie to 11 min z rozciąganiem|0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|plecy|dupa|
+3844|56|2025-04-03|bieganie|dystans|2.27||2.27|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3845|56|2025-04-03|bieganie|tempo|5'19||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3846|56|2025-04-03|bieganie|czas|00:12:03||0.0|0.0|12.0|3.0|723.0|||0x0|0|0|0|0.0|0.0|bieganie||
