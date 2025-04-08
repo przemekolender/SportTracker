@@ -3846,3 +3846,32 @@
 3844|56|2025-04-03|bieganie|dystans|2.27||2.27|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 3845|56|2025-04-03|bieganie|tempo|5'19||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 3846|56|2025-04-03|bieganie|czas|00:12:03||0.0|0.0|12.0|3.0|723.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3847|57|2025-04-05|rowerstacjonarny|dystans|18.5km||0.0|0.0|0.0|0.0|0.0|18.5km|18.5km|0x0|0|0|0|0.0|0.0|bieganie||
+3848|57|2025-04-05|rowerstacjonarny|czas|00:40:00||0.0|0.0|0.0|0.0|0.0|00:40:00|00:40:00|0x0|0|0|0|0.0|0.0|bieganie||
+3849|58|2025-04-08|bieganie|dystans|2.01||2.01|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3850|58|2025-04-08|bieganie|tempo|4'40||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3851|58|2025-04-08|bieganie|czas|00:09:23||0.0|0.0|9.0|23.0|563.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3852|58|2025-04-08|kalistenika|pompki pike|x8 x9||0.0|0.0|0.0|0.0|0.0|1x8 1x9|1x8 1x9|1x8|1|8|8|0.0|0.0|barki||
+3853|58|2025-04-08|kalistenika|pompki pike|x8 x9||0.0|0.0|0.0|0.0|0.0|1x8 1x9|1x8 1x9|1x9|1|9|9|0.0|0.0|barki||
+3854|58|2025-04-08|kalistenika|krzesełko|20s 20s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|nogi||na czas
+3855|58|2025-04-08|kalistenika|podciąganie nachwytem z pauzą|x6 x4||0.0|0.0|0.0|0.0|0.0|1x6 1x4|1x6 1x4|1x6|1|6|6|0.0|0.0|plecy||
+3856|58|2025-04-08|kalistenika|podciąganie nachwytem z pauzą|x6 x4||0.0|0.0|0.0|0.0|0.0|1x6 1x4|1x6 1x4|1x4|1|4|4|0.0|0.0|plecy||
+3857|58|2025-04-08|kalistenika|dipy|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3858|58|2025-04-08|kalistenika|dipy|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3859|58|2025-04-08|kalistenika|podciąganie podchwytem z pauzą|x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x5|1x6 1x5|1x6|1|6|6|0.0|0.0|plecy|biceps|
+3860|58|2025-04-08|kalistenika|podciąganie podchwytem z pauzą|x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x5|1x6 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+3861|58|2025-04-08|kalistenika|pompki pike|x10 x12||0.0|0.0|0.0|0.0|0.0|1x10 1x12|1x10 1x12|1x10|1|10|10|0.0|0.0|barki||
+3862|58|2025-04-08|kalistenika|pompki pike|x10 x12||0.0|0.0|0.0|0.0|0.0|1x10 1x12|1x10 1x12|1x12|1|12|12|0.0|0.0|barki||
+3863|58|2025-04-08|kalistenika|małże|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+3864|58|2025-04-08|kalistenika|małże|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+3865|58|2025-04-08|kalistenika|biceps guma|ZC z10 x10||0.0|0.0|0.0|0.0|0.0|ZC z10 1x10|ZC z10 1x10|1x10|1|10|10|0.0|0.0|biceps||uginanie bicepsu stojąc na gumie
+3866|58|2025-04-08|kalistenika|barki guma|NC x10 x10||0.0|0.0|0.0|0.0|0.0|NC 1x10 1x10|NC 1x10 1x10|1x10|1|10|10|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
+3867|58|2025-04-08|kalistenika|barki guma|NC x10 x10||0.0|0.0|0.0|0.0|0.0|NC 1x10 1x10|NC 1x10 1x10|1x10|1|10|10|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
+3868|58|2025-04-08|kalistenika|side-lying leg raises|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+3869|58|2025-04-08|kalistenika|side-lying leg raises|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+3870|58|2025-04-08|kalistenika|hip trusty na ziemi|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+3871|58|2025-04-08|kalistenika|hip trusty na ziemi|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+3872|58|2025-04-08|kalistenika|rozciąganie|||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|mobilność||na czas
+3873|58|2025-04-08|bieganie|dystans|2.62||2.62|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3874|58|2025-04-08|bieganie|tempo|5'31||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3875|58|2025-04-08|bieganie|czas|00:14:28||0.0|0.0|14.0|28.0|868.0|||0x0|0|0|0|0.0|0.0|bieganie||
