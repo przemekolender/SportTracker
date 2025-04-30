@@ -3896,9 +3896,9 @@
 3894|59|2025-04-10|siłownia|step down z podniesienia|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
 3895|59|2025-04-10|siłownia|step down z podniesienia|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
 3896|59|2025-04-10|siłownia|step down z podniesienia|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
-3897|60|2025-04-18|siłownia|dystans|1050m||0.0|0.0|0.0|0.0|0.0|1050m|1050m|0x0|0|0|0|0.0|0.0|bieganie||
-3898|60|2025-04-18|siłownia|tempo|4'13||0.0|0.0|0.0|0.0|0.0|4'13|4'13|0x0|0|0|0|0.0|0.0|bieganie||
-3899|60|2025-04-18|siłownia|czas|00:44:17||0.0|0.0|0.0|0.0|0.0|00:44:17|00:44:17|0x0|0|0|0|0.0|0.0|bieganie||
+3897|60|2025-04-18|pływanie|dystans|1050m||0.0|0.0|0.0|0.0|0.0|1050m|1050m|0x0|0|0|0|0.0|0.0|bieganie||
+3898|60|2025-04-18|pływanie|tempo|4'13||0.0|0.0|0.0|0.0|0.0|4'13|4'13|0x0|0|0|0|0.0|0.0|bieganie||
+3899|60|2025-04-18|pływanie|czas|00:44:17||0.0|0.0|0.0|0.0|0.0|00:44:17|00:44:17|0x0|0|0|0|0.0|0.0|bieganie||
 3900|61|2025-04-23|bieganie|dystans|2.02||2.02|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 3901|61|2025-04-23|bieganie|tempo|4'56||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 3902|61|2025-04-23|bieganie|czas|00:09:57||0.0|0.0|9.0|57.0|597.0|||0x0|0|0|0|0.0|0.0|bieganie||
@@ -3961,3 +3961,45 @@
 3959|63|2025-04-26|siłownia|wyciskanie francuskie 1 hantel|30kg x10 x9 x8||0.0|0.0|0.0|0.0|0.0|30kg 1x10 1x9 1x8|30kg 1x10 1x9 1x8|1x10|1|10|10|30.0|300.0|triceps||
 3960|63|2025-04-26|siłownia|wyciskanie francuskie 1 hantel|30kg x10 x9 x8||0.0|0.0|0.0|0.0|0.0|30kg 1x10 1x9 1x8|30kg 1x10 1x9 1x8|1x9|1|9|9|30.0|270.0|triceps||
 3961|63|2025-04-26|siłownia|wyciskanie francuskie 1 hantel|30kg x10 x9 x8||0.0|0.0|0.0|0.0|0.0|30kg 1x10 1x9 1x8|30kg 1x10 1x9 1x8|1x8|1|8|8|30.0|240.0|triceps||
+3962|64|2025-04-28|bieganie|bieg spokojny|8.61||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3963|64|2025-04-28|bieganie|dystans|8.61km||8.61|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3964|64|2025-04-28|bieganie|tempo|5'16||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3965|64|2025-04-28|bieganie|czas|00:45:20||0.0|0.0|45.0|20.0|2720.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3966|65|2025-04-30|bieganie|dystans|2||2.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3967|65|2025-04-30|bieganie|tempo|4'54||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3968|65|2025-04-30|bieganie|czas|00:09:50||0.0|0.0|9.0|50.0|590.0|||0x0|0|0|0|0.0|0.0|bieganie||
+3969|65|2025-04-30|kalistenika|podciąganie nachwytem z pauzą|x5 x4 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x4 1x5|1x5 1x4 1x5|1x5|1|5|5|0.0|0.0|plecy||
+3970|65|2025-04-30|kalistenika|podciąganie nachwytem z pauzą|x5 x4 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x4 1x5|1x5 1x4 1x5|1x4|1|4|4|0.0|0.0|plecy||
+3971|65|2025-04-30|kalistenika|podciąganie nachwytem z pauzą|x5 x4 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x4 1x5|1x5 1x4 1x5|1x5|1|5|5|0.0|0.0|plecy||
+3972|65|2025-04-30|kalistenika|dipy|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3973|65|2025-04-30|kalistenika|dipy|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3974|65|2025-04-30|kalistenika|dipy|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3975|65|2025-04-30|kalistenika|stanie na rękach|5 prób jedna ok; 5 prób; 5 prób||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|barki||na czas
+3976|65|2025-04-30|kalistenika|pompki pike|x8 x7 x6|legia|0.0|0.0|0.0|0.0|0.0|1x8 1x7 1x6|1x8 1x7 1x6|1x8|1|8|8|0.0|0.0|barki||
+3977|65|2025-04-30|kalistenika|pompki pike|x8 x7 x6|legia|0.0|0.0|0.0|0.0|0.0|1x8 1x7 1x6|1x8 1x7 1x6|1x7|1|7|7|0.0|0.0|barki||
+3978|65|2025-04-30|kalistenika|pompki pike|x8 x7 x6|legia|0.0|0.0|0.0|0.0|0.0|1x8 1x7 1x6|1x8 1x7 1x6|1x6|1|6|6|0.0|0.0|barki||
+3979|65|2025-04-30|kalistenika|step down z podniesienia|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|nogi||
+3980|65|2025-04-30|kalistenika|step down z podniesienia|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|nogi||
+3981|65|2025-04-30|kalistenika|step down z podniesienia|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|nogi||
+3982|65|2025-04-30|kalistenika|l sit|?; xd; nic||0.0|0.0|0.0|0.0|0.0|?; 1xd; nic|?|0x0|0|0|0|0.0|0.0|||
+3983|65|2025-04-30|kalistenika|l sit|?; xd; nic||0.0|0.0|0.0|0.0|0.0|?; 1xd; nic| nic|0x0|0|0|0|0.0|0.0|||
+3984|65|2025-04-30|kalistenika|podciąganie podchwytem z pauzą|x4 x4 x4||0.0|0.0|0.0|0.0|0.0|1x4 1x4 1x4|1x4 1x4 1x4|1x4|1|4|4|0.0|0.0|plecy|biceps|
+3985|65|2025-04-30|kalistenika|podciąganie podchwytem z pauzą|x4 x4 x4||0.0|0.0|0.0|0.0|0.0|1x4 1x4 1x4|1x4 1x4 1x4|1x4|1|4|4|0.0|0.0|plecy|biceps|
+3986|65|2025-04-30|kalistenika|podciąganie podchwytem z pauzą|x4 x4 x4||0.0|0.0|0.0|0.0|0.0|1x4 1x4 1x4|1x4 1x4 1x4|1x4|1|4|4|0.0|0.0|plecy|biceps|
+3987|65|2025-04-30|kalistenika|pompki|x10 x10 x10|legia|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|klatka|triceps|
+3988|65|2025-04-30|kalistenika|pompki|x10 x10 x10|legia|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|klatka|triceps|
+3989|65|2025-04-30|kalistenika|pompki|x10 x10 x10|legia|0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|klatka|triceps|
+3990|65|2025-04-30|kalistenika|podciąganie australijskie  podchywtem|x10 x9||0.0|0.0|0.0|0.0|0.0|1x10 1x9|1x10 1x9|1x10|1|10|10|0.0|0.0|plecy|biceps|
+3991|65|2025-04-30|kalistenika|podciąganie australijskie  podchywtem|x10 x9||0.0|0.0|0.0|0.0|0.0|1x10 1x9|1x10 1x9|1x9|1|9|9|0.0|0.0|plecy|biceps|
+3992|65|2025-04-30|kalistenika|diamenty|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3993|65|2025-04-30|kalistenika|diamenty|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+3994|65|2025-04-30|kalistenika|wzniosy nóg do drążka|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|brzuch|chwyt|
+3995|65|2025-04-30|kalistenika|wzniosy nóg do drążka|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|brzuch|chwyt|
+3996|65|2025-04-30|kalistenika|małże|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+3997|65|2025-04-30|kalistenika|małże|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+3998|65|2025-04-30|kalistenika|side-lying leg raises|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+3999|65|2025-04-30|kalistenika|side-lying leg raises|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+4000|65|2025-04-30|kalistenika|rozciąganie|||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|mobilność||na czas
+4001|65|2025-04-30|bieganie|dystans|2.36||2.36|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4002|65|2025-04-30|bieganie|tempo|5'25||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4003|65|2025-04-30|bieganie|czas|00:12:46||0.0|0.0|12.0|46.0|766.0|||0x0|0|0|0|0.0|0.0|bieganie||
