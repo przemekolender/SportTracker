@@ -4003,12 +4003,20 @@
 4001|65|2025-04-30|bieganie|dystans|2.36||2.36|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 4002|65|2025-04-30|bieganie|tempo|5'25||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 4003|65|2025-04-30|bieganie|czas|00:12:46||0.0|0.0|12.0|46.0|766.0|||0x0|0|0|0|0.0|0.0|bieganie||
-4004|65|2025-04-30|bieganie|dystans|35||35.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
-4005|65|2025-04-30|bieganie|tempo|16.33km/h||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
-4006|65|2025-04-30|bieganie|czas|02:08:41||0.0|2.0|8.0|41.0|7721.0|||0x0|0|0|0|0.0|0.0|bieganie||
-4007|65|2025-04-30|bieganie|podciąganie nachwytem z pauzą|x5 x5 x4||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|plecy||
-4008|65|2025-04-30|bieganie|stanie na rękach|15s 15s 12s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|barki||na czas
-4009|65|2025-04-30|bieganie|podciąganie podchwytem z pauzą|x4 x4 x4||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|plecy|biceps|
-4010|65|2025-04-30|bieganie|pompki|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|klatka|triceps|
-4011|65|2025-04-30|bieganie|wzniosy nóg|x6 x6||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|brzuch|chwyt|
-4012|65|2025-04-30|bieganie|diamenty|x10 x10||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|triceps|klatka|
+4004|66|2025-05-03|rower|dystans|35||35.0|0.0|0.0|0.0|0.0|35|35|0x0|0|0|0|0.0|0.0|bieganie||
+4005|66|2025-05-03|rower|tempo|16.33km/h||0.0|0.0|0.0|0.0|0.0|16.33km/h|16.33km/h|0x0|0|0|0|0.0|0.0|bieganie||
+4006|66|2025-05-03|rower|czas|02:08:41||0.0|2.0|8.0|41.0|7721.0|02:08:41|02:08:41|0x0|0|0|0|0.0|0.0|bieganie||
+4007|67|2025-05-03|kalistenika|podciąganie nachwytem z pauzą|x5 x5 x4||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x4|1x5 1x5 1x4|1x5|1|5|5|0.0|0.0|plecy||
+4008|67|2025-05-03|kalistenika|podciąganie nachwytem z pauzą|x5 x5 x4||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x4|1x5 1x5 1x4|1x5|1|5|5|0.0|0.0|plecy||
+4009|67|2025-05-03|kalistenika|podciąganie nachwytem z pauzą|x5 x5 x4||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x4|1x5 1x5 1x4|1x4|1|4|4|0.0|0.0|plecy||
+4010|67|2025-05-03|kalistenika|stanie na rękach|15s 15s 12s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|barki||na czas
+4011|67|2025-05-03|kalistenika|podciąganie podchwytem z pauzą|x4 x4 x4||0.0|0.0|0.0|0.0|0.0|1x4 1x4 1x4|1x4 1x4 1x4|1x4|1|4|4|0.0|0.0|plecy|biceps|
+4012|67|2025-05-03|kalistenika|podciąganie podchwytem z pauzą|x4 x4 x4||0.0|0.0|0.0|0.0|0.0|1x4 1x4 1x4|1x4 1x4 1x4|1x4|1|4|4|0.0|0.0|plecy|biceps|
+4013|67|2025-05-03|kalistenika|podciąganie podchwytem z pauzą|x4 x4 x4||0.0|0.0|0.0|0.0|0.0|1x4 1x4 1x4|1x4 1x4 1x4|1x4|1|4|4|0.0|0.0|plecy|biceps|
+4014|67|2025-05-03|kalistenika|pompki|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|klatka|triceps|
+4015|67|2025-05-03|kalistenika|pompki|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|klatka|triceps|
+4016|67|2025-05-03|kalistenika|pompki|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|klatka|triceps|
+4017|67|2025-05-03|kalistenika|wzniosy nóg|x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6|1x6 1x6|1x6|1|6|6|0.0|0.0|brzuch|chwyt|
+4018|67|2025-05-03|kalistenika|wzniosy nóg|x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6|1x6 1x6|1x6|1|6|6|0.0|0.0|brzuch|chwyt|
+4019|67|2025-05-03|kalistenika|diamenty|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+4020|67|2025-05-03|kalistenika|diamenty|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
