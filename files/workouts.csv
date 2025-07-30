@@ -4459,3 +4459,27 @@
 4457|101|2025-07-25|siłownia|barki bokiem|10kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|10kg 1x10 1x10 1x10|10kg 1x10 1x10 1x10|1x10|1|10|10|10.0|100.0|barki||
 4458|101|2025-07-25|siłownia|zwis|4x24s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|chwyt|przedramie|na czas
 4459|101|2025-07-25|siłownia|plank|4x24s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|brzuch||na czas
+4460|102|2025-07-27|bieganie|bieg spokojny|40min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4461|102|2025-07-27|bieganie|dystans|7.05||7.05|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4462|102|2025-07-27|bieganie|tempo|5'41||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4463|102|2025-07-27|bieganie|czas|00:40:06||0.0|0.0|40.0|6.0|2406.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4464|103|2025-07-27|kalistenika|podciąganie nachwytem kółka|x10 x9 x5||0.0|0.0|0.0|0.0|0.0|1x10 1x9 1x5|1x10 1x9 1x5|1x10|1|10|10|0.0|0.0|plecy||
+4465|103|2025-07-27|kalistenika|podciąganie nachwytem kółka|x10 x9 x5||0.0|0.0|0.0|0.0|0.0|1x10 1x9 1x5|1x10 1x9 1x5|1x9|1|9|9|0.0|0.0|plecy||
+4466|103|2025-07-27|kalistenika|podciąganie nachwytem kółka|x10 x9 x5||0.0|0.0|0.0|0.0|0.0|1x10 1x9 1x5|1x10 1x9 1x5|1x5|1|5|5|0.0|0.0|plecy||
+4467|103|2025-07-27|kalistenika|pompki|x24 x19 x16||0.0|0.0|0.0|0.0|0.0|1x24 1x19 1x16|1x24 1x19 1x16|1x24|1|24|24|0.0|0.0|klatka|triceps|
+4468|103|2025-07-27|kalistenika|pompki|x24 x19 x16||0.0|0.0|0.0|0.0|0.0|1x24 1x19 1x16|1x24 1x19 1x16|1x19|1|19|19|0.0|0.0|klatka|triceps|
+4469|103|2025-07-27|kalistenika|pompki|x24 x19 x16||0.0|0.0|0.0|0.0|0.0|1x24 1x19 1x16|1x24 1x19 1x16|1x16|1|16|16|0.0|0.0|klatka|triceps|
+4470|103|2025-07-27|kalistenika|dipy kólka|x6 x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x5|1x6 1x6 1x5|1x6|1|6|6|0.0|0.0|triceps|klatka|
+4471|103|2025-07-27|kalistenika|dipy kólka|x6 x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x5|1x6 1x6 1x5|1x6|1|6|6|0.0|0.0|triceps|klatka|
+4472|103|2025-07-27|kalistenika|dipy kólka|x6 x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x5|1x6 1x6 1x5|1x5|1|5|5|0.0|0.0|triceps|klatka|
+4473|103|2025-07-27|kalistenika|podciąganie australijskie podchwytem kółka|x10 x10 x11||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x11|1x10 1x10 1x11|1x10|1|10|10|0.0|0.0|plecy|biceps|
+4474|103|2025-07-27|kalistenika|podciąganie australijskie podchwytem kółka|x10 x10 x11||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x11|1x10 1x10 1x11|1x10|1|10|10|0.0|0.0|plecy|biceps|
+4475|103|2025-07-27|kalistenika|podciąganie australijskie podchwytem kółka|x10 x10 x11||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x11|1x10 1x10 1x11|1x11|1|11|11|0.0|0.0|plecy|biceps|
+4476|104|2025-07-28|kalistenika|garmin obwód mięści posturalnych 2|||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|||
+4477|104|2025-07-28|kalistenika|filmik 10 min na plecy|||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|mobilność||
+4478|105|2025-07-30|bieganie|bieg spokojny|10min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4479|105|2025-07-30|bieganie|bieg w tempie|4x4min tempo 4'20||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4480|105|2025-07-30|bieganie|bieg spokojny|10min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4481|105|2025-07-30|bieganie|dystans|8.03||8.03|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4482|105|2025-07-30|bieganie|tempo|5'09||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4483|105|2025-07-30|bieganie|czas|00:41:22||0.0|0.0|41.0|22.0|2482.0|||0x0|0|0|0|0.0|0.0|bieganie||
