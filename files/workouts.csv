@@ -4746,3 +4746,56 @@
 4744|132|2025-09-10|bieganie|dystans|5.31||5.31|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 4745|132|2025-09-10|bieganie|tempo|5'40||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 4746|132|2025-09-10|bieganie|czas|00:30:03||0.0|0.0|30.0|3.0|1803.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4747|133|2025-09-11|kalistenika|podciąganie nachwytem kółka|x10 x9 x8||0.0|0.0|0.0|0.0|0.0|1x10 1x9 1x8|1x10 1x9 1x8|1x10|1|10|10|0.0|0.0|plecy||
+4748|133|2025-09-11|kalistenika|podciąganie nachwytem kółka|x10 x9 x8||0.0|0.0|0.0|0.0|0.0|1x10 1x9 1x8|1x10 1x9 1x8|1x9|1|9|9|0.0|0.0|plecy||
+4749|133|2025-09-11|kalistenika|podciąganie nachwytem kółka|x10 x9 x8||0.0|0.0|0.0|0.0|0.0|1x10 1x9 1x8|1x10 1x9 1x8|1x8|1|8|8|0.0|0.0|plecy||
+4750|133|2025-09-11|kalistenika|pompki pike|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|barki||
+4751|133|2025-09-11|kalistenika|pompki pike|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|barki||
+4752|133|2025-09-11|kalistenika|pompki pike|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|barki||
+4753|133|2025-09-11|kalistenika|podciąganie podchwytem|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+4754|133|2025-09-11|kalistenika|podciąganie podchwytem|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+4755|133|2025-09-11|kalistenika|podciąganie podchwytem|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+4756|133|2025-09-11|kalistenika|dipy kólka|x6 x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x5|1x6 1x6 1x5|1x6|1|6|6|0.0|0.0|triceps|klatka|
+4757|133|2025-09-11|kalistenika|dipy kólka|x6 x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x5|1x6 1x6 1x5|1x6|1|6|6|0.0|0.0|triceps|klatka|
+4758|133|2025-09-11|kalistenika|dipy kólka|x6 x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x5|1x6 1x6 1x5|1x5|1|5|5|0.0|0.0|triceps|klatka|
+4759|133|2025-09-11|kalistenika|pompki|x21 x21||0.0|0.0|0.0|0.0|0.0|1x21 1x21|1x21 1x21|1x21|1|21|21|0.0|0.0|klatka|triceps|
+4760|133|2025-09-11|kalistenika|pompki|x21 x21||0.0|0.0|0.0|0.0|0.0|1x21 1x21|1x21 1x21|1x21|1|21|21|0.0|0.0|klatka|triceps|
+4761|133|2025-09-11|kalistenika|wzniosy nóg|x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6|1x6 1x6|1x6|1|6|6|0.0|0.0|brzuch|chwyt|
+4762|133|2025-09-11|kalistenika|wzniosy nóg|x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6|1x6 1x6|1x6|1|6|6|0.0|0.0|brzuch|chwyt|
+4763|133|2025-09-11|kalistenika|filmik 8 min na plecy|pylometria||0.0|0.0|0.0|0.0|0.0|pylometria|pylometria|0x0|0|0|0|0.0|0.0|plecy|dupa|
+4764|133|2025-09-11|kalistenika|pylometria|filmik||0.0|0.0|0.0|0.0|0.0|filmik|filmik|0x0|0|0|0|0.0|0.0|mobilność|nogi|
+4765|134|2025-09-16|kalistenika|podciąganie nachwytem wysokie|x9 x7 x8||0.0|0.0|0.0|0.0|0.0|1x9 1x7 1x8|1x9 1x7 1x8|1x9|1|9|9|0.0|0.0|plecy||
+4766|134|2025-09-16|kalistenika|podciąganie nachwytem wysokie|x9 x7 x8||0.0|0.0|0.0|0.0|0.0|1x9 1x7 1x8|1x9 1x7 1x8|1x7|1|7|7|0.0|0.0|plecy||
+4767|134|2025-09-16|kalistenika|podciąganie nachwytem wysokie|x9 x7 x8||0.0|0.0|0.0|0.0|0.0|1x9 1x7 1x8|1x9 1x7 1x8|1x8|1|8|8|0.0|0.0|plecy||
+4768|134|2025-09-16|kalistenika|pompki pike|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|barki||
+4769|134|2025-09-16|kalistenika|pompki pike|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|barki||
+4770|134|2025-09-16|kalistenika|pompki pike|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|barki||
+4771|134|2025-09-16|kalistenika|rdl na jednej nodze|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|nogi||
+4772|134|2025-09-16|kalistenika|rdl na jednej nodze|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|nogi||
+4773|134|2025-09-16|kalistenika|rdl na jednej nodze|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|nogi||
+4774|134|2025-09-16|kalistenika|podciąganie podchwytem|x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6|1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+4775|134|2025-09-16|kalistenika|podciąganie podchwytem|x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6|1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+4776|134|2025-09-16|kalistenika|dipy|x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8|1x8 1x8|1x8|1|8|8|0.0|0.0|triceps|klatka|
+4777|134|2025-09-16|kalistenika|dipy|x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8|1x8 1x8|1x8|1|8|8|0.0|0.0|triceps|klatka|
+4778|134|2025-09-16|kalistenika|przysiady|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+4779|134|2025-09-16|kalistenika|przysiady|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+4780|134|2025-09-16|kalistenika|wzniosy nóg|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|brzuch|chwyt|
+4781|134|2025-09-16|kalistenika|wzniosy nóg|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|brzuch|chwyt|
+4782|134|2025-09-16|kalistenika|pompki na poręczach|x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|klatka|triceps|
+4783|134|2025-09-16|kalistenika|pompki na poręczach|x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|klatka|triceps|
+4784|134|2025-09-16|kalistenika|wskoki na skrzynie|x5 x5|wskok na skrzynie|0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+4785|134|2025-09-16|kalistenika|wskoki na skrzynie|x5 x5|wskok na skrzynie|0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+4786|135|2025-09-15|bieganie|bieg spokojny|30min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4787|135|2025-09-15|bieganie|dystans|5.4||5.4|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4788|135|2025-09-15|bieganie|tempo|5'35||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4789|135|2025-09-15|bieganie|czas|00:30:10||0.0|0.0|30.0|10.0|1810.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4790|136|2025-09-13|bieganie|bieg spokojny|||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4791|136|2025-09-13|bieganie|dystans|10.06||10.06|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4792|136|2025-09-13|bieganie|tempo|5'38||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4793|136|2025-09-13|bieganie|czas|00:56:43||0.0|0.0|56.0|43.0|3403.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4794|137|2025-09-17|bieganie|bieg spokojny|10min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4795|137|2025-09-17|bieganie|bieg w tempie|4x5min tempo 4'45, przerwy 2min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4796|137|2025-09-17|bieganie|bieg spokojny|10min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4797|137|2025-09-17|bieganie|dystans|8.91||8.91|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4798|137|2025-09-17|bieganie|tempo|5'12||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4799|137|2025-09-17|bieganie|czas|00:46:18||0.0|0.0|46.0|18.0|2778.0|||0x0|0|0|0|0.0|0.0|bieganie||
