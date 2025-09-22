@@ -4783,8 +4783,8 @@
 4781|134|2025-09-16|kalistenika|wzniosy nóg|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|brzuch|chwyt|
 4782|134|2025-09-16|kalistenika|pompki na poręczach|x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|klatka|triceps|
 4783|134|2025-09-16|kalistenika|pompki na poręczach|x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12|1x12 1x12|1x12|1|12|12|0.0|0.0|klatka|triceps|
-4784|134|2025-09-16|kalistenika|wskoki na skrzynie|x5 x5|wskok na skrzynie|0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
-4785|134|2025-09-16|kalistenika|wskoki na skrzynie|x5 x5|wskok na skrzynie|0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+4784|134|2025-09-16|kalistenika|wskoki na skrzynie|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+4785|134|2025-09-16|kalistenika|wskoki na skrzynie|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
 4786|135|2025-09-15|bieganie|bieg spokojny|30min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 4787|135|2025-09-15|bieganie|dystans|5.4||5.4|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 4788|135|2025-09-15|bieganie|tempo|5'35||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
@@ -4799,3 +4799,12 @@
 4797|137|2025-09-17|bieganie|dystans|8.91||8.91|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 4798|137|2025-09-17|bieganie|tempo|5'12||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 4799|137|2025-09-17|bieganie|czas|00:46:18||0.0|0.0|46.0|18.0|2778.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4800|138|2025-09-20|bieganie|bieg spokojny|15min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4801|138|2025-09-20|bieganie|sprint|5x15s, przerwa 2 min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||do notowania z przerwami
+4802|138|2025-09-20|bieganie|bieg spokojny|5min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4803|138|2025-09-20|bieganie|dystans|5.37||5.37|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4804|138|2025-09-20|bieganie|tempo|5'33||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4805|138|2025-09-20|bieganie|czas|00:29:48||0.0|0.0|29.0|48.0|1788.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4806|139|2025-09-21|bieganie|dystans|10||10.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4807|139|2025-09-21|bieganie|tempo|4'30||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4808|139|2025-09-21|bieganie|czas|00:45:01||0.0|0.0|45.0|1.0|2701.0|||0x0|0|0|0|0.0|0.0|bieganie||
