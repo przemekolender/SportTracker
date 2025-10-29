@@ -4934,3 +4934,32 @@
 4932|150|2025-10-20|siłownia|modlitewnik maszyna|25kg x12 x12 x9||0.0|0.0|0.0|0.0|0.0|25kg 1x12 1x12 1x9|25kg 1x12 1x12 1x9|1x9|1|9|9|25.0|225.0|biceps||
 4933|150|2025-10-20|siłownia|wyciskanie na maszynie klatka|40kg x10 x10||0.0|0.0|0.0|0.0|0.0|40kg 1x10 1x10|40kg 1x10 1x10|1x10|1|10|10|40.0|400.0|klatka||
 4934|150|2025-10-20|siłownia|wyciskanie na maszynie klatka|40kg x10 x10||0.0|0.0|0.0|0.0|0.0|40kg 1x10 1x10|40kg 1x10 1x10|1x10|1|10|10|40.0|400.0|klatka||
+4935|151|2025-10-21|biegania|dystans|75||0.0|0.0|0.0|0.0|0.0|75|75|0x0|0|0|0|0.0|0.0|bieganie||
+4936|151|2025-10-21|biegania|tempo|519||0.0|0.0|0.0|0.0|0.0|519|519|0x0|0|0|0|0.0|0.0|bieganie||
+4937|151|2025-10-21|biegania|czas|00:40:01||0.0|0.0|0.0|0.0|0.0|00:40:01|00:40:01|0x0|0|0|0|0.0|0.0|bieganie||
+4938|152|2025-10-27|siłownia|wyciskanie na ławce skośnej|60kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|60kg 1x8 1x8 1x8|60kg 1x8 1x8 1x8|1x8|1|8|8|60.0|480.0|klatka|barki|
+4939|152|2025-10-27|siłownia|wyciskanie na ławce skośnej|60kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|60kg 1x8 1x8 1x8|60kg 1x8 1x8 1x8|1x8|1|8|8|60.0|480.0|klatka|barki|
+4940|152|2025-10-27|siłownia|wyciskanie na ławce skośnej|60kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|60kg 1x8 1x8 1x8|60kg 1x8 1x8 1x8|1x8|1|8|8|60.0|480.0|klatka|barki|
+4941|152|2025-10-27|siłownia|martwy ciąg|60kg x5 x5||0.0|0.0|0.0|0.0|0.0|60kg 1x5 1x5|60kg 1x5 1x5|1x5|1|5|5|60.0|300.0|nogi|dupa|
+4942|152|2025-10-27|siłownia|martwy ciąg|60kg x5 x5||0.0|0.0|0.0|0.0|0.0|60kg 1x5 1x5|60kg 1x5 1x5|1x5|1|5|5|60.0|300.0|nogi|dupa|
+4943|152|2025-10-27|siłownia|podciąganie młotek|x7 x6||0.0|0.0|0.0|0.0|0.0|1x7 1x6|1x7 1x6|1x7|1|7|7|0.0|0.0|plecy|biceps|
+4944|152|2025-10-27|siłownia|podciąganie młotek|x7 x6||0.0|0.0|0.0|0.0|0.0|1x7 1x6|1x7 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+4945|152|2025-10-27|siłownia|maszyna pull down|70kg x8; 80kg x6|z pauzą na dole|0.0|0.0|0.0|0.0|0.0|70kg 1x8; 80kg 1x6|70kg 1x8|1x8|1|8|8|70.0|560.0|plecy|biceps|
+4946|152|2025-10-27|siłownia|maszyna pull down|70kg x8; 80kg x6|z pauzą na dole|0.0|0.0|0.0|0.0|0.0|70kg 1x8; 80kg 1x6| 80kg 1x6|1x6|1|6|6|80.0|480.0|plecy|biceps|
+4947|152|2025-10-27|siłownia|uginanie ramion siedząc|15kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|15kg 1x8 1x8 1x8|15kg 1x8 1x8 1x8|1x8|1|8|8|15.0|120.0|biceps||
+4948|152|2025-10-27|siłownia|uginanie ramion siedząc|15kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|15kg 1x8 1x8 1x8|15kg 1x8 1x8 1x8|1x8|1|8|8|15.0|120.0|biceps||
+4949|152|2025-10-27|siłownia|uginanie ramion siedząc|15kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|15kg 1x8 1x8 1x8|15kg 1x8 1x8 1x8|1x8|1|8|8|15.0|120.0|biceps||
+4950|152|2025-10-27|siłownia|triceps wyciąg|21.5kg x10; 24.9 x10; 28.3kg x9||0.0|0.0|0.0|0.0|0.0|21.5kg 1x10; 24.9 1x10; 28.3kg 1x9|21.5kg 1x10|1x10|1|10|10|21.5|215.0|triceps||wyciąg górny, dowolny uchwyt
+4951|152|2025-10-27|siłownia|triceps wyciąg|21.5kg x10; 24.9 x10; 28.3kg x9||0.0|0.0|0.0|0.0|0.0|21.5kg 1x10; 24.9 1x10; 28.3kg 1x9| 24.9 1x10|1x10|1|10|10|0.0|0.0|triceps||wyciąg górny, dowolny uchwyt
+4952|152|2025-10-27|siłownia|triceps wyciąg|21.5kg x10; 24.9 x10; 28.3kg x9||0.0|0.0|0.0|0.0|0.0|21.5kg 1x10; 24.9 1x10; 28.3kg 1x9| 28.3kg 1x9|1x9|1|9|9|28.3|254.70000000000002|triceps||wyciąg górny, dowolny uchwyt
+4953|152|2025-10-27|siłownia|barki bokiem|8kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|8kg 1x8 1x8 1x8|8kg 1x8 1x8 1x8|1x8|1|8|8|8.0|64.0|barki||
+4954|152|2025-10-27|siłownia|barki bokiem|8kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|8kg 1x8 1x8 1x8|8kg 1x8 1x8 1x8|1x8|1|8|8|8.0|64.0|barki||
+4955|152|2025-10-27|siłownia|barki bokiem|8kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|8kg 1x8 1x8 1x8|8kg 1x8 1x8 1x8|1x8|1|8|8|8.0|64.0|barki||
+4956|152|2025-10-27|siłownia|wyciskanie na maszynie klatka|60kg x10 x10||0.0|0.0|0.0|0.0|0.0|60kg 1x10 1x10|60kg 1x10 1x10|1x10|1|10|10|60.0|600.0|klatka||
+4957|152|2025-10-27|siłownia|wyciskanie na maszynie klatka|60kg x10 x10||0.0|0.0|0.0|0.0|0.0|60kg 1x10 1x10|60kg 1x10 1x10|1x10|1|10|10|60.0|600.0|klatka||
+4958|152|2025-10-27|siłownia|l sit|5x1noga z oparciem, 2x1 noga w zwisie||0.0|0.0|0.0|0.0|0.0|5x1noga z oparciem, 2x1 noga w zwisie|5x1noga z oparciem, 2x1 noga w zwisie|5x1|5|1|5|0.0|0.0|||
+4959|152|2025-10-27|siłownia|l sit|5x1noga z oparciem, 2x1 noga w zwisie||0.0|0.0|0.0|0.0|0.0|5x1noga z oparciem, 2x1 noga w zwisie|5x1noga z oparciem, 2x1 noga w zwisie|2x1|2|1|2|0.0|0.0|||
+4960|153|2025-10-29|bieganie|bieg spokojny|40min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4961|153|2025-10-29|bieganie|dystans|7.68||7.68|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4962|153|2025-10-29|bieganie|tempo|5'35||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+4963|153|2025-10-29|bieganie|czas|00:42:55||0.0|0.0|42.0|55.0|2575.0|||0x0|0|0|0|0.0|0.0|bieganie||
