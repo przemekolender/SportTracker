@@ -5186,8 +5186,299 @@
 5184|168|2025-12-17|siłownia|modlitewnik maszyna|25kg x12 x10 x8||0.0|0.0|0.0|0.0|0.0|25kg 1x12 1x10 1x8|25kg 1x12 1x10 1x8|1x10|1|10|10|25.0|250.0|biceps||
 5185|168|2025-12-17|siłownia|modlitewnik maszyna|25kg x12 x10 x8||0.0|0.0|0.0|0.0|0.0|25kg 1x12 1x10 1x8|25kg 1x12 1x10 1x8|1x8|1|8|8|25.0|200.0|biceps||
 5186|169|2025-12-18|bieganie|bieg spokojny|15min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
-5187|169|2025-12-18|bieganie|sprint|2x3x15s 2'55||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||do notowania z przerwami
+5187|169|2025-12-18|bieganie|sprint|2x3x15s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||do notowania z przerwami
 5188|169|2025-12-18|bieganie|bieg spokojny|10min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 5189|169|2025-12-18|bieganie|dystans|8.16||8.16|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 5190|169|2025-12-18|bieganie|tempo|5'34||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
 5191|169|2025-12-18|bieganie|czas|00:45:22||0.0|0.0|45.0|22.0|2722.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5192|170|2025-12-21|kalistenika|podciąganie nachwytem kółka|x7 x8 x7||0.0|0.0|0.0|0.0|0.0|1x7 1x8 1x7|1x7 1x8 1x7|1x7|1|7|7|0.0|0.0|plecy||
+5193|170|2025-12-21|kalistenika|podciąganie nachwytem kółka|x7 x8 x7||0.0|0.0|0.0|0.0|0.0|1x7 1x8 1x7|1x7 1x8 1x7|1x8|1|8|8|0.0|0.0|plecy||
+5194|170|2025-12-21|kalistenika|podciąganie nachwytem kółka|x7 x8 x7||0.0|0.0|0.0|0.0|0.0|1x7 1x8 1x7|1x7 1x8 1x7|1x7|1|7|7|0.0|0.0|plecy||
+5195|170|2025-12-21|kalistenika|wykroki|x20 x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20 1x20|1x20 1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+5196|170|2025-12-21|kalistenika|wykroki|x20 x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20 1x20|1x20 1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+5197|170|2025-12-21|kalistenika|wykroki|x20 x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20 1x20|1x20 1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+5198|170|2025-12-21|kalistenika|podciąganie podchwytem|x6 x5 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x5 1x5|1x6 1x5 1x5|1x6|1|6|6|0.0|0.0|plecy|biceps|
+5199|170|2025-12-21|kalistenika|podciąganie podchwytem|x6 x5 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x5 1x5|1x6 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+5200|170|2025-12-21|kalistenika|podciąganie podchwytem|x6 x5 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x5 1x5|1x6 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+5201|170|2025-12-21|kalistenika|dipy kólka|x4 x5 x4||0.0|0.0|0.0|0.0|0.0|1x4 1x5 1x4|1x4 1x5 1x4|1x4|1|4|4|0.0|0.0|triceps|klatka|
+5202|170|2025-12-21|kalistenika|dipy kólka|x4 x5 x4||0.0|0.0|0.0|0.0|0.0|1x4 1x5 1x4|1x4 1x5 1x4|1x5|1|5|5|0.0|0.0|triceps|klatka|
+5203|170|2025-12-21|kalistenika|dipy kólka|x4 x5 x4||0.0|0.0|0.0|0.0|0.0|1x4 1x5 1x4|1x4 1x5 1x4|1x4|1|4|4|0.0|0.0|triceps|klatka|
+5204|170|2025-12-21|kalistenika|pompki kółka|x10 x12 x12||0.0|0.0|0.0|0.0|0.0|1x10 1x12 1x12|1x10 1x12 1x12|1x10|1|10|10|0.0|0.0|klatka|triceps|
+5205|170|2025-12-21|kalistenika|pompki kółka|x10 x12 x12||0.0|0.0|0.0|0.0|0.0|1x10 1x12 1x12|1x10 1x12 1x12|1x12|1|12|12|0.0|0.0|klatka|triceps|
+5206|170|2025-12-21|kalistenika|pompki kółka|x10 x12 x12||0.0|0.0|0.0|0.0|0.0|1x10 1x12 1x12|1x10 1x12 1x12|1x12|1|12|12|0.0|0.0|klatka|triceps|
+5207|170|2025-12-21|kalistenika|wzniosy nóg|x8 x8 x7||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x7|1x8 1x8 1x7|1x8|1|8|8|0.0|0.0|brzuch|chwyt|
+5208|170|2025-12-21|kalistenika|wzniosy nóg|x8 x8 x7||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x7|1x8 1x8 1x7|1x8|1|8|8|0.0|0.0|brzuch|chwyt|
+5209|170|2025-12-21|kalistenika|wzniosy nóg|x8 x8 x7||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x7|1x8 1x8 1x7|1x7|1|7|7|0.0|0.0|brzuch|chwyt|
+5210|171|2025-12-22|bieganie|bieg spokojny|47min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5211|171|2025-12-22|bieganie|dystans|8.74||8.74|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5212|171|2025-12-22|bieganie|tempo|5'23||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5213|171|2025-12-22|bieganie|czas|00:47:02||0.0|0.0|47.0|2.0|2822.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5214|1|2026-01-04|kalistenika|podciąganie nachwytem|x6 x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x5|1x6 1x6 1x5|1x6|1|6|6|0.0|0.0|plecy||
+5215|1|2026-01-04|kalistenika|podciąganie nachwytem|x6 x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x5|1x6 1x6 1x5|1x6|1|6|6|0.0|0.0|plecy||
+5216|1|2026-01-04|kalistenika|podciąganie nachwytem|x6 x6 x5||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x5|1x6 1x6 1x5|1x5|1|5|5|0.0|0.0|plecy||
+5217|1|2026-01-04|kalistenika|przysiady na jednej nodze z kółkami|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|||
+5218|1|2026-01-04|kalistenika|przysiady na jednej nodze z kółkami|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|||
+5219|1|2026-01-04|kalistenika|przysiady na jednej nodze z kółkami|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|||
+5220|1|2026-01-04|kalistenika|podciąganie podchwytem|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+5221|1|2026-01-04|kalistenika|podciąganie podchwytem|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+5222|1|2026-01-04|kalistenika|podciąganie podchwytem|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+5223|1|2026-01-04|kalistenika|dipy|x6 x6 x7||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x7|1x6 1x6 1x7|1x6|1|6|6|0.0|0.0|triceps|klatka|
+5224|1|2026-01-04|kalistenika|dipy|x6 x6 x7||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x7|1x6 1x6 1x7|1x6|1|6|6|0.0|0.0|triceps|klatka|
+5225|1|2026-01-04|kalistenika|dipy|x6 x6 x7||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x7|1x6 1x6 1x7|1x7|1|7|7|0.0|0.0|triceps|klatka|
+5226|1|2026-01-04|kalistenika|pompki kółka|x8 x10 x10||0.0|0.0|0.0|0.0|0.0|1x8 1x10 1x10|1x8 1x10 1x10|1x8|1|8|8|0.0|0.0|klatka|triceps|
+5227|1|2026-01-04|kalistenika|pompki kółka|x8 x10 x10||0.0|0.0|0.0|0.0|0.0|1x8 1x10 1x10|1x8 1x10 1x10|1x10|1|10|10|0.0|0.0|klatka|triceps|
+5228|1|2026-01-04|kalistenika|pompki kółka|x8 x10 x10||0.0|0.0|0.0|0.0|0.0|1x8 1x10 1x10|1x8 1x10 1x10|1x10|1|10|10|0.0|0.0|klatka|triceps|
+5229|1|2026-01-04|kalistenika|wzniosy nóg|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|brzuch|chwyt|
+5230|1|2026-01-04|kalistenika|wzniosy nóg|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|brzuch|chwyt|
+5231|1|2026-01-04|kalistenika|wzniosy nóg|x8 x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8 1x8|1x8 1x8 1x8|1x8|1|8|8|0.0|0.0|brzuch|chwyt|
+5232|1|2026-01-04|kalistenika|filmik 8 min na plecy|||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|plecy|dupa|
+5233|2|2026-01-05|bieganie|bieg spokojny|33min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5234|2|2026-01-05|bieganie|dystans|6.41||6.41|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5235|2|2026-01-05|bieganie|tempo|5'43||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5236|2|2026-01-05|bieganie|czas|00:36:39||0.0|0.0|36.0|39.0|2199.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5237|3|2026-01-06|bieganie|bieg spokojny|30min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5238|3|2026-01-06|bieganie|dystans|5.47||5.47|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5239|3|2026-01-06|bieganie|tempo|5'29||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5240|3|2026-01-06|bieganie|czas|00:30:03||0.0|0.0|30.0|3.0|1803.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5241|4|2026-01-07|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5242|4|2026-01-07|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5243|4|2026-01-07|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5244|4|2026-01-07|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5245|4|2026-01-07|siłownia|wykroki|x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20|1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+5246|4|2026-01-07|siłownia|wykroki|x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20|1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+5247|4|2026-01-07|siłownia|wyciskanie na ławce płaskiej|60kg x9 x8 x9||0.0|0.0|0.0|0.0|0.0|60kg 1x9 1x8 1x9|60kg 1x9 1x8 1x9|1x9|1|9|9|60.0|540.0|klatka|triceps|
+5248|4|2026-01-07|siłownia|wyciskanie na ławce płaskiej|60kg x9 x8 x9||0.0|0.0|0.0|0.0|0.0|60kg 1x9 1x8 1x9|60kg 1x9 1x8 1x9|1x8|1|8|8|60.0|480.0|klatka|triceps|
+5249|4|2026-01-07|siłownia|wyciskanie na ławce płaskiej|60kg x9 x8 x9||0.0|0.0|0.0|0.0|0.0|60kg 1x9 1x8 1x9|60kg 1x9 1x8 1x9|1x9|1|9|9|60.0|540.0|klatka|triceps|
+5250|4|2026-01-07|siłownia|martwy ciąg z hantlami|20kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|20kg 1x6 1x6 1x6|20kg 1x6 1x6 1x6|1x6|1|6|6|20.0|120.0|||
+5251|4|2026-01-07|siłownia|martwy ciąg z hantlami|20kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|20kg 1x6 1x6 1x6|20kg 1x6 1x6 1x6|1x6|1|6|6|20.0|120.0|||
+5252|4|2026-01-07|siłownia|martwy ciąg z hantlami|20kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|20kg 1x6 1x6 1x6|20kg 1x6 1x6 1x6|1x6|1|6|6|20.0|120.0|||
+5253|4|2026-01-07|siłownia|maszyna pull down|70kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|70kg 1x8 1x8 1x8|70kg 1x8 1x8 1x8|1x8|1|8|8|70.0|560.0|plecy|biceps|
+5254|4|2026-01-07|siłownia|maszyna pull down|70kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|70kg 1x8 1x8 1x8|70kg 1x8 1x8 1x8|1x8|1|8|8|70.0|560.0|plecy|biceps|
+5255|4|2026-01-07|siłownia|maszyna pull down|70kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|70kg 1x8 1x8 1x8|70kg 1x8 1x8 1x8|1x8|1|8|8|70.0|560.0|plecy|biceps|
+5256|4|2026-01-07|siłownia|przysiady z hantlem|25kg x6 x8 x8||0.0|0.0|0.0|0.0|0.0|25kg 1x6 1x8 1x8|25kg 1x6 1x8 1x8|1x6|1|6|6|25.0|150.0|nogi||
+5257|4|2026-01-07|siłownia|przysiady z hantlem|25kg x6 x8 x8||0.0|0.0|0.0|0.0|0.0|25kg 1x6 1x8 1x8|25kg 1x6 1x8 1x8|1x8|1|8|8|25.0|200.0|nogi||
+5258|4|2026-01-07|siłownia|przysiady z hantlem|25kg x6 x8 x8||0.0|0.0|0.0|0.0|0.0|25kg 1x6 1x8 1x8|25kg 1x6 1x8 1x8|1x8|1|8|8|25.0|200.0|nogi||
+5259|4|2026-01-07|siłownia|uginanie ramion siedząc|15kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|15kg 1x8 1x8 1x8|15kg 1x8 1x8 1x8|1x8|1|8|8|15.0|120.0|biceps||
+5260|4|2026-01-07|siłownia|uginanie ramion siedząc|15kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|15kg 1x8 1x8 1x8|15kg 1x8 1x8 1x8|1x8|1|8|8|15.0|120.0|biceps||
+5261|4|2026-01-07|siłownia|uginanie ramion siedząc|15kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|15kg 1x8 1x8 1x8|15kg 1x8 1x8 1x8|1x8|1|8|8|15.0|120.0|biceps||
+5262|4|2026-01-07|siłownia|barki bokiem|8kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|8kg 1x8 1x8 1x8|8kg 1x8 1x8 1x8|1x8|1|8|8|8.0|64.0|barki||
+5263|4|2026-01-07|siłownia|barki bokiem|8kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|8kg 1x8 1x8 1x8|8kg 1x8 1x8 1x8|1x8|1|8|8|8.0|64.0|barki||
+5264|4|2026-01-07|siłownia|barki bokiem|8kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|8kg 1x8 1x8 1x8|8kg 1x8 1x8 1x8|1x8|1|8|8|8.0|64.0|barki||
+5265|4|2026-01-07|siłownia|triceps wyciąg|27kg x7 x7 x7||0.0|0.0|0.0|0.0|0.0|27kg 1x7 1x7 1x7|27kg 1x7 1x7 1x7|1x7|1|7|7|27.0|189.0|triceps||wyciąg górny, dowolny uchwyt
+5266|4|2026-01-07|siłownia|triceps wyciąg|27kg x7 x7 x7||0.0|0.0|0.0|0.0|0.0|27kg 1x7 1x7 1x7|27kg 1x7 1x7 1x7|1x7|1|7|7|27.0|189.0|triceps||wyciąg górny, dowolny uchwyt
+5267|4|2026-01-07|siłownia|triceps wyciąg|27kg x7 x7 x7||0.0|0.0|0.0|0.0|0.0|27kg 1x7 1x7 1x7|27kg 1x7 1x7 1x7|1x7|1|7|7|27.0|189.0|triceps||wyciąg górny, dowolny uchwyt
+5268|4|2026-01-07|siłownia|wymachy kettlem|20kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|20kg 1x8 1x8 1x8|20kg 1x8 1x8 1x8|1x8|1|8|8|20.0|160.0|dupa|brzuch|
+5269|4|2026-01-07|siłownia|wymachy kettlem|20kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|20kg 1x8 1x8 1x8|20kg 1x8 1x8 1x8|1x8|1|8|8|20.0|160.0|dupa|brzuch|
+5270|4|2026-01-07|siłownia|wymachy kettlem|20kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|20kg 1x8 1x8 1x8|20kg 1x8 1x8 1x8|1x8|1|8|8|20.0|160.0|dupa|brzuch|
+5271|5|2025-01-10|kalistenika|garmin stabilizacja mięśni głębokich|||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|||
+5272|5|2025-01-10|kalistenika|pylometria|||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|mobilność|nogi|
+5273|5|2025-01-10|kalistenika|podciąganie nachwytem|x7 x7 x7||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x7|1x7 1x7 1x7|1x7|1|7|7|0.0|0.0|plecy||
+5274|5|2025-01-10|kalistenika|podciąganie nachwytem|x7 x7 x7||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x7|1x7 1x7 1x7|1x7|1|7|7|0.0|0.0|plecy||
+5275|5|2025-01-10|kalistenika|podciąganie nachwytem|x7 x7 x7||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x7|1x7 1x7 1x7|1x7|1|7|7|0.0|0.0|plecy||
+5276|5|2025-01-10|kalistenika|step down z podniesienia|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+5277|5|2025-01-10|kalistenika|step down z podniesienia|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+5278|5|2025-01-10|kalistenika|step down z podniesienia|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi||
+5279|5|2025-01-10|kalistenika|podciąganie podchwytem|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+5280|5|2025-01-10|kalistenika|podciąganie podchwytem|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+5281|5|2025-01-10|kalistenika|podciąganie podchwytem|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|plecy|biceps|
+5282|5|2025-01-10|kalistenika|dipy|x7 x7 x5||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x5|1x7 1x7 1x5|1x7|1|7|7|0.0|0.0|triceps|klatka|
+5283|5|2025-01-10|kalistenika|dipy|x7 x7 x5||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x5|1x7 1x7 1x5|1x7|1|7|7|0.0|0.0|triceps|klatka|
+5284|5|2025-01-10|kalistenika|dipy|x7 x7 x5||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x5|1x7 1x7 1x5|1x5|1|5|5|0.0|0.0|triceps|klatka|
+5285|5|2025-01-10|kalistenika|pompki kółka|x7 x7 x5||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x5|1x7 1x7 1x5|1x7|1|7|7|0.0|0.0|klatka|triceps|
+5286|5|2025-01-10|kalistenika|pompki kółka|x7 x7 x5||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x5|1x7 1x7 1x5|1x7|1|7|7|0.0|0.0|klatka|triceps|
+5287|5|2025-01-10|kalistenika|pompki kółka|x7 x7 x5||0.0|0.0|0.0|0.0|0.0|1x7 1x7 1x5|1x7 1x7 1x5|1x5|1|5|5|0.0|0.0|klatka|triceps|
+5288|6|2025-01-12|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5289|6|2025-01-12|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5290|6|2025-01-12|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5291|6|2025-01-12|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5292|6|2025-01-12|siłownia|wykroki|x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20|1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+5293|6|2025-01-12|siłownia|wykroki|x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20|1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+5294|6|2025-01-12|siłownia|wyciskanie na ławce płaskiej|85kg x4 x4 x4||0.0|0.0|0.0|0.0|0.0|85kg 1x4 1x4 1x4|85kg 1x4 1x4 1x4|1x4|1|4|4|85.0|340.0|klatka|triceps|
+5295|6|2025-01-12|siłownia|wyciskanie na ławce płaskiej|85kg x4 x4 x4||0.0|0.0|0.0|0.0|0.0|85kg 1x4 1x4 1x4|85kg 1x4 1x4 1x4|1x4|1|4|4|85.0|340.0|klatka|triceps|
+5296|6|2025-01-12|siłownia|wyciskanie na ławce płaskiej|85kg x4 x4 x4||0.0|0.0|0.0|0.0|0.0|85kg 1x4 1x4 1x4|85kg 1x4 1x4 1x4|1x4|1|4|4|85.0|340.0|klatka|triceps|
+5297|6|2025-01-12|siłownia|bułgary|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+5298|6|2025-01-12|siłownia|bułgary|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+5299|6|2025-01-12|siłownia|bułgary|x5 x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5 1x5|1x5 1x5 1x5|1x5|1|5|5|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+5300|6|2025-01-12|siłownia|martwy ciąg|60kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|60kg 1x6 1x6 1x6|60kg 1x6 1x6 1x6|1x6|1|6|6|60.0|360.0|nogi|dupa|
+5301|6|2025-01-12|siłownia|martwy ciąg|60kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|60kg 1x6 1x6 1x6|60kg 1x6 1x6 1x6|1x6|1|6|6|60.0|360.0|nogi|dupa|
+5302|6|2025-01-12|siłownia|martwy ciąg|60kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|60kg 1x6 1x6 1x6|60kg 1x6 1x6 1x6|1x6|1|6|6|60.0|360.0|nogi|dupa|
+5303|6|2025-01-12|siłownia|podciąganie podchwytem|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+5304|6|2025-01-12|siłownia|podciąganie podchwytem|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+5305|6|2025-01-12|siłownia|podciąganie podchwytem|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+5306|6|2025-01-12|siłownia|wyciskanie hantli nad głowę|17.5kg x10 x12 x10||0.0|0.0|0.0|0.0|0.0|17.5kg 1x10 1x12 1x10|17.5kg 1x10 1x12 1x10|1x10|1|10|10|17.5|175.0|barki||
+5307|6|2025-01-12|siłownia|wyciskanie hantli nad głowę|17.5kg x10 x12 x10||0.0|0.0|0.0|0.0|0.0|17.5kg 1x10 1x12 1x10|17.5kg 1x10 1x12 1x10|1x12|1|12|12|17.5|210.0|barki||
+5308|6|2025-01-12|siłownia|wyciskanie hantli nad głowę|17.5kg x10 x12 x10||0.0|0.0|0.0|0.0|0.0|17.5kg 1x10 1x12 1x10|17.5kg 1x10 1x12 1x10|1x10|1|10|10|17.5|175.0|barki||
+5309|6|2025-01-12|siłownia|wyciskanie francuskie 1 hantel|27.5kg x10 x10 x7||0.0|0.0|0.0|0.0|0.0|27.5kg 1x10 1x10 1x7|27.5kg 1x10 1x10 1x7|1x10|1|10|10|27.5|275.0|triceps||
+5310|6|2025-01-12|siłownia|wyciskanie francuskie 1 hantel|27.5kg x10 x10 x7||0.0|0.0|0.0|0.0|0.0|27.5kg 1x10 1x10 1x7|27.5kg 1x10 1x10 1x7|1x10|1|10|10|27.5|275.0|triceps||
+5311|6|2025-01-12|siłownia|wyciskanie francuskie 1 hantel|27.5kg x10 x10 x7||0.0|0.0|0.0|0.0|0.0|27.5kg 1x10 1x10 1x7|27.5kg 1x10 1x10 1x7|1x7|1|7|7|27.5|192.5|triceps||
+5312|6|2025-01-12|siłownia|uginanie ramion ze sztangą|30kg x10 x9 x8||0.0|0.0|0.0|0.0|0.0|30kg 1x10 1x9 1x8|30kg 1x10 1x9 1x8|1x10|1|10|10|30.0|300.0|biceps||
+5313|6|2025-01-12|siłownia|uginanie ramion ze sztangą|30kg x10 x9 x8||0.0|0.0|0.0|0.0|0.0|30kg 1x10 1x9 1x8|30kg 1x10 1x9 1x8|1x9|1|9|9|30.0|270.0|biceps||
+5314|6|2025-01-12|siłownia|uginanie ramion ze sztangą|30kg x10 x9 x8||0.0|0.0|0.0|0.0|0.0|30kg 1x10 1x9 1x8|30kg 1x10 1x9 1x8|1x8|1|8|8|30.0|240.0|biceps||
+5315|7|2026-01-11|bieganie|bieg spokojny|40min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5316|7|2026-01-11|bieganie|dystans|7.54||7.54|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5317|7|2026-01-11|bieganie|tempo|5'41||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5318|7|2026-01-11|bieganie|czas|00:42:47||0.0|0.0|42.0|47.0|2567.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5319|8|2026-01-09|bieganie|bieg spokojny|40min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5320|8|2026-01-09|bieganie|dystans|8||8.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5321|8|2026-01-09|bieganie|tempo|5'24||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5322|8|2026-01-09|bieganie|czas|00:43:09||0.0|0.0|43.0|9.0|2589.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5323|9|2026-01-15|siłownia|deska ze wstawaniem|x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8|1x8 1x8|1x8|1|8|8|0.0|0.0|mobilność|brzuch|
+5324|9|2026-01-15|siłownia|deska ze wstawaniem|x8 x8||0.0|0.0|0.0|0.0|0.0|1x8 1x8|1x8 1x8|1x8|1|8|8|0.0|0.0|mobilność|brzuch|
+5325|9|2026-01-15|siłownia|hip trusty jedna noga|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|dupa||
+5326|9|2026-01-15|siłownia|hip trusty jedna noga|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|dupa||
+5327|9|2026-01-15|siłownia|wykroki|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|nogi||
+5328|9|2026-01-15|siłownia|wykroki|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|nogi||
+5329|9|2026-01-15|siłownia|wyciskanie hantli na ławce skośnej|26kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|26kg 1x8 1x8 1x8|26kg 1x8 1x8 1x8|1x8|1|8|8|26.0|208.0|klatka|barki|
+5330|9|2026-01-15|siłownia|wyciskanie hantli na ławce skośnej|26kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|26kg 1x8 1x8 1x8|26kg 1x8 1x8 1x8|1x8|1|8|8|26.0|208.0|klatka|barki|
+5331|9|2026-01-15|siłownia|wyciskanie hantli na ławce skośnej|26kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|26kg 1x8 1x8 1x8|26kg 1x8 1x8 1x8|1x8|1|8|8|26.0|208.0|klatka|barki|
+5332|9|2026-01-15|siłownia|wyciskanie hantli na ławce skośnej|26kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|26kg 1x8 1x8 1x8|26kg 1x8 1x8 1x8|1x8|1|8|8|26.0|208.0|klatka|barki|
+5333|9|2026-01-15|siłownia|wyciskanie hantli na ławce skośnej|26kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|26kg 1x8 1x8 1x8|26kg 1x8 1x8 1x8|1x8|1|8|8|26.0|208.0|klatka|barki|
+5334|9|2026-01-15|siłownia|wyciskanie hantli na ławce skośnej|26kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|26kg 1x8 1x8 1x8|26kg 1x8 1x8 1x8|1x8|1|8|8|26.0|208.0|klatka|barki|
+5335|9|2026-01-15|siłownia|podciąganie nachwytem|x5 x6 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x6 1x5|1x5 1x6 1x5|1x5|1|5|5|0.0|0.0|plecy||
+5336|9|2026-01-15|siłownia|podciąganie nachwytem|x5 x6 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x6 1x5|1x5 1x6 1x5|1x6|1|6|6|0.0|0.0|plecy||
+5337|9|2026-01-15|siłownia|podciąganie nachwytem|x5 x6 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x6 1x5|1x5 1x6 1x5|1x5|1|5|5|0.0|0.0|plecy||
+5338|9|2026-01-15|siłownia|przysiady|x12 x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
+5339|9|2026-01-15|siłownia|przysiady|x12 x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
+5340|9|2026-01-15|siłownia|przysiady|x12 x12 x12||0.0|0.0|0.0|0.0|0.0|1x12 1x12 1x12|1x12 1x12 1x12|1x12|1|12|12|0.0|0.0|nogi||
+5341|9|2026-01-15|siłownia|uginanie ramion siedząc|16kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|16kg 1x8 1x8 1x8|16kg 1x8 1x8 1x8|1x8|1|8|8|16.0|128.0|biceps||
+5342|9|2026-01-15|siłownia|uginanie ramion siedząc|16kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|16kg 1x8 1x8 1x8|16kg 1x8 1x8 1x8|1x8|1|8|8|16.0|128.0|biceps||
+5343|9|2026-01-15|siłownia|uginanie ramion siedząc|16kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|16kg 1x8 1x8 1x8|16kg 1x8 1x8 1x8|1x8|1|8|8|16.0|128.0|biceps||
+5344|9|2026-01-15|siłownia|barki bokiem siedząc|8kg x9 x9 x9||0.0|0.0|0.0|0.0|0.0|8kg 1x9 1x9 1x9|8kg 1x9 1x9 1x9|1x9|1|9|9|8.0|72.0|barki||
+5345|9|2026-01-15|siłownia|barki bokiem siedząc|8kg x9 x9 x9||0.0|0.0|0.0|0.0|0.0|8kg 1x9 1x9 1x9|8kg 1x9 1x9 1x9|1x9|1|9|9|8.0|72.0|barki||
+5346|9|2026-01-15|siłownia|barki bokiem siedząc|8kg x9 x9 x9||0.0|0.0|0.0|0.0|0.0|8kg 1x9 1x9 1x9|8kg 1x9 1x9 1x9|1x9|1|9|9|8.0|72.0|barki||
+5347|9|2026-01-15|siłownia|triceps wyciąg|30kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|30kg 1x10 1x10 1x10|30kg 1x10 1x10 1x10|1x10|1|10|10|30.0|300.0|triceps||wyciąg górny, dowolny uchwyt
+5348|9|2026-01-15|siłownia|triceps wyciąg|30kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|30kg 1x10 1x10 1x10|30kg 1x10 1x10 1x10|1x10|1|10|10|30.0|300.0|triceps||wyciąg górny, dowolny uchwyt
+5349|9|2026-01-15|siłownia|triceps wyciąg|30kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|30kg 1x10 1x10 1x10|30kg 1x10 1x10 1x10|1x10|1|10|10|30.0|300.0|triceps||wyciąg górny, dowolny uchwyt
+5350|9|2026-01-15|siłownia|wyciskanie na maszynie klatka|50kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|50kg 1x10 1x10 1x10|50kg 1x10 1x10 1x10|1x10|1|10|10|50.0|500.0|klatka||
+5351|9|2026-01-15|siłownia|wyciskanie na maszynie klatka|50kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|50kg 1x10 1x10 1x10|50kg 1x10 1x10 1x10|1x10|1|10|10|50.0|500.0|klatka||
+5352|9|2026-01-15|siłownia|wyciskanie na maszynie klatka|50kg x10 x10 x10||0.0|0.0|0.0|0.0|0.0|50kg 1x10 1x10 1x10|50kg 1x10 1x10 1x10|1x10|1|10|10|50.0|500.0|klatka||
+5353|10|2026-01-13|bieganie|bieg spokojny|10min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5354|10|2026-01-13|bieganie|bieg w tempie|3x8min 4'50||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5355|10|2026-01-13|bieganie|bieg spokojny|10min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5356|10|2026-01-13|bieganie|dystans|9.77||9.77|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5357|10|2026-01-13|bieganie|tempo|5'09||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5358|10|2026-01-13|bieganie|czas|00:50:21||0.0|0.0|50.0|21.0|3021.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5359|11|2026-01-16|bieganie|bieg spokojny|40min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5360|11|2026-01-16|bieganie|dystans|7.13||7.13|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5361|11|2026-01-16|bieganie|tempo|5'37||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5362|11|2026-01-16|bieganie|czas|00:40:03||0.0|0.0|40.0|3.0|2403.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5363|12|2026-01-18|bieganie|bieg spokojny|65min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5364|12|2026-01-18|bieganie|dystans|11.96||11.96|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5365|12|2026-01-18|bieganie|tempo|5'27||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5366|12|2026-01-18|bieganie|czas|01:01:06||0.0|1.0|1.0|6.0|3666.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5367|13|2026-01-20|bieganie|bieg spokojny|10min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5368|13|2026-01-20|bieganie|bieg w tempie|17min 4'25||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5369|13|2026-01-20|bieganie|bieg spokojny|10min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5370|13|2026-01-20|bieganie|dystans|7.54||7.54|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5371|13|2026-01-20|bieganie|tempo|4'55||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5372|13|2026-01-20|bieganie|czas|00:37:03||0.0|0.0|37.0|3.0|2223.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5373|14|2026-01-17|rozciąganie||||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|||
+5374|15|2026-01-21|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5375|15|2026-01-21|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5376|15|2026-01-21|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5377|15|2026-01-21|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5378|15|2026-01-21|siłownia|wykroki|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|nogi||
+5379|15|2026-01-21|siłownia|wykroki|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|nogi||
+5380|15|2026-01-21|siłownia|ławka rzymska|30s 30s||0.0|0.0|0.0|0.0|0.0|30s 30s|30s 30s|0x0|0|0|0|0.0|0.0|dupa|plecy|
+5381|15|2026-01-21|siłownia|wyciskanie na ławce płaskiej|85kg x5 x5 x5; 65kg x11||0.0|0.0|0.0|0.0|0.0|85kg 1x5 1x5 1x5; 65kg 1x11|85kg 1x5 1x5 1x5|1x5|1|5|5|85.0|425.0|klatka|triceps|
+5382|15|2026-01-21|siłownia|wyciskanie na ławce płaskiej|85kg x5 x5 x5; 65kg x11||0.0|0.0|0.0|0.0|0.0|85kg 1x5 1x5 1x5; 65kg 1x11|85kg 1x5 1x5 1x5|1x5|1|5|5|85.0|425.0|klatka|triceps|
+5383|15|2026-01-21|siłownia|wyciskanie na ławce płaskiej|85kg x5 x5 x5; 65kg x11||0.0|0.0|0.0|0.0|0.0|85kg 1x5 1x5 1x5; 65kg 1x11|85kg 1x5 1x5 1x5|1x5|1|5|5|85.0|425.0|klatka|triceps|
+5384|15|2026-01-21|siłownia|wyciskanie na ławce płaskiej|85kg x5 x5 x5; 65kg x11||0.0|0.0|0.0|0.0|0.0|85kg 1x5 1x5 1x5; 65kg 1x11| 65kg 1x11|1x11|1|11|11|65.0|715.0|klatka|triceps|
+5385|15|2026-01-21|siłownia|bułgary|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+5386|15|2026-01-21|siłownia|bułgary|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+5387|15|2026-01-21|siłownia|bułgary|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|nogi|dupa|liczba powtózeń na jedną nogę
+5388|15|2026-01-21|siłownia|przysiady|50kg x7 x7 x7||0.0|0.0|0.0|0.0|0.0|50kg 1x7 1x7 1x7|50kg 1x7 1x7 1x7|1x7|1|7|7|50.0|350.0|nogi||
+5389|15|2026-01-21|siłownia|przysiady|50kg x7 x7 x7||0.0|0.0|0.0|0.0|0.0|50kg 1x7 1x7 1x7|50kg 1x7 1x7 1x7|1x7|1|7|7|50.0|350.0|nogi||
+5390|15|2026-01-21|siłownia|przysiady|50kg x7 x7 x7||0.0|0.0|0.0|0.0|0.0|50kg 1x7 1x7 1x7|50kg 1x7 1x7 1x7|1x7|1|7|7|50.0|350.0|nogi||
+5391|15|2026-01-21|siłownia|podciąganie młotek|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+5392|15|2026-01-21|siłownia|podciąganie młotek|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+5393|15|2026-01-21|siłownia|podciąganie młotek|x6 x6 x6||0.0|0.0|0.0|0.0|0.0|1x6 1x6 1x6|1x6 1x6 1x6|1x6|1|6|6|0.0|0.0|plecy|biceps|
+5394|15|2026-01-21|siłownia|wyciskanie hantli nad głowę|20kg x9 x8 x8||0.0|0.0|0.0|0.0|0.0|20kg 1x9 1x8 1x8|20kg 1x9 1x8 1x8|1x9|1|9|9|20.0|180.0|barki||
+5395|15|2026-01-21|siłownia|wyciskanie hantli nad głowę|20kg x9 x8 x8||0.0|0.0|0.0|0.0|0.0|20kg 1x9 1x8 1x8|20kg 1x9 1x8 1x8|1x8|1|8|8|20.0|160.0|barki||
+5396|15|2026-01-21|siłownia|wyciskanie hantli nad głowę|20kg x9 x8 x8||0.0|0.0|0.0|0.0|0.0|20kg 1x9 1x8 1x8|20kg 1x9 1x8 1x8|1x8|1|8|8|20.0|160.0|barki||
+5397|15|2026-01-21|siłownia|wyciskanie francuskie 1 hantel|30kg x9 x8 x7||0.0|0.0|0.0|0.0|0.0|30kg 1x9 1x8 1x7|30kg 1x9 1x8 1x7|1x9|1|9|9|30.0|270.0|triceps||
+5398|15|2026-01-21|siłownia|wyciskanie francuskie 1 hantel|30kg x9 x8 x7||0.0|0.0|0.0|0.0|0.0|30kg 1x9 1x8 1x7|30kg 1x9 1x8 1x7|1x8|1|8|8|30.0|240.0|triceps||
+5399|15|2026-01-21|siłownia|wyciskanie francuskie 1 hantel|30kg x9 x8 x7||0.0|0.0|0.0|0.0|0.0|30kg 1x9 1x8 1x7|30kg 1x9 1x8 1x7|1x7|1|7|7|30.0|210.0|triceps||
+5400|15|2026-01-21|siłownia|modlitewnik maszyna|25kg x15 x12 x8||0.0|0.0|0.0|0.0|0.0|25kg 1x15 1x12 1x8|25kg 1x15 1x12 1x8|1x15|1|15|15|25.0|375.0|biceps||
+5401|15|2026-01-21|siłownia|modlitewnik maszyna|25kg x15 x12 x8||0.0|0.0|0.0|0.0|0.0|25kg 1x15 1x12 1x8|25kg 1x15 1x12 1x8|1x12|1|12|12|25.0|300.0|biceps||
+5402|15|2026-01-21|siłownia|modlitewnik maszyna|25kg x15 x12 x8||0.0|0.0|0.0|0.0|0.0|25kg 1x15 1x12 1x8|25kg 1x15 1x12 1x8|1x8|1|8|8|25.0|200.0|biceps||
+5403|16|2026-01-23|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5404|16|2026-01-23|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5405|16|2026-01-23|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5406|16|2026-01-23|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5407|16|2026-01-23|siłownia|wykroki|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|nogi||
+5408|16|2026-01-23|siłownia|wykroki|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|nogi||
+5409|16|2026-01-23|siłownia|pompki|x30 x16||0.0|0.0|0.0|0.0|0.0|1x30 1x16|1x30 1x16|1x30|1|30|30|0.0|0.0|klatka|triceps|
+5410|16|2026-01-23|siłownia|pompki|x30 x16||0.0|0.0|0.0|0.0|0.0|1x30 1x16|1x30 1x16|1x16|1|16|16|0.0|0.0|klatka|triceps|
+5411|16|2026-01-23|siłownia|biceps guma|Z x25 x27||0.0|0.0|0.0|0.0|0.0|Z 1x25 1x27|Z 1x25 1x27|1x25|1|25|25|0.0|0.0|biceps||uginanie bicepsu stojąc na gumie
+5412|16|2026-01-23|siłownia|biceps guma|Z x25 x27||0.0|0.0|0.0|0.0|0.0|Z 1x25 1x27|Z 1x25 1x27|1x27|1|27|27|0.0|0.0|biceps||uginanie bicepsu stojąc na gumie
+5413|16|2026-01-23|siłownia|barki guma|NZ x15 x15||0.0|0.0|0.0|0.0|0.0|NZ 1x15 1x15|NZ 1x15 1x15|1x15|1|15|15|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
+5414|16|2026-01-23|siłownia|barki guma|NZ x15 x15||0.0|0.0|0.0|0.0|0.0|NZ 1x15 1x15|NZ 1x15 1x15|1x15|1|15|15|0.0|0.0|barki||wyciskanie nad głowę stojąc na gumie
+5415|16|2026-01-23|siłownia|triceps guma|Z x10 x11||0.0|0.0|0.0|0.0|0.0|Z 1x10 1x11|Z 1x10 1x11|1x10|1|10|10|0.0|0.0|triceps||jak wyciąg górny
+5416|16|2026-01-23|siłownia|triceps guma|Z x10 x11||0.0|0.0|0.0|0.0|0.0|Z 1x10 1x11|Z 1x10 1x11|1x11|1|11|11|0.0|0.0|triceps||jak wyciąg górny
+5417|16|2026-01-23|siłownia|mostki|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|plecy||
+5418|16|2026-01-23|siłownia|mostki|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|plecy||
+5419|16|2026-01-23|siłownia|małże|guma x10 x10||0.0|0.0|0.0|0.0|0.0|guma 1x10 1x10|guma 1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+5420|16|2026-01-23|siłownia|małże|guma x10 x10||0.0|0.0|0.0|0.0|0.0|guma 1x10 1x10|guma 1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+5421|16|2026-01-23|siłownia|diamenty|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+5422|16|2026-01-23|siłownia|diamenty|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|triceps|klatka|
+5423|16|2026-01-23|siłownia|uginanie ramion ze sztangą|30kg x15 x15||0.0|0.0|0.0|0.0|0.0|30kg 1x15 1x15|30kg 1x15 1x15|1x15|1|15|15|30.0|450.0|biceps||
+5424|16|2026-01-23|siłownia|uginanie ramion ze sztangą|30kg x15 x15||0.0|0.0|0.0|0.0|0.0|30kg 1x15 1x15|30kg 1x15 1x15|1x15|1|15|15|30.0|450.0|biceps||
+5425|16|2026-01-23|siłownia|barki bokiem|8kg x11 x11||0.0|0.0|0.0|0.0|0.0|8kg 1x11 1x11|8kg 1x11 1x11|1x11|1|11|11|8.0|88.0|barki||
+5426|16|2026-01-23|siłownia|barki bokiem|8kg x11 x11||0.0|0.0|0.0|0.0|0.0|8kg 1x11 1x11|8kg 1x11 1x11|1x11|1|11|11|8.0|88.0|barki||
+5427|16|2026-01-23|siłownia|frog stand|5s 5s||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|barki||na czas
+5428|16|2026-01-23|siłownia|wiosłowanie guma|N x15 x15||0.0|0.0|0.0|0.0|0.0|N 1x15 1x15|N 1x15 1x15|1x15|1|15|15|0.0|0.0|plecy||
+5429|16|2026-01-23|siłownia|wiosłowanie guma|N x15 x15||0.0|0.0|0.0|0.0|0.0|N 1x15 1x15|N 1x15 1x15|1x15|1|15|15|0.0|0.0|plecy||
+5430|16|2026-01-23|siłownia|chodzenie bokiem|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|nogi|dupa|
+5431|16|2026-01-23|siłownia|chodzenie bokiem|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|nogi|dupa|
+5432|17|2026-01-28|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5433|17|2026-01-28|siłownia|gąsiennica|x5 x5||0.0|0.0|0.0|0.0|0.0|1x5 1x5|1x5 1x5|1x5|1|5|5|0.0|0.0|klatka|brzuch|
+5434|17|2026-01-28|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5435|17|2026-01-28|siłownia|hip trusty jedna noga|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|dupa||
+5436|17|2026-01-28|siłownia|kozak squat|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+5437|17|2026-01-28|siłownia|kozak squat|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|nogi||
+5438|17|2026-01-28|siłownia|wyciskanie na ławce skośnej|70kg x8 x8 x7||0.0|0.0|0.0|0.0|0.0|70kg 1x8 1x8 1x7|70kg 1x8 1x8 1x7|1x8|1|8|8|70.0|560.0|klatka|barki|
+5439|17|2026-01-28|siłownia|wyciskanie na ławce skośnej|70kg x8 x8 x7||0.0|0.0|0.0|0.0|0.0|70kg 1x8 1x8 1x7|70kg 1x8 1x8 1x7|1x8|1|8|8|70.0|560.0|klatka|barki|
+5440|17|2026-01-28|siłownia|wyciskanie na ławce skośnej|70kg x8 x8 x7||0.0|0.0|0.0|0.0|0.0|70kg 1x8 1x8 1x7|70kg 1x8 1x8 1x7|1x7|1|7|7|70.0|490.0|klatka|barki|
+5441|17|2026-01-28|siłownia|przysiady z hantlem|25kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|25kg 1x6 1x6 1x6|25kg 1x6 1x6 1x6|1x6|1|6|6|25.0|150.0|nogi||
+5442|17|2026-01-28|siłownia|przysiady z hantlem|25kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|25kg 1x6 1x6 1x6|25kg 1x6 1x6 1x6|1x6|1|6|6|25.0|150.0|nogi||
+5443|17|2026-01-28|siłownia|przysiady z hantlem|25kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|25kg 1x6 1x6 1x6|25kg 1x6 1x6 1x6|1x6|1|6|6|25.0|150.0|nogi||
+5444|17|2026-01-28|siłownia|podciąganie młotek|x7 x7||0.0|0.0|0.0|0.0|0.0|1x7 1x7|1x7 1x7|1x7|1|7|7|0.0|0.0|plecy|biceps|
+5445|17|2026-01-28|siłownia|podciąganie młotek|x7 x7||0.0|0.0|0.0|0.0|0.0|1x7 1x7|1x7 1x7|1x7|1|7|7|0.0|0.0|plecy|biceps|
+5446|17|2026-01-28|siłownia|martwy ciąg z hantlami|25kg x6 x6||0.0|0.0|0.0|0.0|0.0|25kg 1x6 1x6|25kg 1x6 1x6|1x6|1|6|6|25.0|150.0|||
+5447|17|2026-01-28|siłownia|martwy ciąg z hantlami|25kg x6 x6||0.0|0.0|0.0|0.0|0.0|25kg 1x6 1x6|25kg 1x6 1x6|1x6|1|6|6|25.0|150.0|||
+5448|17|2026-01-28|siłownia|uginanie ramion siedząc|17.5kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|17.5kg 1x6 1x6 1x6|17.5kg 1x6 1x6 1x6|1x6|1|6|6|17.5|105.0|biceps||
+5449|17|2026-01-28|siłownia|uginanie ramion siedząc|17.5kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|17.5kg 1x6 1x6 1x6|17.5kg 1x6 1x6 1x6|1x6|1|6|6|17.5|105.0|biceps||
+5450|17|2026-01-28|siłownia|uginanie ramion siedząc|17.5kg x6 x6 x6||0.0|0.0|0.0|0.0|0.0|17.5kg 1x6 1x6 1x6|17.5kg 1x6 1x6 1x6|1x6|1|6|6|17.5|105.0|biceps||
+5451|17|2026-01-28|siłownia|barki bokiem|9kg x8 x8 x6||0.0|0.0|0.0|0.0|0.0|9kg 1x8 1x8 1x6|9kg 1x8 1x8 1x6|1x8|1|8|8|9.0|72.0|barki||
+5452|17|2026-01-28|siłownia|barki bokiem|9kg x8 x8 x6||0.0|0.0|0.0|0.0|0.0|9kg 1x8 1x8 1x6|9kg 1x8 1x8 1x6|1x8|1|8|8|9.0|72.0|barki||
+5453|17|2026-01-28|siłownia|barki bokiem|9kg x8 x8 x6||0.0|0.0|0.0|0.0|0.0|9kg 1x8 1x8 1x6|9kg 1x8 1x8 1x6|1x6|1|6|6|9.0|54.0|barki||
+5454|17|2026-01-28|siłownia|triceps wyciąg|27kg x9 x8 x7||0.0|0.0|0.0|0.0|0.0|27kg 1x9 1x8 1x7|27kg 1x9 1x8 1x7|1x9|1|9|9|27.0|243.0|triceps||wyciąg górny, dowolny uchwyt
+5455|17|2026-01-28|siłownia|triceps wyciąg|27kg x9 x8 x7||0.0|0.0|0.0|0.0|0.0|27kg 1x9 1x8 1x7|27kg 1x9 1x8 1x7|1x8|1|8|8|27.0|216.0|triceps||wyciąg górny, dowolny uchwyt
+5456|17|2026-01-28|siłownia|triceps wyciąg|27kg x9 x8 x7||0.0|0.0|0.0|0.0|0.0|27kg 1x9 1x8 1x7|27kg 1x9 1x8 1x7|1x7|1|7|7|27.0|189.0|triceps||wyciąg górny, dowolny uchwyt
+5457|17|2026-01-28|siłownia|wymachy kettlem|20kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|20kg 1x8 1x8 1x8|20kg 1x8 1x8 1x8|1x8|1|8|8|20.0|160.0|dupa|brzuch|
+5458|17|2026-01-28|siłownia|wymachy kettlem|20kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|20kg 1x8 1x8 1x8|20kg 1x8 1x8 1x8|1x8|1|8|8|20.0|160.0|dupa|brzuch|
+5459|17|2026-01-28|siłownia|wymachy kettlem|20kg x8 x8 x8||0.0|0.0|0.0|0.0|0.0|20kg 1x8 1x8 1x8|20kg 1x8 1x8 1x8|1x8|1|8|8|20.0|160.0|dupa|brzuch|
+5460|17|2026-01-28|siłownia|ławka rzymska|35s 35s||0.0|0.0|0.0|0.0|0.0|35s 35s|35s 35s|0x0|0|0|0|0.0|0.0|dupa|plecy|
+5461|18|2026-01-26|bieganie|bieg spokojny|33min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5462|18|2026-01-26|bieganie|dystans|6.13||6.13|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5463|18|2026-01-26|bieganie|tempo|5'44||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5464|18|2026-01-26|bieganie|czas|00:35:06||0.0|0.0|35.0|6.0|2106.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5465|19|2026-01-27|bieganie|bieg spokojny|30min||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5466|19|2026-01-27|bieganie|dystans|5.79||5.79|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5467|19|2026-01-27|bieganie|tempo|5'38||0.0|0.0|0.0|0.0|0.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5468|19|2026-01-27|bieganie|czas|00:32:27||0.0|0.0|32.0|27.0|1947.0|||0x0|0|0|0|0.0|0.0|bieganie||
+5469|20|2026-01-27|kalistenika|przyciąganie nóg do brzucha w podporze|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|brzuch||
+5470|20|2026-01-27|kalistenika|przyciąganie nóg do brzucha w podporze|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|brzuch||
+5471|20|2026-01-27|kalistenika|hip trusty jedna noga|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|dupa||
+5472|20|2026-01-27|kalistenika|hip trusty jedna noga|x16 x16||0.0|0.0|0.0|0.0|0.0|1x16 1x16|1x16 1x16|1x16|1|16|16|0.0|0.0|dupa||
+5473|20|2026-01-27|kalistenika|wykroki|x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20|1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+5474|20|2026-01-27|kalistenika|wykroki|x20 x20||0.0|0.0|0.0|0.0|0.0|1x20 1x20|1x20 1x20|1x20|1|20|20|0.0|0.0|nogi||
+5475|20|2026-01-27|kalistenika|pompki|x27 x15 x13||0.0|0.0|0.0|0.0|0.0|1x27 1x15 1x13|1x27 1x15 1x13|1x27|1|27|27|0.0|0.0|klatka|triceps|
+5476|20|2026-01-27|kalistenika|pompki|x27 x15 x13||0.0|0.0|0.0|0.0|0.0|1x27 1x15 1x13|1x27 1x15 1x13|1x15|1|15|15|0.0|0.0|klatka|triceps|
+5477|20|2026-01-27|kalistenika|pompki|x27 x15 x13||0.0|0.0|0.0|0.0|0.0|1x27 1x15 1x13|1x27 1x15 1x13|1x13|1|13|13|0.0|0.0|klatka|triceps|
+5478|20|2026-01-27|kalistenika|burpree|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|brzuch|nogi|
+5479|20|2026-01-27|kalistenika|burpree|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|brzuch|nogi|
+5480|20|2026-01-27|kalistenika|burpree|x10 x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10 1x10|1x10 1x10 1x10|1x10|1|10|10|0.0|0.0|brzuch|nogi|
+5481|20|2026-01-27|kalistenika|małże|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
+5482|20|2026-01-27|kalistenika|małże|x10 x10||0.0|0.0|0.0|0.0|0.0|1x10 1x10|1x10 1x10|1x10|1|10|10|0.0|0.0|mobilność||
