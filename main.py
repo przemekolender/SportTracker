@@ -20,28 +20,32 @@ def main():
     sports.to_csv("files/sports.csv", sep='|')
 
     log("Downloading workouts 2023")
-    w2023 = Workouts('Treningi', 7)
+    w2023 = Workouts('Treningi', 9)
     log("Downloading workouts 2024")
-    w2024 = Workouts('Treningi', 5)
+    w2024 = Workouts('Treningi', 7)
     log("Downloading workouts 2025")
-    w2025 = Workouts('Treningi', 3)
+    w2025 = Workouts('Treningi', 5)
+    log("Downloading workouts 2026")
+    w2026 = Workouts('Treningi', 3)
 
     log("Preparing full file workouts.csv")
     w = pd.concat(
-        [w2023.workouts, w2024.workouts, w2025.workouts], ignore_index=True
+        [w2023.workouts, w2024.workouts, w2025.workouts, w2026.workouts], ignore_index=True
     ).reset_index(drop = True)
     w.to_csv("files/workouts.csv", sep='|')
     
     log("Downloading calendar 2023")
-    c2023 = load_calendar('Treningi', 6)
+    c2023 = load_calendar('Treningi', 8)
     log("Downloading calendar 2024")
-    c2024 = load_calendar('Treningi', 4)
+    c2024 = load_calendar('Treningi', 6)
     log("Downloading calendar 2025")
-    c2025 = load_calendar('Treningi', 2)
+    c2025 = load_calendar('Treningi', 4)
+    log("Downloading calendar 2026")
+    c2026 = load_calendar('Treningi', 2)
 
     log("Preparing full file calendar.csv")
     calendar = pd.concat(
-        [c2023, c2024, c2025], ignore_index=True
+        [c2023, c2024, c2025, c2026], ignore_index=True
     ).reset_index(drop = True)
     calendar.to_csv("files/calendar.csv", sep='|')
 
