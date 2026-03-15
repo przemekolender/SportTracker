@@ -262,7 +262,7 @@ with col21:
         )
     )
     
-    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig, theme="streamlit", width='stretch')
 
 with col22:
     pie = px.pie(
@@ -278,7 +278,7 @@ with col22:
         hovertemplate = "<b>%{label}</b><br>" + "Liczba treningów: %{value}" + "<extra></extra>"
     )
     
-    st.plotly_chart(pie, theme="streamlit", use_container_width=True)
+    st.plotly_chart(pie, theme="streamlit", width='stretch')
 
 
 ###############################################################################################
@@ -323,7 +323,7 @@ with col31:
             )
         )
     
-    st.plotly_chart(fig_count, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_count, theme="streamlit", width='stretch')
 
 with col32:
     pie_time = px.pie(
@@ -339,6 +339,6 @@ with col32:
         hovertemplate = "<b>%{label}</b><br>" + "Czas treningów: %{customdata[0]}"+ "<extra></extra>"
     )
 
-    st.plotly_chart(pie_time, theme="streamlit", use_container_width=True)
+    st.plotly_chart(pie_time, theme="streamlit", width='stretch')
 
     

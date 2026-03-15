@@ -259,10 +259,10 @@ fig_distance_hist = px.bar(
 
 
 with col21:
-    st.plotly_chart(fig_distance, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_distance, theme="streamlit", width='stretch')
 
 with col22:
-    st.plotly_chart(fig_distance_hist, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_distance_hist, theme="streamlit", width='stretch')
 
 
 ###############################################################################################
@@ -308,10 +308,10 @@ fig_hist = px.bar(
 )
 
 with col31:
-    st.plotly_chart(fig_pace, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_pace, theme="streamlit", width='stretch')
 
 with col32:
-    st.plotly_chart(fig_hist, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_hist, theme="streamlit", width='stretch')
 
 
 ###############################################################################################
@@ -358,10 +358,10 @@ fig_time_hist = px.bar(
 )
 
 with col41:
-    st.plotly_chart(fig_time, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_time, theme="streamlit", width='stretch')
 
 with col42:
-    st.plotly_chart(fig_time_hist, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_time_hist, theme="streamlit", width='stretch')
     
 
 ###############################################################################################
@@ -397,4 +397,4 @@ fig_scatter = px.scatter(
 )
 
 
-st.plotly_chart(fig_scatter, theme="streamlit", use_container_width=True)
+st.plotly_chart(fig_scatter, theme="streamlit", width='stretch')

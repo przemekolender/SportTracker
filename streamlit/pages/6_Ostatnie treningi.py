@@ -109,7 +109,7 @@ workouts = filter_by_period(
 col1, col2, col3 = st.columns([1, 2, 1])
 
 with col1:
-    prevoius = st.button("<", use_container_width=True,  on_click=counter_minus)
+    prevoius = st.button("<", width='stretch',  on_click=counter_minus)
 
 with col2:
     multiselect = st.selectbox(
@@ -121,7 +121,7 @@ with col2:
     )
 
 with col3:
-    next = st.button("\\>", use_container_width=True, on_click=counter_plus)
+    next = st.button("\\>", width='stretch', on_click=counter_plus)
 
 
 ###############################################################################################

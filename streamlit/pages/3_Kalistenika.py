@@ -228,7 +228,7 @@ fig_fav = px.bar(
 )
 
 with col21:
-    st.plotly_chart(fig_fav, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_fav, theme="streamlit", width='stretch')
 
 # prepare data for pie chart with trained muscles
 muscle1_agg = cal_agg_ex.groupby('muscle1').agg({'exercise_count': 'sum'}).reset_index()
@@ -255,7 +255,7 @@ pie = px.pie(
 )
     
 with col22:
-    st.plotly_chart(pie, theme="streamlit", use_container_width=True)
+    st.plotly_chart(pie, theme="streamlit", width='stretch')
 
 
 ###############################################################################################
@@ -286,7 +286,7 @@ fig_pull = px.bar(
 )
 
 with col31:
-    st.plotly_chart(fig_pull, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_pull, theme="streamlit", width='stretch')
 
 fig_push = px.bar(
     cal_agg[(cal_agg['exercise'].isin(push_up_variations)) | (cal_agg['exercise'].isin(dip_variations))],
@@ -309,7 +309,7 @@ fig_push = px.bar(
 )
 
 with col32:
-    st.plotly_chart(fig_push, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_push, theme="streamlit", width='stretch')
 
 
 ###############################################################################################
@@ -353,4 +353,4 @@ fig_avg_reps = px.line(
     hovertemplate = "<b>%{customdata[0]}</b><br>" + "%{customdata[1]}<br>" + "Średnia liczba powtórzeń: %{y}" + "<extra></extra>"
 )
 
-st.plotly_chart(fig_avg_reps, theme="streamlit", use_container_width=True)
+st.plotly_chart(fig_avg_reps, theme="streamlit", width='stretch')

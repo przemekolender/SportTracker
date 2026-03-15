@@ -213,7 +213,7 @@ fig_fav = px.bar(
 )
 
 with col21:
-    st.plotly_chart(fig_fav, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_fav, theme="streamlit", width='stretch')
 
 # prepare data for pie chart with trained muscles
 gym_ex_agg_temp['muscle1_count'] = gym_ex_agg_temp['muscle1']
@@ -241,7 +241,7 @@ pie = px.pie(
 )
     
 with col22:
-    st.plotly_chart(pie, theme="streamlit", use_container_width=True)
+    st.plotly_chart(pie, theme="streamlit", width='stretch')
 
 
 ###############################################################################################
@@ -285,7 +285,7 @@ fig_reps = px.area(
 )
 
 with col31:
-    st.plotly_chart(fig_reps, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_reps, theme="streamlit", width='stretch')
 
 
 fig_weight = px.area(
@@ -310,7 +310,7 @@ fig_weight = px.area(
 )
 
 with col32:
-    st.plotly_chart(fig_weight, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_weight, theme="streamlit", width='stretch')
 
 
 ###############################################################################################
@@ -342,7 +342,7 @@ fig_bench = px.scatter(
 )
 
 with col41:
-    st.plotly_chart(fig_bench, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_bench, theme="streamlit", width='stretch')
 
 
 ohp = gym_agg_set[(gym_agg_set['exercise'] == 'ohp') | (gym_agg_set['exercise'] == 'martwy + ohp')]
@@ -364,7 +364,7 @@ fig_ohp = px.scatter(
 )
 
 with col42:
-    st.plotly_chart(fig_ohp, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_ohp, theme="streamlit", width='stretch')
 
 ###############################################################################################
 # fifth row - deadlist and squat scatters
@@ -390,7 +390,7 @@ fig_squat = px.scatter(
 )
 
 with col51:
-    st.plotly_chart(fig_squat, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_squat, theme="streamlit", width='stretch')
 
 
 deadlift = gym_agg_set[(gym_agg_set['exercise'] == 'martwy ciąg') | (gym_agg_set['exercise'] == 'martwy + ohp')]
@@ -412,7 +412,7 @@ fig_deadlift = px.scatter(
 )
 
 with col52:
-    st.plotly_chart(fig_deadlift, theme="streamlit", use_container_width=True)
+    st.plotly_chart(fig_deadlift, theme="streamlit", width='stretch')
 
 
 ###############################################################################################
@@ -469,4 +469,4 @@ fig_avg_weight = px.line(
     hovertemplate = "%{customdata[1]}<br>" + "Zakres powtórzeń: %{customdata[0]}<br>" + "Średnia ciężar powtórzenia: %{y}" + "<extra></extra>"
 )
 
-st.plotly_chart(fig_avg_weight, theme="streamlit", use_container_width=True)
+st.plotly_chart(fig_avg_weight, theme="streamlit", width='stretch')
